@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject;
+namespace OceanProject\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Ultraware\Roles\Traits\HasRoleAndPermission;

@@ -11,7 +11,7 @@ class CommandsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('commands')->insert(
+        $commands = [
             ['name' => '8ball', 'description' => ''],
             ['name' => 'active', 'description' => ''],
             ['name' => 'allmissing', 'description' => ''],
@@ -85,7 +85,10 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'guestme', 'description' => ''],
             ['name' => 'memberme', 'description' => ''],
             ['name' => 'modme', 'description' => ''],
-            ['name' => 'ownerme', 'description' => '']
-        );
+            ['name' => 'ownerme', 'description' => '']];
+
+        foreach ($commands as $command) {
+            DB::table('commands')->insert($command);
+        }
     }
 }

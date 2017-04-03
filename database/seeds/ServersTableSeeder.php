@@ -12,7 +12,7 @@ class ServersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('servers')->insert(
+        $servers = [
             ['name' => 'Sun'],
             ['name' => 'Mercury'],
             ['name' => 'Venus'],
@@ -23,6 +23,10 @@ class ServersTableSeeder extends Seeder
             ['name' => 'Uranus'],
             ['name' => 'Neptune'],
             ['name' => 'Pluto']
-        );
+        ];
+
+        foreach ($servers as $server) {
+            DB::table('servers')->insert($server);
+        }
     }
 }

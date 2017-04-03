@@ -11,13 +11,17 @@ class MinranksTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('minranks')->insert(
+        $minranks = [
             ['name' => 'Bot Owner', 'level' => 6],
             ['name' => 'Main Owner', 'level' => 5],
-            ['name' => 'Owner' => 'level' => 4],
+            ['name' => 'Owner', 'level' => 4],
             ['name' => 'Moderator', 'level' => 3],
             ['name' => 'Member', 'level' => 2],
             ['name' => 'Guest', 'level' => 1]
-        );
+        ];
+
+        foreach ($minranks as $minrank) {
+            DB::table('minranks')->insert($minrank);
+        }
     }
 }

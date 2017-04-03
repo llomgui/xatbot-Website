@@ -2,11 +2,11 @@
 
 namespace OceanProject\Http\Controllers\Auth;
 
-use OceanProject\User;
+use OceanProject\Models\User;
 use OceanProject\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use OceanProject\Utilities\xat;
 
 class RegisterController extends Controller
 {
@@ -48,13 +48,29 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validator = Validator::make($data, [
             'name'     => 'required|max:50|unique:users',
             'email'    => 'required|email|max:50|unique:users',
             'regname'  => 'required|max:50|unique:users',
             'xatid'    => 'required|max:50|unique:users',
             'password' => 'required|min:6|confirmed'
         ]);
+
+        $validator->after(function($validator) use ($data) {
+            if (!xat::isValidXatID($data['xatid'])) {
+                $validator->errors()->add('xatid', 'The xatid is not valid!');
+            } elseif (!xat::isXatIDExist($data['xatid'])) {
+                $validator->errors()->add('xatid', 'The xatid does not exist!');
+            }
+
+            if (!xat::isValidRegname($data['regname'])) {
+                $validator->errors()->add('regname', 'The regname is not valid!');
+            } elseif (!xat::isRegnameExist($data['regname'])) {
+                $validator->errors()->add('regname', 'The regname does not exist!');
+            }
+        });
+
+        return $validator;
     }
 
     /**
@@ -65,15 +81,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        var_dump($request->all());
-        exit;
-        return User::create([
+        $user = User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
             'xatid'    => $data['xatid'],
             'regname'  => $data['regname'],
             'password' => bcrypt($data['password']),
-            'ip'       => $request->ip()
+            'ip'       => \Request::ip()
         ]);
+
+        $user->attachRole(5);
+
+        return $user;
     }
 }
