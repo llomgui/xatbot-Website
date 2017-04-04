@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => OceanProject\User::class,
+            'model' => OceanProject\Models\User::class,
         ],
 
         // 'users' => [
