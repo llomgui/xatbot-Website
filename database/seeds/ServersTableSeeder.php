@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
+use OceanProject\Models\Server;
 
 class ServersTableSeeder extends Seeder
 {
@@ -26,7 +26,7 @@ class ServersTableSeeder extends Seeder
         ];
 
         foreach ($servers as $server) {
-            DB::table('servers')->insert($server);
+            Server::create($server);
         }
     }
 }

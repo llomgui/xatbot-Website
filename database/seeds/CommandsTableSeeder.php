@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use OceanProject\Models\Command;
 
 class CommandsTableSeeder extends Seeder
 {
@@ -88,7 +89,7 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'ownerme', 'description' => '']];
 
         foreach ($commands as $command) {
-            DB::table('commands')->insert($command);
+            Command::create($command);
         }
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use OceanProject\Models\Minrank;
 
 class MinranksTableSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class MinranksTableSeeder extends Seeder
         ];
 
         foreach ($minranks as $minrank) {
-            DB::table('minranks')->insert($minrank);
+            Minrank::create($minrank);
         }
     }
 }
