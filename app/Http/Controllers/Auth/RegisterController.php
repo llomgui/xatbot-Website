@@ -52,7 +52,7 @@ class RegisterController extends Controller
             'name'     => 'required|max:50|unique:users',
             'email'    => 'required|email|max:50|unique:users',
             'regname'  => 'required|max:50|unique:users',
-            'xatid'    => 'required|max:50|unique:users',
+            'xatid'    => 'required|integer|unique:users',
             'password' => 'required|min:6|confirmed'
         ]);
 

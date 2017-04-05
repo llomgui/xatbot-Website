@@ -10,10 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function() {
+	return 'Hello';
+});
 
 Route::group(['prefix' => 'panel'], function () {
 	Route::get('/', ['middleware' => 'auth', function () {
-		return view('layout.panel');
+		return view('layouts.panel');
 	}]);
 
 	/*Route::group(['prefix' => 'bot'], function () {
@@ -23,7 +26,7 @@ Route::group(['prefix' => 'panel'], function () {
 	Route::group(['prefix' => 'user'], function () {
 
 		Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-		Route::post('login', 'Auth\LoginController@login');
+		Route::post('login', 'Auth\LoginController@login')->name('login');
 
 		Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
@@ -35,5 +38,8 @@ Route::group(['prefix' => 'panel'], function () {
 
 		Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 		Route::post('register', 'Auth\RegisterController@register')->name('register');
+
+		Route::get('profile', 'Auth\ProfileController@showUpdateForm')->name('profile');
+		Route::post('profile', 'Auth\ProfileController@update')->name('profile');
 	});
 });

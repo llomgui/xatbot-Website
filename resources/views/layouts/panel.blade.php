@@ -18,6 +18,13 @@
         </div>
 
         <script src="{{ mix('/js/app.js') }}"></script>
+        <script src="{{ asset('plugins/notifyjs/dist/notify.min.js') }}"></script>
+        <script src="{{ asset('plugins/notifications/notify-metro.js') }}"></script>
+        @if (Session::get('success'))
+        <script type="text/javascript">
+            $.Notification.autoHideNotify('success', 'top right', 'Success', '{{ (Session::get("success")) }}');
+        </script>
+        @endif
         @yield('footer')
         
     </body>
