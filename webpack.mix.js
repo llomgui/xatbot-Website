@@ -38,4 +38,8 @@ mix.styles([
 	.version()
 	.copy([
 		'./resources/assets/fonts'
-	], 'public/fonts');
+	], 'public/fonts')
+	.copy([
+		'./resources/assets/plugins'
+	], 'public/plugins',
+	false);
