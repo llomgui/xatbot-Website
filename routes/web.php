@@ -15,9 +15,12 @@ Route::get('/', function() {
 });
 
 Route::group(['prefix' => 'panel'], function () {
-	Route::get('/', ['middleware' => 'auth', function () {
+
+	/*Route::get('/', ['middleware' => 'auth', function () {
 		return view('layouts.panel');
-	}]);
+	}]);*/
+
+	Route::get('chat', 'Pages\ChatController@index')->name('chat');
 
 	/*Route::group(['prefix' => 'bot'], function () {
 		Route::get('home', 'Bot\BotController@home');
