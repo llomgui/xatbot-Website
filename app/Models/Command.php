@@ -1,19 +1,29 @@
 <?php
 
-namespace OceanProject\Models;
+namespace OceanProject;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property integer $id
+ * @property string $name
+ * @property string $description
+ * @property string $created_at
+ * @property string $updated_at
+ * @property CommandMinrankBot[] $commandMinrankBots
+ */
 class Command extends Model
 {
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
-    protected $fillable = [
-        'id', 'name', 'description',
-    ];
+    protected $fillable = ['name', 'description'];
 
-    protected $primaryKey = 'id';
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function commandMinrankBots()
+    {
+        return $this->hasMany(OceanProject::CommandMinrankBot);
+    }
 }

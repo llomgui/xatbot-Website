@@ -29,4 +29,20 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
     ];
 
     protected $primaryKey = 'id';
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function botUsers()
+    {
+        return $this->hasMany(OceanProject::BotUser);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function bots()
+    {
+        return $this->hasMany(OceanProject::Bot, 'creator_user_id');
+    }
 }

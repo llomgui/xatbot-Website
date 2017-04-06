@@ -182,6 +182,7 @@ return [
          * Third Party Service Providers...
          */
         Ultraware\Roles\RolesServiceProvider::class,
+        Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
 
     ],
 
