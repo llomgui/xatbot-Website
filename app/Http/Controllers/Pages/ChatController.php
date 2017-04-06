@@ -1,7 +1,8 @@
 <?php
 
-namespace OceanProject\Http\Controllers;
+namespace OceanProject\Http\Controllers\Pages;
 
+use OceanProject\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
