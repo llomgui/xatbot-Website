@@ -17,6 +17,7 @@ class CreateCommandsTable extends Migration
             $table->increments('id');
             $table->string('name', 25);
             $table->string('description');
+            $table->integer('default_level');
             $table->timestamps();
         });
     }

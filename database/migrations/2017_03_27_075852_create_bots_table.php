@@ -22,9 +22,9 @@ class CreateBotsTable extends Migration
             $table->string('chatname')->unique();
             $table->integer('chatpw')->nullable();
             $table->string('nickname')->default('OceanProject(glow#000080#c0ccd4)(hat#Eb)');
-            $table->string('avatar')->default('123');
-            $table->string('homepage')->default('OceanProject.fr');
-            $table->string('status')->default('OceanProject.fr#000080#c0ccd4');
+            $table->string('avatar')->default('123')->nullable();
+            $table->string('homepage')->default('OceanProject.fr')->nullable();
+            $table->string('status')->default('OceanProject.fr#000080#c0ccd4')->nullable();
             $table->string('pcback')->nullable();
             $table->string('autowelcome')->nullable();
             $table->string('ticklemessage')->nullable();
