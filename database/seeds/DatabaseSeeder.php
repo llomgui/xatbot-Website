@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ServersTableSeeder::class);
         $this->call(MinranksTableSeeder::class);
         $this->call(CommandsTableSeeder::class);
+        $this->call(BotStatusesTableSeeder::class);
     }
 }
