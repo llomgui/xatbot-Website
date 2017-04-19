@@ -1,41 +1,9 @@
 <?php
 
-namespace OceanProject;
+namespace OceanProject\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * @property integer $id
- * @property integer $bot_status_id
- * @property integer $creator_user_id
- * @property integer $server_id
- * @property integer $premium
- * @property integer $chatid
- * @property string $chatname
- * @property integer $chatpw
- * @property string $nickname
- * @property string $avatar
- * @property string $homepage
- * @property string $status
- * @property string $pcback
- * @property string $autowelcome
- * @property string $ticklemessage
- * @property integer $maxkick
- * @property integer $maxkickban
- * @property integer $maxflood
- * @property integer $maxchar
- * @property integer $maxsmilies
- * @property string $automessage
- * @property integer $automessagetime
- * @property boolean $autorestart
- * @property string $created_at
- * @property string $updated_at
- * @property BotStatus $botStatus
- * @property User $user
- * @property Server $server
- * @property BotUser[] $botUsers
- * @property CommandMinrankBot[] $commandMinrankBots
- */
 class Bot extends Model
 {
     /**
@@ -46,40 +14,48 @@ class Bot extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function botStatus()
+    public function creatorUser()
     {
-        return $this->belongsTo(OceanProject::BotStatus);
+        return $this->belongsTo('OceanProject\Models\User', 'creator_user_id');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
      */
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(OceanProject::User, 'creator_user_id');
+        return $this->belongsToMany('OceanProject\Models\User')->withTimestamps();
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function commands()
+    {
+        return $this->belongsToMany('OceanProject\Models\Command', 'bot_command_minrank', 'bot_id', 'command_id')->withPivot('minrank_id')->withTimestamps();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function minranks()
+    {
+        return $this->belongsToMany('OceanProject\Models\Minrank', 'bot_command_minrank', 'bot_id', 'minrank_id')->withPivot('command_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
+    public function bot_status()
+    {
+        return $this->hasOne('OceanProject\Models\BotStatus', 'id', 'bot_status_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
     public function server()
     {
-        return $this->belongsTo(OceanProject::Server);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function botUsers()
-    {
-        return $this->hasMany(OceanProject::BotUser);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function commandMinrankBots()
-    {
-        return $this->hasMany(OceanProject::CommandMinrankBot);
+        return $this->hasOne('OceanProject\Models\Server', 'id', 'server_id');
     }
 }
