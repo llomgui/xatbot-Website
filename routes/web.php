@@ -16,15 +16,16 @@ Route::get('/', function() {
 
 Route::group(['prefix' => 'panel'], function () {
 
-	/*Route::get('/', ['middleware' => 'auth', function () {
-		return view('layouts.panel');
-	}]);*/
+	Route::group(['middleware' => 'auth'], function () {
 
-	Route::get('chat', 'Pages\ChatController@index')->name('chat');
+		Route::get('home', 'Page\HomeController@index')->name('panel');
+		Route::get('chat', 'Page\ChatController@index')->name('chat');
 
-	/*Route::group(['prefix' => 'bot'], function () {
-		Route::get('home', 'Bot\BotController@home');
-	});*/
+	});
+
+	Route::group(['prefix' => 'support', 'middleware' => 'auth'], function () {
+		return 'Support';
+	});
 
 	Route::group(['prefix' => 'user'], function () {
 
@@ -44,5 +45,6 @@ Route::group(['prefix' => 'panel'], function () {
 
 		Route::get('profile', 'Auth\ProfileController@showUpdateForm')->name('profile');
 		Route::post('profile', 'Auth\ProfileController@update')->name('profile');
+
 	});
 });

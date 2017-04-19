@@ -3,7 +3,7 @@
         <div id="navigation">
             <ul class="navigation-menu">
                 <li class="has-submenu">
-                    <a href="#"><i class="ion-home"></i>Dashboard</a>
+                    <a href="{{ route('panel') }}"><i class="ion-home"></i>Dashboard</a>
                 </li>
                 <li class="has-submenu">
                     <a href="{{ route('chat') }}"><i class="ion-planet"></i>Chat</a>

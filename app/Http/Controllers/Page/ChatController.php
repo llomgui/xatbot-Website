@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Pages;
+namespace OceanProject\Http\Controllers\Page;
 
 use OceanProject\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -24,6 +24,6 @@ class ChatController extends Controller
      */
     public function index()
     {
-        return view('pages.chat');
+        return view('page.chat');
     }
 }

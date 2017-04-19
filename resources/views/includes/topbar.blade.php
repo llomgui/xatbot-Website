@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="logo">
-            <a href="index.html" class="logo"><i class="md md-equalizer"></i> <span>OceanProject</span> </a>
+            <a href="{{ route('panel') }}" class="logo"><i class="md md-equalizer"></i> <span>OceanProject</span> </a>
         </div>
 
         <div class="menu-extras">
@@ -74,7 +74,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
+                    <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img src="//i.imgur.com/rk9B7eA.jpg" alt="user-img" class="img-circle"> </a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('profile') }}"><i class="ti-user m-r-5"></i> Profile</a></li>
                         <li>
