@@ -8,6 +8,7 @@ use OceanProject\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use OceanProject\Utilities\xat;
+use OceanProject\Models\Bot;
 use OceanProject\Models\Server;
 use OceanProject\Models\Command;
 
@@ -21,6 +22,36 @@ class BotController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function editNickname(Request $request)
+    {
+        $data = $request->all();
+        if (!Auth::user()->hasBot($data['pk'])) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'You are trying to cheat, you do not own this bot!'
+            ]);
+        } else {
+
+            $validator = Validator::make($data, ['value' => 'max:255']);
+
+            if ($validator->fails()) {
+                    return response()->json([
+                    'status' => 'error',
+                    'message' => 'Nickname is too long!'
+                ]);
+            }
+
+            $bot = Bot::find($data['pk']);
+            $bot->nickname = $data['value'];
+            $bot->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Nickname updated!'
+            ]);
+        }
     }
 
     public function store(Request $request)

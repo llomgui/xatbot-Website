@@ -35,7 +35,7 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
      */
     public function bots()
     {
-        return $this->belongsToMany('OceanProject\Models\Bot');
+        return $this->belongsToMany('OceanProject\Models\Bot')->orderBy('bot_id', 'asc');;
     }
 
     /**
@@ -44,5 +44,10 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
     public function botsCreated()
     {
         return $this->hasMany('OceanProject\Models\Bot', 'creator_user_id');
+    }
+
+    public function hasBot($botid)
+    {
+        return $this->bots()->where('bot_id', $botid)->first();
     }
 }

@@ -20,9 +20,17 @@
         <script src="{{ mix('/js/app.js') }}"></script>
         <script src="{{ asset('plugins/notifyjs/dist/notify.min.js') }}"></script>
         <script src="{{ asset('plugins/notifications/notify-metro.js') }}"></script>
+        <script src="{{ asset('plugins/moment/moment.js') }}"></script>
+        <script src="{{ asset('plugins/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js') }}"></script>
+        <script src="{{ asset('pages/jquery.xeditable.js') }}"></script>
         @if (Session::get('success'))
         <script type="text/javascript">
             $.Notification.autoHideNotify('success', 'top right', 'Success', '{{ (Session::get("success")) }}');
+        </script>
+        @endif
+        @if (Session::get('error'))
+        <script type="text/javascript">
+            $.Notification.autoHideNotify('danger', 'top right', 'Error', '{{ (Session::get("error")) }}');
         </script>
         @endif
         @yield('footer')

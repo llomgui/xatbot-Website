@@ -48,19 +48,33 @@
                         @foreach ($bots as $bot)
                             <tr>
                                 <td>{{ $bot->id }}</td>
-                                <td>{{ $bot->nickname }}</td>
-                                <td>{{ ($bot->premium > time()) ? 'Premium' : 'Classic' }}</td>
-                                <td>{{ $bot->chatname }}</td>
+                                <td><a href="" class="nickname" data-name="nickname" data-pk="{{ $bot->id }}">{{ $bot->nickname }}</a></td>
+                                <td><span {!! ($bot->premium > time()) ? 'class="label label-info">Premium' : 'class="label label-primary">Classic' !!}</span></td>
+                                <td><a href="https://xat.com/{{ $bot->chatname }}">xat.com/{{ $bot->chatname }}</a></td>
                                 <td>{{ $bot->server->name }}</td>
-                                <td>{{ $bot->bot_status->name }}</td>
-                                <td></td>
+                                <td>
+                                @if ($bot->bot_status->id == 1)
+                                    <span class="label label-success">{{ $bot->bot_status->name }}</span>
+                                @elseif ($bot->bot_status->id == 2)
+                                    <span class="label label-danger">{{ $bot->bot_status->name }}</span>
+                                @elseif ($bot->bot_status->id == 3)
+                                    <span class="label label-warning">{{ $bot->bot_status->name }}</span>
+                                @elseif ($bot->bot_status->id == 4)
+                                    <span class="label label-inverse">{{ $bot->bot_status->name }}</span>
+                                @endif
+                                </td>
+                                <td>
+                                    <button class="btn btn-icon btn-xs waves-effect waves-light btn-success m-b-5"> <i class="fa fa-play"></i> </button>
+                                    <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5"> <i class="fa fa-refresh fa-spin"></i> </button>
+                                    <button class="btn btn-icon btn-xs waves-effect waves-light btn-danger m-b-5"> <i class="fa fa-stop"></i> </button>
+                                </td>
                             <tr>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-            <center><button class="btn btn-primary waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-bot-modal">Click here!</button><center>
+            <center><button class="btn btn-primary waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-bot-modal">Create another bot</button><center>
         </div>
     </div>
     @else
@@ -142,6 +156,26 @@
 @endsection
 
 @section('footer')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.nickname').editable({
+            type: 'text',
+            mode: 'inline',
+            url: '/panel/bot/editnickname',
+            params: function(params) {
+                params._token = '{{ csrf_token() }}';
+                return params;
+            },
+            success: function(response, newValue) {
+                if (response.status == 'error') {
+                    $.Notification.autoHideNotify('danger', 'top right', 'Error', response.message);
+                } else {
+                    $.Notification.autoHideNotify('success', 'top right', 'Success', response.message);
+                }
+            }
+        });
+    });
+</script>
 @if (Session::get('errors'))
 <script type="text/javascript">
     $(window).on('load',function(){
