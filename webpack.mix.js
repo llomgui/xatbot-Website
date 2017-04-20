@@ -40,6 +40,9 @@ mix.styles([
 		'./resources/assets/fonts'
 	], 'public/fonts')
 	.copy([
+		'./resources/assets/pages'
+	], 'public/pages')
+	.copy([
 		'./resources/assets/plugins'
 	], 'public/plugins',
 	false);
