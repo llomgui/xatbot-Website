@@ -59,7 +59,7 @@ class BotController extends Controller
         $data = $request->all();
 
         $rules = [
-            'chatname' => 'max:50|unique:bots',
+            'chatname' => 'max:50|unique:bots|required',
             'nickname' => 'max:255',
             'avatar'   => 'max:255',
             'homepage' => 'max:255'
