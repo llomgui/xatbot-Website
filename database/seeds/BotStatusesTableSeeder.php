@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
+use OceanProject\Models\BotStatus;
 
 class BotStatusesTableSeeder extends Seeder
 {
@@ -12,15 +12,15 @@ class BotStatusesTableSeeder extends Seeder
      */
     public function run()
     {
-    	$statuses = [
-    		['name' => 'Online'],
-    		['name' => 'Offline'],
-    		['name' => 'xat server offline'],
-    		['name' => 'Suspended']
-    	];
+        $statuses = [
+            ['name' => 'Online'],
+            ['name' => 'Offline'],
+            ['name' => 'xat server offline'],
+            ['name' => 'Suspended']
+        ];
 
-    	foreach ($statuses as $status) {
-	        DB::table('bot_statuses')->insert($status);
-    	}
+        foreach ($statuses as $status) {
+            BotStatus::create($status);
+        }
     }
 }
