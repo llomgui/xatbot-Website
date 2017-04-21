@@ -5,6 +5,19 @@
             <a href="{{ route('panel') }}" class="logo"><i class="md md-equalizer"></i> <span>OceanProject</span> </a>
         </div>
 
+        <ul class="nav navbar-nav">
+            <li class="dropdown m-l-10">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">OceanID {{ Session::get('onBotEdit') }}<span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                    @foreach (Session::get('botsID') as $botid)
+                        @if ($botid != Session::get('onBotEdit'))
+                            <li><a href="{{ route('bot.setbotid', ['botid' => $botid]) }}">OceanID {{ $botid }}</a></li>
+                        @endif
+                    @endforeach
+                    </ul>
+            </li>
+        </ul>
+
         <div class="menu-extras">
 
             <ul class="nav navbar-nav navbar-right pull-right">

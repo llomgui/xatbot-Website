@@ -24,8 +24,9 @@ Route::group(['prefix' => 'panel'], function () {
 	});
 
 	Route::group(['prefix' => 'bot', 'middleware' => 'auth'], function () {
-		Route::post('create', 'Bot\BotController@store')->name('bot.create');
-		Route::post('editnickname', 'Bot\BotController@editNickname')->name('bot.editnickname');
+		Route::post('create', 'Bot\CreateController@store')->name('bot.create');
+		Route::post('editnickname', 'Bot\EditController@editNickname')->name('bot.editnickname');
+		Route::get('setbotid/{botid}', 'Bot\BotController@setBotID')->name('bot.setbotid');
 	});
 
 	Route::group(['prefix' => 'support', 'middleware' => 'auth'], function () {

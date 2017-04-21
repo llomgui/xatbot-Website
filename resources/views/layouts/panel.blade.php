@@ -30,7 +30,7 @@
         @endif
         @if (Session::get('error'))
         <script type="text/javascript">
-            $.Notification.autoHideNotify('danger', 'top right', 'Error', '{{ (Session::get("error")) }}');
+            $.Notification.autoHideNotify('error', 'top right', 'Error', '{{ (Session::get("error")) }}');
         </script>
         @endif
         @yield('footer')

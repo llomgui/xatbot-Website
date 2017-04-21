@@ -41,4 +41,14 @@ class LoginController extends Controller
     {
         return 'name';
     }
+
+    protected function authenticated(\Illuminate\Http\Request $request, $user) {
+        foreach ($user->bots as $bot) {
+            $botsID[] = $bot->id;
+        }
+        session(['botsID' => $botsID]);
+        session(['onBotEdit' => $botsID[0]]);
+        $user->ip = $request->ip();
+        $user->save();
+    }
 }
