@@ -6,6 +6,7 @@ use Auth;
 use Validator;
 use Illuminate\Http\Request;
 use OceanProject\Models\Bot;
+use OceanProject\Utilities\xat;
 use OceanProject\Http\Controllers\Controller;
 
 class EditController extends Controller
@@ -48,6 +49,94 @@ class EditController extends Controller
                 'message' => 'Nickname updated!'
             ]);
         }
+    }
+
+    public function showEditForm() {
+        $bot = Bot::find(Session('onBotEdit'));
+        return view('bot.edit')->with('bot', $bot);
+    }
+
+
+    public function edit(Request $request)
+    {
+        $data = $request->all();
+
+        if (array_key_exists('autorestart', $data)) {
+            $data['autorestart'] = true;
+        } else {
+            $data['autorestart'] = false;
+        }
+
+        $rules = [
+            'chatname'        => 'max:50|required',
+            'nickname'        => 'max:255',
+            'avatar'          => 'max:255',
+            'homepage'        => 'max:255',
+            'status'          => 'max:255',
+            'pcback'          => 'max:255',
+            'autowelcome'     => 'max:255',
+            'ticklemessage'   => 'max:255',
+            'maxkick'         => 'integer',
+            'maxkickban'      => 'integer',
+            'maxflood'        => 'integer',
+            'maxchar'         => 'integer',
+            'maxsmilies'      => 'integer',
+            'automessage'     => 'max:255',
+            'automessagetime' => 'integer',
+            'autorestart'     => 'boolean'
+        ];
+
+        $validator = Validator::make($data, $rules);
+
+        $data['chatid'] = xat::isChatExist($data['chatname']);
+
+        $validator->after(function($validator) use ($data) {
+
+            if (!empty($data['chatname'])) {
+                if (!$data['chatid']) {
+                    $validator->errors()->add('chatname', 'This chat does not exist!');
+                } else if (!Bot::where([
+                        ['chatid', '=', $data['chatid']],
+                        ['id', '<>', Session('onBotEdit')]
+                    ])->get()->isEmpty()) {
+                    $validator->errors()->add('chatname', 'This chat is taken!');
+                }
+            }
+
+        });
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withError('Bot failed to update!')
+                ->withInput();
+        }
+
+        $bot = Bot::find(Session('onBotEdit'));
+
+        $bot->chatid    = $data['chatid'];
+        $bot->chatname  = $data['chatname'];
+
+        $fields = [
+            'nickname', 'avatar', 'homepage', 'status',
+            'pcback', 'autowelcome', 'ticklemessage',
+            'maxkick', 'maxkickban', 'maxflood',
+            'maxchar', 'maxsmilies', 'automessage',
+            'automessagetime', 'autorestart'
+        ];
+
+        foreach ($fields as $field) {
+            if (!empty($data[$field])) {
+                $bot->$field = $data[$field];
+            }
+        }
+
+        $bot->save();
+
+        return redirect()
+                ->back()
+                ->withSuccess('Bot updated!');
     }
 
 }

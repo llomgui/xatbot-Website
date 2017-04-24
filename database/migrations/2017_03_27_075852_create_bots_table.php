@@ -34,7 +34,7 @@ class CreateBotsTable extends Migration
             $table->integer('maxchar')->default('10');
             $table->integer('maxsmilies')->default('10');
             $table->string('automessage')->nullable();
-            $table->integer('automessagetime')->nullable();
+            $table->integer('automessagetime')->default('30');
             $table->boolean('autorestart')->default('0');
             $table->integer('creator_user_id')->index();
             $table->timestamps();

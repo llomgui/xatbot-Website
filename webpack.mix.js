@@ -31,7 +31,9 @@ mix.styles([
 		'resources/assets/js/waves.js',
 		'resources/assets/js/wow.min.js',
 		'resources/assets/js/jquery.nicescroll.js',
-		'resources/assets/js/jquery.scrollTo.min.js',
+		'resources/assets/js/jquery.scrollTo.min.js'
+	], 'public/js/lib.js')
+	.scripts([
 		'resources/assets/js/jquery.core.js',
 		'resources/assets/js/jquery.app.js'
 	], 'public/js/app.js')

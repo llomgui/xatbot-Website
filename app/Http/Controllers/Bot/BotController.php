@@ -22,12 +22,12 @@ class BotController extends Controller
     {
     	if (!Auth::user()->hasBot($botid)) {
             return redirect()
-            		->route('panel')
+            		->back()
             		->withError('You are trying to cheat, you do not own this bot!');
         } else {
         	session(['onBotEdit' => $botid]);
         	return redirect()
-				->route('panel')
+				->back()
 				->withSuccess('You are now editing OceanID: ' . $botid . '!');
         }
     }
