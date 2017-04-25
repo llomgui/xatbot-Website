@@ -58,4 +58,12 @@ class Bot extends Model
     {
         return $this->hasOne('OceanProject\Models\Server', 'id', 'server_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function staffs()
+    {
+        return $this->hasMany('OceanProject\Models\Staff');
+    }
 }

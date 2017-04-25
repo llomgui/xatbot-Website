@@ -20,7 +20,7 @@
                 <li class="has-submenu">
                     <a href="#"><i class="ion-person-stalker"></i>Lists</a>
                     <ul class="submenu">
-                        <li><a href="#">Staff</a></li>
+                        <li><a href="{{ route('bot.staff') }}">Staff</a></li>
                         <li><a href="#">AutoTemp</a></li>
                         <li><a href="#">Snitch</a></li>
                     </ul>

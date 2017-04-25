@@ -30,6 +30,10 @@ Route::group(['prefix' => 'panel'], function () {
 		Route::get('setbotid/{botid}', 'Bot\BotController@setBotID')->name('bot.setbotid');
 		Route::get('edit', 'Bot\EditController@showEditForm')->name('bot.edit');
 		Route::post('edit', 'Bot\EditController@edit')->name('bot.edit');
+		Route::get('staff', 'Bot\StaffController@showStaffForm')->name('bot.staff');
+		Route::post('createstaff', 'Bot\StaffController@createStaff')->name('bot.createstaff');
+		Route::post('editstaff', 'Bot\StaffController@editStaff')->name('bot.editstaff');
+		Route::post('deletestaff', 'Bot\StaffController@deleteStaff')->name('bot.deletestaff');
 
 	});
 
