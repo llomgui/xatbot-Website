@@ -51,7 +51,8 @@ class EditController extends Controller
         }
     }
 
-    public function showEditForm() {
+    public function showEditForm()
+    {
         $bot = Bot::find(Session('onBotEdit'));
         return view('bot.edit')->with('bot', $bot);
     }
