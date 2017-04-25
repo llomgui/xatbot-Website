@@ -22,7 +22,7 @@
                     <ul class="submenu">
                         <li><a href="{{ route('bot.staff') }}">Staff</a></li>
                         <li><a href="{{ route('bot.autotemp') }}">AutoTemp</a></li>
-                        <li><a href="#">Snitch</a></li>
+                        <li><a href="{{ route('bot.snitch') }}">Snitch</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu">

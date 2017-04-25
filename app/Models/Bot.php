@@ -74,4 +74,12 @@ class Bot extends Model
     {
         return $this->hasMany('OceanProject\Models\AutoTemp');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function snitchs()
+    {
+        return $this->hasMany('OceanProject\Models\Snitch');
+    }
 }

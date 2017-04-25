@@ -41,6 +41,11 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('editautotemp', 'Bot\AutoTempController@editAutoTemp')->name('bot.editautotemp');
         Route::post('deleteautotemp', 'Bot\AutoTempController@deleteAutoTemp')->name('bot.deleteautotemp');
 
+        Route::get('snitch', 'Bot\SnitchController@showSnitchForm')->name('bot.snitch');
+        Route::post('createsnitch', 'Bot\SnitchController@createSnitch')->name('bot.createsnitch');
+        Route::post('editsnitch', 'Bot\SnitchController@editSnitch')->name('bot.editsnitch');
+        Route::post('deletesnitch', 'Bot\SnitchController@deleteSnitch')->name('bot.deletesnitch');
+
     });
 
     Route::group(['prefix' => 'support', 'middleware' => 'auth'], function () {
