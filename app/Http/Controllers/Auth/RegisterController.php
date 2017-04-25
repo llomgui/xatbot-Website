@@ -71,7 +71,7 @@ class RegisterController extends Controller
                 $validator->errors()->add('regname', 'The regname does not exist!');
             }
 
-            if ($regname != $data['regname']) {
+            if (strtolower($regname) != strtolower($data['regname'])) {
                 $validator->errors()->add('regname', 'Regname and xatid do not match!');
                 $validator->errors()->add('xatid', 'Regname and xatid do not match!');
             }
