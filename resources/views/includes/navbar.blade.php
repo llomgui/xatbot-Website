@@ -21,7 +21,7 @@
                     <a href="#"><i class="ion-person-stalker"></i>Lists</a>
                     <ul class="submenu">
                         <li><a href="{{ route('bot.staff') }}">Staff</a></li>
-                        <li><a href="#">AutoTemp</a></li>
+                        <li><a href="{{ route('bot.autotemp') }}">AutoTemp</a></li>
                         <li><a href="#">Snitch</a></li>
                     </ul>
                 </li>
