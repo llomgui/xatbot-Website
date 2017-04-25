@@ -83,7 +83,7 @@ class EditController extends Controller
             'maxchar'         => 'integer',
             'maxsmilies'      => 'integer',
             'automessage'     => 'max:255',
-            'automessagetime' => 'integer',
+            'automessagetime' => 'nullable|integer',
             'autorestart'     => 'boolean'
         ];
 

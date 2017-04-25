@@ -5,6 +5,7 @@ namespace OceanProject\Http\Controllers\Bot;
 use Auth;
 use Validator;
 use Illuminate\Http\Request;
+use OceanProject\Models\Bot;
 use OceanProject\Utilities\xat;
 use OceanProject\Models\Server;
 use OceanProject\Models\Command;
@@ -52,7 +53,7 @@ class CreateController extends Controller
                 ->withInput();
         }
 
-        $bot     = new \OceanProject\Models\Bot;
+        $bot     = new Bot;
         $user    = Auth::user();
         $servers = Server::all();
 
@@ -91,6 +92,12 @@ class CreateController extends Controller
 
             $bot->commands()->save($command, ['minrank_id' => $minrank->id]);
         }
+
+        foreach ($user->bots as $bot) {
+            $botsID[] = $bot->id;
+        }
+        session(['botsID' => $botsID]);
+        session(['onBotEdit' => $botsID[0]]);
 
         return redirect()
                 ->route('panel')

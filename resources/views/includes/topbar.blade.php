@@ -5,6 +5,7 @@
             <a href="{{ route('panel') }}" class="logo"><i class="md md-equalizer"></i> <span>OceanProject</span> </a>
         </div>
 
+        @if (count(Session::get('botsID')) > 0)
         <ul class="nav navbar-nav">
             <li class="dropdown m-l-10">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">OceanID {{ Session::get('onBotEdit') }}<span class="caret"></span></a>
@@ -17,6 +18,7 @@
                 </ul>
             </li>
         </ul>
+        @endif
 
         <div class="menu-extras">
             <ul class="nav navbar-nav navbar-right pull-right">
