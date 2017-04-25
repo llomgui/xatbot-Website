@@ -24,32 +24,32 @@ class StaffController extends Controller
 
     public function showStaffForm()
     {
-    	$staffs = Bot::find(Session('onBotEdit'))->staffs;
-    	$minranks = Minrank::pluck('name', 'id')->toArray();
+        $staffs = Bot::find(Session('onBotEdit'))->staffs;
+        $minranks = Minrank::pluck('name', 'id')->toArray();
 
         return view('bot.staff')
-        		->with('staffs', $staffs)
-        		->with('minranks', $minranks);
+                ->with('staffs', $staffs)
+                ->with('minranks', $minranks);
     }
 
     public function createStaff(Request $request)
     {
-    	$data = $request->all();
+        $data = $request->all();
 
-    	$rules = [
-			'regname' => 'max:255|required',
-			'xatid'   => 'integer|required'
+        $rules = [
+            'regname' => 'max:255|required',
+            'xatid'   => 'integer|required'
         ];
 
         $validator = Validator::make($data, $rules);
 
         $validator->after(function($validator) use ($data) {
 
-        	if (!in_array($data['minrank'], Minrank::pluck('id')->toArray())) {
-        		$validator->errors()->add('minrank', 'This minrank is not valid!');
-        	}
+            if (!in_array($data['minrank'], Minrank::pluck('id')->toArray())) {
+                $validator->errors()->add('minrank', 'This minrank is not valid!');
+            }
 
-        	$regname = xat::isXatIDExist($data['xatid']);
+            $regname = xat::isXatIDExist($data['xatid']);
             if (!xat::isValidXatID($data['xatid'])) {
                 $validator->errors()->add('xatid', 'The xatid is not valid!');
             } elseif (!$regname) {
@@ -78,44 +78,44 @@ class StaffController extends Controller
 
         $staff = new Staff;
 
-		$staff->bot_id     = Session('onBotEdit');
-		$staff->regname    = $data['regname'];
-		$staff->xatid      = $data['xatid'];
-		$staff->minrank_id = $data['minrank'];
+        $staff->bot_id     = Session('onBotEdit');
+        $staff->regname    = $data['regname'];
+        $staff->xatid      = $data['xatid'];
+        $staff->minrank_id = $data['minrank'];
 
-		$staff->save();
+        $staff->save();
 
-		return redirect()
+        return redirect()
                 ->back()
                 ->withSuccess('Staff added!');
     }
 
     public function editStaff(Request $request)
     {
-    	$data = $request->all();
+        $data = $request->all();
 
-    	$staff = Staff::find($data['staff_id']);
+        $staff = Staff::find($data['staff_id']);
 
-    	if ($staff->staff_bot->id != Session('onBotEdit')) {
-    		return redirect()
+        if ($staff->staff_bot->id != Session('onBotEdit')) {
+            return redirect()
                 ->back()
                 ->withError('You are trying to cheat!');
-    	}
+        }
 
-    	$rules = [
-			'regname' => 'max:255|required',
-			'xatid'   => 'integer|required'
+        $rules = [
+            'regname' => 'max:255|required',
+            'xatid'   => 'integer|required'
         ];
 
         $validator = Validator::make($data, $rules);
 
         $validator->after(function($validator) use ($data) {
 
-        	if (!in_array($data['minrank'], Minrank::pluck('id')->toArray())) {
-        		$validator->errors()->add('minrank', 'This minrank is not valid!');
-        	}
+            if (!in_array($data['minrank'], Minrank::pluck('id')->toArray())) {
+                $validator->errors()->add('minrank', 'This minrank is not valid!');
+            }
 
-        	$regname = xat::isXatIDExist($data['xatid']);
+            $regname = xat::isXatIDExist($data['xatid']);
             if (!xat::isValidXatID($data['xatid'])) {
                 $validator->errors()->add('xatid', 'The xatid is not valid!');
             } elseif (!$regname) {
@@ -142,34 +142,34 @@ class StaffController extends Controller
                 ->withInput();
         }
 
-		$staff->regname    = $data['regname'];
-		$staff->xatid      = $data['xatid'];
-		$staff->minrank_id = $data['minrank'];
+        $staff->regname    = $data['regname'];
+        $staff->xatid      = $data['xatid'];
+        $staff->minrank_id = $data['minrank'];
 
-		$staff->save();
+        $staff->save();
 
-		return redirect()
+        return redirect()
                 ->back()
                 ->withSuccess('Staff updated!');
     }
 
     public function deleteStaff(Request $request)
     {
-    	$data = $request->all();
+        $data = $request->all();
 
-    	$staff = Staff::find($data['staff_id']);
+        $staff = Staff::find($data['staff_id']);
 
-    	if ($staff->staff_bot->id != Session('onBotEdit')) {
-    		return response()->json([
+        if ($staff->staff_bot->id != Session('onBotEdit')) {
+            return response()->json([
                 'status' => 'error',
                 'message' => 'You are trying to cheat, you do not own this staff!',
                 'header' => 'Error!'
             ]);
-    	}
+        }
 
-    	$staff->delete();
+        $staff->delete();
 
-    	return response()->json([
+        return response()->json([
             'status' => 'success',
             'message' => 'Staff deleted!',
             'header' => 'Deleted!'
