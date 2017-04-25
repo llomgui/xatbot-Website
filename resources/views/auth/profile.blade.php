@@ -15,7 +15,7 @@
 					<div class="form-group">
 						<label for="regname" class="col-sm-2 control-label">xat Login</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control{{ $errors->has('regname') ? ' parsley-error' : '' }}" id="regname" name="regname" placeholder="{{ $user->regname }}">
+							<input type="text" class="form-control{{ $errors->has('regname') ? ' parsley-error' : '' }}" id="regname" name="regname" value="{{ $user->regname }}">
 							@if ($errors->has('regname'))
 								<ul class="parsley-errors-list filled">
 									<li class="parsley-required">{{ $errors->first('regname') }}</li>
@@ -26,7 +26,7 @@
 					<div class="form-group">
 						<label for="xatid" class="col-sm-2 control-label">xatID</label>
 						<div class="col-sm-9">
-							<input type="number" class="form-control{{ $errors->has('xatid') ? ' parsley-error' : '' }}" id="xatid" name="xatid" placeholder="{{ $user->xatid }}">
+							<input type="number" class="form-control{{ $errors->has('xatid') ? ' parsley-error' : '' }}" id="xatid" name="xatid" value="{{ $user->xatid }}">
 							@if ($errors->has('xatid'))
 								<ul class="parsley-errors-list filled">
 									<li class="parsley-required">{{ $errors->first('xatid') }}</li>
@@ -37,7 +37,7 @@
 					<div class="form-group">
 						<label for="email" class="col-sm-2 control-label">Email</label>
 						<div class="col-sm-9">
-							<input type="email" class="form-control{{ $errors->has('email') ? ' parsley-error' : '' }}" id="email" name="email" placeholder="{{ $user->email }}">
+							<input type="email" class="form-control{{ $errors->has('email') ? ' parsley-error' : '' }}" id="email" name="email" value="{{ $user->email }}">
 							@if ($errors->has('email'))
 								<ul class="parsley-errors-list filled">
 									<li class="parsley-required">{{ $errors->first('email') }}</li>

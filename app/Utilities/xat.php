@@ -15,7 +15,7 @@ trait xat
         if (empty($fgc) || is_numeric($fgc)) {
             return false;
         } else {
-            return true;
+            return $fgc;
         }
     }
 

@@ -57,9 +57,11 @@ class RegisterController extends Controller
         ]);
 
         $validator->after(function($validator) use ($data) {
+
+            $regname = xat::isXatIDExist($data['xatid']);
             if (!xat::isValidXatID($data['xatid'])) {
                 $validator->errors()->add('xatid', 'The xatid is not valid!');
-            } elseif (!xat::isXatIDExist($data['xatid'])) {
+            } elseif (!$regname) {
                 $validator->errors()->add('xatid', 'The xatid does not exist!');
             }
 
@@ -68,6 +70,12 @@ class RegisterController extends Controller
             } elseif (!xat::isRegnameExist($data['regname'])) {
                 $validator->errors()->add('regname', 'The regname does not exist!');
             }
+
+            if ($regname != $data['regname']) {
+                $validator->errors()->add('regname', 'Regname and xatid do not match!');
+                $validator->errors()->add('xatid', 'Regname and xatid do not match!');
+            }
+
         });
 
         return $validator;
