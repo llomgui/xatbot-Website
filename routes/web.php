@@ -46,6 +46,8 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('editsnitch', 'Bot\SnitchController@editSnitch')->name('bot.editsnitch');
         Route::post('deletesnitch', 'Bot\SnitchController@deleteSnitch')->name('bot.deletesnitch');
 
+        Route::post('actionbot', 'Bot\BotController@actionBot')->name('bot.actionbot');
+
     });
 
     Route::group(['prefix' => 'support', 'middleware' => 'auth'], function () {
