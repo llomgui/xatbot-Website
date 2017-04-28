@@ -9,6 +9,7 @@ use OceanProject\Models\Bot;
 use OceanProject\Utilities\xat;
 use OceanProject\Models\Server;
 use OceanProject\Models\Command;
+use OceanProject\Models\BotlangSentences;
 use Illuminate\Support\Facades\DB;
 use OceanProject\Http\Controllers\Controller;
 
@@ -91,6 +92,12 @@ class CreateController extends Controller
                     ->get()[0];
 
             $bot->commands()->save($command, ['minrank_id' => $minrank->id]);
+        }
+
+        $botlang_sentences = BotlangSentences::all();
+
+        foreach ($botlang_sentences as $botlang_sentence) {
+            $bot->botlang()->save($botlang_sentence);
         }
 
         foreach ($user->bots as $bot) {

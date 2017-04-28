@@ -28,6 +28,7 @@ class CreateBotsTable extends Migration
             $table->string('pcback')->nullable();
             $table->string('autowelcome')->nullable();
             $table->string('ticklemessage')->nullable();
+            $table->string('customcommand')->default('!');
             $table->integer('maxkick')->default('3');
             $table->integer('maxkickban')->default('1');
             $table->integer('maxflood')->default('10');

@@ -82,4 +82,12 @@ class Bot extends Model
     {
         return $this->hasMany('OceanProject\Models\Snitch');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
+     */
+    public function botlang()
+    {
+        return $this->belongsToMany('OceanProject\Models\BotlangSentences', 'botlang', 'bot_id', 'botlang_sentences_id')->withTimestamps();
+    }
 }
