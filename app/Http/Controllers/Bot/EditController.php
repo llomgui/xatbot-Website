@@ -62,29 +62,36 @@ class EditController extends Controller
     {
         $data = $request->all();
 
-        if (array_key_exists('autorestart', $data)) {
-            $data['autorestart'] = true;
-        } else {
-            $data['autorestart'] = false;
+        $toggles = ['autorestart', 'gameban_unban'];
+
+        foreach ($toggles as $toggle) {
+            if (array_key_exists($toggle, $data)) {
+                $data[$toggle] = true;
+            } else {
+                $data[$toggle] = false;
+            }
         }
 
         $rules = [
-            'chatname'        => 'max:50|required',
-            'nickname'        => 'max:255',
-            'avatar'          => 'max:255',
-            'homepage'        => 'max:255',
-            'status'          => 'max:255',
-            'pcback'          => 'max:255',
-            'autowelcome'     => 'max:255',
-            'ticklemessage'   => 'max:255',
-            'maxkick'         => 'integer',
-            'maxkickban'      => 'integer',
-            'maxflood'        => 'integer',
-            'maxchar'         => 'integer',
-            'maxsmilies'      => 'integer',
-            'automessage'     => 'max:255',
-            'automessagetime' => 'nullable|integer',
-            'autorestart'     => 'boolean'
+            'chatname'          => 'max:50|required',
+            'nickname'          => 'max:255',
+            'avatar'            => 'max:255',
+            'homepage'          => 'max:255',
+            'botstatus'         => 'max:255',
+            'pcback'            => 'max:255',
+            'autowelcome'       => 'max:255',
+            'ticklemessage'     => 'max:255',
+            'customcommand'     => 'max:1|required',
+            'gameban_unban'     => 'boolean',
+            'maxkick'           => 'integer',
+            'maxkickban'        => 'integer',
+            'maxflood'          => 'integer',
+            'maxchar'           => 'integer',
+            'maxsmilies'        => 'integer',
+            'automessage'       => 'max:255',
+            'automessagetime'   => 'nullable|integer',
+            'autorestart'       => 'boolean',
+            'toggleautowelcome' => 'max:2|required'
         ];
 
         $validator = Validator::make($data, $rules);
@@ -116,21 +123,21 @@ class EditController extends Controller
 
         $bot = Bot::find(Session('onBotEdit'));
 
-        $bot->chatid    = $data['chatid'];
-        $bot->chatname  = $data['chatname'];
+        $bot->chatid   = $data['chatid'];
+        $bot->chatname = $data['chatname'];
+        $bot->status   = $data['botstatus'];
 
         $fields = [
-            'nickname', 'avatar', 'homepage', 'status',
+            'nickname', 'avatar', 'homepage',
             'pcback', 'autowelcome', 'ticklemessage',
             'maxkick', 'maxkickban', 'maxflood',
             'maxchar', 'maxsmilies', 'automessage',
-            'automessagetime', 'autorestart'
+            'automessagetime', 'autorestart', 'gameban_unban',
+            'customcommand', 'toggleautowelcome'
         ];
 
         foreach ($fields as $field) {
-            if (!empty($data[$field])) {
-                $bot->$field = $data[$field];
-            }
+            $bot->$field = $data[$field];
         }
 
         $bot->save();

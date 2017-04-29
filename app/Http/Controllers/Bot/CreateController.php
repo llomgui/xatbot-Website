@@ -30,7 +30,7 @@ class CreateController extends Controller
         $data = $request->all();
 
         $rules = [
-            'chatname' => 'max:50|unique:bots|required',
+            'chatname' => 'max:50|iunique:bots,chatname|required',
             'nickname' => 'max:255',
             'avatar'   => 'max:255',
             'homepage' => 'max:255'

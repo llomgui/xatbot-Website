@@ -172,9 +172,17 @@
             .done(function(data) {
                 swal({
                     title: data.message,
-                    type: data.status,
-                    timer: 5000,
-                    showConfirmButton: false
+                    type: data.status
+                }, function() {
+                    if (data.status == 'success') {
+                        location.reload();
+                    }
+                });
+            })
+            .error(function() {
+                swal({
+                    title: "The bots server is under maintenance, please be patient!",
+                    type: "error"
                 });
             });
     });

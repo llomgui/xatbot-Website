@@ -57,6 +57,7 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'randomsmiley', 'description' => '', 'default_level' => 1],
             ['name' => 'randomuser', 'description' => '', 'default_level' => 2],
             ['name' => 'rank', 'description' => '', 'default_level' => 4],
+            ['name' => 'refresh', 'description' => '', 'default_level' => 5],
             ['name' => 'reverseban', 'description' => '', 'default_level' => 4],
             ['name' => 'say', 'description' => '', 'default_level' => 1],
             ['name' => 'search', 'description' => '', 'default_level' => 2],

@@ -26,7 +26,8 @@ class CreateBotsTable extends Migration
             $table->string('homepage')->default('OceanProject.fr')->nullable();
             $table->string('status')->default('OceanProject.fr#000080#c0ccd4')->nullable();
             $table->string('pcback')->nullable();
-            $table->string('autowelcome')->nullable();
+            $table->string('autowelcome')->default('Hello!');
+            $table->string('toggleautowelcome')->default('pm');
             $table->string('ticklemessage')->nullable();
             $table->string('customcommand')->default('!');
             $table->integer('maxkick')->default('3');
@@ -34,9 +35,11 @@ class CreateBotsTable extends Migration
             $table->integer('maxflood')->default('10');
             $table->integer('maxchar')->default('10');
             $table->integer('maxsmilies')->default('10');
+            $table->string('automember')->default('off');
             $table->string('automessage')->nullable();
             $table->integer('automessagetime')->default('30');
             $table->boolean('autorestart')->default('0');
+            $table->boolean('gameban_unban')->default('1');
             $table->integer('creator_user_id')->index();
             $table->timestamps();
             $table->foreign('bot_status_id')->references('id')->on('bot_statuses');

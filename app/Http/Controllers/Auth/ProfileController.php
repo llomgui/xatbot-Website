@@ -30,9 +30,9 @@ class ProfileController extends Controller
         $data = $request->all();
 
         $rules = [
-            'email'        => 'email|max:50|unique:users',
+            'email'        => 'email|max:50|iunique:users,email',
             'xatid'        => 'integer|unique:users',
-            'regname'      => 'max:50|unique:users',
+            'regname'      => 'max:50|iunique:users,regname',
             'old_password' => 'min:6|required_with:new_password',
             'new_password' => 'min:6|different:old_password|required_with:old_password',
         ];
