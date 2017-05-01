@@ -42,7 +42,7 @@
                     <a href="#"><i class="ion-settings"></i>Command Manager</a>
                     <ul class="submenu">
                         <li><a href="#">Minranks</a></li>
-                        <li><a href="#">Aliases</a></li>
+                        <li><a href="{{ route('bot.alias') }}">Aliases</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu">

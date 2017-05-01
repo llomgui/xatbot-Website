@@ -16,10 +16,9 @@ class CreateAliasesTable extends Migration
         Schema::create('aliases', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('bot_id')->index();
-            $table->integer('command_id')->index();
+            $table->string('command');
             $table->string('alias');
             $table->timestamps();
-            $table->foreign('command_id')->references('id')->on('commands');
             $table->foreign('bot_id')->references('id')->on('bots');
         });
     }

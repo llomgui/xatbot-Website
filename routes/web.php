@@ -46,6 +46,11 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('editsnitch', 'SnitchController@editSnitch')->name('bot.editsnitch');
         Route::post('deletesnitch', 'SnitchController@deleteSnitch')->name('bot.deletesnitch');
 
+        Route::get('alias', 'AliasController@showAliasForm')->name('bot.alias');
+        Route::post('createalias', 'AliasController@createAlias')->name('bot.createalias');
+        Route::post('editalias', 'AliasController@editAlias')->name('bot.editalias');
+        Route::post('deletealias', 'AliasController@deleteAlias')->name('bot.deletealias');
+
         Route::post('actionbot', 'BotController@actionBot')->name('bot.actionbot');
 
     });

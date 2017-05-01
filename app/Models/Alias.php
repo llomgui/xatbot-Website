@@ -9,7 +9,7 @@ class Alias extends Model
     /**
      * @var array
      */
-    protected $fillable = ['alias'];
+    protected $fillable = ['command', 'alias'];
 
     /**
      * The table associated with the model.
@@ -17,4 +17,12 @@ class Alias extends Model
      * @var string
      */
     protected $table = 'aliases';
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
+    public function alias_bot()
+    {
+        return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
+    }
 }

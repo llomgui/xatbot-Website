@@ -84,6 +84,14 @@ class Bot extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function aliases()
+    {
+        return $this->hasMany('OceanProject\Models\Alias');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
      */
     public function botlang()
