@@ -36,6 +36,7 @@ trait xat
 
     public static function isChatExist($chatname)
     {
+        $chatname = str_replace(' ', '_', $chatname);
         $url = 'http://xat.com/web_gear/chat/roomid.php?d=' . $chatname;
         $ctx = stream_context_create(['http' => ['timeout' => 1]]);
         $fgc = file_get_contents($url, false, $ctx);
