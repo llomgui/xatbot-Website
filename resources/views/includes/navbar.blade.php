@@ -23,7 +23,7 @@
                                 <li><a href="#">Responses</a></li>
                                 <li><a href="#">Bad Words</a></li>
                                 <li><a href="#">Link Filter</a></li>
-                                <li><a href="#">Bot Messages</a></li>
+                                <li><a href="{{ route('bot.botlang') }}">Bot Messages</a></li>
                                 <li><a href="#">Hangman Words</a></li>
                             </ul>
                         </li>

@@ -54,6 +54,9 @@ Route::group(['prefix' => 'panel'], function () {
         Route::get('minrank', 'MinrankController@showMinrankForm')->name('bot.minrank');
         Route::post('editminrank', 'MinrankController@editMinrank')->name('bot.editminrank');
 
+        Route::get('botlang', 'BotlangController@showBotlangForm')->name('bot.botlang');
+        Route::post('editbotlang', 'BotlangController@editBotlang')->name('bot.editbotlang');
+
         Route::post('actionbot', 'BotController@actionBot')->name('bot.actionbot');
 
     });

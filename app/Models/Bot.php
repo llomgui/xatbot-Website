@@ -96,6 +96,6 @@ class Bot extends Model
      */
     public function botlang()
     {
-        return $this->belongsToMany('OceanProject\Models\BotlangSentences', 'botlang', 'bot_id', 'botlang_sentences_id')->withTimestamps();
+        return $this->belongsToMany('OceanProject\Models\BotlangSentences', 'botlang', 'bot_id', 'botlang_sentences_id')->withPivot('value')->withTimestamps();
     }
 }
