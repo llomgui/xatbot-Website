@@ -51,6 +51,9 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('editalias', 'AliasController@editAlias')->name('bot.editalias');
         Route::post('deletealias', 'AliasController@deleteAlias')->name('bot.deletealias');
 
+        Route::get('minrank', 'MinrankController@showMinrankForm')->name('bot.minrank');
+        Route::post('editminrank', 'MinrankController@editMinrank')->name('bot.editminrank');
+
         Route::post('actionbot', 'BotController@actionBot')->name('bot.actionbot');
 
     });
