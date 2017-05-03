@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="logo">
-            <a href="{{ route('panel') }}" class="logo"><i class="md md-equalizer"></i> <span>OceanProject</span> </a>
+            <a href="{{ route('panel') }}" class="logo"><i class="md md-laptop"></i> <span>OceanProject</span> </a>
         </div>
 
         @if (count(Session::get('botsID')) > 0)
