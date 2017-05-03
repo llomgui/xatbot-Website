@@ -48,7 +48,7 @@ class MinrankController extends Controller
     {
         $data = $request->all();
 
-        if ($data['bmc_id'] == null) {
+        if ($data['bcm_id'] == null) {
 
             $rules = [
                 'level'      => 'integer|required',
@@ -80,12 +80,28 @@ class MinrankController extends Controller
         } else {
 
             $rules = [
-                'bmc_id'     => 'integer|required',
+                'bcm_id'     => 'integer|required',
                 'level'      => 'integer|required',
                 'command_id' => 'integer|required',
             ];
 
             $validator = Validator::make($data, $rules);
+
+            $validator->after(function($validator) use ($data) {
+                if (!empty($data['bcm_id'])) {
+                    if (!$data['bcm_id']) {
+                        $res = DB::table('bot_command_minrank')
+                                    ->where('bot_id', Session('onBotEdit'))
+                                    ->where('id', $data['bcm_id'])
+                                    ->select('id')
+                                    ->get();
+
+                        if (empty($res)) {
+                            $validator->errors()->add('bcm_id', 'Cheater!');
+                        }
+                    }
+                }
+            });
 
             if ($validator->fails()) {
                 return response()->json([

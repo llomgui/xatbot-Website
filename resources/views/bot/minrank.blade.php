@@ -70,12 +70,12 @@
 @section('footer')
 <script type="text/javascript">
     $('select').change(function (){
-        var bmc_id = $(this).data('id');
+        var bcm_id = $(this).data('id');
         var level = $( this ).find(":selected").val();
         var command_id = $(this).data('command_id');
         var token = "{{ csrf_token() }}";
 
-         $.post("{{ route('bot.editminrank') }}", { bmc_id: bmc_id, level: level, command_id: command_id, _token: token })
+         $.post("{{ route('bot.editminrank') }}", { bcm_id: bcm_id, level: level, command_id: command_id, _token: token })
             .done(function(data) {
                 $.Notification.autoHideNotify(data.status, 'top right', data.status.charAt(0).toUpperCase() + data.status.slice(1), data.message);
             });
