@@ -69,9 +69,9 @@
 
 @section('footer')
 <script type="text/javascript">
-    $('select').change(function (){
+    $('select').change(function() {
         var bcm_id = $(this).data('id');
-        var level = $( this ).find(":selected").val();
+        var level = $(this).find(":selected").val();
         var command_id = $(this).data('command_id');
         var token = "{{ csrf_token() }}";
 
