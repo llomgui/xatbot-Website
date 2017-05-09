@@ -98,4 +98,20 @@ class Bot extends Model
     {
         return $this->belongsToMany('OceanProject\Models\BotlangSentences', 'botlang', 'bot_id', 'botlang_sentences_id')->withPivot('value')->withTimestamps();
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function responses()
+    {
+        return $this->hasMany('OceanProject\Models\Response');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function badwords()
+    {
+        return $this->hasMany('OceanProject\Models\Badword');
+    }
 }

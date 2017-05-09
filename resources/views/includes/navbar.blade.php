@@ -20,8 +20,8 @@
                         <li class="has-submenu">
                             <a href="#">Behavior Manager</a>
                             <ul class="submenu">
-                                <li><a href="#">Responses</a></li>
-                                <li><a href="#">Bad Words</a></li>
+                                <li><a href="{{ route('bot.response') }}">Responses</a></li>
+                                <li><a href="{{ route('bot.badword') }}">Bad Words</a></li>
                                 <li><a href="#">Link Filter</a></li>
                                 <li><a href="{{ route('bot.botlang') }}">Bot Messages</a></li>
                                 <li><a href="#">Hangman Words</a></li>

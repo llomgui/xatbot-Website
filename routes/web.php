@@ -51,6 +51,16 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('editalias', 'AliasController@editAlias')->name('bot.editalias');
         Route::post('deletealias', 'AliasController@deleteAlias')->name('bot.deletealias');
 
+        Route::get('reponse', 'ResponseController@showResponseForm')->name('bot.response');
+        Route::post('createresponse', 'ResponseController@createResponse')->name('bot.createresponse');
+        Route::post('editresponse', 'ResponseController@editResponse')->name('bot.editresponse');
+        Route::post('deleteresponse', 'ResponseController@deleteResponse')->name('bot.deleteresponse');
+
+        Route::get('badword', 'BadwordController@showBadwordForm')->name('bot.badword');
+        Route::post('createbadword', 'BadwordController@createBadword')->name('bot.createbadword');
+        Route::post('editbadword', 'BadwordController@editBadword')->name('bot.editbadword');
+        Route::post('deletebadword', 'BadwordController@deleteBadword')->name('bot.deletebadword');
+
         Route::get('minrank', 'MinrankController@showMinrankForm')->name('bot.minrank');
         Route::post('editminrank', 'MinrankController@editMinrank')->name('bot.editminrank');
 
