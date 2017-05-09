@@ -34,7 +34,7 @@
                                 <li><a href="{{ route('bot.alias') }}">Aliases</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Bot Powers</a></li>
+                        <li><a href="{{ route('bot.powers') }}">Bot Powers</a></li>
                         <li><a href="#">Chat Logs</a></li>
                     </ul>
                 </li>

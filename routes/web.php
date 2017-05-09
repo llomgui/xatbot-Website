@@ -57,6 +57,9 @@ Route::group(['prefix' => 'panel'], function () {
         Route::get('botlang', 'BotlangController@showBotlangForm')->name('bot.botlang');
         Route::post('editbotlang', 'BotlangController@editBotlang')->name('bot.editbotlang');
 
+        Route::get('powers', 'PowersController@showPowersForm')->name('bot.powers');
+        Route::post('powers', 'PowersController@editPowers')->name('bot.editpowers');
+
         Route::post('actionbot', 'BotController@actionBot')->name('bot.actionbot');
 
     });
@@ -75,8 +78,8 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
         Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
-        Route::post('password/reset', 'ResetPasswordController@reset');
-        Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm');
+        Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');;
+        Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');;
 
         Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
         Route::post('register', 'RegisterController@register')->name('register');

@@ -3,7 +3,8 @@
 @section('content')
 <div class="row">
     <form class="form-horizontal">
-        <div class="col-md-2 col-sm-5 card-box">    
+        <div class="col-md-3">
+            <div class="card-box">    
             @for ($i = 0; $i < (sizeof($bcms) / 4); $i++)
                 <div class="form-group">
                     {!! Form::label($bcms[$i]->name, ucfirst($bcms[$i]->name), ['class' => 'col-md-5 col-sm-5 control-label']); !!}
@@ -17,8 +18,10 @@
                     </div>
                 </div>
             @endfor
+            </div>
         </div>
-        <div class="col-md-2 col-md-offset-1 col-sm-5 col-sm-offset-1 card-box">    
+        <div class="col-md-3">
+            <div class="card-box">    
             @for ($j = $i; $j < (sizeof($bcms) / 4) * 2; $j++)
                 <div class="form-group">
                     {!! Form::label($bcms[$j]->name, ucfirst($bcms[$j]->name), ['class' => 'col-md-5 col-sm-5 control-label']); !!}
@@ -32,8 +35,10 @@
                     </div>
                 </div>
             @endfor
+            </div>
         </div>
-        <div class="col-md-2 col-md-offset-1 col-sm-5 card-box">    
+        <div class="col-md-3">
+            <div class="card-box">    
             @for ($k = $j; $k < (sizeof($bcms) / 4) * 3; $k++)
                 <div class="form-group">
                     {!! Form::label($bcms[$k]->name, ucfirst($bcms[$k]->name), ['class' => 'col-md-5 col-sm-5 control-label']); !!}
@@ -47,8 +52,10 @@
                     </div>
                 </div>
             @endfor
+            </div>
         </div>
-        <div class="col-md-2 col-md-offset-1 col-sm-5 col-sm-offset-1 card-box">    
+        <div class="col-md-3">
+            <div class="card-box">    
             @for ($l = $k; $l < sizeof($bcms); $l++)
                 <div class="form-group">
                     {!! Form::label($bcms[$l]->name, ucfirst($bcms[$l]->name), ['class' => 'col-md-5 col-sm-5 control-label']); !!}
@@ -62,6 +69,7 @@
                     </div>
                 </div>
             @endfor
+            </div>
         </div>
     </form>
 </div>
