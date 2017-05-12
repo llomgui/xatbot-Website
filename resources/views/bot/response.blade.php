@@ -69,7 +69,7 @@
                             <div class="form-group">
                                 {!! Form::label('response', 'Response', ['class' => 'col-md-2 control-label']); !!}
                                 <div class="col-md-10">
-                                {!! Form::text('response', '', ['class' => 'form-control', 'placeholder' => 'Hello {username}!']) !!}
+                                {!! Form::text('response', '', ['class' => 'form-control', 'placeholder' => 'Hello {name}!']) !!}
                                 @if ($errors->has('response'))
                                         <ul class="parsley-errors-list filled">
                                             <li class="parsley-required">{{ $errors->first('response') }}</li>
@@ -114,7 +114,7 @@
                             <div class="form-group">
                                 {!! Form::label('response', 'Response', ['class' => 'col-md-2 control-label']); !!}
                                 <div class="col-md-10">
-                                {!! Form::text('response', '', ['class' => 'form-control response_edit_modal_response', 'placeholder' => 'Hello {username}!']) !!}
+                                {!! Form::text('response', '', ['class' => 'form-control response_edit_modal_response', 'placeholder' => 'Hello {name}!']) !!}
                                 @if ($errors->has('response'))
                                         <ul class="parsley-errors-list filled">
                                             <li class="parsley-required">{{ $errors->first('response') }}</li>

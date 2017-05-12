@@ -10,7 +10,7 @@
 
     <div class="form-group">
         <div class="col-xs-12">
-            <input class="form-control{{ $errors->has('name') ? ' parsley-error' : '' }}" type="text" name="name" required="" placeholder="Name" value="{{ old('name') }}">
+            <input class="form-control{{ $errors->has('name') ? ' parsley-error' : '' }}" type="text" name="name" required="" placeholder="Name" value="{{ old('name') }}" autofocus>
             <i class="md md-account-circle form-control-feedback l-h-34"></i>
 
             @if ($errors->has('name'))

@@ -24,21 +24,21 @@ class BadwordController extends Controller
     {
         $badwords = Bot::find(Session('onBotEdit'))->badwords;
         $methods  = [
-            'kick' => 'Kick',
-            'ban' => 'Ban',
-            'dunce' => 'Dunce',
-            'zap' => 'Zap',
-            'reverse' => 'Reverse',
-            'yellowcard' => 'Yellowcard',
-            'badge' => 'Badge',
-            'zip' => 'Zip',
+            'kick'        => 'Kick',
+            'ban'         => 'Ban',
+            'dunce'       => 'Dunce',
+            'zap'         => 'Zap',
+            'reverse'     => 'Reverse',
+            'yellowcard'  => 'Yellowcard',
+            'badge'       => 'Badge',
+            'zip'         => 'Zip',
             'naughtystep' => 'Naughtystep',
-            'snakeban' => 'Snakeban',
-            'spaceban' => 'Spaceban',
-            'matchban' => 'Matchban',
-            'codeban' => 'Codeban',
-            'mazeban' => 'Mazeban',
-            'slotban' => 'Slotban'
+            'snakeban'    => 'Snakeban',
+            'spaceban'    => 'Spaceban',
+            'matchban'    => 'Matchban',
+            'codeban'     => 'Codeban',
+            'mazeban'     => 'Mazeban',
+            'slotban'     => 'Slotban'
         ];
 
         return view('bot.badword')
