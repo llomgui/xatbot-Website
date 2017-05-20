@@ -51,4 +51,12 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
     {
         return $this->bots()->where('bot_id', $botid)->first();
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tickets()
+    {
+        return $this->hasMany('OceanProject\Models\Ticket');
+    }
 }

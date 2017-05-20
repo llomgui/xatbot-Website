@@ -48,7 +48,7 @@
                     </ul>
                 </li>
                 <li class="has-submenu">
-                    <a href="#"><i class="md md-help"></i>Support</a>
+                    <a href="{{ route('support.list') }}"><i class="md md-help"></i>Support</a>
                 </li>
             </ul>
         </div>

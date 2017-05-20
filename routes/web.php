@@ -74,8 +74,13 @@ Route::group(['prefix' => 'panel'], function () {
 
     });
 
-    Route::group(['prefix' => 'support', 'middleware' => 'auth'], function () {
-        return 'Support';
+    Route::group(['prefix' => 'support', 'middleware' => 'auth', 'namespace' => 'Support'], function () {
+        
+        Route::get('list', 'TicketController@showList')->name('support.list');
+        Route::get('ticket/{id}', 'TicketController@showTicket')->name('support.ticket');
+        Route::post('createticket', 'TicketController@create')->name('support.createticket');
+        Route::post('replyticket', 'TicketController@reply')->name('support.replyticket');
+
     });
 
     Route::group(['prefix' => 'user', 'namespace' => 'Auth'], function () {
