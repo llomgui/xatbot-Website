@@ -39,12 +39,12 @@ trait xat
         $chatname = str_replace(' ', '_', $chatname);
         $url = 'http://xat.com/web_gear/chat/roomid.php?d=' . $chatname;
         $ctx = stream_context_create(['http' => ['timeout' => 1]]);
-        $fgc = file_get_contents($url, false, $ctx);
+        $fgc = json_decode(file_get_contents($url, false, $ctx), true);
 
-        if (!is_numeric($fgc)) {
+        if (!isset($fgc['id']) || !is_numeric($fgc['id'])) {
             return false;
         } else {
-            return $fgc;
+            return $fgc['id'];
         }
     }
 }
