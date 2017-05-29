@@ -1,13 +1,14 @@
 # TODO list
 
 ### Features
-* [ ] Be able to give bot's panel access to a friend, with roles?
+* [ ] Share a bot between users, with roles?
 
 ### Pages
 * [ ] Landing page
 * [ ] Chat logs
 * [ ] Chat statitics (Users online, Messages sent last 24h, Commands sent last 24h, Actions last 24h)
 * [ ] Hangman words
+* [ ] Typerace sentences
 * [ ] Commands (option GET chat/chatid to get minranks for a given chat)
 * [ ] Get Premium (Videos in different languages)
 * [ ] Ocean Staff (With ranks)
