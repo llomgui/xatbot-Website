@@ -35,5 +35,8 @@ before_script:
 
 script:
   - sh -c "if [ '$DEFAULT' = '1' ]; then vendor/bin/phpunit; fi"
-  - sh -c "if [ '$PHPCS' = '1' ]; then vendor/bin/phpcs -p --extensions=php --standard=PSR2 --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers; fi"
+  - sh -c "if [ '$PHPCS' = '1' ]; then vendor/bin/phpcs -p --extensions=php --standard=PSR2 ./app; fi"
+  - sh -c "if [ '$PHPCS' = '1' ]; then vendor/bin/phpcbf -p --extensions=php --standard=PSR2 ./app; fi"
+  - sh -c "if [ '$PHPCS' = '1' ]; then vendor/bin/phpcs -p --extensions=php --standard=PSR2 ./app; fi"
+  - sh -c "if [ '$PHPCS' = '1' ]; then --report=diff /path/to/code; fi"
   - sh -c "if [ '$COVERAGE' = '1' ]; then vendor/bin/phpunit --coverage-text; fi"
