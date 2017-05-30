@@ -65,12 +65,11 @@ class TicketController extends Controller
 
         $validator = Validator::make($data, $rules);
 
-        $validator->after(function($validator) use ($data) {
+        $validator->after(function ($validator) use ($data) {
 
             if (!TicketDepartment::where('id', $data['department'])->exists()) {
                 $validator->errors()->add('department', 'The department does not exist!');
             }
-
         });
 
         if ($validator->fails()) {
@@ -114,7 +113,7 @@ class TicketController extends Controller
         $validator = Validator::make($data, $rules);
         $ticket    = Ticket::find($data['ticket_id']);
 
-        $validator->after(function($validator) use ($data, $ticket) {
+        $validator->after(function ($validator) use ($data, $ticket) {
             if ($ticket->user_id != Auth::id()) {
                 $validator->errors()->add('ticket_id', 'Cheater!');
             }

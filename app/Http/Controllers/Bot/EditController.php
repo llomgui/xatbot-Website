@@ -30,14 +30,13 @@ class EditController extends Controller
                 'message' => 'You are trying to cheat, you do not own this bot!'
             ]);
         } else {
-
             $validator = Validator::make($data, ['value' => 'max:255']);
 
             if ($validator->fails()) {
                     return response()->json([
                     'status' => 'error',
                     'message' => 'Nickname is too long!'
-                ]);
+                    ]);
             }
 
             $bot = Bot::find($data['pk']);
@@ -98,19 +97,18 @@ class EditController extends Controller
 
         $data['chatid'] = xat::isChatExist($data['chatname']);
 
-        $validator->after(function($validator) use ($data) {
+        $validator->after(function ($validator) use ($data) {
 
             if (!empty($data['chatname'])) {
                 if (!$data['chatid']) {
                     $validator->errors()->add('chatname', 'This chat does not exist!');
-                } else if (!Bot::where([
+                } elseif (!Bot::where([
                         ['chatid', '=', $data['chatid']],
                         ['id', '<>', Session('onBotEdit')]
                     ])->get()->isEmpty()) {
                     $validator->errors()->add('chatname', 'This chat is taken!');
                 }
             }
-
         });
 
         if ($validator->fails()) {
@@ -146,5 +144,4 @@ class EditController extends Controller
                 ->back()
                 ->withSuccess('Bot updated!');
     }
-
 }

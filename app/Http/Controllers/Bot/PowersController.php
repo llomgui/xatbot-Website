@@ -50,7 +50,7 @@ class PowersController extends Controller
                 return response()->json([
                 'status' => 'error',
                 'message' => 'You are trying to cheat!'
-            ]);
+                ]);
         }
 
         $bot = Bot::find(Session('onBotEdit'));
@@ -74,7 +74,5 @@ class PowersController extends Controller
             'status' => 'success',
             'message' => 'Powers updated!'
         ]);
-
     }
-
 }
