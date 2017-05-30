@@ -18,13 +18,15 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    public function showUpdateForm() {
+    public function showUpdateForm()
+    {
         $user = Auth::user();
 
         return view('auth.profile')->with('user', $user);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
 
         $user = Auth::user();
         $data = $request->all();
@@ -39,7 +41,6 @@ class ProfileController extends Controller
 
         $inputs = [];
         foreach ($data as $key => $value) {
-
             if ($key == '_token' || is_null($value)) {
                 continue;
             }
@@ -52,10 +53,10 @@ class ProfileController extends Controller
             $rules
         );
 
-        $validator->after(function($validator) use ($data, $user) {
+        $validator->after(function ($validator) use ($data, $user) {
 
             if (!empty($data['old_password'])) {
-                if (!Hash::check($data['old_password'], $user->password)){
+                if (!Hash::check($data['old_password'], $user->password)) {
                     $validator->errors()->add('old_password', 'Wrong password!');
                 }
             }
@@ -77,7 +78,6 @@ class ProfileController extends Controller
                 $validator->errors()->add('regname', 'Regname and xatid do not match!');
                 $validator->errors()->add('xatid', 'Regname and xatid do not match!');
             }
-
         });
 
         if ($validator->fails()) {
@@ -108,6 +108,5 @@ class ProfileController extends Controller
         return redirect()
                 ->route('profile')
                 ->withSuccess('Information updated!');
-
     }
 }

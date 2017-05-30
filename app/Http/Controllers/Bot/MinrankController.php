@@ -49,7 +49,6 @@ class MinrankController extends Controller
         $data = $request->all();
 
         if ($data['bcm_id'] == null) {
-
             $rules = [
                 'level'      => 'integer|required',
                 'command_id' => 'integer|required',
@@ -76,9 +75,7 @@ class MinrankController extends Controller
                 'status'  => 'success',
                 'message' => 'Minrank updated!'
             ]);
-
         } else {
-
             $rules = [
                 'bcm_id'     => 'integer|required',
                 'level'      => 'integer|required',
@@ -87,7 +84,7 @@ class MinrankController extends Controller
 
             $validator = Validator::make($data, $rules);
 
-            $validator->after(function($validator) use ($data) {
+            $validator->after(function ($validator) use ($data) {
                 if (!empty($data['bcm_id'])) {
                     if (!$data['bcm_id']) {
                         $res = DB::table('bot_command_minrank')
@@ -121,7 +118,6 @@ class MinrankController extends Controller
                 'status'  => 'success',
                 'message' => 'Minrank updated!'
             ]);
-
         }
     }
 }

@@ -39,7 +39,7 @@ class CreateController extends Controller
         $validator = Validator::make($data, $rules);
 
         $data['chatid'] = xat::isChatExist($data['chatname']);
-        $validator->after(function($validator) use ($data) {
+        $validator->after(function ($validator) use ($data) {
             if (!empty($data['chatname'])) {
                 if (!$data['chatid']) {
                     $validator->errors()->add('chatid', 'This chat does not exist!');

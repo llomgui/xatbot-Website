@@ -41,7 +41,7 @@ class BotController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'You are trying to cheat, you do not own this bot!']);
-        } else if (!in_array($data['action'], ['start', 'restart', 'stop'])) {
+        } elseif (!in_array($data['action'], ['start', 'restart', 'stop'])) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'You are trying to cheat, this action is not allowed!']);
@@ -59,7 +59,4 @@ class BotController extends Controller
                 'message' => 'OceanID ' . $data['botid'] . ' ' . $data['action'] . (($data['action'] == 'stop') ? 'ped' : 'ed') . ' !']);
         }
     }
-
-
-
 }

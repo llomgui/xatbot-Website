@@ -42,7 +42,8 @@ class LoginController extends Controller
         return 'name';
     }
 
-    protected function authenticated(\Illuminate\Http\Request $request, $user) {
+    protected function authenticated(\Illuminate\Http\Request $request, $user)
+    {
         foreach ($user->bots as $bot) {
             $botsID[] = $bot->id;
         }

@@ -39,7 +39,6 @@ class BotlangController extends Controller
         $data = $request->all();
 
         if ($data['botlang_id'] == null) {
-
             $rules = [
                 'botlang_sentences_id' => 'integer:required',
                 'custom_value' => 'present'
@@ -63,9 +62,7 @@ class BotlangController extends Controller
                 'status'  => 'success',
                 'message' => 'Custom Message added!'
             ]);
-
         } else {
-
             $rules = [
                 'botlang_id' => 'integer:required',
                 'botlang_sentences_id' => 'integer:required',
@@ -74,7 +71,7 @@ class BotlangController extends Controller
 
             $validator = Validator::make($data, $rules);
 
-            $validator->after(function($validator) use ($data) {
+            $validator->after(function ($validator) use ($data) {
                 if (!empty($data['botlang_id'])) {
                     if (!$data['botlang_id']) {
                         $res = DB::table('botlang')
@@ -104,7 +101,6 @@ class BotlangController extends Controller
                 'status'  => 'success',
                 'message' => 'Custom Message updated!'
             ]);
-
         }
     }
 }

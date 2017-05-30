@@ -25,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $bots = \Auth::user()->bots;
-        return view('page.home')->with('bots', $bots);;
+        return view('page.home')->with('bots', $bots);
+        ;
     }
 }
