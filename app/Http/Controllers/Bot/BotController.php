@@ -38,13 +38,17 @@ class BotController extends Controller
     {
         $data = $request->all();
         if (!Auth::user()->hasBot($data['botid'])) {
-            return response()->json([
+            return response()->json(
+                [
                 'status' => 'error',
-                'message' => 'You are trying to cheat, you do not own this bot!']);
+                'message' => 'You are trying to cheat, you do not own this bot!']
+            );
         } else if (!in_array($data['action'], ['start', 'restart', 'stop'])) {
-            return response()->json([
+            return response()->json(
+                [
                 'status' => 'error',
-                'message' => 'You are trying to cheat, this action is not allowed!']);
+                'message' => 'You are trying to cheat, this action is not allowed!']
+            );
         } else {
             $bot = Bot::find($data['botid']);
 
@@ -54,9 +58,11 @@ class BotController extends Controller
             $packet = IPC::read(1024);
             IPC::close();
 
-            return response()->json([
+            return response()->json(
+                [
                 'status' => 'success',
-                'message' => 'OceanID ' . $data['botid'] . ' ' . $data['action'] . (($data['action'] == 'stop') ? 'ped' : 'ed') . ' !']);
+                'message' => 'OceanID ' . $data['botid'] . ' ' . $data['action'] . (($data['action'] == 'stop') ? 'ped' : 'ed') . ' !']
+            );
         }
     }
 
