@@ -4,6 +4,23 @@ php:
   - 7.0
   - 7.1
 
+env:
+  global:
+    - DEFAULT=1
+
+matrix:
+  fast_finish: true
+
+  allow_failures:
+    - php: 7.0
+      env: COVERAGE=1 DEFAULT=0
+
+  include:
+    - php: 7.0
+      env: PHPCS=1 DEFAULT=0
+    - php: 7.0
+      env: COVERAGE=1 DEFAULT=0
+
 services:
   - postgresql
 
@@ -14,11 +31,9 @@ install:
 
 before_script:
   - phpenv rehash
-  - npm install
+  - php artisan migrate --seed
 
 script:
-  - php artisan migrate --seed
-  - vendor/bin/phpunit --coverage-text
-  - vendor/bin/phpcs -p --extensions=php --standard=PSR2 --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
-  - npm run production
-  - jshint resources/assets/js/*
+  - sh -c "if [ '$DEFAULT' = '1' ]; then vendor/bin/phpunit; fi"
+  - sh -c "if [ '$PHPCS' = '1' ]; then vendor/bin/phpcs -p --extensions=php --standard=PSR2 --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers; fi"
+  - sh -c "if [ '$COVERAGE' = '1' ]; then vendor/bin/phpunit --coverage-text; fi"
