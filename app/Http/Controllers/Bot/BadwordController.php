@@ -124,19 +124,23 @@ class BadwordController extends Controller
         $badword = Badword::find($data['badword_id']);
 
         if ($badword->badword_bot->id != Session('onBotEdit')) {
-            return response()->json([
+            return response()->json(
+                [
                 'status'  => 'error',
                 'message' => 'You are trying to cheat, you do not own this badword!',
                 'header'  => 'Error!'
-            ]);
+                ]
+            );
         }
 
         $badword->delete();
 
-        return response()->json([
+        return response()->json(
+            [
             'status'  => 'success',
             'message' => 'Badword deleted!',
             'header'  => 'Deleted!'
-        ]);
+            ]
+        );
     }
 }

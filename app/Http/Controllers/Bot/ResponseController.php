@@ -101,19 +101,23 @@ class ResponseController extends Controller
         $response = Response::find($data['response_id']);
 
         if ($response->response_bot->id != Session('onBotEdit')) {
-            return response()->json([
+            return response()->json(
+                [
                 'status'  => 'error',
                 'message' => 'You are trying to cheat, you do not own this response!',
                 'header'  => 'Error!'
-            ]);
+                ]
+            );
         }
 
         $response->delete();
 
-        return response()->json([
+        return response()->json(
+            [
             'status'  => 'success',
             'message' => 'Response deleted!',
             'header'  => 'Deleted!'
-        ]);
+            ]
+        );
     }
 }

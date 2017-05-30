@@ -39,13 +39,15 @@ class CreateController extends Controller
         $validator = Validator::make($data, $rules);
 
         $data['chatid'] = xat::isChatExist($data['chatname']);
-        $validator->after(function ($validator) use ($data) {
-            if (!empty($data['chatname'])) {
-                if (!$data['chatid']) {
-                    $validator->errors()->add('chatid', 'This chat does not exist!');
+        $validator->after(
+            function ($validator) use ($data) {
+                if (!empty($data['chatname'])) {
+                    if (!$data['chatid']) {
+                        $validator->errors()->add('chatid', 'This chat does not exist!');
+                    }
                 }
             }
-        });
+        );
 
         if ($validator->fails()) {
             return redirect()
@@ -59,9 +61,9 @@ class CreateController extends Controller
         $servers = Server::all();
 
         $bot->bot_status_id = DB::table('bot_statuses')
-                ->select('id')
-                ->where('name', 'Offline')
-                ->get()[0]->id;
+            ->select('id')
+            ->where('name', 'Offline')
+            ->get()[0]->id;
 
         $bot->server_id = $servers->random()->id;
         $bot->chatid    = $data['chatid'];

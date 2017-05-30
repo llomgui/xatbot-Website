@@ -47,10 +47,12 @@ class BotlangController extends Controller
             $validator = Validator::make($data, $rules);
 
             if ($validator->fails()) {
-                return response()->json([
+                return response()->json(
+                    [
                     'status'  => 'error',
                     'message' => 'You are trying to cheat!'
-                ]);
+                    ]
+                );
             }
 
             $bot = Bot::find(Session('onBotEdit'));
@@ -58,10 +60,12 @@ class BotlangController extends Controller
 
             $bot->botlang()->save($botlang_sentence, ['value' => $data['custom_value']]);
 
-            return response()->json([
+            return response()->json(
+                [
                 'status'  => 'success',
                 'message' => 'Custom Message added!'
-            ]);
+                ]
+            );
         } else {
             $rules = [
                 'botlang_id' => 'integer:required',
@@ -71,36 +75,42 @@ class BotlangController extends Controller
 
             $validator = Validator::make($data, $rules);
 
-            $validator->after(function ($validator) use ($data) {
-                if (!empty($data['botlang_id'])) {
-                    if (!$data['botlang_id']) {
-                        $res = DB::table('botlang')
+            $validator->after(
+                function ($validator) use ($data) {
+                    if (!empty($data['botlang_id'])) {
+                        if (!$data['botlang_id']) {
+                            $res = DB::table('botlang')
                                     ->where('bot_id', Session('onBotEdit'))
                                     ->where('id', $data['botlang_id'])
                                     ->select('id')
                                     ->get();
 
-                        if (empty($res)) {
-                            $validator->errors()->add('botlang_id', 'Cheater!');
+                            if (empty($res)) {
+                                $validator->errors()->add('botlang_id', 'Cheater!');
+                            }
                         }
                     }
                 }
-            });
+            );
 
             if ($validator->fails()) {
-                return response()->json([
+                return response()->json(
+                    [
                     'status'  => 'error',
                     'message' => 'You are trying to cheat!'
-                ]);
+                    ]
+                );
             }
 
             $bot = Bot::find(Session('onBotEdit'));
             $bot->botlang()->updateExistingPivot($data['botlang_id'], ['value' => $data['custom_value']]);
 
-            return response()->json([
+            return response()->json(
+                [
                 'status'  => 'success',
                 'message' => 'Custom Message updated!'
-            ]);
+                ]
+            );
         }
     }
 }

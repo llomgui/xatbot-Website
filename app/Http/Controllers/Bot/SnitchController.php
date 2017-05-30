@@ -39,26 +39,28 @@ class SnitchController extends Controller
 
         $validator = Validator::make($data, $rules);
 
-        $validator->after(function ($validator) use ($data) {
+        $validator->after(
+            function ($validator) use ($data) {
 
-            $regname = xat::isXatIDExist($data['xatid']);
-            if (!xat::isValidXatID($data['xatid'])) {
-                $validator->errors()->add('xatid', 'The xatid is not valid!');
-            } elseif (!$regname) {
-                $validator->errors()->add('xatid', 'The xatid does not exist!');
-            }
+                $regname = xat::isXatIDExist($data['xatid']);
+                if (!xat::isValidXatID($data['xatid'])) {
+                    $validator->errors()->add('xatid', 'The xatid is not valid!');
+                } elseif (!$regname) {
+                    $validator->errors()->add('xatid', 'The xatid does not exist!');
+                }
 
-            if (!xat::isValidRegname($data['regname'])) {
-                $validator->errors()->add('regname', 'The regname is not valid!');
-            } elseif (!xat::isRegnameExist($data['regname'])) {
-                $validator->errors()->add('regname', 'The regname does not exist!');
-            }
+                if (!xat::isValidRegname($data['regname'])) {
+                    $validator->errors()->add('regname', 'The regname is not valid!');
+                } elseif (!xat::isRegnameExist($data['regname'])) {
+                    $validator->errors()->add('regname', 'The regname does not exist!');
+                }
 
-            if (strtolower($regname) != strtolower($data['regname'])) {
-                $validator->errors()->add('regname', 'Regname and xatid do not match!');
-                $validator->errors()->add('xatid', 'Regname and xatid do not match!');
+                if (strtolower($regname) != strtolower($data['regname'])) {
+                    $validator->errors()->add('regname', 'Regname and xatid do not match!');
+                    $validator->errors()->add('xatid', 'Regname and xatid do not match!');
+                }
             }
-        });
+        );
 
         if ($validator->fails()) {
             return redirect()
@@ -99,26 +101,28 @@ class SnitchController extends Controller
 
         $validator = Validator::make($data, $rules);
 
-        $validator->after(function ($validator) use ($data) {
+        $validator->after(
+            function ($validator) use ($data) {
 
-            $regname = xat::isXatIDExist($data['xatid']);
-            if (!xat::isValidXatID($data['xatid'])) {
-                $validator->errors()->add('xatid', 'The xatid is not valid!');
-            } elseif (!$regname) {
-                $validator->errors()->add('xatid', 'The xatid does not exist!');
-            }
+                $regname = xat::isXatIDExist($data['xatid']);
+                if (!xat::isValidXatID($data['xatid'])) {
+                    $validator->errors()->add('xatid', 'The xatid is not valid!');
+                } elseif (!$regname) {
+                    $validator->errors()->add('xatid', 'The xatid does not exist!');
+                }
 
-            if (!xat::isValidRegname($data['regname'])) {
-                $validator->errors()->add('regname', 'The regname is not valid!');
-            } elseif (!xat::isRegnameExist($data['regname'])) {
-                $validator->errors()->add('regname', 'The regname does not exist!');
-            }
+                if (!xat::isValidRegname($data['regname'])) {
+                    $validator->errors()->add('regname', 'The regname is not valid!');
+                } elseif (!xat::isRegnameExist($data['regname'])) {
+                    $validator->errors()->add('regname', 'The regname does not exist!');
+                }
 
-            if (strtolower($regname) != strtolower($data['regname'])) {
-                $validator->errors()->add('regname', 'Regname and xatid do not match!');
-                $validator->errors()->add('xatid', 'Regname and xatid do not match!');
+                if (strtolower($regname) != strtolower($data['regname'])) {
+                    $validator->errors()->add('regname', 'Regname and xatid do not match!');
+                    $validator->errors()->add('xatid', 'Regname and xatid do not match!');
+                }
             }
-        });
+        );
 
         if ($validator->fails()) {
             return redirect()
@@ -144,19 +148,23 @@ class SnitchController extends Controller
         $snitch = Snitch::find($data['snitch_id']);
 
         if ($snitch->snitch_bot->id != Session('onBotEdit')) {
-            return response()->json([
+            return response()->json(
+                [
                 'status' => 'error',
                 'message' => 'You are trying to cheat, you do not own this snitch!',
                 'header' => 'Error!'
-            ]);
+                ]
+            );
         }
 
         $snitch->delete();
 
-        return response()->json([
+        return response()->json(
+            [
             'status' => 'success',
             'message' => 'Snitch deleted!',
             'header' => 'Deleted!'
-        ]);
+            ]
+        );
     }
 }

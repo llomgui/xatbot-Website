@@ -25,28 +25,34 @@ class EditController extends Controller
     {
         $data = $request->all();
         if (!Auth::user()->hasBot($data['pk'])) {
-            return response()->json([
+            return response()->json(
+                [
                 'status' => 'error',
                 'message' => 'You are trying to cheat, you do not own this bot!'
-            ]);
+                ]
+            );
         } else {
             $validator = Validator::make($data, ['value' => 'max:255']);
 
             if ($validator->fails()) {
-                    return response()->json([
-                    'status' => 'error',
-                    'message' => 'Nickname is too long!'
-                    ]);
+                    return response()->json(
+                        [
+                        'status' => 'error',
+                        'message' => 'Nickname is too long!'
+                        ]
+                    );
             }
 
             $bot = Bot::find($data['pk']);
             $bot->nickname = $data['value'];
             $bot->save();
 
-            return response()->json([
+            return response()->json(
+                [
                 'status' => 'success',
                 'message' => 'Nickname updated!'
-            ]);
+                ]
+            );
         }
     }
 
@@ -97,19 +103,24 @@ class EditController extends Controller
 
         $data['chatid'] = xat::isChatExist($data['chatname']);
 
-        $validator->after(function ($validator) use ($data) {
+        $validator->after(
+            function ($validator) use ($data) {
 
-            if (!empty($data['chatname'])) {
-                if (!$data['chatid']) {
-                    $validator->errors()->add('chatname', 'This chat does not exist!');
-                } elseif (!Bot::where([
+                if (!empty($data['chatname'])) {
+                    if (!$data['chatid']) {
+                        $validator->errors()->add('chatname', 'This chat does not exist!');
+                    } elseif (!Bot::where(
+                        [
                         ['chatid', '=', $data['chatid']],
                         ['id', '<>', Session('onBotEdit')]
-                    ])->get()->isEmpty()) {
-                    $validator->errors()->add('chatname', 'This chat is taken!');
+                        ]
+                    )->get()->isEmpty()
+                    ) {
+                        $validator->errors()->add('chatname', 'This chat is taken!');
+                    }
                 }
             }
-        });
+        );
 
         if ($validator->fails()) {
             return redirect()

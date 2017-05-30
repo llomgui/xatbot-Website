@@ -43,39 +43,43 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
-        $validator = Validator::make($data, [
+        $validator = Validator::make(
+            $data, [
             'name'     => 'required|max:50|iunique:users,name',
             'email'    => 'required|email|max:50|iunique:users,email',
             'regname'  => 'required|max:50|iunique:users,regname',
             'xatid'    => 'required|integer|unique:users',
             'password' => 'required|min:6|confirmed'
-        ]);
+            ]
+        );
 
-        $validator->after(function ($validator) use ($data) {
+        $validator->after(
+            function ($validator) use ($data) {
 
-            $regname = xat::isXatIDExist($data['xatid']);
-            if (!xat::isValidXatID($data['xatid'])) {
-                $validator->errors()->add('xatid', 'The xatid is not valid!');
-            } elseif (!$regname) {
-                $validator->errors()->add('xatid', 'The xatid does not exist!');
+                $regname = xat::isXatIDExist($data['xatid']);
+                if (!xat::isValidXatID($data['xatid'])) {
+                    $validator->errors()->add('xatid', 'The xatid is not valid!');
+                } elseif (!$regname) {
+                    $validator->errors()->add('xatid', 'The xatid does not exist!');
+                }
+
+                if (!xat::isValidRegname($data['regname'])) {
+                    $validator->errors()->add('regname', 'The regname is not valid!');
+                } elseif (!xat::isRegnameExist($data['regname'])) {
+                    $validator->errors()->add('regname', 'The regname does not exist!');
+                }
+
+                if (strtolower($regname) != strtolower($data['regname'])) {
+                    $validator->errors()->add('regname', 'Regname and xatid do not match!');
+                    $validator->errors()->add('xatid', 'Regname and xatid do not match!');
+                }
             }
-
-            if (!xat::isValidRegname($data['regname'])) {
-                $validator->errors()->add('regname', 'The regname is not valid!');
-            } elseif (!xat::isRegnameExist($data['regname'])) {
-                $validator->errors()->add('regname', 'The regname does not exist!');
-            }
-
-            if (strtolower($regname) != strtolower($data['regname'])) {
-                $validator->errors()->add('regname', 'Regname and xatid do not match!');
-                $validator->errors()->add('xatid', 'Regname and xatid do not match!');
-            }
-        });
+        );
 
         return $validator;
     }
@@ -83,19 +87,21 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return User
      */
     protected function create(array $data)
     {
-        $user = User::create([
+        $user = User::create(
+            [
             'name'     => $data['name'],
             'email'    => $data['email'],
             'xatid'    => $data['xatid'],
             'regname'  => $data['regname'],
             'password' => bcrypt($data['password']),
             'ip'       => \Request::ip()
-        ]);
+            ]
+        );
 
         $user->attachRole(5);
 

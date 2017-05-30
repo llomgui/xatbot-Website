@@ -47,10 +47,12 @@ class PowersController extends Controller
         $validator = Validator::make($data, ['power_id' => 'integer']);
 
         if ($validator->fails()) {
-                return response()->json([
-                'status' => 'error',
-                'message' => 'You are trying to cheat!'
-                ]);
+                return response()->json(
+                    [
+                    'status' => 'error',
+                    'message' => 'You are trying to cheat!'
+                    ]
+                );
         }
 
         $bot = Bot::find(Session('onBotEdit'));
@@ -70,9 +72,11 @@ class PowersController extends Controller
         $bot->powersdisabled = json_encode($powersDisabled);
         $bot->save();
 
-        return response()->json([
+        return response()->json(
+            [
             'status' => 'success',
             'message' => 'Powers updated!'
-        ]);
+            ]
+        );
     }
 }

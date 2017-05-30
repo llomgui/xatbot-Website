@@ -57,10 +57,12 @@ class MinrankController extends Controller
             $validator = Validator::make($data, $rules);
 
             if ($validator->fails()) {
-                return response()->json([
+                return response()->json(
+                    [
                     'status'  => 'error',
                     'message' => 'You are trying to cheat!'
-                ]);
+                    ]
+                );
             }
 
             $bot = Bot::find(Session('onBotEdit'));
@@ -71,10 +73,12 @@ class MinrankController extends Controller
             $command = Command::find($data['command_id']);
             $bot->commands()->save($command, ['minrank_id' => $minrank->id]);
 
-            return response()->json([
+            return response()->json(
+                [
                 'status'  => 'success',
                 'message' => 'Minrank updated!'
-            ]);
+                ]
+            );
         } else {
             $rules = [
                 'bcm_id'     => 'integer|required',
@@ -84,27 +88,31 @@ class MinrankController extends Controller
 
             $validator = Validator::make($data, $rules);
 
-            $validator->after(function ($validator) use ($data) {
-                if (!empty($data['bcm_id'])) {
-                    if (!$data['bcm_id']) {
-                        $res = DB::table('bot_command_minrank')
+            $validator->after(
+                function ($validator) use ($data) {
+                    if (!empty($data['bcm_id'])) {
+                        if (!$data['bcm_id']) {
+                            $res = DB::table('bot_command_minrank')
                                     ->where('bot_id', Session('onBotEdit'))
                                     ->where('id', $data['bcm_id'])
                                     ->select('id')
                                     ->get();
 
-                        if (empty($res)) {
-                            $validator->errors()->add('bcm_id', 'Cheater!');
+                            if (empty($res)) {
+                                $validator->errors()->add('bcm_id', 'Cheater!');
+                            }
                         }
                     }
                 }
-            });
+            );
 
             if ($validator->fails()) {
-                return response()->json([
+                return response()->json(
+                    [
                     'status'  => 'error',
                     'message' => 'You are trying to cheat!'
-                ]);
+                    ]
+                );
             }
 
             $bot = Bot::find(Session('onBotEdit'));
@@ -114,10 +122,12 @@ class MinrankController extends Controller
 
             $bot->commands()->updateExistingPivot($data['command_id'], ['minrank_id' => $minrank->id]);
 
-            return response()->json([
+            return response()->json(
+                [
                 'status'  => 'success',
                 'message' => 'Minrank updated!'
-            ]);
+                ]
+            );
         }
     }
 }

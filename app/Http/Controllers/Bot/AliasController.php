@@ -102,19 +102,23 @@ class AliasController extends Controller
         $alias = Alias::find($data['alias_id']);
 
         if ($alias->alias_bot->id != Session('onBotEdit')) {
-            return response()->json([
+            return response()->json(
+                [
                 'status' => 'error',
                 'message' => 'You are trying to cheat, you do not own this alias!',
                 'header' => 'Error!'
-            ]);
+                ]
+            );
         }
 
         $alias->delete();
 
-        return response()->json([
+        return response()->json(
+            [
             'status' => 'success',
             'message' => 'Alias deleted!',
             'header' => 'Deleted!'
-        ]);
+            ]
+        );
     }
 }

@@ -65,12 +65,14 @@ class TicketController extends Controller
 
         $validator = Validator::make($data, $rules);
 
-        $validator->after(function ($validator) use ($data) {
+        $validator->after(
+            function ($validator) use ($data) {
 
-            if (!TicketDepartment::where('id', $data['department'])->exists()) {
-                $validator->errors()->add('department', 'The department does not exist!');
+                if (!TicketDepartment::where('id', $data['department'])->exists()) {
+                    $validator->errors()->add('department', 'The department does not exist!');
+                }
             }
-        });
+        );
 
         if ($validator->fails()) {
             return redirect()
@@ -113,18 +115,22 @@ class TicketController extends Controller
         $validator = Validator::make($data, $rules);
         $ticket    = Ticket::find($data['ticket_id']);
 
-        $validator->after(function ($validator) use ($data, $ticket) {
-            if ($ticket->user_id != Auth::id()) {
-                $validator->errors()->add('ticket_id', 'Cheater!');
+        $validator->after(
+            function ($validator) use ($data, $ticket) {
+                if ($ticket->user_id != Auth::id()) {
+                    $validator->errors()->add('ticket_id', 'Cheater!');
+                }
             }
-        });
+        );
 
         if ($validator->fails()) {
-            return response()->json([
+            return response()->json(
+                [
                 'header'  => 'Error!',
                 'status'  => 'error',
                 'message' => 'You are trying to cheat!'
-            ]);
+                ]
+            );
         }
 
         $data['message'] = str_replace(['<div>', '<br>'], '', $data['message']);
@@ -138,10 +144,12 @@ class TicketController extends Controller
 
         $ticketMessage->save();
 
-        return response()->json([
+        return response()->json(
+            [
             'header'  => 'Success!',
             'status'  => 'success',
             'message' => 'Ticket message sent!'
-        ]);
+            ]
+        );
     }
 }
