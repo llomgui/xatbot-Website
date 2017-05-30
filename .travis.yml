@@ -7,9 +7,11 @@ php:
 services:
   - postgresql
 
-before_script:
+install:
   - composer self-update
   - composer install --prefer-dist --no-interaction
+
+before_script:
   - psql -c 'create database OceanProject;' -U postgres
   - phpenv rehash
   - npm install
