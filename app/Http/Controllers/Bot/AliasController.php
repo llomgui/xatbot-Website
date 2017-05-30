@@ -6,7 +6,6 @@ use Validator;
 use Illuminate\Http\Request;
 use OceanProject\Models\Bot;
 use OceanProject\Models\Alias;
-use OceanProject\Utilities\xat;
 use OceanProject\Http\Controllers\Controller;
 
 class AliasController extends Controller

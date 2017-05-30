@@ -2,7 +2,7 @@
 
 namespace OceanProject\Utilities;
 
-trait xat
+trait Xat
 {
     public static function isValidXatID($xatid)
     {

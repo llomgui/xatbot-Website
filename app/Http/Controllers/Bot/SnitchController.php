@@ -6,7 +6,7 @@ use Validator;
 use Illuminate\Http\Request;
 use OceanProject\Models\Bot;
 use OceanProject\Models\Snitch;
-use OceanProject\Utilities\xat;
+use OceanProject\Utilities\Xat;
 use OceanProject\Http\Controllers\Controller;
 
 class SnitchController extends Controller
@@ -42,16 +42,16 @@ class SnitchController extends Controller
         $validator->after(
             function ($validator) use ($data) {
 
-                $regname = xat::isXatIDExist($data['xatid']);
-                if (!xat::isValidXatID($data['xatid'])) {
+                $regname = Xat::isXatIDExist($data['xatid']);
+                if (!Xat::isValidXatID($data['xatid'])) {
                     $validator->errors()->add('xatid', 'The xatid is not valid!');
                 } elseif (!$regname) {
                     $validator->errors()->add('xatid', 'The xatid does not exist!');
                 }
 
-                if (!xat::isValidRegname($data['regname'])) {
+                if (!Xat::isValidRegname($data['regname'])) {
                     $validator->errors()->add('regname', 'The regname is not valid!');
-                } elseif (!xat::isRegnameExist($data['regname'])) {
+                } elseif (!Xat::isRegnameExist($data['regname'])) {
                     $validator->errors()->add('regname', 'The regname does not exist!');
                 }
 
@@ -104,16 +104,16 @@ class SnitchController extends Controller
         $validator->after(
             function ($validator) use ($data) {
 
-                $regname = xat::isXatIDExist($data['xatid']);
-                if (!xat::isValidXatID($data['xatid'])) {
+                $regname = Xat::isXatIDExist($data['xatid']);
+                if (!Xat::isValidXatID($data['xatid'])) {
                     $validator->errors()->add('xatid', 'The xatid is not valid!');
                 } elseif (!$regname) {
                     $validator->errors()->add('xatid', 'The xatid does not exist!');
                 }
 
-                if (!xat::isValidRegname($data['regname'])) {
+                if (!Xat::isValidRegname($data['regname'])) {
                     $validator->errors()->add('regname', 'The regname is not valid!');
-                } elseif (!xat::isRegnameExist($data['regname'])) {
+                } elseif (!Xat::isRegnameExist($data['regname'])) {
                     $validator->errors()->add('regname', 'The regname does not exist!');
                 }
 

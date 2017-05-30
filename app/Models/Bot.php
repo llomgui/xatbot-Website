@@ -9,7 +9,30 @@ class Bot extends Model
     /**
      * @var array
      */
-    protected $fillable = ['bot_status_id', 'creator_user_id', 'server_id', 'premium', 'chatid', 'chatname', 'chatpw', 'nickname', 'avatar', 'homepage', 'status', 'pcback', 'autowelcome', 'ticklemessage', 'maxkick', 'maxkickban', 'maxflood', 'maxchar', 'maxsmilies', 'automessage', 'automessagetime', 'autorestart'];
+    protected $fillable = [
+        'bot_status_id',
+        'creator_user_id',
+        'server_id',
+        'premium',
+        'chatid',
+        'chatname',
+        'chatpw',
+        'nickname',
+        'avatar',
+        'homepage',
+        'status',
+        'pcback',
+        'autowelcome',
+        'ticklemessage',
+        'maxkick',
+        'maxkickban',
+        'maxflood',
+        'maxchar',
+        'maxsmilies',
+        'automessage',
+        'automessagetime',
+        'autorestart'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -32,7 +55,11 @@ class Bot extends Model
      */
     public function commands()
     {
-        return $this->belongsToMany('OceanProject\Models\Command', 'bot_command_minrank', 'bot_id', 'command_id')->withPivot('minrank_id')->withTimestamps();
+        return $this->belongsToMany(
+            'OceanProject\Models\Command',
+            'bot_command_minrank', 'bot_id',
+            'command_id'
+        )->withPivot('minrank_id')->withTimestamps();
     }
 
     /**
@@ -40,13 +67,18 @@ class Bot extends Model
      */
     public function minranks()
     {
-        return $this->belongsToMany('OceanProject\Models\Minrank', 'bot_command_minrank', 'bot_id', 'minrank_id')->withPivot('command_id');
+        return $this->belongsToMany(
+            'OceanProject\Models\Minrank',
+            'bot_command_minrank',
+            'bot_id',
+            'minrank_id'
+        )->withPivot('command_id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function bot_status()
+    public function botStatus()
     {
         return $this->hasOne('OceanProject\Models\BotStatus', 'id', 'bot_status_id');
     }
@@ -96,7 +128,12 @@ class Bot extends Model
      */
     public function botlang()
     {
-        return $this->belongsToMany('OceanProject\Models\BotlangSentences', 'botlang', 'bot_id', 'botlang_sentences_id')->withPivot('value')->withTimestamps();
+        return $this->belongsToMany(
+            'OceanProject\Models\BotlangSentences',
+            'botlang',
+            'bot_id',
+            'botlang_sentences_id'
+        )->withPivot('value')->withTimestamps();
     }
 
     /**

@@ -6,7 +6,7 @@ use Auth;
 use Validator;
 use Illuminate\Http\Request;
 use OceanProject\Models\Bot;
-use OceanProject\Utilities\xat;
+use OceanProject\Utilities\Xat;
 use OceanProject\Models\Server;
 use OceanProject\Models\Command;
 use OceanProject\Models\BotlangSentences;
@@ -38,7 +38,7 @@ class CreateController extends Controller
 
         $validator = Validator::make($data, $rules);
 
-        $data['chatid'] = xat::isChatExist($data['chatname']);
+        $data['chatid'] = Xat::isChatExist($data['chatname']);
         $validator->after(
             function ($validator) use ($data) {
                 if (!empty($data['chatname'])) {

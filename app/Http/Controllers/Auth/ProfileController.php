@@ -9,7 +9,7 @@ use Validator;
 use Illuminate\Http\Request;
 use OceanProject\Models\User;
 use OceanProject\Http\Controllers\Controller;
-use OceanProject\Utilities\xat;
+use OceanProject\Utilities\Xat;
 
 class ProfileController extends Controller
 {
@@ -62,16 +62,16 @@ class ProfileController extends Controller
                     }
                 }
 
-                $regname = xat::isXatIDExist($data['xatid']);
-                if (!xat::isValidXatID($data['xatid'])) {
+                $regname = Xat::isXatIDExist($data['xatid']);
+                if (!Xat::isValidXatID($data['xatid'])) {
                     $validator->errors()->add('xatid', 'The xatid is not valid!');
                 } elseif (!$regname) {
                     $validator->errors()->add('xatid', 'The xatid does not exist!');
                 }
 
-                if (!xat::isValidRegname($data['regname'])) {
+                if (!Xat::isValidRegname($data['regname'])) {
                     $validator->errors()->add('regname', 'The regname is not valid!');
-                } elseif (!xat::isRegnameExist($data['regname'])) {
+                } elseif (!Xat::isRegnameExist($data['regname'])) {
                     $validator->errors()->add('regname', 'The regname does not exist!');
                 }
 
