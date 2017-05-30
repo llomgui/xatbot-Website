@@ -594,7 +594,7 @@ trait Powers
         $powers[98]['minCost'] = 0;
         $powers[98]['maxCost'] = 0;
         $powers[98]['smilies'] = [
-            'feast', 'bowleat', 'burger', 'burgerlook', 'candycorn', 'carrot', 'cherry'
+            'feast', 'bowleat', 'burger', 'burgerlook', 'candycorn', 'carrot', 'cherry',
             'chicken', 'chili', 'chipeat', 'coffeesplash', 'donut', 'eatspagetti',
             'eattakeout', 'eggcook', 'eggplant', 'fortunecookie', 'fries', 'icecream',
             'icecreameat', 'peanut', 'popcorn', 'pretzel', 'soupeat', 'spam', 'stirpan',
@@ -1309,7 +1309,8 @@ trait Powers
         $powers[202]['maxCost'] = 0;
         $powers[202]['smilies'] = [
             'vampyre', 'vbat', 'vbheart', 'vblood', 'vcoffin',
-            'vcross', 'vfangs', 'vglamour', 'vrip', 'vstake', 'vtongue'];
+            'vcross', 'vfangs', 'vglamour', 'vrip', 'vstake', 'vtongue'
+        ];
 
         $powers[203]['name']    = 'treefx';
         $powers[203]['minCost'] = 0;
@@ -1321,14 +1322,16 @@ trait Powers
         $powers[204]['maxCost'] = 0;
         $powers[204]['smilies'] = [
             'claus', 'clcool', 'cld', 'cleek', 'clgrin', 'clmad',
-            'clsad', 'clsmile', 'clsweat', 'clwink', 'clx'];
+            'clsad', 'clsmile', 'clsweat', 'clwink', 'clx'
+        ];
 
         $powers[205]['name']    = 'quest';
         $powers[205]['minCost'] = 0;
         $powers[205]['maxCost'] = 0;
         $powers[205]['smilies'] = [
             'quest', 'bearer', 'disappear', 'dwarf', 'goblin2',
-            'queenelf', 'sneak', 'thering', 'warrior', 'wizzard'];
+            'queenelf', 'sneak', 'thering', 'warrior', 'wizzard'
+        ];
 
         $powers[206]['name']    = 'lang';
         $powers[206]['minCost'] = 0;
@@ -1340,7 +1343,8 @@ trait Powers
         $powers[207]['maxCost'] = 0;
         $powers[207]['smilies'] = [
             'quest2', '06', 'agreement', 'arrow', 'burnt', 'dwarf2',
-            'dwarfz', 'elve2', 'goblin3', 'newton', 'pile'];
+            'dwarfz', 'elve2', 'goblin3', 'newton', 'pile'
+        ];
 
         $powers[208]['name']    = 'glitterfx';
         $powers[208]['minCost'] = 0;
@@ -1358,7 +1362,8 @@ trait Powers
         $powers[210]['smilies'] = [
             'kmouse', 'kmcheer', 'kmcry', 'kmeyerub', 'kmfit', 'kmfrustrate',
             'kmglare', 'kmgrouch', 'kmhide', 'kmhug', 'kmlaugh', 'kmshock',
-            'kmshuffle', 'kmsleepy', 'kmsmile', 'kmback'];
+            'kmshuffle', 'kmsleepy', 'kmsmile', 'kmback'
+        ];
 
         $powers[211]['name']    = 'eighties';
         $powers[211]['minCost'] = 0;
@@ -1366,7 +1371,8 @@ trait Powers
         $powers[211]['smilies'] = [
             'eighties', 'bighair', 'bigphone', 'boombox', 'cassette', 'dance80',
             'dj80', 'hoverboard', 'joystick', 'skate', 'slacker1', 'slacker2',
-            'poi', 'thermochrome', 'timemachine'];
+            'poi', 'thermochrome', 'timemachine'
+        ];
 
         $powers[212]['name']    = 'foe';
         $powers[212]['minCost'] = 0;
@@ -1378,21 +1384,24 @@ trait Powers
         $powers[213]['maxCost'] = 0;
         $powers[213]['smilies'] = [
             'zombie', 'zombie1', 'zombie2', 'zombie3', 'zombie4', 'survivor1',
-            'survivor2', 'survivor3', 'survivor4', 'bloodface', 'deadup', 'zombieback'];
+            'survivor2', 'survivor3', 'survivor4', 'bloodface', 'deadup', 'zombieback'
+        ];
 
         $powers[214]['name']    = 'makeup';
         $powers[214]['minCost'] = 0;
         $powers[214]['maxCost'] = 0;
         $powers[214]['smilies'] = [
             'makeup', 'blush', 'comb', 'eyeliner', 'lipgloss', 'lipstick1',
-            'lipstick2', 'makeupface', 'nailpolish', 'perfume', 'purse'];
+            'lipstick2', 'makeupface', 'nailpolish', 'perfume', 'purse'
+        ];
 
         $powers[215]['name']    = 'kheart';
         $powers[215]['minCost'] = 0;
         $powers[215]['maxCost'] = 0;
         $powers[215]['smilies'] = [
             'kheart', 'kharrow', 'khbub', 'khcupid', 'kheartb', 'kheyes',
-            'khhug', 'khhurt', 'khily', 'khkiss', 'khlips', 'khmadly', 'khring', 'khroses'];
+            'khhug', 'khhurt', 'khily', 'khkiss', 'khlips', 'khmadly', 'khring', 'khroses'
+        ];
 
         $powers[216]['name']    = 'kmonkey';
         $powers[216]['minCost'] = 0;
@@ -1400,7 +1409,8 @@ trait Powers
         $powers[216]['smilies'] = [
             'kmonkey', 'kmoback', 'kmoblow', 'kmod', 'kmodance', 'kmofrus',
             'kmonehneh', 'kmorage', 'kmoredface', 'kmostare', 'kmoteeth',
-            'kmoun', 'kmowhistle', 'kmowonder'];
+            'kmoun', 'kmowhistle', 'kmowonder'
+        ];
 
         $powers[217]['name']    = 'nuclear';
         $powers[217]['minCost'] = 0;
@@ -1412,7 +1422,8 @@ trait Powers
         $powers[218]['maxCost'] = 0;
         $powers[218]['smilies'] = [
             'stylist', 'barber', 'mirror2', 'shave', 'shair1', 'shair2',
-            'shair3', 'shair4', 'shair5', 'shair6', 'shair7'];
+            'shair3', 'shair4', 'shair5', 'shair6', 'shair7'
+        ];
 
         $powers[219]['name']    = 'spring';
         $powers[219]['minCost'] = 0;
@@ -1420,7 +1431,8 @@ trait Powers
         $powers[219]['smilies'] = [
             'spring', 'bees', 'birdy', 'butterflys', 'flohat', 'flohide',
             'flowerbed', 'flowers', 'floshow', 'flowerbed', 'inflower',
-            'rainbow2', 'springhat', 'watercan', 'watercan2'];
+            'rainbow2', 'springhat', 'watercan', 'watercan2'
+        ];
 
         $powers[220]['name']    = 'vote';
         $powers[220]['minCost'] = 0;
@@ -1440,7 +1452,8 @@ trait Powers
         $powers[222]['maxCost'] = 0;
         $powers[222]['smilies'] = [
             'eggs', 'chickwalk', 'eggnod', 'eggbroke', 'stripegg',
-            'eggwink', 'eggsleep', 'bunnyears', 'eggtongue', 'basket2'];
+            'eggwink', 'eggsleep', 'bunnyears', 'eggtongue', 'basket2'
+        ];
 
         $powers[224]['name']    = 'hearts';
         $powers[224]['minCost'] = 0;
@@ -1452,7 +1465,8 @@ trait Powers
         $powers[225]['maxCost'] = 0;
         $powers[225]['smilies'] = [
             'kfox', 'kfoxbino', 'kfoxcry', 'kfoxd', 'kfoxggl', 'kfoxinl',
-            'kfoxpsy', 'kfoxshades', 'kfoxsleep', 'kfoxtant', 'kfoxtwag', 'kfoxwhat'];
+            'kfoxpsy', 'kfoxshades', 'kfoxsleep', 'kfoxtant', 'kfoxtwag', 'kfoxwhat'
+        ];
 
         $powers[226]['name']    = 'kcow';
         $powers[226]['minCost'] = 0;
@@ -1460,14 +1474,16 @@ trait Powers
         $powers[226]['smilies'] = [
             'kcow', 'kwangry', 'kwbell', 'kwcry', 'kwd', 'kwfrus',
             'kwlaugh', 'kwlove', 'kwmad', 'kwnod', 'kwscratch',
-            'kwsleepy', 'kwswt', 'kwwhat', 'kwyay'];
+            'kwsleepy', 'kwswt', 'kwwhat', 'kwyay'
+        ];
 
         $powers[227]['name']    = 'sketch';
         $powers[227]['minCost'] = 0;
         $powers[227]['maxCost'] = 0;
         $powers[227]['smilies'] = [
             'sketch', 'skannoyed', 'skd', 'skdead', 'skfrus', 'skgrr',
-            'skoo', 'sksad', 'sksix', 'sksmile', 'skwink', 'skback'];
+            'skoo', 'sksad', 'sksix', 'sksmile', 'skwink', 'skback'
+        ];
 
         $powers[228]['name']    = 'led';
         $powers[228]['minCost'] = 0;
@@ -1479,14 +1495,16 @@ trait Powers
         $powers[229]['maxCost'] = 0;
         $powers[229]['smilies'] = [
             'seaside', 'beachdrink', 'beachvolley', 'coconut', 'crab2',
-            'dolphin2', 'flipflops', 'sandcastle', 'seatree', 'shell'];
+            'dolphin2', 'flipflops', 'sandcastle', 'seatree', 'shell'
+        ];
 
         $powers[230]['name']    = 'hair2f';
         $powers[230]['minCost'] = 0;
         $powers[230]['maxCost'] = 0;
         $powers[230]['smilies'] = [
             'hair2f', 'hair2f1', 'hair2f2', 'hair2f3', 'hair2f4',
-            'hair2f5', 'hair2f6', 'hair2f7', 'hair2f8', 'hair2f9', 'hair2f10'];
+            'hair2f5', 'hair2f6', 'hair2f7', 'hair2f8', 'hair2f9', 'hair2f10'
+        ];
 
         $powers[231]['name']    = 'statusglow';
         $powers[231]['minCost'] = 0;
