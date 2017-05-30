@@ -39,7 +39,7 @@ class AutotempController extends Controller
 
         $validator = Validator::make($data, $rules);
 
-        $validator->after(function($validator) use ($data) {
+        $validator->after(function ($validator) use ($data) {
 
             $regname = xat::isXatIDExist($data['xatid']);
             if (!xat::isValidXatID($data['xatid'])) {
@@ -58,7 +58,6 @@ class AutotempController extends Controller
                 $validator->errors()->add('regname', 'Regname and xatid do not match!');
                 $validator->errors()->add('xatid', 'Regname and xatid do not match!');
             }
-
         });
 
         if ($validator->fails()) {
@@ -102,7 +101,7 @@ class AutotempController extends Controller
 
         $validator = Validator::make($data, $rules);
 
-        $validator->after(function($validator) use ($data) {
+        $validator->after(function ($validator) use ($data) {
 
             $regname = xat::isXatIDExist($data['xatid']);
             if (!xat::isValidXatID($data['xatid'])) {
@@ -121,7 +120,6 @@ class AutotempController extends Controller
                 $validator->errors()->add('regname', 'Regname and xatid do not match!');
                 $validator->errors()->add('xatid', 'Regname and xatid do not match!');
             }
-
         });
 
         if ($validator->fails()) {

@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'password' => 'required|min:6|confirmed'
         ]);
 
-        $validator->after(function($validator) use ($data) {
+        $validator->after(function ($validator) use ($data) {
 
             $regname = xat::isXatIDExist($data['xatid']);
             if (!xat::isValidXatID($data['xatid'])) {
@@ -75,7 +75,6 @@ class RegisterController extends Controller
                 $validator->errors()->add('regname', 'Regname and xatid do not match!');
                 $validator->errors()->add('xatid', 'Regname and xatid do not match!');
             }
-
         });
 
         return $validator;

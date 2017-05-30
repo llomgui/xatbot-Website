@@ -21,8 +21,7 @@ trait Powers
             return $ret;
         }
 
-        if ((filemtime('/opt/shared/powers.txt') + 600) < time())
-        {
+        if ((filemtime('/opt/shared/powers.txt') + 600) < time()) {
             $ret = self::UpdatePowers();
             file_put_contents('/opt/shared/powers.txt', serialize($ret));
             return $ret;
@@ -1220,7 +1219,7 @@ trait Powers
         $keys = array_keys($powers); // cant do end(array_keys($powers)) causes error
         $last = end($keys);
         
-        if($id != $last) {
+        if ($id != $last) {
             $lastName = array_search($id, $page[6][1]) == false ? $id : array_search($id, $page[6][1]);
             $powers[$id]['name']       = $lastName;
             $powers[$id]['minCost']    = 0;
@@ -1232,7 +1231,7 @@ trait Powers
             $powers[$id]['isGroup']    = false;
             $powers[$id]['isGame']     = false;
             $powers[$id]['isNew']      = false;
-            $powers[$id]['smilies']    = array_merge([$lastName],  array_keys($page[4][1], $id));
+            $powers[$id]['smilies']    = array_merge([$lastName], array_keys($page[4][1], $id));
         }
 
         self::$powers = $powers + self::$powers;
@@ -1285,7 +1284,7 @@ trait Powers
             $header = explode(',', $lines[0]);
 
             for ($i = 1; $i < sizeof($lines); $i++) {
-                $power      = explode(',',  $lines[$i]);
+                $power      = explode(',', $lines[$i]);
                 $id         = $power[0];
 
                 if (!isset(self::$powers[$id])) {
