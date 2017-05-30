@@ -12,7 +12,7 @@ install:
   - composer install --prefer-dist --no-interaction
 
 before_script:
-  - psql -c 'create database OceanProject;' -U postgres
+  - psql -c 'create database ocean_project;' -U postgres
   - phpenv rehash
   - npm install
 
