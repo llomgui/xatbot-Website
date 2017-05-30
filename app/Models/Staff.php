@@ -21,7 +21,7 @@ class Staff extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function staff_minrank()
+    public function staffMinrank()
     {
         return $this->hasOne('OceanProject\Models\Minrank', 'id', 'minrank_id');
     }
@@ -29,7 +29,7 @@ class Staff extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function staff_bot()
+    public function staffBot()
     {
         return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
     }

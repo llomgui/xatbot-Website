@@ -97,7 +97,7 @@ class StaffController extends Controller
 
         $staff = Staff::find($data['staff_id']);
 
-        if ($staff->staff_bot->id != Session('onBotEdit')) {
+        if ($staff->staffBot->id != Session('onBotEdit')) {
             return redirect()
                 ->back()
                 ->withError('You are trying to cheat!');
@@ -161,7 +161,7 @@ class StaffController extends Controller
 
         $staff = Staff::find($data['staff_id']);
 
-        if ($staff->staff_bot->id != Session('onBotEdit')) {
+        if ($staff->staffBot->id != Session('onBotEdit')) {
             return response()->json(
                 [
                 'status' => 'error',

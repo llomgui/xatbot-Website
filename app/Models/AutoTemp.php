@@ -21,7 +21,7 @@ class AutoTemp extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function autotemp_bot()
+    public function autotempBot()
     {
         return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
     }

@@ -61,7 +61,7 @@ class BotController extends Controller
             return response()->json(
                 [
                 'status' => 'success',
-                'message' => 'OceanID ' . $data['botid'] . ' ' . $data['action'] . 
+                'message' => 'OceanID ' . $data['botid'] . ' ' . $data['action'] .
                 (($data['action'] == 'stop') ? 'ped' : 'ed') . ' !']
             );
         }

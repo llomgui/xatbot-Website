@@ -21,7 +21,7 @@ class Response extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function response_bot()
+    public function responseBot()
     {
         return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
     }

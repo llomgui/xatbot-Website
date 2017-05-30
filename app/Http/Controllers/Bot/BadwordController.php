@@ -85,7 +85,7 @@ class BadwordController extends Controller
 
         $badword = Badword::find($data['badword_id']);
 
-        if ($badword->badword_bot->id != Session('onBotEdit')) {
+        if ($badword->badwordBot->id != Session('onBotEdit')) {
             return redirect()
                 ->back()
                 ->withError('You are trying to cheat!');
@@ -123,7 +123,7 @@ class BadwordController extends Controller
 
         $badword = Badword::find($data['badword_id']);
 
-        if ($badword->badword_bot->id != Session('onBotEdit')) {
+        if ($badword->badwordBot->id != Session('onBotEdit')) {
             return response()->json(
                 [
                 'status'  => 'error',

@@ -89,7 +89,7 @@ class AutotempController extends Controller
 
         $autotemp = AutoTemp::find($data['autotemp_id']);
 
-        if ($autotemp->autotemp_bot->id != Session('onBotEdit')) {
+        if ($autotemp->autotempBot->id != Session('onBotEdit')) {
             return redirect()
                 ->back()
                 ->withError('You are trying to cheat!');
@@ -150,7 +150,7 @@ class AutotempController extends Controller
 
         $autotemp = AutoTemp::find($data['autotemp_id']);
 
-        if ($autotemp->autotemp_bot->id != Session('onBotEdit')) {
+        if ($autotemp->autotempBot->id != Session('onBotEdit')) {
             return response()->json(
                 [
                 'status' => 'error',

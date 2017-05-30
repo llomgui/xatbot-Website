@@ -26,7 +26,13 @@ class BotlangController extends Controller
                     ->leftJoin('botlang_sentences', 'botlang.botlang_sentences_id', '=', 'botlang_sentences.id')
                     ->where('botlang.bot_id', Session('onBotEdit'))
                     ->orWhere('botlang.bot_id', '=', null)
-                    ->select('botlang_sentences.name', 'botlang.value', 'botlang_sentences.default_value', 'botlang.id', 'botlang_sentences.id as botlang_sentences_id')
+                    ->select(
+                        'botlang_sentences.name',
+                        'botlang.value',
+                        'botlang_sentences.default_value',
+                        'botlang.id',
+                        'botlang_sentences.id as botlang_sentences_id'
+                    )
                     ->orderBy('botlang_sentences.id', 'ASC')
                     ->get();
 
@@ -56,9 +62,9 @@ class BotlangController extends Controller
             }
 
             $bot = Bot::find(Session('onBotEdit'));
-            $botlang_sentence = BotlangSentences::find($data['botlang_sentences_id']);
+            $botlangSentence = BotlangSentences::find($data['botlang_sentences_id']);
 
-            $bot->botlang()->save($botlang_sentence, ['value' => $data['custom_value']]);
+            $bot->botlang()->save($botlangSentence, ['value' => $data['custom_value']]);
 
             return response()->json(
                 [

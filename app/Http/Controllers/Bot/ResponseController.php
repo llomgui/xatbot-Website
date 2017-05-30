@@ -64,7 +64,7 @@ class ResponseController extends Controller
 
         $response = Response::find($data['response_id']);
 
-        if ($response->response_bot->id != Session('onBotEdit')) {
+        if ($response->responseBot->id != Session('onBotEdit')) {
             return redirect()
                 ->back()
                 ->withError('You are trying to cheat!');
@@ -100,7 +100,7 @@ class ResponseController extends Controller
 
         $response = Response::find($data['response_id']);
 
-        if ($response->response_bot->id != Session('onBotEdit')) {
+        if ($response->responseBot->id != Session('onBotEdit')) {
             return response()->json(
                 [
                 'status'  => 'error',

@@ -21,7 +21,7 @@ class Alias extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function alias_bot()
+    public function aliasBot()
     {
         return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
     }

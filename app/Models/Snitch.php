@@ -21,7 +21,7 @@ class Snitch extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function snitch_bot()
+    public function snitchBot()
     {
         return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
     }

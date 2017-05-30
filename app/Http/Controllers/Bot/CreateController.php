@@ -96,10 +96,10 @@ class CreateController extends Controller
             $bot->commands()->save($command, ['minrank_id' => $minrank->id]);
         }
 
-        $botlang_sentences = BotlangSentences::all();
+        $botlangSentences = BotlangSentences::all();
 
-        foreach ($botlang_sentences as $botlang_sentence) {
-            $bot->botlang()->save($botlang_sentence);
+        foreach ($botlangSentences as $botlangSentence) {
+            $bot->botlang()->save($botlangSentence);
         }
 
         foreach ($user->bots as $bot) {

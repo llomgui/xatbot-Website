@@ -41,15 +41,15 @@ class TicketController extends Controller
                 ->back()
                 ->withError('You cannot access to this ticket!');
         } else {
-            $ticket_messages = $ticket->ticketMessages()->orderBy('updated_at', 'asc')->get();
+            $ticketMessages = $ticket->ticketMessages()->orderBy('updated_at', 'asc')->get();
 
-            foreach ($ticket_messages as $key => $value) {
-                $ticket_messages[$key]['role'] = User::find($value['user_id'])->getRoles()->first()->name;
+            foreach ($ticketMessages as $key => $value) {
+                $ticketMessages[$key]['role'] = User::find($value['user_id'])->getRoles()->first()->name;
             }
 
             return view('support.ticket')
                 ->with('ticket', $ticket)
-                ->with('ticket_messages', $ticket_messages);
+                ->with('ticketMessages', $ticketMessages);
         }
     }
 

@@ -65,7 +65,7 @@ class AliasController extends Controller
 
         $alias = Alias::find($data['alias_id']);
 
-        if ($alias->alias_bot->id != Session('onBotEdit')) {
+        if ($alias->aliasBot->id != Session('onBotEdit')) {
             return redirect()
                 ->back()
                 ->withError('You are trying to cheat!');
@@ -101,7 +101,7 @@ class AliasController extends Controller
 
         $alias = Alias::find($data['alias_id']);
 
-        if ($alias->alias_bot->id != Session('onBotEdit')) {
+        if ($alias->aliasBot->id != Session('onBotEdit')) {
             return response()->json(
                 [
                 'status' => 'error',

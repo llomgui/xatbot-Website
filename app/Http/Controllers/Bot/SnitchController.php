@@ -88,7 +88,7 @@ class SnitchController extends Controller
 
         $snitch = Snitch::find($data['snitch_id']);
 
-        if ($snitch->snitch_bot->id != Session('onBotEdit')) {
+        if ($snitch->snitchBot->id != Session('onBotEdit')) {
             return redirect()
                 ->back()
                 ->withError('You are trying to cheat!');
@@ -147,7 +147,7 @@ class SnitchController extends Controller
 
         $snitch = Snitch::find($data['snitch_id']);
 
-        if ($snitch->snitch_bot->id != Session('onBotEdit')) {
+        if ($snitch->snitchBot->id != Session('onBotEdit')) {
             return response()->json(
                 [
                 'status' => 'error',
