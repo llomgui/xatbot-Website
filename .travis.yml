@@ -8,11 +8,11 @@ services:
   - postgresql
 
 install:
+  - psql -c 'create database ocean_project;' -U postgres
   - composer self-update
   - composer install --prefer-dist --no-interaction
 
 before_script:
-  - psql -c 'create database ocean_project;' -U postgres
   - phpenv rehash
   - npm install
 
