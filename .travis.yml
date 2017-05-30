@@ -1,30 +1,22 @@
-os:
-  - linux
-
 language: php
 
 php:
   - 7.0
   - 7.1
 
-addons:
-  postgresql: "9.6"
+services:
+  - postgresql
 
 before_script:
   - composer self-update
-  - composer install --no-interaction
-  - cp .env.travis .env
+  - composer install --prefer-dist --no-interaction
   - psql -c 'create database OceanProject;' -U postgres
-  - pear install pear/PHP_CodeSniffer
   - phpenv rehash
-  - nvm install 7.7.1
-  - npm install npm@latest -g
-  - npm install -g jshint
   - npm install
 
 script:
   - php artisan migrate --seed
   - vendor/bin/phpunit --coverage-text
-  - phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
+  - vendor/bin/phpcs -p --extensions=php --standard=PSR2 --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
   - npm run production
   - jshint resources/assets/js/*

@@ -16,6 +16,7 @@
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "krlove/eloquent-model-generator": "^1.2",
+        "squizlabs/php_codesniffer": "^3.0",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.7"
     },
