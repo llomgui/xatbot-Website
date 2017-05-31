@@ -57,14 +57,14 @@
                                 <td><a href="https://xat.com/{{ $bot->chatname }}">xat.com/{{ $bot->chatname }}</a></td>
                                 <td>{{ $bot->server->name }}</td>
                                 <td>
-                                @if ($bot->bot_status->id == 1)
-                                    <span class="label label-success">{{ $bot->bot_status->name }}</span>
-                                @elseif ($bot->bot_status->id == 2)
-                                    <span class="label label-danger">{{ $bot->bot_status->name }}</span>
-                                @elseif ($bot->bot_status->id == 3)
-                                    <span class="label label-warning">{{ $bot->bot_status->name }}</span>
-                                @elseif ($bot->bot_status->id == 4)
-                                    <span class="label label-inverse">{{ $bot->bot_status->name }}</span>
+                                @if ($bot->botStatus->id == 1)
+                                    <span class="label label-success">{{ $bot->botStatus->name }}</span>
+                                @elseif ($bot->botStatus->id == 2)
+                                    <span class="label label-danger">{{ $bot->botStatus->name }}</span>
+                                @elseif ($bot->botStatus->id == 3)
+                                    <span class="label label-warning">{{ $bot->botStatus->name }}</span>
+                                @elseif ($bot->botStatus->id == 4)
+                                    <span class="label label-inverse">{{ $bot->botStatus->name }}</span>
                                 @endif
                                 </td>
                                 <td>

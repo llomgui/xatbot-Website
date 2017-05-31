@@ -15,21 +15,21 @@
             </h4>
             <hr>
         </div>
-        @foreach ($ticket_messages as $ticket_message)
+        @foreach ($ticketMessages as $ticketMessage)
         <div class="card-box">
             <div class="media">
                 <a href="#" class="pull-left">
                     <img alt="" src="" class="media-object thumb-sm img-circle">
                 </a>
                 <div class="media-body">
-                    <span class="media-meta pull-right">{{ $ticket_message->updated_at->format('d/M/Y H:i') }}</span>
-                    <h4 class="text-primary m-0">{{ $ticket_message->user->regname . ' (' . $ticket_message->user->xatid . ')' }}</h4>
-                    <small class="text-muted">{{ $ticket_message->role }}</small>
+                    <span class="media-meta pull-right">{{ $ticketMessage->updated_at->format('d/M/Y H:i') }}</span>
+                    <h4 class="text-primary m-0">{{ $ticketMessage->user->regname . ' (' . $ticketMessage->user->xatid . ')' }}</h4>
+                    <small class="text-muted">{{ $ticketMessage->role }}</small>
                 </div>
             </div>
             <hr>
 
-            {!! $ticket_message->message !!}
+            {!! $ticketMessage->message !!}
 
         </div>
         @endforeach

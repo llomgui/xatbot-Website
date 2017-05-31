@@ -25,9 +25,9 @@
                         <tr>
                             <td>{{ $staff->regname }}</td>
                             <td>{{ $staff->xatid }}</td>
-                            <td>{{ $staff->staff_minrank->name }}</td>
+                            <td>{{ $staff->staffMinrank->name }}</td>
                             <td>
-                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 edit_button" data-regname="{{ $staff->regname }}" data-xatid="{{ $staff->xatid }}" data-staff_id="{{ $staff->id }}" data-minrank="{{ $staff->staff_minrank->id }}" data-target="#edit-staff-modal" data-toggle="modal"> <i class="fa fa-wrench"></i> </button>
+                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 edit_button" data-regname="{{ $staff->regname }}" data-xatid="{{ $staff->xatid }}" data-staff_id="{{ $staff->id }}" data-minrank="{{ $staff->staffMinrank->id }}" data-target="#edit-staff-modal" data-toggle="modal"> <i class="fa fa-wrench"></i> </button>
                                 <button class="btn btn-icon btn-xs waves-effect waves-light btn-danger m-b-5 delete_button" data-staff_id="{{ $staff->id }}"> <i class="fa fa-remove"></i> </button>
                             </td>
                         <tr>
