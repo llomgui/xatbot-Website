@@ -24,6 +24,9 @@ matrix:
 services:
   - postgresql
 
+addons:
+  postgresql: "9.6"
+
 install:
   - psql -c 'create database ocean_project;' -U postgres
   - composer self-update
