@@ -81,6 +81,8 @@ class CreateController extends Controller
             $bot->homepage = $data['homepage'];
         }
 
+        $bot->powersdisabled = json_encode([93]);
+
         $bot->creator_user_id = $user->id;
 
         $bot->save();
