@@ -89,7 +89,12 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'guestme', 'description' => '', 'default_level' => 1],
             ['name' => 'memberme', 'description' => '', 'default_level' => 2],
             ['name' => 'modme', 'description' => '', 'default_level' => 3],
-            ['name' => 'ownerme', 'description' => '', 'default_level' => 4]];
+            ['name' => 'ownerme', 'description' => '', 'default_level' => 4],
+            ['name' => 'hasmost', 'description' => '', 'default_level' => 1],
+            ['name' => 'userinfo', 'description' => '', 'default_level' => 1],
+            ['name' => 'lastseen', 'description' => '', 'default_level' => 1],
+            ['name' => 'power', 'description' => '', 'default_level' => 4]
+        ];
 
         foreach ($commands as $command) {
             Command::create($command);
