@@ -1,4 +1,6 @@
 language: php
+sudo: required
+dist: trusty
 
 php:
   - 7.0
@@ -10,6 +12,8 @@ env:
 
 addons:
   postgresql: "9.6"
+services:
+  - postgresql
 
 matrix:
   fast_finish: true
@@ -25,11 +29,12 @@ matrix:
       env: COVERAGE=1 DEFAULT=0
 
 install:
-  - psql -c 'create database ocean_project;' -U postgres
   - composer self-update
   - composer install --prefer-dist --no-interaction
 
 before_script:
+  - psql --version
+  - psql -c 'create database ocean_project;' -U postgres
   - phpenv rehash
   - php artisan migrate --seed
 
