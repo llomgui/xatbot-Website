@@ -8,6 +8,9 @@ env:
   global:
     - DEFAULT=1
 
+addons:
+  postgresql: "9.6"
+
 matrix:
   fast_finish: true
 
@@ -21,14 +24,7 @@ matrix:
     - php: 7.0
       env: COVERAGE=1 DEFAULT=0
 
-addons:
-  postgresql: "9.5"
-
-services:
-  - postgresql
-
 install:
-  - ps auxw | grep post
   - psql -c 'create database ocean_project;' -U postgres
   - composer self-update
   - composer install --prefer-dist --no-interaction
