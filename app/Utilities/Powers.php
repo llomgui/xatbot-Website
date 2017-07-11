@@ -10,7 +10,8 @@ trait Powers
     {
         $file = trim(
             file_get_contents(
-                '/opt/shared/powers.txt', false,
+                '/opt/shared/powers.txt',
+                false,
                 stream_context_create(['http' => ['timeout' => 2]])
             )
         );

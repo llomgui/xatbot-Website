@@ -16,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Validator::extend(
-            'iunique', function ($attribute, $value, $parameters, $validator) {
+            'iunique',
+            function ($attribute, $value, $parameters, $validator) {
                 $query = DB::table($parameters[0]);
                 $column = $query->getGrammar()->wrap($parameters[1]);
                 return ! $query->whereRaw("lower({$column}) = lower(?)", [$value])->count();
