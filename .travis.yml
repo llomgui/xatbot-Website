@@ -21,11 +21,11 @@ matrix:
     - php: 7.0
       env: COVERAGE=1 DEFAULT=0
 
-services:
-  - postgresql
-
 addons:
   postgresql: "9.6"
+
+services:
+  - postgresql
 
 install:
   - psql -c 'create database ocean_project;' -U postgres
