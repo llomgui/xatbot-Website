@@ -14,6 +14,13 @@
 * [ ] Ocean Staff (With ranks)
 * [ ] Servers status
 
+### Bot lists
+* [ ] Autoban - new table in database
+* [ ] Custom commands - new table in database
+
+### Bot Pages
+* [ ] Moderation (with all params on/off)
+
 ### Staff panel
 * [ ] Add userslist, search user via regname/xatid/username/email, view user and its bots owned, change his roles
 * [ ] Add botslist, search bot via chat/chatid, be able to edit a bot to help users
