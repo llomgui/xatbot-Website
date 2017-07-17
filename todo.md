@@ -7,8 +7,6 @@
 * [ ] Landing page
 * [ ] Chat logs
 * [ ] Chat statitics (Users online, Messages sent last 24h, Commands sent last 24h, Actions last 24h)
-* [ ] Hangman words
-* [ ] Typerace sentences
 * [ ] Commands (option GET chat/chatid to get minranks for a given chat)
 * [ ] Get Premium (Videos in different languages)
 * [ ] Ocean Staff (With ranks)
@@ -20,12 +18,14 @@
 * [ ] Custom commands - new table in database
 * [ ] Links filter - new table in database
 
-### Bot Pages
+### Bot pages
+* [ ] Hangman words
+* [ ] Typerace sentences
 * [ ] Moderation (on/off) - add to general settings
 
 ### Staff panel
 * [ ] Add userslist, search user via regname/xatid/username/email, view user and its bots owned, change his roles (Only admin)
-* [ ] Add botslist, search bot via chat/chatid, be able to edit a bot to help users
+* [ ] Add botslist, search bot via chat/chatid, be able to edit a bot to help users, change owner
 * [ ] Add commandslist, be able to add/edit a command (Only admin)
 * [ ] Add botmessages, be able to add/edit a message (Only admin)
 * [ ] Add serverslist, be able to add/edit a server (Only admin)
@@ -42,7 +42,6 @@ OR doing it manually:
 
 ### Userinfo
 * [ ] Import old table to the new database
-* [ ] Create the page
 
 ### Migration old to new website
 Users will have to register again to be sure their information are 100% clean.
