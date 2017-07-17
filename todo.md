@@ -13,18 +13,21 @@
 * [ ] Get Premium (Videos in different languages)
 * [ ] Ocean Staff (With ranks)
 * [ ] Servers status
+* [ ] Userinfo
 
 ### Bot lists
 * [ ] Autoban - new table in database
 * [ ] Custom commands - new table in database
+* [ ] Links filter - new table in database
 
 ### Bot Pages
-* [ ] Moderation (with all params on/off)
+* [ ] Moderation (on/off) - add to general settings
 
 ### Staff panel
-* [ ] Add userslist, search user via regname/xatid/username/email, view user and its bots owned, change his roles
+* [ ] Add userslist, search user via regname/xatid/username/email, view user and its bots owned, change his roles (Only admin)
 * [ ] Add botslist, search bot via chat/chatid, be able to edit a bot to help users
 * [ ] Add commandslist, be able to add/edit a command (Only admin)
+* [ ] Add botmessages, be able to add/edit a message (Only admin)
 * [ ] Add serverslist, be able to add/edit a server (Only admin)
 * [ ] Add ticketslist, be able to reply/close tickets
 
