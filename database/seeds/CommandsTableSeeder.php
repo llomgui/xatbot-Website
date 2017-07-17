@@ -93,7 +93,14 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'hasmost', 'description' => '', 'default_level' => 1],
             ['name' => 'userinfo', 'description' => '', 'default_level' => 1],
             ['name' => 'lastseen', 'description' => '', 'default_level' => 1],
-            ['name' => 'power', 'description' => '', 'default_level' => 4]
+            ['name' => 'power', 'description' => '', 'default_level' => 4],
+            ['name' => 'weather', 'description' => '', 'default_level' => 1],
+            ['name' => 'pc', 'description' => '', 'default_level' => 1],
+            ['name' => 'pm', 'description' => '', 'default_level' => 1],
+            ['name' => 'scroll', 'description' => '', 'default_level' => 4],
+            ['name' => 'xatwiki', 'description' => '', 'default_level' => 1],
+            ['name' => 'leastactive', 'description' => '', 'default_level' => 1],
+            ['name' => 'twitter', 'description' => '', 'default_level' => 1]
         ];
 
         foreach ($commands as $command) {
