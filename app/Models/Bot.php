@@ -31,7 +31,11 @@ class Bot extends Model
         'maxsmilies',
         'automessage',
         'automessagetime',
-        'autorestart'
+        'autorestart',
+        'gameban_unban',
+        'powersdisabled',
+        'togglemoderation',
+        'premiumfreeze'
     ];
 
     /**
@@ -57,8 +61,7 @@ class Bot extends Model
     {
         return $this->belongsToMany(
             'OceanProject\Models\Command',
-            'bot_command_minrank',
-            'bot_id',
+            'bot_command_minrank', 'bot_id',
             'command_id'
         )->withPivot('minrank_id')->withTimestamps();
     }
