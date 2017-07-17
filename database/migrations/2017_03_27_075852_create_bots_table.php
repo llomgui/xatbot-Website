@@ -42,6 +42,8 @@ class CreateBotsTable extends Migration
             $table->boolean('gameban_unban')->default('1');
             $table->integer('creator_user_id')->index();
             $table->jsonb('powersdisabled')->nullable();
+            $table->boolean('tooglemoderation')->default('1');
+            $table->bigInteger('premiumfreeze')->default(1);
             $table->timestamps();
             $table->foreign('bot_status_id')->references('id')->on('bot_statuses');
             $table->foreign('creator_user_id')->references('id')->on('users');
