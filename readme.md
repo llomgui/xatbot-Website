@@ -8,9 +8,10 @@
 
 ## How to install it?
 
-- npm install
 - composer install
+- npm install
 - npm run production
+- mv .env.example .env
 - php artisan key:generate
 
 Then copy paste this key into your .env
@@ -19,8 +20,9 @@ Don't forget to create a database using PostgreSQL.
 
 Copy all those information to your .env
 
-Last command:
+Last commands:
 - php artisan migrate
+- php artisan db:seed
 
 ## I want to contribute, how do I?
 
