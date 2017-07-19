@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject;
+namespace OceanProject\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property Bot $bot
  */
-class LinksFilter extends Model
+class LinkFilter extends Model
 {
     /**
      * The table associated with the model.
@@ -27,10 +27,10 @@ class LinksFilter extends Model
     protected $fillable = ['bot_id', 'link', 'created_at', 'updated_at'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function bot()
+    public function linkFilterBot()
     {
-        return $this->belongsTo('OceanProject\Bot');
+        return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
     }
 }

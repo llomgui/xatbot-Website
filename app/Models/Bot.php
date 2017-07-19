@@ -156,4 +156,12 @@ class Bot extends Model
     {
         return $this->hasMany('OceanProject\Models\Badword');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function linksfilter()
+    {
+        return $this->hasMany('OceanProject\Models\LinkFilter');
+    }
 }
