@@ -164,4 +164,12 @@ class Bot extends Model
     {
         return $this->hasMany('OceanProject\Models\LinkFilter');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function autoban()
+    {
+        return $this->hasMany('OceanProject\Models\AutoBan');
+    }
 }

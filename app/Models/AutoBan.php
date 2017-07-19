@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject;
+namespace OceanProject\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,10 +30,10 @@ class AutoBan extends Model
     protected $table = 'autobans';
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function bot()
+    public function autobanBot()
     {
-        return $this->belongsTo('OceanProject\Bot');
+        return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
     }
 }
