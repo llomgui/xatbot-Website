@@ -56,6 +56,11 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('editresponse', 'ResponseController@editResponse')->name('bot.editresponse');
         Route::post('deleteresponse', 'ResponseController@deleteResponse')->name('bot.deleteresponse');
 
+        Route::get('link', 'LinkFilterController@showLinkForm')->name('bot.link');
+        Route::post('createlink', 'LinkFilterController@createLink')->name('bot.createlink');
+        Route::post('editlink', 'LinkFilterController@editLink')->name('bot.editlink');
+        Route::post('deletelink', 'LinkFilterController@deleteLink')->name('bot.deletelink');
+
         Route::get('badword', 'BadwordController@showBadwordForm')->name('bot.badword');
         Route::post('createbadword', 'BadwordController@createBadword')->name('bot.createbadword');
         Route::post('editbadword', 'BadwordController@editBadword')->name('bot.editbadword');
@@ -83,6 +88,26 @@ Route::group(['prefix' => 'panel'], function () {
 
     });
 
+    Route::group(['prefix' => 'staff', 'middleware' =>'auth', 'namespace' => 'Staff'], function () {
+
+        Route::get('userslist/{field?}/{search?}', 'UserController@showUsersList')->name('staff.userslist');
+        Route::post('edituser', 'UserController@editUser')->name('staff.edituser');
+
+        Route::get('botslist/{chat?}', 'BotController@showBotsList')->name('staff.botslist');
+        Route::post('editbot', 'BotController@editBot')->name('staff.editbot');
+
+        Route::get('commandslist', 'CommandController@showCommandsList')->name('staff.commandslist');
+        Route::post('editcommand', 'CommandController@editCommand')->name('staff.editcommand');
+
+        Route::get('serverslist', 'ServerController@showServersList')->name('staff.serverslist');
+        Route::post('editserver', 'ServerController@editServer')->name('staff.editserver');
+
+        Route::get('ticketslist', 'TicketController@showTicketsList')->name('staff.ticketslist');
+        Route::post('replyticket', 'TicketController@reply')->name('staff.replyticket');
+        Route::post('closeticket', 'TicketController@close')->name('staff.closeticket');
+
+    });
+
     Route::group(['prefix' => 'user', 'namespace' => 'Auth'], function () {
 
         Route::get('login', 'LoginController@showLoginForm')->name('login');
@@ -93,7 +118,7 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');
         Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
-        Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');;
+        Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
         Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');;
 
         Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
