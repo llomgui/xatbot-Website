@@ -16,7 +16,7 @@
 ### Bot lists
 * [ ] Autoban - new table in database
 * [ ] Custom commands - new table in database
-* [ ] Links filter - new table in database
+* [x] Links filter - new table in database
 
 ### Bot pages
 * [ ] Hangman words
