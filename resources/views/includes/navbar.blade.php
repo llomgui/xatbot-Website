@@ -15,6 +15,7 @@
                                 <li><a href="{{ route('bot.staff') }}">Staff</a></li>
                                 <li><a href="{{ route('bot.autotemp') }}">AutoTemp</a></li>
                                 <li><a href="{{ route('bot.snitch') }}">Snitch</a></li>
+                                <li><a href="{{ route('bot.autoban') }}">AutoBan</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">
@@ -22,7 +23,7 @@
                             <ul class="submenu">
                                 <li><a href="{{ route('bot.response') }}">Responses</a></li>
                                 <li><a href="{{ route('bot.badword') }}">Bad Words</a></li>
-                                <li><a href="#">Link Filter</a></li>
+                                <li><a href="{{ route('bot.link') }}">Link Filter</a></li>
                                 <li><a href="{{ route('bot.botlang') }}">Bot Messages</a></li>
                                 <li><a href="#">Hangman Words</a></li>
                             </ul>
@@ -32,6 +33,7 @@
                             <ul class="submenu">
                                 <li><a href="{{ route('bot.minrank') }}">Minranks</a></li>
                                 <li><a href="{{ route('bot.alias') }}">Aliases</a></li>
+                                <li><a href="{{ route('bot.customcmd') }}">Custom commands</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('bot.powers') }}">Bot Powers</a></li>

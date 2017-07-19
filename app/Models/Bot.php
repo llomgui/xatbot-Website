@@ -172,4 +172,12 @@ class Bot extends Model
     {
         return $this->hasMany('OceanProject\Models\AutoBan');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function customcmd()
+    {
+        return $this->hasMany('OceanProject\Models\CustomCmd');
+    }
 }
