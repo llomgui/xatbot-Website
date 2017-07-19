@@ -55,6 +55,11 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('createresponse', 'ResponseController@createResponse')->name('bot.createresponse');
         Route::post('editresponse', 'ResponseController@editResponse')->name('bot.editresponse');
         Route::post('deleteresponse', 'ResponseController@deleteResponse')->name('bot.deleteresponse');
+        
+        Route::get('link', 'LinkFilterController@showLinkForm')->name('bot.link');
+        Route::post('createlink', 'LinkFilterController@createLink')->name('bot.createlink');
+        Route::post('editlink', 'LinkFilterController@editLink')->name('bot.editlink');
+        Route::post('deletelink', 'LinkFilterController@deleteLink')->name('bot.deletelink');
 
         Route::get('link', 'LinkFilterController@showLinkForm')->name('bot.link');
         Route::post('createlink', 'LinkFilterController@createLink')->name('bot.createlink');
