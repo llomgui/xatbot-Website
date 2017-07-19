@@ -101,7 +101,7 @@ class AutoBanController extends Controller
     {
         $data = $request->all();
 
-        $autoban = autoban::find($data['autoban_id']);
+        $autoban = Autoban::find($data['autoban_id']);
 
         if ($autoban->autobanBot->id != Session('onBotEdit')) {
             return redirect()
@@ -141,7 +141,7 @@ class AutoBanController extends Controller
     {
         $data = $request->all();
 
-        $autoban = autoban::find($data['autoban_id']);
+        $autoban = Autoban::find($data['autoban_id']);
 
         if ($autoban->autobanBot->id != Session('onBotEdit')) {
             return response()->json(

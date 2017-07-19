@@ -32,7 +32,7 @@ class AutoBan extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function AutoBanbot()
+    public function autobanBot()
     {
         return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
     }
