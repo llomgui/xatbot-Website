@@ -98,8 +98,8 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    {!! Form::label('customcommand', 'CustomCommand', ['class' => 'col-md-2 control-label']); !!}
-                    <div class="col-md-1">
+                    {!! Form::label('customcommand', 'CustomCommand', ['class' => 'col-md-3 control-label']); !!}
+                    <div class="col-md-2">
                         {!! Form::text('customcommand', $bot->customcommand, ['class' => 'form-control']) !!}
                     </div>
                     @if ($errors->has('customcommand'))
@@ -107,8 +107,8 @@
                             <li class="parsley-required">{{ $errors->first('customcommand') }}</li>
                         </ul>
                     @endif
-                    {!! Form::label('toggleautowelcome', 'ToggleAutowelcome', ['class' => 'col-md-2 control-label']); !!}
-                    <div class="col-md-2">
+                    {!! Form::label('toggleautowelcome', 'ToggleAutowelcome', ['class' => 'col-md-3 control-label']); !!}
+                    <div class="col-md-3">
                         {!! Form::select('toggleautowelcome', ['pm' => 'Private Message', 'pc' => 'Private Conversation'], $bot->toggleautowelcome, ['class' => 'form-control']) !!}
                     </div>
                     @if ($errors->has('toggleautowelcome'))
@@ -116,13 +116,24 @@
                             <li class="parsley-required">{{ $errors->first('toggleautowelcome') }}</li>
                         </ul>
                     @endif
-                    {!! Form::label('automember', 'Automember', ['class' => 'col-md-2 control-label']); !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('automember', 'Automember', ['class' => 'col-md-3 control-label']); !!}
                     <div class="col-md-2">
-                        {!! Form::select('automember', ['off' => 'Disabled', 'all' => 'Everyone', 'notoon' => 'No toon', 'reg' => 'Registered only', 'sub' => 'Subscribed only', 'math' => 'Math equation'], $bot->automember, ['class' => 'form-control']) !!}
+                        {!! Form::select('automember', ['off' => 'Off', 'all' => 'Everyone', 'notoon' => 'No toon', 'reg' => 'Registered only', 'sub' => 'Subscribed only', 'math' => 'Math equation'], $bot->automember, ['class' => 'form-control']) !!}
                     </div>
                     @if ($errors->has('automember'))
                         <ul class="parsley-errors-list filled">
                             <li class="parsley-required">{{ $errors->first('automember') }}</li>
+                        </ul>
+                    @endif
+                    {!! Form::label('toggleradio', 'Toggle Radio', ['class' => 'col-md-3 control-label']); !!}
+                    <div class="col-md-2">
+                        {!! Form::select('toggleradio', ['off' => 'Off', 'scroll' => 'Scroll only', 'chat' => 'Chat only'], $bot->toggleradio, ['class' => 'form-control']) !!}
+                    </div>
+                    @if ($errors->has('toggleradio'))
+                        <ul class="parsley-errors-list filled">
+                            <li class="parsley-required">{{ $errors->first('toggleradio') }}</li>
                         </ul>
                     @endif
                 </div>
