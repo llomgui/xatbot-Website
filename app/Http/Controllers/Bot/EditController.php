@@ -100,7 +100,8 @@ class EditController extends Controller
             'autorestart'       => 'boolean',
             'toggleautowelcome' => 'max:2|required',
             'automember'        => 'max:255',
-            'toggleradio'       => 'max:255'
+            'toggleradio'       => 'max:255',
+            'minstaffautotemp'  => 'integer'
         ];
 
         $validator = Validator::make($data, $rules);
@@ -147,7 +148,8 @@ class EditController extends Controller
             'maxchar', 'maxsmilies', 'automessage',
             'automessagetime', 'autorestart', 'gameban_unban',
             'customcommand', 'toggleautowelcome','togglelinkfilter',
-            'togglemoderation', 'automember', 'toggleradio'
+            'togglemoderation', 'automember', 'toggleradio',
+            'minstaffautotemp'
         ];
 
         foreach ($fields as $field) {

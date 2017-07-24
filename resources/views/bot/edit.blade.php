@@ -220,6 +220,17 @@
                     @endif
                 </div>
                 <div class="form-group">
+                    {!! Form::label('minstaffautotemp', 'Minimum staff (Auto temp)', ['class' => 'col-md-2 control-label']); !!}
+                    <div class="col-md-10">
+                        {!! Form::number('minstaffautotemp', $bot->minstaffautotemp, ['class' => 'form-control']) !!}
+                    </div>
+                    @if ($errors->has('minstaffautotemp'))
+                        <ul class="parsley-errors-list filled">
+                            <li class="parsley-required">{{ $errors->first('minstaffautotemp') }}</li>
+                        </ul>
+                    @endif
+                </div>
+                <div class="form-group">
                     {!! Form::label('gameban_unban', 'Gameban Unban', ['class' => 'col-md-4 control-label']); !!}
                     <div class="col-md-1">
                         @if ($bot->gameban_unban === false)
