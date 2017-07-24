@@ -107,13 +107,22 @@
                             <li class="parsley-required">{{ $errors->first('customcommand') }}</li>
                         </ul>
                     @endif
-                    {!! Form::label('toggleautowelcome', 'ToggleAutowelcome', ['class' => 'col-md-3 control-label']); !!}
-                    <div class="col-md-3">
+                    {!! Form::label('toggleautowelcome', 'ToggleAutowelcome', ['class' => 'col-md-2 control-label']); !!}
+                    <div class="col-md-2">
                         {!! Form::select('toggleautowelcome', ['pm' => 'Private Message', 'pc' => 'Private Conversation'], $bot->toggleautowelcome, ['class' => 'form-control']) !!}
                     </div>
                     @if ($errors->has('toggleautowelcome'))
                         <ul class="parsley-errors-list filled">
                             <li class="parsley-required">{{ $errors->first('toggleautowelcome') }}</li>
+                        </ul>
+                    @endif
+                    {!! Form::label('automember', 'Automember', ['class' => 'col-md-2 control-label']); !!}
+                    <div class="col-md-2">
+                        {!! Form::select('automember', ['off' => 'Disabled', 'all' => 'Everyone', 'notoon' => 'No toon', 'reg' => 'Registered only', 'sub' => 'Subscribed only', 'math' => 'Math equation'], $bot->automember, ['class' => 'form-control']) !!}
+                    </div>
+                    @if ($errors->has('automember'))
+                        <ul class="parsley-errors-list filled">
+                            <li class="parsley-required">{{ $errors->first('automember') }}</li>
                         </ul>
                     @endif
                 </div>
