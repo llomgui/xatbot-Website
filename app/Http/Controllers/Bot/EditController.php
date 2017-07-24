@@ -67,7 +67,7 @@ class EditController extends Controller
     {
         $data = $request->all();
 
-        $toggles = ['autorestart', 'gameban_unban'];
+        $toggles = ['autorestart', 'gameban_unban', 'togglelinkfilter', 'togglemoderation'];
 
         foreach ($toggles as $toggle) {
             if (array_key_exists($toggle, $data)) {
@@ -88,6 +88,8 @@ class EditController extends Controller
             'ticklemessage'     => 'max:255',
             'customcommand'     => 'max:1|required',
             'gameban_unban'     => 'boolean',
+            'togglelinkfilter'  => 'boolean',
+            'togglemoderation'  => 'boolean',
             'maxkick'           => 'integer',
             'maxkickban'        => 'integer',
             'maxflood'          => 'integer',
@@ -142,11 +144,15 @@ class EditController extends Controller
             'maxkick', 'maxkickban', 'maxflood',
             'maxchar', 'maxsmilies', 'automessage',
             'automessagetime', 'autorestart', 'gameban_unban',
-            'customcommand', 'toggleautowelcome'
+            'customcommand', 'toggleautowelcome','togglelinkfilter',
+            'togglemoderation'
         ];
 
         foreach ($fields as $field) {
-            $bot->$field = $data[$field];
+      		if (is_null($data['autowelcome'])) {
+      			$data['autowelcome'] = '';
+      		}
+           	 $bot->$field = $data[$field];
         }
 
         $bot->save();
