@@ -220,7 +220,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    {!! Form::label('gameban_unban', 'Gameban Unban', ['class' => 'col-md-2 control-label']); !!}
+                    {!! Form::label('gameban_unban', 'Gameban Unban', ['class' => 'col-md-4 control-label']); !!}
                     <div class="col-md-1">
                         @if ($bot->gameban_unban === false)
                             {!! Form::checkbox('gameban_unban', $bot->gameban_unban, null, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '0']) !!}
@@ -233,7 +233,7 @@
                             <li class="parsley-required">{{ $errors->first('gameban_unban') }}</li>
                         </ul>
                     @endif
-                    {!! Form::label('togglelinkfilter', 'Links filter', ['class' => 'col-md-2 control-label']); !!}
+                    {!! Form::label('togglelinkfilter', 'Links filter', ['class' => 'col-md-4 control-label']); !!}
                     <div class="col-md-1">
                         @if ($bot->togglelinkfilter === false)
                             {!! Form::checkbox('togglelinkfilter', $bot->togglelinkfilter, null, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '0']) !!}
@@ -241,13 +241,15 @@
                             {!! Form::checkbox('togglelinkfilter', $bot->togglelinkfilter, true, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '1']) !!}
                         @endif
                     </div>
+                </div>
+                <div class="form-group">
                     @if ($errors->has('togglelinkfilter'))
                         <ul class="parsley-errors-list filled">
                             <li class="parsley-required">{{ $errors->first('togglelinkfilter') }}</li>
                         </ul>
                     @endif
-                    {!! Form::label('autorestart', 'AutoRestart', ['class' => 'col-md-2 control-label']); !!}
-                    <div class="col-md-1">
+                    {!! Form::label('autorestart', 'AutoRestart', ['class' => 'col-md-4 control-label']); !!}
+                    <div class="col-md-2">
                         @if ($bot->autorestart === false)
                             {!! Form::checkbox('autorestart', $bot->autorestart, null, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '0']) !!}
                         @else
@@ -259,8 +261,8 @@
                             <li class="parsley-required">{{ $errors->first('autorestart') }}</li>
                         </ul>
                     @endif
-                    {!! Form::label('togglemoderation', 'Moderation', ['class' => 'col-md-2 control-label']); !!}
-                    <div class="col-md-1">
+                    {!! Form::label('togglemoderation', 'Toggle moderation', ['class' => 'col-md-3 control-label']); !!}
+                    <div class="col-md-2">
                         @if ($bot->togglemoderation === false)
                             {!! Form::checkbox('togglemoderation', $bot->togglemoderation, null, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '0']) !!}
                         @else
