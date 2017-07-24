@@ -14,8 +14,8 @@
 * [ ] Userinfo
 
 ### Bot lists
-* [ ] Autoban - new table in database
-* [ ] Custom commands - new table in database
+* [x] Autoban - new table in database
+* [x] Custom commands - new table in database
 * [x] Links filter - new table in database
 
 ### Bot pages

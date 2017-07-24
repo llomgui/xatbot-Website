@@ -55,11 +55,11 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('createresponse', 'ResponseController@createResponse')->name('bot.createresponse');
         Route::post('editresponse', 'ResponseController@editResponse')->name('bot.editresponse');
         Route::post('deleteresponse', 'ResponseController@deleteResponse')->name('bot.deleteresponse');
-        
-        Route::get('link', 'LinkFilterController@showLinkForm')->name('bot.link');
-        Route::post('createlink', 'LinkFilterController@createLink')->name('bot.createlink');
-        Route::post('editlink', 'LinkFilterController@editLink')->name('bot.editlink');
-        Route::post('deletelink', 'LinkFilterController@deleteLink')->name('bot.deletelink');
+
+        Route::get('autoban', 'AutoBanController@showAutoBanForm')->name('bot.autoban');
+        Route::post('createautoban', 'AutoBanController@createAutoBan')->name('bot.createautoban');
+        Route::post('editautoban', 'AutoBanController@editAutoBan')->name('bot.editautoban');
+        Route::post('deleteautoban', 'AutoBanController@deleteAutoBan')->name('bot.deleteautoban');
 
         Route::get('link', 'LinkFilterController@showLinkForm')->name('bot.link');
         Route::post('createlink', 'LinkFilterController@createLink')->name('bot.createlink');
@@ -70,6 +70,11 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('createbadword', 'BadwordController@createBadword')->name('bot.createbadword');
         Route::post('editbadword', 'BadwordController@editBadword')->name('bot.editbadword');
         Route::post('deletebadword', 'BadwordController@deleteBadword')->name('bot.deletebadword');
+
+        Route::get('customcmd', 'CustomCmdController@showCustomCmdForm')->name('bot.customcmd');
+        Route::post('createcustomcmd', 'CustomCmdController@createCustomcmd')->name('bot.createcustomcmd');
+        Route::post('editcustomcmd', 'CustomCmdController@editCustomcmd')->name('bot.editcustomcmd');
+        Route::post('deletecustomcmd', 'CustomCmdController@deleteCustomcmd')->name('bot.deletecustomcmd');
 
         Route::get('minrank', 'MinrankController@showMinrankForm')->name('bot.minrank');
         Route::post('editminrank', 'MinrankController@editMinrank')->name('bot.editminrank');
