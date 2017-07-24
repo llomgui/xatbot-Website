@@ -10,7 +10,7 @@
         <div class="col-sm-12 col-lg-6">
             <div class="card-box">
                 <div class="form-group">
-                    {!! Form::label('chatname', 'Chat Name', ['class' => 'col-md-2 control-label']); !!}
+                     {!! Form::label('chatname', 'Chat Name', ['class' => 'col-md-2 control-label']); !!}
                     <div class="col-md-10">
                         {!! Form::text('chatname', $bot->chatname, ['class' => 'form-control']) !!}
                     </div>
@@ -107,19 +107,13 @@
                             <li class="parsley-required">{{ $errors->first('customcommand') }}</li>
                         </ul>
                     @endif
-                </div>
-                <div class="form-group">
-                    {!! Form::label('gameban_unban', 'Gameban Unban', ['class' => 'col-md-2 control-label']); !!}
-                    <div class="col-md-2">
-                        @if ($bot->gameban_unban === false)
-                            {!! Form::checkbox('gameban_unban', $bot->gameban_unban, null, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '0']) !!}
-                        @else
-                            {!! Form::checkbox('gameban_unban', $bot->gameban_unban, true, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '1']) !!}
-                        @endif
+                    {!! Form::label('toggleautowelcome', 'ToggleAutowelcome', ['class' => 'col-md-3 control-label']); !!}
+                    <div class="col-md-3">
+                        {!! Form::select('toggleautowelcome', ['pm' => 'Private Message', 'pc' => 'Private Conversation'], $bot->toggleautowelcome, ['class' => 'form-control']) !!}
                     </div>
-                    @if ($errors->has('gameban_unban'))
+                    @if ($errors->has('toggleautowelcome'))
                         <ul class="parsley-errors-list filled">
-                            <li class="parsley-required">{{ $errors->first('gameban_unban') }}</li>
+                            <li class="parsley-required">{{ $errors->first('toggleautowelcome') }}</li>
                         </ul>
                     @endif
                 </div>
@@ -195,7 +189,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    {!! Form::label('automessagetime', 'AutoMessageTime (min)', ['class' => 'col-md-2 control-label']); !!}
+                    {!! Form::label('automessagetime', 'AutoMessage (Time in min)', ['class' => 'col-md-2 control-label']); !!}
                     <div class="col-md-10">
                         {!! Form::number('automessagetime', $bot->automessagetime, ['class' => 'form-control']) !!}
                     </div>
@@ -206,8 +200,34 @@
                     @endif
                 </div>
                 <div class="form-group">
+                    {!! Form::label('gameban_unban', 'Gameban Unban', ['class' => 'col-md-2 control-label']); !!}
+                    <div class="col-md-1">
+                        @if ($bot->gameban_unban === false)
+                            {!! Form::checkbox('gameban_unban', $bot->gameban_unban, null, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '0']) !!}
+                        @else
+                            {!! Form::checkbox('gameban_unban', $bot->gameban_unban, true, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '1']) !!}
+                        @endif
+                    </div>
+                    @if ($errors->has('gameban_unban'))
+                        <ul class="parsley-errors-list filled">
+                            <li class="parsley-required">{{ $errors->first('gameban_unban') }}</li>
+                        </ul>
+                    @endif
+                    {!! Form::label('togglelinkfilter', 'Links filter', ['class' => 'col-md-2 control-label']); !!}
+                    <div class="col-md-1">
+                        @if ($bot->togglelinkfilter === false)
+                            {!! Form::checkbox('togglelinkfilter', $bot->togglelinkfilter, null, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '0']) !!}
+                        @else
+                            {!! Form::checkbox('togglelinkfilter', $bot->togglelinkfilter, true, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '1']) !!}
+                        @endif
+                    </div>
+                    @if ($errors->has('togglelinkfilter'))
+                        <ul class="parsley-errors-list filled">
+                            <li class="parsley-required">{{ $errors->first('togglelinkfilter') }}</li>
+                        </ul>
+                    @endif
                     {!! Form::label('autorestart', 'AutoRestart', ['class' => 'col-md-2 control-label']); !!}
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         @if ($bot->autorestart === false)
                             {!! Form::checkbox('autorestart', $bot->autorestart, null, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '0']) !!}
                         @else
@@ -219,15 +239,17 @@
                             <li class="parsley-required">{{ $errors->first('autorestart') }}</li>
                         </ul>
                     @endif
-                </div>
-                <div class="form-group">
-                    {!! Form::label('toggleautowelcome', 'ToggleAutowelcome', ['class' => 'col-md-2 control-label']); !!}
-                    <div class="col-md-3">
-                        {!! Form::select('toggleautowelcome', ['pm' => 'Private Message', 'pc' => 'Private Conversation'], $bot->toggleautowelcome, ['class' => 'form-control']) !!}
+                    {!! Form::label('togglemoderation', 'Moderation', ['class' => 'col-md-2 control-label']); !!}
+                    <div class="col-md-1">
+                        @if ($bot->togglemoderation === false)
+                            {!! Form::checkbox('togglemoderation', $bot->togglemoderation, null, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '0']) !!}
+                        @else
+                            {!! Form::checkbox('togglemoderation', $bot->togglemoderation, true, ['data-plugin' => 'switchery', 'data-color' => '#00b19d', 'value' => '1']) !!}
+                        @endif
                     </div>
-                    @if ($errors->has('toggleautowelcome'))
+                    @if ($errors->has('gameban_unban'))
                         <ul class="parsley-errors-list filled">
-                            <li class="parsley-required">{{ $errors->first('toggleautowelcome') }}</li>
+                            <li class="parsley-required">{{ $errors->first('togglemoderation') }}</li>
                         </ul>
                     @endif
                 </div>
@@ -247,4 +269,3 @@
 @endsection
 @section('footer')
 <script src="{{ asset('plugins/switchery/switchery.min.js') }}"></script>
-@endsection
