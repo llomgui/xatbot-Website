@@ -101,7 +101,8 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'xatwiki', 'description' => '', 'default_level' => 1],
             ['name' => 'leastactive', 'description' => '', 'default_level' => 1],
             ['name' => 'twitter', 'description' => '', 'default_level' => 1],
-            ['name' => 'radio', 'description' => '', 'default_level' => 1]
+            ['name' => 'radio', 'description' => '', 'default_level' => 1],
+            ['name' => 'autotemp', 'description' => '', 'default_level' => 4]
         ];
 
         foreach ($commands as $command) {
