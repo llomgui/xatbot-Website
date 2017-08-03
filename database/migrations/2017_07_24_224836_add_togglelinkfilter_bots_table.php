@@ -14,7 +14,7 @@ class AddTogglelinkfilterBotsTable extends Migration
     public function up()
     {
         Schema::table('bots', function (Blueprint $table) {
-            $table->boolean('togglelinkfilter')->default('f');
+            $table->boolean('togglelinkfilter')->default(0);
         });
     }
 

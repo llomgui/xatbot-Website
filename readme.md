@@ -21,6 +21,7 @@ Don't forget to create a database using PostgreSQL.
 Copy all those information to your .env
 
 Last commands:
+- (in pgsql) CREATE EXTENSION IF NOT EXISTS citext WITH SCHEMA public;
 - php artisan migrate
 - php artisan db:seed
 

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use ShiftOneLabs\LaravelNomad\Extension\Database\Schema\Blueprint;
 
 class CreateAutobansTable extends Migration
 {
@@ -17,7 +17,7 @@ class CreateAutobansTable extends Migration
             $table->bigIncrements('id');
             $table->integer('bot_id')->index();
             $table->integer('xatid');
-            $table->string('regname');
+            $table->passthru('citext', 'regname');
             $table->integer('hours');
             $table->string('method');
             $table->timestamps();

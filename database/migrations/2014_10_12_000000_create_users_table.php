@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use ShiftOneLabs\LaravelNomad\Extension\Database\Schema\Blueprint;
 
 class CreateUsersTable extends Migration
 {
@@ -15,9 +15,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 50)->unique();
+            $table->passthru('citext', 'name')->unique();
             $table->string('email')->unique();
-            $table->string('regname', 50)->unique();
+            $table->passthru('citext', 'regname')->unique();
             $table->bigInteger('xatid')->unique();
             $table->string('password');
             $table->ipAddress('ip');

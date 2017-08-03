@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use ShiftOneLabs\LaravelNomad\Extension\Database\Schema\Blueprint;
 
 class CreateUserinfoTable extends Migration
 {
@@ -16,9 +16,9 @@ class CreateUserinfoTable extends Migration
         Schema::create('userinfo', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('xatid')->index();
-            $table->string('regname')->index();
+            $table->passthru('citext', 'regname')->index();
             $table->integer('chatid');
-            $table->string('chatname');
+            $table->passthru('citext', 'chatname');
             $table->jsonb('packet');
             $table->boolean('optout');
             $table->timestamps();

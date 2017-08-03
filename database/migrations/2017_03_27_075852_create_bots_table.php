@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use ShiftOneLabs\LaravelNomad\Extension\Database\Schema\Blueprint;
 
 class CreateBotsTable extends Migration
 {
@@ -15,11 +15,12 @@ class CreateBotsTable extends Migration
     {
         Schema::create('bots', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('creator_user_id')->index();
             $table->integer('bot_status_id')->nullable()->index();
             $table->integer('server_id')->nullable()->index();
             $table->bigInteger('premium')->default(1);
             $table->bigInteger('chatid')->unique();
-            $table->string('chatname')->unique();
+            $table->passthru('citext', 'chatname')->unique();
             $table->integer('chatpw')->nullable();
             $table->string('nickname')->default('OceanProject(glow#000080#c0ccd4)(hat#Eb)');
             $table->string('avatar')->default('123')->nullable();
@@ -40,7 +41,6 @@ class CreateBotsTable extends Migration
             $table->integer('automessagetime')->default('30');
             $table->boolean('autorestart')->default('0');
             $table->boolean('gameban_unban')->default('1');
-            $table->integer('creator_user_id')->index();
             $table->jsonb('powersdisabled')->nullable();
             $table->boolean('togglemoderation')->default('1');
             $table->bigInteger('premiumfreeze')->default(1);
