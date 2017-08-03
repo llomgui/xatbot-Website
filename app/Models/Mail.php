@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Mail extends Model
 {
-	/**
+    /**
      * The table associated with the model.
      *
      * @var string
@@ -27,5 +27,4 @@ class Mail extends Model
      * @var array
      */
     protected $fillable = ['touser', 'fromuser', 'message', 'read', 'store', 'created_at', 'updated_at'];
-
 }
