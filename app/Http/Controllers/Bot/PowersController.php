@@ -23,7 +23,7 @@ class PowersController extends Controller
     public function showPowersForm()
     {
         $powersDisabled = Bot::find(Session('onBotEdit'))->powersdisabled;
-        $powersDisabled = (is_null($powersDisabled) ? ['93'] : json_decode($powersDisabled));
+        $powersDisabled = (is_null($powersDisabled) ? ['93'] : json_decode($powersDisabled, true));
         $powers = Powers::getPowers();
         $data = [];
 
@@ -57,7 +57,7 @@ class PowersController extends Controller
 
         $bot = Bot::find(Session('onBotEdit'));
         $powersDisabled = $bot->powersdisabled;
-        $powersDisabled = (is_null($powersDisabled) ? ['93'] : json_decode($powersDisabled));
+        $powersDisabled = (is_null($powersDisabled) ? ['93'] : json_decode($powersDisabled, true));
 
         if ($data['checked'] == 'true') {
             if (in_array($data['power_id'], $powersDisabled)) {
