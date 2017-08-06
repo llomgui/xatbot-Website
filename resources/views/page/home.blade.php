@@ -54,7 +54,7 @@
                                 <td>{{ $bot->id }}</td>
                                 <td><a href="" class="nickname" data-name="nickname" data-pk="{{ $bot->id }}">{{ $bot->nickname }}</a></td>
                                 <td><span {!! ($bot->premium > time()) ? 'class="label label-info">Premium' : 'class="label label-primary">Classic' !!}</span></td>
-                                <td><a href="https://xat.com/{{ $bot->chatname }}">xat.com/{{ $bot->chatname }}</a></td>
+                                <td><a href="https://xat.com/{{ $bot->chatname }}" target="_blank">xat.com/{{ $bot->chatname }}</a></td>
                                 <td>{{ $bot->server->name }}</td>
                                 <td>
                                 @if ($bot->botStatus->id == 1)
