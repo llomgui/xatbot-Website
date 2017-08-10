@@ -1,3 +1,7 @@
 *
 */
+!index.php
+!favicon.ico
+!web.config
+!robots.txt
 !.gitignore
