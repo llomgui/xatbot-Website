@@ -20,31 +20,41 @@ mix.styles([
 		'resources/assets/css/menu.css',
 		'resources/assets/css/responsive.css'
 	], 'public/css/app.css')
-	.scripts([
+	.js([
 		'resources/assets/js/modernizr.min.js',
 		'resources/assets/js/jquery.min.js',
 		'resources/assets/js/bootstrap.min.js',
 		'resources/assets/js/detect.js',
 		'resources/assets/js/fastclick.js',
-		'resources/assets/js/jquery.slimscroll.js',
 		'resources/assets/js/jquery.blockUI.js',
 		'resources/assets/js/waves.js',
 		'resources/assets/js/wow.min.js',
 		'resources/assets/js/jquery.nicescroll.js',
 		'resources/assets/js/jquery.scrollTo.min.js'
 	], 'public/js/lib.js')
-	.scripts([
+	.js([
 		'resources/assets/js/jquery.core.js',
 		'resources/assets/js/jquery.app.js'
 	], 'public/js/app.js')
 	.version()
 	.copy([
+		'./resources/landing/js'
+	], 'public/landing/js')
+	.copy([
+		'./resources/landing/css'
+	], 'public/landing/css')
+	.copy([
 		'./resources/assets/fonts'
 	], 'public/fonts')
+	.copy([
+		'./resources/landing/images'
+	], 'public/landing/images')
+	.copy([
+		'./resources/landing/fonts'
+	], 'public/landing/fonts')
 	.copy([
 		'./resources/assets/pages'
 	], 'public/pages')
 	.copy([
 		'./resources/assets/plugins'
-	], 'public/plugins',
-	false);
+	], 'public/plugins', false);

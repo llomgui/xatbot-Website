@@ -10,8 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function() {
-    return 'Hello';
+
+Route::group(['namespace' => 'Landing'], function() {
+    Route::get('/', 'HomeController@index')->name('home');
 });
 
 Route::group(['prefix' => 'panel'], function () {
