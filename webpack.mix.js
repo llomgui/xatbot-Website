@@ -20,7 +20,7 @@ mix.styles([
 		'resources/assets/css/menu.css',
 		'resources/assets/css/responsive.css'
 	], 'public/css/app.css')
-	.js([
+	.scripts([
 		'resources/assets/js/modernizr.min.js',
 		'resources/assets/js/jquery.min.js',
 		'resources/assets/js/bootstrap.min.js',
@@ -32,7 +32,7 @@ mix.styles([
 		'resources/assets/js/jquery.nicescroll.js',
 		'resources/assets/js/jquery.scrollTo.min.js'
 	], 'public/js/lib.js')
-	.js([
+	.scripts([
 		'resources/assets/js/jquery.core.js',
 		'resources/assets/js/jquery.app.js'
 	], 'public/js/app.js')
