@@ -41,6 +41,8 @@ class MinrankController extends Controller
                     'commands.id as command_id'
                 )->get();
 
+        dump($bcms);
+
         return view('bot.minrank')
                 ->with('minranks', $minranks)
                 ->with('bcms', $bcms);
