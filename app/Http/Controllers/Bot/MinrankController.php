@@ -26,10 +26,12 @@ class MinrankController extends Controller
     {
         $minranks = Minrank::pluck('name', 'level')->toArray();
         $bcms = DB::table('commands')
-                ->leftJoin('bot_command_minrank', 'bot_command_minrank.command_id', '=', 'commands.id')
+                ->leftJoin('bot_command_minrank', function($leftjoin) {
+                    $leftjoin->on('bot_command_minrank.command_id', '=', 'commands.id')
+                        ->on('bot_command_minrank.bot_id', '=', DB::raw(Session('onBotEdit')));
+
+                })
                 ->leftjoin('minranks', 'bot_command_minrank.minrank_id', '=', 'minranks.id')
-                ->where('bot_command_minrank.bot_id', '=', Session('onBotEdit'))
-                ->orWhere('bot_command_minrank.bot_id', '=', null)
                 ->orderBy('commands.name', 'ASC')
                 ->select(
                     'bot_command_minrank.id',
