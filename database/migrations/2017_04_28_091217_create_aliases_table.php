@@ -31,6 +31,5 @@ class CreateAliasesTable extends Migration
     public function down()
     {
         Schema::drop('aliases');
-
     }
 }
