@@ -44,7 +44,7 @@
                     <a href="#"><i class="md md-pages"></i>Pages</a>
                     <ul class="submenu">
                         <li><a href="{{ route('chat') }}">Chat</a></li>
-                        <li><a href="#">Commands</a></li>
+                        <li><a href="{{ route('commands', Session('onBotEdit')) }}">Commands</a></li>
                         <li><a href="#">Get Premium</a></li>
                         <li><a href="#">Ocean Staff</a></li>
                     </ul>

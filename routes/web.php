@@ -21,10 +21,11 @@ Route::group(['prefix' => 'panel'], function () {
 
         Route::get('home', 'HomeController@index')->name('panel');
         Route::get('chat', 'ChatController@index')->name('chat');
+        Route::get('commands/{botid?}', 'CommandsController@index')->name('commands');
 
     });
 
-    Route::group(['prefix' => 'bot', 'middleware' => ['hasbot', 'auth'], 'namespace' => 'Bot'], function () {
+    Route::group(['prefix' => 'bot', 'middleware' => ['auth', 'hasbot'], 'namespace' => 'Bot'], function () {
 
         Route::post('create', 'CreateController@store')->name('bot.create');
         Route::post('editnickname', 'EditController@editNickname')->name('bot.editnickname');
