@@ -4,7 +4,7 @@ namespace OceanProject\Http\Middleware;
 
 use Closure;
 
-class hasBot
+class HasBot
 {
     /**
      * Handle an incoming request.
