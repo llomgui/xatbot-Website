@@ -24,7 +24,7 @@ Route::group(['prefix' => 'panel'], function () {
 
     });
 
-    Route::group(['prefix' => 'bot', 'middleware' => 'auth', 'namespace' => 'Bot'], function () {
+    Route::group(['prefix' => 'bot', 'middleware' => ['hasbot', 'auth'], 'namespace' => 'Bot'], function () {
 
         Route::post('create', 'CreateController@store')->name('bot.create');
         Route::post('editnickname', 'EditController@editNickname')->name('bot.editnickname');

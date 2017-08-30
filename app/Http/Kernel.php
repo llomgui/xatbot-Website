@@ -59,5 +59,6 @@ class Kernel extends HttpKernel
         'role' => \Ultraware\Roles\Middleware\VerifyRole::class,
         'permission' => \Ultraware\Roles\Middleware\VerifyPermission::class,
         'level' => \Ultraware\Roles\Middleware\VerifyLevel::class,
+        'hasbot' => \OceanProject\Http\Middleware\hasBot::class,
     ];
 }
