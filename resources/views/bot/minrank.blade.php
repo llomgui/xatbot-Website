@@ -4,7 +4,7 @@
 <div class="row">
     <form class="form-horizontal">
         <div class="col-md-3">
-            <div class="card-box">    
+            <div class="card-box">
             @for ($i = 0; $i < (sizeof($bcms) / 4); $i++)
                 <div class="form-group">
                     {!! Form::label($bcms[$i]->name, ucfirst($bcms[$i]->name), ['class' => 'col-md-5 col-sm-5 control-label']); !!}
@@ -21,12 +21,12 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card-box">    
+            <div class="card-box">
             @for ($j = $i; $j < (sizeof($bcms) / 4) * 2; $j++)
                 <div class="form-group">
                     {!! Form::label($bcms[$j]->name, ucfirst($bcms[$j]->name), ['class' => 'col-md-5 col-sm-5 control-label']); !!}
                     <div class="col-md-7 col-sm-7">
-                    {!! Form::select($bcms[$j]->name, $minranks, (!empty($bcms[$j]->level) ? $bcms[$j]->level : $bcms[$j]->default_level), ['class' => 'form-control', 'data-id' => (!empty($bcms[$i]->id) ? $bcms[$i]->id : 'null'), 'data-command_id' => $bcms[$i]->command_id]) !!}
+                    {!! Form::select($bcms[$j]->name, $minranks, (!empty($bcms[$j]->level) ? $bcms[$j]->level : $bcms[$j]->default_level), ['class' => 'form-control', 'data-id' => (!empty($bcms[$j]->id) ? $bcms[$j]->id : 'null'), 'data-command_id' => $bcms[$j]->command_id]) !!}
                     @if ($errors->has($bcms[$j]->name))
                             <ul class="parsley-errors-list filled">
                                 <li class="parsley-required">{{ $errors->first($bcms[$j]->name) }}</li>
@@ -38,12 +38,12 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card-box">    
+            <div class="card-box">
             @for ($k = $j; $k < (sizeof($bcms) / 4) * 3; $k++)
                 <div class="form-group">
                     {!! Form::label($bcms[$k]->name, ucfirst($bcms[$k]->name), ['class' => 'col-md-5 col-sm-5 control-label']); !!}
                     <div class="col-md-7 col-sm-7">
-                    {!! Form::select($bcms[$k]->name, $minranks, (!empty($bcms[$k]->level) ? $bcms[$k]->level : $bcms[$k]->default_level), ['class' => 'form-control', 'data-id' => (!empty($bcms[$i]->id) ? $bcms[$i]->id : 'null'), 'data-command_id' => $bcms[$i]->command_id]) !!}
+                    {!! Form::select($bcms[$k]->name, $minranks, (!empty($bcms[$k]->level) ? $bcms[$k]->level : $bcms[$k]->default_level), ['class' => 'form-control', 'data-id' => (!empty($bcms[$k]->id) ? $bcms[$k]->id : 'null'), 'data-command_id' => $bcms[$k]->command_id]) !!}
                     @if ($errors->has($bcms[$k]->name))
                             <ul class="parsley-errors-list filled">
                                 <li class="parsley-required">{{ $errors->first($bcms[$k]->name) }}</li>
@@ -60,7 +60,7 @@
                 <div class="form-group">
                     {!! Form::label($bcms[$l]->name, ucfirst($bcms[$l]->name), ['class' => 'col-md-5 col-sm-5 control-label']); !!}
                     <div class="col-md-7 col-sm-7">
-                    {!! Form::select($bcms[$l]->name, $minranks, (!empty($bcms[$l]->level) ? $bcms[$l]->level : $bcms[$l]->default_level), ['class' => 'form-control', 'data-id' => (!empty($bcms[$i]->id) ? $bcms[$i]->id : 'null'), 'data-command_id' => $bcms[$i]->command_id]) !!}
+                    {!! Form::select($bcms[$l]->name, $minranks, (!empty($bcms[$l]->level) ? $bcms[$l]->level : $bcms[$l]->default_level), ['class' => 'form-control', 'data-id' => (!empty($bcms[$l]->id) ? $bcms[$l]->id : 'null'), 'data-command_id' => $bcms[$l]->command_id]) !!}
                     @if ($errors->has($bcms[$l]->name))
                             <ul class="parsley-errors-list filled">
                                 <li class="parsley-required">{{ $errors->first($bcms[$l]->name) }}</li>
