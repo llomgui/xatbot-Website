@@ -29,6 +29,7 @@ class CommandsController extends Controller
         if ($botid == false) {
             $commands = DB::table('commands')
                 ->join('minranks', 'commands.default_level', '=', 'minranks.level')
+                ->orderBy('commands.default_level', 'ASC')
                 ->orderBy('commands.name', 'ASC')
                 ->select(
                     'commands.name',
@@ -44,12 +45,17 @@ class CommandsController extends Controller
                         ->on('bot_command_minrank.bot_id', '=', DB::raw($botid));
                 })
                 ->leftjoin('minranks', 'bot_command_minrank.minrank_id', '=', 'minranks.id')
+                ->orderBy('level', 'ASC')
                 ->orderBy('commands.name', 'ASC')
                 ->select(
                     'commands.name',
                     'commands.description',
                     'minranks.name as rank',
-                    'commands.default_level'
+                    'commands.default_level',
+                    DB::raw(
+                        '(CASE WHEN minranks.level IS NULL THEN commands.default_level ELSE minranks.level END)
+                        AS level'
+                    )
                 )
                 ->get();
 
