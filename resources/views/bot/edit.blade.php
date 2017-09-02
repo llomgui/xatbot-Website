@@ -302,3 +302,4 @@
 @endsection
 @section('footer')
 <script src="{{ asset('plugins/switchery/switchery.min.js') }}"></script>
+@endsection

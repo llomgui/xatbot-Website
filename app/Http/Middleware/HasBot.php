@@ -16,11 +16,12 @@ class HasBot
     public function handle($request, Closure $next)
     {
         if (Session('onBotEdit') === false) {
-            return redirect()
-                ->route('panel')
-                ->withError('You have to create a bot first!');
+            if ($request->path() != 'panel/bot/create') {
+                return redirect()
+                    ->route('panel')
+                    ->withError('You have to create a bot first!');
+            }
         }
-
 
         return $next($request);
     }

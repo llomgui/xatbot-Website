@@ -48,8 +48,9 @@ class LoginController extends Controller
         foreach ($user->bots as $bot) {
             $botsID[] = $bot->id;
         }
+        
         session(['botsID' => $botsID]);
-        session(['onBotEdit' => (!empty($botsID[0]) ?? null)]);
+        session(['onBotEdit' => (!empty($botsID[0]) ? $botsID[0] : null)]);
         $user->ip = $request->ip();
         $user->save();
     }
