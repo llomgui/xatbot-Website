@@ -45,14 +45,14 @@
         <h4 class="m-t-0 header-title"><b>[{{ ($powersList == false ? 0 : sizeof($powersList) + sizeof($doubles)) }}] Powers (including doubles)</b></h4>
         <div class="card-box">
             <div class="row">
-                    @foreach($powersList as $key => $value)
-                        <div class="col-md-2 col-sm-2 col-xs-6">
-                            <td><img src="//xat.com/images/smw/{{ $value['name'] }}.png"> <a href="//xat.wiki/{{ $value['name'] }}" style="color: inherit;">{{ $value['name'] }}</a> {{ isset($value['doubles']) ? '[' . ($value['doubles'] + 1). ']' : '' }}</td>
-                        </div>
-                    @endforeach
-                @endif     
+                @foreach($powersList as $key => $value)
+                    <div class="col-md-2 col-sm-2 col-xs-6">
+                        <td><img src="//xat.com/images/smw/{{ $value['name'] }}.png"> <a href="//xat.wiki/{{ $value['name'] }}" style="color: inherit;">{{ $value['name'] }}</a> {{ isset($value['doubles']) ? '[' . ($value['doubles'] + 1). ']' : '' }}</td>
+                    </div>
+                @endforeach   
              </div>     
         </div>
     </div>
+    @endif
 </div>
 @endsection
