@@ -51,12 +51,13 @@ class UserinfoController extends Controller
         $userDatas = json_decode($userData[0]['packet']);
         $newPowersList = array();
         $powersList = array();
-        $doublesList = array();
+        $doublesList = 0;
+        $cdouble = 0;
         $minXats = 0;
         $maxXats = 0;
         
         // User has power!
-        if ($userDatas->q & 3) {
+        if ($userDatas->q == 3) {
             for ($i = 0; $i < 22; $i++) {
                 if (isset($userDatas->{'p' . $i})) {
                     $powersList[$i] = $userDatas->{'p' . $i};
@@ -90,21 +91,22 @@ class UserinfoController extends Controller
                         $amount = 1;
                     }
                     
-                    $doublesList[] = $id;
+                    $cdouble += $amount;
                     $minXats += $powers[$id]['minCost'] * $amount;
                     $maxXats += $powers[$id]['maxCost'] * $amount;
                     $newPowersList[$id]['doubles'] = $amount;
+                    $doublesList++;
                 }
             }
         }
-                
+    
         return view('page.userinfo')
                 ->with('chatname', $userData[0]['chatname'])
                 ->with('userData', $userData)
                 ->with('xatDatas', $userDatas)
                 ->with('minXats', $minXats)
                 ->with('maxXats', $maxXats)
-                ->with('doubles', $doublesList)
+                ->with('doubles', $cdouble)
                 ->with('powersList', sizeof($newPowersList) > 0 ? $newPowersList : false);
     }
 }

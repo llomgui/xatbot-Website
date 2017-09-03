@@ -34,7 +34,7 @@
                     <p class="text-muted font-13"><strong>Last seen : </strong> {{ date_format(new DateTime($userData[0]['updated_at']), 'l, d M Y H:i:s  T') }} at <a href="//xat.com/{{ $chatname }}">xat.com/{{ $chatname }}</a>
                     </p>
                     
-                    <p class="text-muted font-13"><strong>Powers value : </strong> {{ $xatDatas->N }} [{{ ($powersList == false ? 0 : sizeof($powersList) + sizeof($doubles)) }}] powers are worth {{ $minXats }} - {{ $maxXats }} xats or {{ round($minXats / 13) }} - {{ round($maxXats / 13) }} days
+                    <p class="text-muted font-13"><strong>Powers value : </strong> {{ $xatDatas->N }} [{{ ($powersList == false ? 0 : (count($powersList) + $doubles)) }}] powers, [{{ ($powersList == false ? 0 : ($doubles)) }}] doubles are worth {{ number_format($minXats) }} - {{ number_format($maxXats) }} xats or {{ number_format(round($minXats / 13)) }} - {{ number_format(round($maxXats / 13)) }} days
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
     <!-- end col -->
     @if (!($powersList) == false)
     <div class="col-sm-12 col-lg-12">
-        <h4 class="m-t-0 header-title"><b>[{{ ($powersList == false ? 0 : sizeof($powersList) + sizeof($doubles)) }}] Powers (including doubles)</b></h4>
+        <h4 class="m-t-0 header-title"><b>[{{ ($powersList == false ? 0 : (count($powersList))) }}] powers (without doubles) and [{{ ($powersList == false ? 0 : ($doubles)) }}] doubles</b></h4>
         <div class="card-box">
             <div class="row">
                 @foreach($powersList as $key => $value)
