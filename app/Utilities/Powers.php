@@ -1512,8 +1512,6 @@ trait Powers
         $powers[231]['maxCost'] = 0;
         $powers[231]['smilies'] = ['statusglow'];
 
-        self::$powers = $powers;
-
         $ctx = stream_context_create(['http' => ['timeout' => 1]]);
         $cpt = 0;
 
@@ -1529,7 +1527,6 @@ trait Powers
             $page = json_decode($page, true);
         }
 
-        $powers = [];
         $pssa   = null;
         $topsh  = null;
 
@@ -1561,7 +1558,7 @@ trait Powers
         foreach ($page[$topsh][1] as $smiley => $id) {
             $powers[$id]['smilies'][] = $smiley;
         }
-        
+
         foreach ($page[7][1] as $name => $value) {
             if ($name != 'time' && $name != '!') {
                 $powers[$value[0]]['pawns'][] = 'h' . $name;
@@ -1589,7 +1586,7 @@ trait Powers
             $powers[$id]['smilies']    = array_merge([$lastName], array_keys($page[4][1], $id));
         }
 
-        self::$powers = $powers + self::$powers;
+        self::$powers = $powers;
 
         $cpt = 0;
 
@@ -1609,6 +1606,7 @@ trait Powers
             if ($id === 0) {
                 continue;
             }
+
             if (!in_array($power['s'], self::$powers[$id]['smilies'])) {
                 array_unshift(self::$powers[$id]['smilies'], $power['s']);
             }
