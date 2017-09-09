@@ -183,8 +183,8 @@ return [
          */
         Ultraware\Roles\RolesServiceProvider::class,
         Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
-	Barryvdh\Debugbar\ServiceProvider::class,
-	ShiftOneLabs\LaravelNomad\LaravelNomadServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        ShiftOneLabs\LaravelNomad\LaravelNomadServiceProvider::class,
 
     ],
 
