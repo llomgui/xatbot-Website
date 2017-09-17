@@ -1602,7 +1602,7 @@ trait Powers
         $cpt = 0;
 
         do {
-            $page = file_get_contents('http://xat.com/json/powers.php?Ocean=' . time(), false, $ctx);
+            $page = file_get_contents('https://xat.com/json/powers.php?Ocean=' . time(), false, $ctx);
             $cpt++;
             usleep(300000);
         } while (empty($page) && $cpt < 5);

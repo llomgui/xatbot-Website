@@ -47,7 +47,7 @@ class AllmissingController extends Controller
         $userData = json_decode($userData[0]['packet'], true);
         $minXats = 0;
         $maxXats = 0;
-        $everymissing = array();
+        $allmissing = array();
         
         $user = new XatUser($userData);
         
@@ -60,7 +60,7 @@ class AllmissingController extends Controller
                 if ((isset($value['isAllPower'])) && ($value['isAllPower'] == true) && !($user->hasPower($key))) {
                     $minXats += $value['minCost'];
                     $maxXats += $value['maxCost'];
-                    $everymissing[] = [
+                    $allmissing[] = [
                         'name' => $value['name'],
                         'min' => $value['minCost'],
                         'max' => $value['maxCost']
@@ -74,7 +74,7 @@ class AllmissingController extends Controller
         
         return view('page.allmissing')
                 ->with('datas', $user)
-                ->with('everymissing', $everymissing)
+                ->with('allmissing', $allmissing)
                 ->with('minxats', $minXats)
                 ->with('maxxats', $maxXats);
     }
