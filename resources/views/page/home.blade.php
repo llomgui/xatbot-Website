@@ -9,25 +9,25 @@
     @if (count($bots) > 0)
     <div class="col-sm-6 col-lg-3">
         <div class="widget-simple text-center card-box">
-            <h3 class="text-primary counter">NaN</h3>
+            <h3 class="text-primary counter">{{ $logs[4]['count'] }}</h3>
             <p class="text-muted">Users online</p>
         </div>
     </div>
     <div class="col-sm-6 col-lg-3">
         <div class="widget-simple text-center card-box">
-            <h3 class="text-primary counter">NaN</h3>
+            <h3 class="text-primary counter">{{ $logs[0]['count'] }}</h3>
             <p class="text-muted">Messages sent last 24h</p>
         </div>
     </div>
     <div class="col-sm-6 col-lg-3">
         <div class="widget-simple text-center card-box">
-            <h3 class="text-primary counter">NaN</h3>
+            <h3 class="text-primary counter">{{ $logs[1]['count'] }}</h3>
             <p class="text-muted">Commands sent last 24h</p>
         </div>
     </div>
     <div class="col-sm-6 col-lg-3">
         <div class="widget-simple text-center card-box">
-            <h3 class="text-primary counter">NaN</h3>
+            <h3 class="text-primary counter">{{ $logs[2]['count'] }}</h3>
             <p class="text-muted">Ban/Kick/Rank action last 24h</p>
         </div>
     </div>
