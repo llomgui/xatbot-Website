@@ -48,6 +48,7 @@
                         <li><a href="#">Get Premium</a></li>
                         <li><a href="#">Ocean Staff</a></li>
                         <li><a href="{{ route('userinfo') }}">Userinfo</a></li>
+                        <li><a href="{{ route('servers') }}">Servers</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu">
