@@ -30,6 +30,17 @@ trait Powers
 
         return unserialize($file);
     }
+    
+    public static function getMaxPowerIndex()
+    {
+        $ret = self::getPowers();
+        $max = max(array_keys($ret)) / 32;
+        if (!is_float($max)) {
+            $max += 1;
+        }
+
+        return ceil($max);
+    }
 
     public static function updatePowers()
     {
