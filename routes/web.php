@@ -21,6 +21,7 @@ Route::group(['prefix' => 'panel'], function () {
 
         Route::get('home', 'HomeController@index')->name('panel');
         Route::get('chat', 'ChatController@index')->name('chat');
+        Route::get('servers', 'ServersController@index')->name('servers');
         Route::get('commands/{botid?}', 'CommandsController@index')->name('commands');
         Route::get('userinfo/{user?}', 'UserinfoController@index')->name('userinfo');
 
