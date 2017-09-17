@@ -30,6 +30,17 @@ trait Powers
 
         return unserialize($file);
     }
+    
+    public static function getMaxPowerIndex()
+    {
+        $ret = self::getPowers();
+        $max = max(array_keys($ret)) / 32;
+        if (!is_float($max)) {
+            $max += 1;
+        }
+
+        return ceil($max);
+    }
 
     public static function updatePowers()
     {
@@ -1591,7 +1602,7 @@ trait Powers
         $cpt = 0;
 
         do {
-            $page = file_get_contents('http://xat.com/json/powers.php?Ocean=' . time(), false, $ctx);
+            $page = file_get_contents('https://xat.com/json/powers.php?Ocean=' . time(), false, $ctx);
             $cpt++;
             usleep(300000);
         } while (empty($page) && $cpt < 5);

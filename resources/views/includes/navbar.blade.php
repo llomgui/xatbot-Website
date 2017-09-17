@@ -49,6 +49,8 @@
                         <li><a href="#">Ocean Staff</a></li>
                         <li><a href="{{ route('userinfo') }}">Userinfo</a></li>
                         <li><a href="{{ route('servers') }}">Servers</a></li>
+                        <li><a href="{{ route('everymissing') }}">Everymissing</a></li>
+                        <li><a href="{{ route('allmissing') }}">Allmissing</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu">

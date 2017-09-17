@@ -2,6 +2,8 @@
 
 namespace OceanProject\Utilities;
 
+use OceanProject\Utilities\Powers;
+
 class XatUser
 {
     private $id;
@@ -286,14 +288,14 @@ class XatUser
 
     public function setPowers($packet)
     {
-        for ($i=0; $i < XatVariables::getMaxPowerIndex(); $i++) {
+        for ($i=0; $i < Powers::getMaxPowerIndex(); $i++) {
             $this->powers[$i] = $packet['p' . $i] ?? 0;
         }
     }
     
     public function setMaskedPowers($packet)
     {
-        for ($i=0; $i < XatVariables::getMaxPowerIndex(); $i++) {
+        for ($i=0; $i < Powers::getMaxPowerIndex(); $i++) {
             $this->maskedpowers[$i] = isset($packet['p' . $i]) ? $packet['p' . $i] - $this->powers[$i] : 0;
         }
     }
