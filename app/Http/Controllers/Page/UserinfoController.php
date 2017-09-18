@@ -90,6 +90,10 @@ class UserinfoController extends Controller
                         $id     = (int)$userDatas->po[$i];
                         $amount = 1;
                     }
+
+                    if (!(isset($powers[$id]))) {
+                        continue;
+                    }
                     
                     $cdouble += $amount;
                     $minXats += $powers[$id]['minCost'] * $amount;
