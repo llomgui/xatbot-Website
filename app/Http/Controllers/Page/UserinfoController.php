@@ -69,6 +69,9 @@ class UserinfoController extends Controller
                 $section = $id >> 5;
                 if (isset($powersList[$section])) {
                     if ($powersList[$section] & pow(2, ($id % 32))) {
+                        if ($id == 95) {
+                            continue;
+                        }
                         $minXats += $value['minCost'];
                         $maxXats += $value['maxCost'];
                         $newPowersList[$id] = [
