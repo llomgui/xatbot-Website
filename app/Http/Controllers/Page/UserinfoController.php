@@ -69,6 +69,9 @@ class UserinfoController extends Controller
                 $section = $id >> 5;
                 if (isset($powersList[$section])) {
                     if ($powersList[$section] & pow(2, ($id % 32))) {
+                        if ($id == 95) {
+                            continue;
+                        }
                         $minXats += $value['minCost'];
                         $maxXats += $value['maxCost'];
                         $newPowersList[$id] = [
@@ -89,6 +92,10 @@ class UserinfoController extends Controller
                     } else {
                         $id     = (int)$userDatas->po[$i];
                         $amount = 1;
+                    }
+
+                    if (!(isset($powers[$id]))) {
+                        continue;
                     }
                     
                     $cdouble += $amount;

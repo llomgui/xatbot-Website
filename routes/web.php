@@ -114,9 +114,13 @@ Route::group(['prefix' => 'panel'], function () {
 
         Route::get('commandslist', 'CommandController@showCommandsList')->name('staff.commandslist');
         Route::post('editcommand', 'CommandController@editCommand')->name('staff.editcommand');
+        Route::post('addcommand', 'CommandController@addCommand')->name('staff.addcommand');
+        Route::post('deletecommand', 'CommandController@deleteCommand')->name('staff.deletecommand');
 
         Route::get('serverslist', 'ServerController@showServersList')->name('staff.serverslist');
         Route::post('editserver', 'ServerController@editServer')->name('staff.editserver');
+        Route::post('addserver', 'ServerController@addServer')->name('staff.addserver');
+        Route::post('deleteserver', 'ServerController@deleteServer')->name('staff.deleteserver');
 
         Route::get('ticketslist', 'TicketController@showTicketsList')->name('staff.ticketslist');
         Route::post('replyticket', 'TicketController@reply')->name('staff.replyticket');
