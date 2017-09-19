@@ -16,13 +16,13 @@ class RolesTableSeeder extends Seeder
             'name' => 'Admin',
             'slug' => 'admin',
             'description' => '',
-            'level' => 1,
+            'level' => 10,
         ]);
         Role::create([
             'name' => 'Senior Helper',
             'slug' => 'senior.helper',
             'description' => '',
-            'level' => 2,
+            'level' => 4,
         ]);
         Role::create([
             'name' => 'Helper',
@@ -34,13 +34,13 @@ class RolesTableSeeder extends Seeder
             'name' => 'Translator',
             'slug' => 'translator',
             'description' => '',
-            'level' => 4,
+            'level' => 2,
         ]);
         Role::create([
             'name' => 'User',
             'slug' => 'user',
             'description' => '',
-            'level' => 5,
+            'level' => 1,
         ]);
     }
 }
