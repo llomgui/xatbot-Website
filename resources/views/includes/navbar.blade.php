@@ -56,6 +56,20 @@
                 <li class="has-submenu">
                     <a href="{{ route('support.list') }}"><i class="md md-help"></i>Support</a>
                 </li>
+                @level(3)
+                <li class="has-submenu">
+                    <a href="#"><i class="md md-pages"></i>Staff</a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('staff.users') }}">Users</a></li>
+                        <li><a href="{{ route('staff.bots') }}">Bots</a></li>
+                        <li><a href="{{ route('staff.users') }}">Ticket</a></li>
+                        @role('admin')
+                        <li><a href="{{ route('staff.commands') }}">Commands</a></li>
+                        <li><a href="{{ route('staff.servers') }}">Servers</a></li>
+                        @endrole
+                    </ul>
+                </li>
+                @endlevel
             </ul>
         </div>
     </div>
