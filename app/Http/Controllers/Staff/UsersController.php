@@ -22,7 +22,7 @@ class UsersController extends Controller
 
     public function showUsers(Request $request)
     {
-        $users = User::orderBy('id', 'asc')->paginate(5);
+        $users = User::orderBy('id', 'asc')->paginate(25);
         return view('staff.users', compact('users'));
     }
 
@@ -80,7 +80,7 @@ class UsersController extends Controller
         );
 
         $user = User::find($data['user_id']);
-        
+
         if ($validator->fails()) {
             return redirect()
                 ->route('staff.edituser', ['user' => $user->id])
