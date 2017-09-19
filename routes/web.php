@@ -104,27 +104,30 @@ Route::group(['prefix' => 'panel'], function () {
 
     });
 
-    Route::group(['prefix' => 'staff', 'middleware' =>'auth', 'namespace' => 'Staff'], function () {
+    Route::group(['prefix' => 'staff', 'middleware' => ['auth', 'level:3'], 'namespace' => 'Staff'], function () {
 
-        Route::get('userslist/{field?}/{search?}', 'UserController@showUsersList')->name('staff.userslist');
-        Route::post('edituser', 'UserController@editUser')->name('staff.edituser');
+        Route::get('users', 'UsersController@showUsers')->name('staff.users');
+        Route::get('edituser/{user}', 'UsersController@showEditUser')->name('staff.edituser');
+        Route::post('edituser', 'UsersController@editUser')->name('staff.postedituser');
 
-        Route::get('botslist/{chat?}', 'BotController@showBotsList')->name('staff.botslist');
-        Route::post('editbot', 'BotController@editBot')->name('staff.editbot');
+        Route::get('botslist/{chat?}', 'BotsController@showBots')->name('staff.bots');
+        Route::post('editbot', 'BotsController@editBot')->name('staff.editbot');
 
-        Route::get('commandslist', 'CommandController@showCommandsList')->name('staff.commandslist');
-        Route::post('editcommand', 'CommandController@editCommand')->name('staff.editcommand');
-        Route::post('addcommand', 'CommandController@addCommand')->name('staff.addcommand');
-        Route::post('deletecommand', 'CommandController@deleteCommand')->name('staff.deletecommand');
+        Route::group(['middleware' => 'role:admin'], function () {
+            Route::get('commandslist', 'CommandsController@showCommands')->name('staff.commands');
+            Route::post('editcommand', 'CommandsController@editCommand')->name('staff.editcommand');
+            Route::post('addcommand', 'CommandsController@addCommand')->name('staff.addcommand');
+            Route::post('deletecommand', 'CommandsController@deleteCommand')->name('staff.deletecommand');
 
-        Route::get('serverslist', 'ServerController@showServersList')->name('staff.serverslist');
-        Route::post('editserver', 'ServerController@editServer')->name('staff.editserver');
-        Route::post('addserver', 'ServerController@addServer')->name('staff.addserver');
-        Route::post('deleteserver', 'ServerController@deleteServer')->name('staff.deleteserver');
+            Route::get('serverslist', 'ServersController@showServers')->name('staff.servers');
+            Route::post('editserver', 'ServersController@editServer')->name('staff.editserver');
+            Route::post('addserver', 'ServersController@addServer')->name('staff.addserver');
+            Route::post('deleteserver', 'ServersController@deleteServer')->name('staff.deleteserver');
+        });
 
-        Route::get('ticketslist', 'TicketController@showTicketsList')->name('staff.ticketslist');
-        Route::post('replyticket', 'TicketController@reply')->name('staff.replyticket');
-        Route::post('closeticket', 'TicketController@close')->name('staff.closeticket');
+        Route::get('ticketslist', 'TicketsController@showTickets')->name('staff.tickets');
+        Route::post('replyticket', 'TicketsController@reply')->name('staff.replyticket');
+        Route::post('closeticket', 'TicketsController@close')->name('staff.closeticket');
 
     });
 
