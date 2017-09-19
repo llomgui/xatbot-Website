@@ -24,8 +24,8 @@ class BadwordController extends Controller
     {
         $badwords = Bot::find(Session('onBotEdit'))->badwords;
         $methods  = [
-            'kick'        => 'Kick',
             'ban'         => 'Ban',
+            'kick'        => 'Kick',
             'dunce'       => 'Dunce',
             'zap'         => 'Zap',
             'reverse'     => 'Reverse',
@@ -55,6 +55,10 @@ class BadwordController extends Controller
             'badword' => 'max:255|required',
             'hours'   => 'integer'
         ];
+
+        if (strtolower($data['method']) == 'kick') {
+            $data['hours'] = 0;
+        }
 
         $validator = Validator::make($data, $rules);
 

@@ -177,6 +177,14 @@
         $('.badword_edit_modal_hours').val(hours);
     });
 
+    $('select').on('change', function(e) {
+        if (e.target.value == 'kick') {
+            $('#hours').parents('.form-group').hide();
+        } else {
+            $('#hours').parents('.form-group').show();
+        }
+    });
+
     $(document).on('click', '.delete_button', function(e) {
         var badword_id = $(this).data('badword_id');
         var token = "{{ csrf_token() }}";
