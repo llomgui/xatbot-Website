@@ -13,6 +13,6 @@ class Command extends Model
 
     public function minrank()
     {
-    	return $this->hasOne('OceanProject\Models\Minrank', 'level', 'default_level');
+        return $this->hasOne('OceanProject\Models\Minrank', 'level', 'default_level');
     }
 }
