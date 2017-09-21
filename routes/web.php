@@ -111,6 +111,7 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('edituser', 'UsersController@editUser')->name('staff.postedituser');
 
         Route::get('bots', 'BotsController@showBots')->name('staff.bots');
+        Route::get('editbot/{bot}', 'BotsController@showEditBot')->name('staff.editbot');
         Route::post('editbot', 'BotsController@editBot')->name('staff.editbot');
 
         Route::group(['middleware' => 'role:admin'], function () {
