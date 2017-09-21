@@ -53,11 +53,15 @@ class LoginController extends Controller
         session(['botsID' => $botsID]);
         session(['onBotEdit' => (!empty($botsID[0]) ? $botsID[0] : null)]);
 
-        $packet = Userinfo::where('xatid', $user->xatid)->get()[0]->packet;
-        if (!empty($packet)) {
-            $avatar = json_decode($packet, true)['a'];
-        } else {
-            $avatar = '';
+        $userinfo = Userinfo::where('xatid', $user->xatid)->get();
+
+        if (sizeof($userinfo) > 0) {
+            $packet = $userinfo[0]->packet;
+            if (!empty($packet)) {
+                $avatar = json_decode($packet, true)['a'];
+            } else {
+                $avatar = '';
+            }
         }
         session(['avatar' => (!empty($avatar) ? $avatar : '')]);
 

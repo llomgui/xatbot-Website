@@ -29,23 +29,29 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $logs = Log::where([
-            ['chatid', '=', Bot::find(Session('onBotEdit'))->chatid],
-            ['created_at', '>=', Carbon::now()->subDay()]
-        ])->select('typemessage', DB::raw('count(*)'))->groupBy('typemessage')->get()->toArray();
-    
         $bot = Bot::find(Session('onBotEdit'));
 
-        if ($bot->botStatus->id == 1) {
-            IPC::init();
-            IPC::connect(strtolower($bot->server->name) . '.sock');
-            IPC::write(sprintf("%s %d", 'users_count', Session('onBotEdit')));
-            $packet = IPC::read(1024);
-            IPC::close();
+        if ($bot) {
+            $logs = Log::where([
+                ['chatid', '=', $bot->chatid],
+                ['created_at', '>=', Carbon::now()->subDay()]
+            ])->select('typemessage', DB::raw('count(*)'))->groupBy('typemessage')->get()->toArray();
+
+            if ($bot->botStatus->id == 1) {
+                IPC::init();
+                IPC::connect(strtolower($bot->server->name) . '.sock');
+                IPC::write(sprintf("%s %d", 'users_count', Session('onBotEdit')));
+                $packet = IPC::read(1024);
+                IPC::close();
+            }
+            $logs[3]['typemessage'] = 'users_count';
+            $logs[3]['count'] = $packet ?? 'NaN';
+        } else {
+            for ($i = 0; $i < 4; $i++) {
+                $logs[$i]['count'] = 'NaN';
+            }
         }
 
-        $logs[4]['typemessage'] = 'users_count';
-        $logs[4]['count'] = $packet ?? 'NaN';
 
         $bots = \Auth::user()->bots;
         return view('page.home')

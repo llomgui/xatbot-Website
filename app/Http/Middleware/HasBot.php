@@ -15,7 +15,7 @@ class HasBot
      */
     public function handle($request, Closure $next)
     {
-        if (Session('onBotEdit') === false) {
+        if (Session('onBotEdit') === null) {
             if ($request->path() != 'panel/bot/create') {
                 return redirect()
                     ->route('panel')
