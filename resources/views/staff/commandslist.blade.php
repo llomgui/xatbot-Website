@@ -34,7 +34,7 @@
                             <td>{{ $command->description }}</td>
                             <td>{{ $command->minrank->name }}</td>
                             <td>
-                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 edit_button" data-command_id="{{ $command->id }}" data-name="{{ $command->name }}" data-description="{{ $command->description }}" data-minrank="{{ $command->minrank->id }}" data-target="#edit-command-modal" data-toggle="modal"> <i class="fa fa-wrench"></i> </button>
+                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 edit_button" data-command_id="{{ $command->id }}" data-name="{{ $command->name }}" data-description="{{ $command->description }}" data-minrank="{{ $command->minrank->level }}" data-target="#edit-command-modal" data-toggle="modal"> <i class="fa fa-wrench"></i> </button>
                                 <button class="btn btn-icon btn-xs waves-effect waves-light btn-danger m-b-5 delete_button" data-command_id="{{ $command->id }}"> <i class="fa fa-remove"></i> </button>
                             </td>
                     	</tr>

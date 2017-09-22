@@ -25,7 +25,7 @@ class CommandsController extends Controller
     public function showCommands()
     {
         $commands = Command::orderBy('name', 'asc')->paginate(25);
-        $minranksList = Minrank::pluck('name', 'id')->toArray();
+        $minranksList = Minrank::pluck('name', 'level')->toArray();
         return view('staff.commandslist')
                 ->with('commands', $commands)
                 ->with('minranks', $minranksList);
@@ -37,14 +37,14 @@ class CommandsController extends Controller
 
         $rules = [
             'command' => 'max:255|required',
-            'description' => 'max:255|required'
+            'description' => 'max:255'
         ];
 
         $validator = Validator::make($data, $rules);
 
         $validator->after(
             function ($validator) use ($data) {
-                if (!in_array($data['minrank'], Minrank::pluck('id')->toArray())) {
+                if (!in_array($data['minrank'], Minrank::pluck('level')->toArray())) {
                     $validator->errors()->add('minrank', 'This minrank is not valid!');
                 }
             }
@@ -68,7 +68,7 @@ class CommandsController extends Controller
 
         $newCommand = new Command;
         $newCommand->name = $data['command'];
-        $newCommand->description = $data['description'];
+        $newCommand->description = (!empty($data['description']) ? $data['description'] : '');
         $newCommand->default_level = $data['minrank'];
         $newCommand->save();
 
@@ -90,14 +90,14 @@ class CommandsController extends Controller
 
         $rules = [
             'command' => 'max:255|required',
-            'description' => 'max:255|required'
+            'description' => 'max:255'
         ];
 
         $validator = Validator::make($data, $rules);
 
         $validator->after(
             function ($validator) use ($data) {
-                if (!in_array($data['minrank'], Minrank::pluck('id')->toArray())) {
+                if (!in_array($data['minrank'], Minrank::pluck('level')->toArray())) {
                     $validator->errors()->add('minrank', 'This minrank is not valid!');
                 }
             }
@@ -113,7 +113,7 @@ class CommandsController extends Controller
         $data['command'] = strtolower($data['command']);
 
         $commandDatas->name = $data['command'];
-        $commandDatas->description = $data['description'];
+        $commandDatas->description = (!empty($data['description']) ? $data['description'] : '');
         $commandDatas->default_level = $data['minrank'];
         $commandDatas->save();
 
