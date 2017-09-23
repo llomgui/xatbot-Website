@@ -93,6 +93,8 @@ Route::group(['prefix' => 'panel'], function () {
 
         Route::post('actionbot', 'BotController@actionBot')->name('bot.actionbot');
 
+        Route::get('logs/{botid}/{amount?}', 'BotController@showLogs')->name('bot.logs');
+
     });
 
     Route::group(['prefix' => 'support', 'middleware' => 'auth', 'namespace' => 'Support'], function () {

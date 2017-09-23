@@ -5,6 +5,7 @@ namespace OceanProject\Http\Controllers\Bot;
 use Auth;
 use Illuminate\Http\Request;
 use OceanProject\Models\Bot;
+use OceanProject\Models\Log;
 use OceanProject\Utilities\IPC;
 use OceanProject\Http\Controllers\Controller;
 
@@ -64,6 +65,24 @@ class BotController extends Controller
                 'message' => 'OceanID ' . $data['botid'] . ' ' . $data['action'] .
                 (($data['action'] == 'stop') ? 'ped' : 'ed') . ' !']
             );
+        }
+    }
+
+    public function showLogs($botid, $amount = 200)
+    {
+        $bot = Bot::find($botid);
+
+        if ($bot) {
+            $logs = Log::where('chatid', '=', $bot->chatid)
+                ->orderBy('created_at', 'DESC')
+                ->limit($amount)
+                ->get();
+
+            return view('bot.logs')
+                ->with('logs', $logs);
+        } else {
+            \Session::put('notfound', 'This bot does not exist!');
+            return view('page.404');
         }
     }
 }
