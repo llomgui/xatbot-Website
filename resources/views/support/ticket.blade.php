@@ -66,7 +66,9 @@
             .done(function(data) {
                 swal(data.header, data.message, data.status);
                 if (data.status == 'success') {
-                    location.reload(true);
+                    setTimeout(function(){
+                        location.reload(true);
+                    }, 2000);
                 }
             });
     });
