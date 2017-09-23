@@ -130,9 +130,10 @@ Route::group(['prefix' => 'panel'], function () {
             
         });
 
-        Route::get('tickets', 'TicketsController@showTickets')->name('staff.tickets');
-        Route::post('replyticket', 'TicketsController@reply')->name('staff.replyticket');
-        Route::post('closeticket', 'TicketsController@close')->name('staff.closeticket');
+        Route::get('tickets', 'TicketController@showList')->name('staff.tickets');
+        Route::get('ticket/{ticketid}', 'TicketController@showTicket')->name('staff.ticket');
+        Route::post('replyticket', 'TicketController@reply')->name('staff.replyticket');
+        Route::post('closeticket', 'TicketController@close')->name('staff.closeticket');
 
     });
 
