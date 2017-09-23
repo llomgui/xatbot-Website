@@ -24,7 +24,7 @@ class ServersController extends Controller
 
     public function showServers()
     {
-        $server = DB::table('servers')
+        $server = Server::orderby('id', 'asc')
                 ->paginate(25);
         return view('staff.serverslist')
                 ->with('serversList', $server);
