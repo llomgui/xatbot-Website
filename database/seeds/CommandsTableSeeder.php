@@ -108,7 +108,9 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'staff', 'description' => '', 'default_level' => 4],
             ['name' => 'customcommand', 'description' => '', 'default_level' => 4],
             ['name' => 'autoban', 'description' => '', 'default_level' => 4],
-            ['name' => 'minrank', 'description' => '', 'default_level' => 5]
+            ['name' => 'minrank', 'description' => '', 'default_level' => 5],
+            ['name' => 'alias', 'description' => '', 'default_level' => 5],
+            ['name' => 'response', 'description' => '', 'default_level' => 5]
         ];
 
         foreach ($commands as $command) {
