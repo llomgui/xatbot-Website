@@ -133,8 +133,8 @@ class TicketController extends Controller
             );
         }
 
-        $data['message'] = str_replace(['<div>', '<br>'], '', $data['message']);
-        $data['message'] = str_replace('</div>', PHP_EOL, $data['message']);
+        $data['message'] = str_replace('<div>', '', $data['message']);
+        $data['message'] = str_replace(['</div>', '<br>'], PHP_EOL, $data['message']);
 
         $ticketMessage = new TicketMessage();
 
