@@ -9,7 +9,7 @@
     @if (count($bots) > 0)
     <div class="col-sm-6 col-lg-3">
         <div class="widget-simple text-center card-box">
-            <h3 class="text-primary counter">{{ (isset($logs[4]) ? $logs[4]['count'] : 0) }}</h3>
+            <h3 class="text-primary counter">{{ (isset($logs[3]) ? $logs[3]['count'] : 0) }}</h3>
             <p class="text-muted">Users online</p>
         </div>
     </div>
