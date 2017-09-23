@@ -70,7 +70,13 @@ class BotController extends Controller
 
     public function showLogs($botid, $amount = 200)
     {
+        if (!is_numeric($botid)) {
+            \Session::put('notfound', 'This bot does not exist!');
+            return view('page.404');
+        }
+
         $bot = Bot::find($botid);
+        $amount = $amount < 1 || !is_numeric($amount) ? 200 : $amount;
 
         if ($bot) {
             $logs = Log::where('chatid', '=', $bot->chatid)
