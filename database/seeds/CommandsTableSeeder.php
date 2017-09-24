@@ -110,7 +110,8 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'autoban', 'description' => '', 'default_level' => 4],
             ['name' => 'minrank', 'description' => '', 'default_level' => 5],
             ['name' => 'alias', 'description' => '', 'default_level' => 5],
-            ['name' => 'response', 'description' => '', 'default_level' => 5]
+            ['name' => 'response', 'description' => '', 'default_level' => 5],
+            ['name' => 'logs', 'description' => '', 'default_level' => 3]
         ];
 
         foreach ($commands as $command) {

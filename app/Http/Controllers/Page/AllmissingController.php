@@ -51,7 +51,7 @@ class AllmissingController extends Controller
         
         $user = new XatUser($userData);
         
-        if ($userData['q'] & 3) {
+        if ($user->hasDays()) {
             $powers = Powers::getPowers();
             foreach ($powers as $key => $value) {
                 if ($key == 95) {
