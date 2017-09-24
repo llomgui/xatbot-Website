@@ -8,7 +8,7 @@ use OceanProject\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use OceanProject\Models\BotlangSentences;
 
-class BotsMessagesController extends Controller
+class BotMessagesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -20,14 +20,14 @@ class BotsMessagesController extends Controller
         $this->middleware('auth');
     }
 
-    public function showBotsMessages()
+    public function showBotMessages()
     {
-        $botsMessages = BotlangSentences::orderby('id', 'asc')->paginate(25);
-        return view('staff.showbotsmessages')
-                ->with('botsmessage', $botsMessages);
+        $botMessages = BotlangSentences::orderby('id', 'asc')->paginate(25);
+        return view('staff.botmessages')
+                ->with('botmessages', $botMessages);
     }
 
-    public function addBotsMessages(Request $request)
+    public function addBotMessages(Request $request)
     {
         $data = $request->all();
 
@@ -53,17 +53,17 @@ class BotsMessagesController extends Controller
                 ->withError('This message name is already added.');
         }
 
-        $botsmessages = new BotlangSentences;
-        $botsmessages->name = $data['name'];
-        $botsmessages->default_value = $data['default_value'];
-        $botsmessages->save();
+        $botmessages = new BotlangSentences;
+        $botmessages->name = $data['name'];
+        $botmessages->default_value = $data['default_value'];
+        $botmessages->save();
 
         return redirect()
             ->back()
             ->withSuccess('Message added!');
     }
 
-    public function editBotsMessages(Request $request)
+    public function editBotMessages(Request $request)
     {
         $data = $request->all();
         $messageData = BotlangSentences::find($data['message_id']);
@@ -96,7 +96,7 @@ class BotsMessagesController extends Controller
             ->withSuccess('Message updated!');
     }
 
-    public function deleteBotsMessages(Request $request)
+    public function deleteBotMessages(Request $request)
     {
         $data = $request->all();
         $messageData = BotlangSentences::find($data['message_id']);

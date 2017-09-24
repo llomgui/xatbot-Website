@@ -60,10 +60,11 @@
                 <li class="has-submenu">
                     <a href="#"><i class="md md-people"></i>Staff</a>
                     <ul class="submenu">
-                        <li><a href="{{ route('staff.users') }}">Users</a></li>
                         <li><a href="{{ route('staff.bots') }}">Bots</a></li>
-                        <li><a href="{{ route('staff.tickets') }}">Ticket</a></li>
+                        <li><a href="{{ route('staff.users') }}">Users</a></li>
+                        <li><a href="{{ route('staff.tickets') }}">Tickets</a></li>
                         @role('admin')
+                        <li><a href="{{ route('staff.botmessages') }}">Bot Messages</a></li>
                         <li><a href="{{ route('staff.commands') }}">Commands</a></li>
                         <li><a href="{{ route('staff.servers') }}">Servers</a></li>
                         @endrole

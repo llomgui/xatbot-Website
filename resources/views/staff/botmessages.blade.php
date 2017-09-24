@@ -26,19 +26,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                    	@foreach ($botsmessage as $botsmessages)
+                    	@foreach ($botmessages as $botmessage)
                     	<tr>
-                            <td>{{ $botsmessages->name }}</td>
-                            <td>{{ $botsmessages->default_value }}</td>
+                            <td>{{ $botmessage->name }}</td>
+                            <td>{{ $botmessage->default_value }}</td>
                             <td>
-                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 edit_button" data-message_id="{{ $botsmessages->id }}" data-name="{{ $botsmessages->name }}" data-default_value="{{ $botsmessages->default_value }}" data-target="#edit-message-modal" data-toggle="modal"> <i class="fa fa-wrench"></i> </button>
-                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-danger m-b-5 delete_button" data-message_id="{{ $botsmessages->id }}"> <i class="fa fa-remove"></i> </button>
+                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 edit_button" data-message_id="{{ $botmessage->id }}" data-name="{{ $botmessage->name }}" data-default_value="{{ $botmessage->default_value }}" data-target="#edit-message-modal" data-toggle="modal"> <i class="fa fa-wrench"></i> </button>
+                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-danger m-b-5 delete_button" data-message_id="{{ $botmessage->id }}"> <i class="fa fa-remove"></i> </button>
                             </td>
                     	</tr>
                     	@endforeach
                     </tbody>
                 </table>
-                <div style="margin-left: auto; margin-right: auto;">{{ $botsmessage->links() }}</div>
+                <div style="margin-left: auto; margin-right: auto;">{{ $botmessages->links() }}</div>
             </div>
         </div>
     </div>
@@ -49,7 +49,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">Add a new bot message</h4>
                 </div>
-                {!! Form::open(['route' => 'staff.addbotsmessages', 'class' => 'form-horizontal']) !!}
+                {!! Form::open(['route' => 'staff.addbotmessages', 'class' => 'form-horizontal']) !!}
                 <div class="modal-body">
                     <div class="row">
                         {{ csrf_field() }}
@@ -92,7 +92,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">Edit the message</h4>
                 </div>
-                {!! Form::open(['route' => 'staff.editbotsmessages', 'class' => 'form-horizontal']) !!}
+                {!! Form::open(['route' => 'staff.editbotmessages', 'class' => 'form-horizontal']) !!}
                     {!! Form::hidden('message_id', '', ['class' => 'message_edit_modal_message_id']) !!}
                     <div class="modal-body">
                         <div class="row">
@@ -159,7 +159,7 @@
                 confirmButtonText: "Yes, delete it!"
             },
             function(){
-                $.post("{{ route('staff.deletebotsmessages') }}", { message_id: message_id, _token: token } )
+                $.post("{{ route('staff.deletebotmessages') }}", { message_id: message_id, _token: token } )
                     .done(function(data) {
                         swal(data.header, data.message, data.status);
                         if (data.status == 'success') {

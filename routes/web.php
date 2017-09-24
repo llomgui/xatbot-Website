@@ -115,12 +115,13 @@ Route::group(['prefix' => 'panel'], function () {
         Route::get('bots', 'BotsController@showBots')->name('staff.bots');
         Route::post('actionbot', 'BotsController@actionBot')->name('staff.actionbot');
 
-        Route::get('botsmessages', 'BotsMessagesController@showBotsMessages')->name('staff.showbotsmessage');
-        Route::post('addmessage', 'BotsMessagesController@addBotsMessages')->name('staff.addbotsmessages');
-        Route::post('editmessage', 'BotsMessagesController@editBotsMessages')->name('staff.editbotsmessages');
-        Route::post('deletemessage', 'BotsMessagesController@deleteBotsMessages')->name('staff.deletebotsmessages');
 
         Route::group(['middleware' => 'role:admin'], function () {
+
+            Route::get('botmessages', 'BotMessagesController@showBotMessages')->name('staff.botmessages');
+            Route::post('addmessage', 'BotMessagesController@addBotMessages')->name('staff.addbotmessages');
+            Route::post('editmessage', 'BotMessagesController@editBotMessages')->name('staff.editbotmessages');
+            Route::post('deletemessage', 'BotMessagesController@deleteBotMessages')->name('staff.deletebotmessages');
 
             Route::get('commands', 'CommandsController@showCommands')->name('staff.commands');
             Route::post('editcommand', 'CommandsController@editCommand')->name('staff.editcommand');
