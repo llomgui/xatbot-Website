@@ -23,7 +23,7 @@
                         <tr>
                             <td>{{ $ticket->id }}</td>
                             <td>{{ $ticket->updated_at->format('d/M/Y') }}</td>
-                            <td>{!! ($ticket->state == 1) ? '<span class="label label-success">Open</span>' : '<span class="label label-danger">Close</span>' !!}</td>
+                            <td>{!! ($ticket->state == true) ? '<span class="label label-success">Open</span>' : '<span class="label label-danger">Close</span>' !!}</td>
                             <td>{{ $ticket->ticketDepartment->name }}</td>
                             <td>{{ $ticket->subject }}</td>
                             <td>

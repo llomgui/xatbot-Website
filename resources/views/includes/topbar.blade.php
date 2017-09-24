@@ -23,7 +23,7 @@
         <div class="menu-extras">
             <ul class="nav navbar-nav navbar-right pull-right">
                 <li class="dropdown">
-                    <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img src="{{ Session('avatar') }}" alt="user-img" class="img-circle"> </a>
+                    <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img src="{{ Auth::user()->avatar }}" alt="user-img" class="img-circle"> </a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ route('profile') }}"><i class="ti-user m-r-5"></i> Profile</a></li>
                         <li>

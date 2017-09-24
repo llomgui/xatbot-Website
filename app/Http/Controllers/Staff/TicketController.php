@@ -25,7 +25,7 @@ class TicketController extends Controller
 
     public function showList()
     {
-        $tickets = Ticket::where('state', true)->get();
+        $tickets = Ticket::orderBy('state', 'DESC')->get();
         return view('staff.ticketslist')
             ->with('tickets', $tickets);
     }
