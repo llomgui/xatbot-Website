@@ -58,12 +58,11 @@ class LoginController extends Controller
         if (sizeof($userinfo) > 0) {
             $packet = $userinfo[0]->packet;
             if (!empty($packet)) {
-                $avatar = json_decode($packet, true)['a'];
+                $user->avatar = json_decode($packet, true)['a'];
             } else {
-                $avatar = '';
+                $user->avatar = '';
             }
         }
-        session(['avatar' => (!empty($avatar) ? $avatar : '')]);
 
         $user->ip = $request->ip();
         $user->save();
