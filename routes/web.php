@@ -115,6 +115,11 @@ Route::group(['prefix' => 'panel'], function () {
         Route::get('bots', 'BotsController@showBots')->name('staff.bots');
         Route::post('actionbot', 'BotsController@actionBot')->name('staff.actionbot');
 
+        Route::get('botsmessages', 'BotsMessagesController@showBotsMessages')->name('staff.showbotsmessage');
+        Route::post('addmessage', 'BotsMessagesController@addBotsMessages')->name('staff.addbotsmessages');
+        Route::post('editmessage', 'BotsMessagesController@editBotsMessages')->name('staff.editbotsmessages');
+        Route::post('deletemessage', 'BotsMessagesController@deleteBotsMessages')->name('staff.deletebotsmessages');
+
         Route::group(['middleware' => 'role:admin'], function () {
 
             Route::get('commands', 'CommandsController@showCommands')->name('staff.commands');
