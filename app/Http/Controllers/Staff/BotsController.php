@@ -26,23 +26,23 @@ class BotsController extends Controller
         return view('staff.bots', compact('bots'));
     }
 
-    public function showEditBot(Bot $bot)
-    {
+    public function showEditBot(Bot $bot) {
         $botCheck = Bot::find($bot->id);
 
         if (!is_object($botCheck)) {
-            return view('staff.bots');
+           //return view('staff.bots');
+            // TODO FIX THIS PART
         }
 
         if (session('onBotEdit') == $bot->id) {
             return redirect()
                 ->back()
-                ->withSuccess('You are already editing the Ocean ID ' . $bot->id . '.');
+                ->withSuccess('You are already editing the Ocean ID ' . $bot->id . '.');      
         }
 
         session(['onBotEdit' => $bot->id]);
         return redirect()
             ->back()
-            ->withSuccess('You are now editing OceanID: ' . $bot->id . ' as helper.');
+            ->withSuccess('You are now editing OceanID: ' . $bot->id . ' as helper.');        
     }
 }
