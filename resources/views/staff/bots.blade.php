@@ -1,5 +1,9 @@
 @extends('layouts.panel')
 
+@section('head')
+<link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-md-12">
@@ -15,6 +19,7 @@
                             <th>Chat</th>
                             <th>Server</th>
                             <th>Status</th>
+                            <th>Action</th>
                             <td></td>
                         </tr>
                     </thead>
@@ -37,8 +42,12 @@
                                     <span class="label label-inverse">{{ $bot->botStatus->name }}</span>
                                 @endif
                             </td>
-							<td><a class="btn btn-sm btn-info dropdown-toggle waves-effect waves-light" href="{{ route('staff.editbot', ['bot' => $bot->id]) }}">Edit Information</a>
-							</td>
+							<td>
+                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-success m-b-5 button_action_bot" data-botid="{{ $bot->id }}" data-action="start"> <i class="fa fa-play"></i> </button>
+                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 button_action_bot" data-botid="{{ $bot->id }}" data-action="restart"> <i class="fa fa-refresh fa-spin"></i> </button>
+                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-danger m-b-5 button_action_bot" data-botid="{{ $bot->id }}" data-action="stop"> <i class="fa fa-stop"></i> </button>
+                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-info m-b-5 button_action_bot" data-botid="{{ $bot->id }}" data-action="edit"> <i class="fa fa-pencil"></i> </button>
+                            </td>
 						</tr>
 					@endforeach
                     </tbody>
@@ -48,4 +57,34 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('footer')
+
+<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
+
+<script type="text/javascript">
+    $(document).on('click', '.button_action_bot', function(e) {
+        var botid = $(this).data('botid');
+        var token = "{{ csrf_token() }}";
+        var action = $(this).data('action');
+        $.post("{{ route('staff.actionbot') }}", { botid: botid, action: action, _token: token } )
+            .done(function(data) {
+                swal({
+                    title: data.message,
+                    type: data.status
+                }, function() {
+                    if (data.status == 'success') {
+                        location.reload();
+                    }
+                });
+            })
+            .error(function() {
+                swal({
+                    title: "The bots server is under maintenance, please be patient!",
+                    type: "error"
+                });
+            });
+    });
+</script>
 @endsection
