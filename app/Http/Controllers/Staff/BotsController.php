@@ -3,6 +3,7 @@
 namespace OceanProject\Http\Controllers\Staff;
 
 use Validator;
+use OceanProject\Utilities\IPC;
 use OceanProject\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use OceanProject\Models\Bot;
@@ -26,24 +27,53 @@ class BotsController extends Controller
         return view('staff.bots', compact('bots'));
     }
 
-    public function showEditBot(Bot $bot)
+    public function actionBot(Request $request)
     {
-        $botCheck = Bot::find($bot->id);
+        $data = $request->all();
+        switch ($data['action']) {
+            case 'start':
+            case 'restart':
+            case 'stop':
+                $bot = Bot::find($data['botid']);
 
-        if (!is_object($botCheck)) {
-           //return view('staff.bots');
-            // TODO FIX THIS PART
+                IPC::init();
+                IPC::connect(strtolower($bot->server->name) . '.sock');
+                IPC::write(sprintf("%s %d", $data['action'], $data['botid']));
+                $packet = IPC::read(1024);
+                IPC::close();
+
+                return response()->json(
+                    [
+                        'status' => 'success',
+                        'message' => 'Botid ' . $data['botid'] . ' ' . $data['action'] .
+                        (($data['action'] == 'stop') ? 'ped' : 'ed') . ' !'
+                    ]
+                );
+                break;
+
+            case 'edit':
+                $bot = Bot::find($data['botid']);
+
+                if (session('onBotEdit') == $bot->id) {
+                    return response()->json(
+                        [
+                        'status' => 'error',
+                        'message' => 'You are already editing this bot!'
+                        ]
+                    );
+                }
+
+                session(['onBotEdit' => $bot->id]);
+                return response()->json(
+                    [
+                        'status' => 'success',
+                        'message' => 'You are now editing botid: ' . $bot->id . ' as helper.'
+                    ]
+                );
+                break;
+            
+            default:
+                break;
         }
-
-        if (session('onBotEdit') == $bot->id) {
-            return redirect()
-                ->back()
-                ->withSuccess('You are already editing the Ocean ID ' . $bot->id . '.');
-        }
-
-        session(['onBotEdit' => $bot->id]);
-        return redirect()
-            ->back()
-            ->withSuccess('You are now editing OceanID: ' . $bot->id . ' as helper.');
     }
 }
