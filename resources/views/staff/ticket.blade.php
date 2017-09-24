@@ -19,7 +19,7 @@
         <div class="card-box">
             <div class="media">
                 <a href="#" class="pull-left">
-                    <img alt="" src="" class="media-object thumb-sm img-circle">
+                    <img alt="" src="{{ $ticketMessage->user->avatar }}" class="media-object thumb-sm img-circle">
                 </a>
                 <div class="media-body">
                     <span class="media-meta pull-right">{{ $ticketMessage->updated_at->format('d/M/Y H:i') }}</span>
@@ -33,9 +33,10 @@
 
         </div>
         @endforeach
+        @if ($ticket->state == true)
         <div class="media m-b-0">
             <a href="#" class="pull-left">
-                <img alt="" src="" class="media-object thumb-sm img-circle">
+                <img alt="" src="{{ Auth::user()->avatar }}" class="media-object thumb-sm img-circle">
             </a>
             <div class="media-body">
                 <div class="card-box p-0">
@@ -49,6 +50,7 @@
             <button type="button" class="btn btn-danger waves-effect waves-light w-md m-b-30" id="submit_close">Close</button>
             <button type="button" class="btn btn-primary waves-effect waves-light w-md m-b-30" id="submit_send">Send</button>
         </div>
+        @endif
     </div>
 </div>
 @endsection

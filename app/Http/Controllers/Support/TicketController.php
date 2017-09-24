@@ -120,6 +120,10 @@ class TicketController extends Controller
                 if ($ticket->user_id != Auth::id()) {
                     $validator->errors()->add('ticket_id', 'Cheater!');
                 }
+
+                if ($ticket->state == false) {
+                    $validator->errors()->add('ticket_id', 'This ticket is closed!');
+                }
             }
         );
 
