@@ -26,6 +26,7 @@ Route::group(['prefix' => 'panel'], function () {
         Route::get('userinfo/{user?}', 'UserinfoController@index')->name('userinfo');
         Route::get('everymissing/{user?}', 'EverymissingController@index')->name('everymissing');
         Route::get('allmissing/{user?}', 'AllmissingController@index')->name('allmissing');
+        Route::get('oceanstaff', 'StaffController@index')->name('oceanstaff');
 
     });
 
@@ -94,6 +95,10 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('actionbot', 'BotController@actionBot')->name('bot.actionbot');
 
         Route::get('logs/{botid}/{amount?}', 'BotController@showLogs')->name('bot.logs');
+
+        Route::get('sharebot', 'ShareBotController@showList')->name('sharebot');
+        Route::post('sharebot', 'ShareBotController@addAccess')->name('postsharebot');
+        Route::post('delsharebot', 'ShareBotController@deleteAccess')->name('deleteaccess');
 
     });
 

@@ -4,6 +4,7 @@ namespace OceanProject\Http\Controllers\Auth;
 
 use OceanProject\Models\Userinfo;
 use OceanProject\Http\Controllers\Controller;
+use OceanProject\Utilities\Functions;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -64,6 +65,9 @@ class LoginController extends Controller
             }
         }
 
+        if ($user->share_key == "") {
+            $user->share_key = Functions::generateRandomString(60);
+        }
         $user->ip = $request->ip();
         $user->save();
     }
