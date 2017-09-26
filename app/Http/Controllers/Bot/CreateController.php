@@ -104,12 +104,6 @@ class CreateController extends Controller
             $bot->botlang()->save($botlangSentence);
         }
 
-        foreach ($user->bots as $bot) {
-            $botsID[] = $bot->id;
-        }
-        session(['botsID' => $botsID]);
-        session(['onBotEdit' => $botsID[0]]);
-
         return redirect()
                 ->route('panel')
                 ->withSuccess('Congratulations, your bot is now created!');

@@ -46,14 +46,6 @@ class LoginController extends Controller
 
     protected function authenticated(\Illuminate\Http\Request $request, $user)
     {
-        $botsID = [];
-        foreach ($user->bots as $bot) {
-            $botsID[] = $bot->id;
-        }
-        
-        session(['botsID' => $botsID]);
-        session(['onBotEdit' => (!empty($botsID[0]) ? $botsID[0] : null)]);
-
         $userinfo = Userinfo::where('xatid', $user->xatid)->get();
 
         if (sizeof($userinfo) > 0) {
@@ -65,9 +57,10 @@ class LoginController extends Controller
             }
         }
 
-        if ($user->share_key == "") {
+        if ($user->share_key == '') {
             $user->share_key = Functions::generateRandomString(60);
         }
+
         $user->ip = $request->ip();
         $user->save();
     }

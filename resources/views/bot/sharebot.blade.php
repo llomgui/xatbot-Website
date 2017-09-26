@@ -29,13 +29,12 @@
                                 </div>
                             </div>
 							<p class="text-muted m-b-30 font-13">
-								<strong>*Share key:</strong> You can find this key on your <a href="{{ route('profile') }}">profile</a> page.
+								<strong>*Share key:</strong> You can find this key on your <a href="{{ route('profile') }}">Profile</a> page.
 								This key will be used to add an access to one of your bots for your friends. <br /><br />
-								When added, They will be able to edit your bot like you can do by yourself. Of course, 
+								When added, they will be able to edit your bot like you can do by yourself. Of course, 
 								you can remove them by clicking the cross next to their name on the "Users list" part which
 								is located on the right of this page.<br /> <br />
-								<strong>Note: </strong>No, they don't have access to all the bots you own, but only the one you have 
-								decided to add them.
+								<strong>Note: </strong>No, they don't have access to all the bots you own, but only the one selected.
 							</p>
 							<div class="form-group m-b-0">
 								<div class="col-sm-offset-5 col-sm-9">
@@ -55,7 +54,7 @@
 					<div class="col-sm-12">
 						<h4 class="m-t-0 header-title"><b>Users list</b></h4>
 						<p class="text-muted m-b-30 font-13">
-							The list of users who have access to your bot(s).
+							The list of users who have access to the selected bot.
 						</p>
 						@if ((count($usersList) -1) == 0)
 							<p>You have not added any users to this bot yet.</p>

@@ -5,12 +5,17 @@
             <a href="{{ route('panel') }}" class="logo"><i class="md md-laptop"></i> <span>OceanProject</span> </a>
         </div>
 
-        @if (count(Session::get('botsID')) > 0)
+        @inject('topbar', 'OceanProject\Http\Controllers\Page\TopbarController')
+        @php
+        $bots = $topbar->getBots();
+        @endphp
+
+        @if (count($bots) > 0)
         <ul class="nav navbar-nav">
             <li class="dropdown m-l-10">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">OceanID {{ Session::get('onBotEdit') }}<span class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu">
-                @foreach (Session::get('botsID') as $botid)
+                @foreach ($bots as $botid)
                     @if ($botid != Session::get('onBotEdit'))
                         <li><a href="{{ route('bot.setbotid', ['botid' => $botid]) }}">OceanID {{ $botid }}</a></li>
                     @endif
