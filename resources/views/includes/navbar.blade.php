@@ -38,6 +38,7 @@
                         </li>
                         <li><a href="{{ route('bot.powers') }}">Bot Powers</a></li>
                         <li><a href="{{ route('bot.logs', Session('onBotEdit')) }}">Chat Logs</a></li>
+                        <li><a href="{{ route('sharebot') }}">Share bots</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu">
@@ -46,7 +47,7 @@
                         <li><a href="{{ route('chat') }}">Chat</a></li>
                         <li><a href="{{ route('commands', Session('onBotEdit')) }}">Commands</a></li>
                         <li><a href="#">Get Premium</a></li>
-                        <li><a href="#">Ocean Staff</a></li>
+                        <li><a href="{{ route('oceanstaff') }}">Ocean Staff</a></li>
                         <li><a href="{{ route('userinfo') }}">Userinfo</a></li>
                         <li><a href="{{ route('servers') }}">Servers</a></li>
                         <li><a href="{{ route('everymissing') }}">Everymissing</a></li>

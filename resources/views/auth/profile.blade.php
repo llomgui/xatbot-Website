@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-sm-offset-2 col-sm-8">
-		<h4 class="page-title">Profile</h4>
+	<div class="col-sm-6">
 		<div class="card-box">
 			<div class="row">
 				<h4 class="m-t-0 header-title"><b>Edit Profile</b></h4>
@@ -73,6 +72,26 @@
 						</div>
 					</div>
 				</form>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="card-box">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-sm-12">
+						<h4 class="m-t-0 header-title"><b>Share the bots</b></h4>
+						<p class="text-muted m-b-30 font-13">
+							Give this key to one of your friends and you will be able to have access their bots.
+						</p>
+						<input type="text" class="form-control" value="{{ $user->share_key }}" id="key" name="key" disabled="true"><br />
+						<p class="text-muted m-b-30 font-13">
+							When your friends have entered this key on the "Share bots" page, you will
+							be able to take control of the selected bot(s) including the bot settings/lists/bot behavior etc... <br /><br />
+							<strong>Note</strong>: Remember that at any time, they can remove your access from their bots without reasons.
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
