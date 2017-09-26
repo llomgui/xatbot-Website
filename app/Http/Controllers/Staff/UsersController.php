@@ -37,9 +37,9 @@ class UsersController extends Controller
 
         $rules = [
             'user_id' => 'integer',
-            'email'   => 'email|max:50|iunique:users,email',
-            'xatid'   => 'integer|unique:users',
-            'regname' => 'max:50|iunique:users,regname',
+            'email'   => 'email|max:50|nullable|iunique:users,email',
+            'xatid'   => 'integer|nullable|unique:users',
+            'regname' => 'max:50|nullable|iunique:users,regname',
         ];
 
         $inputs = [];
@@ -59,22 +59,24 @@ class UsersController extends Controller
         $validator->after(
             function ($validator) use ($data) {
 
-                $regname = Xat::isXatIDExist($data['xatid']);
-                if (!Xat::isValidXatID($data['xatid'])) {
-                    $validator->errors()->add('xatid', 'The xatid is not valid!');
-                } elseif (!$regname) {
-                    $validator->errors()->add('xatid', 'The xatid does not exist!');
-                }
+                if (!is_null($data['xatid']) || !is_null($data['regname'])) {
+                    $regname = Xat::isXatIDExist($data['xatid']);
+                    if (!Xat::isValidXatID($data['xatid'])) {
+                        $validator->errors()->add('xatid', 'The xatid is not valid!');
+                    } elseif (!$regname) {
+                        $validator->errors()->add('xatid', 'The xatid does not exist!');
+                    }
 
-                if (!Xat::isValidRegname($data['regname'])) {
-                    $validator->errors()->add('regname', 'The regname is not valid!');
-                } elseif (!Xat::isRegnameExist($data['regname'])) {
-                    $validator->errors()->add('regname', 'The regname does not exist!');
-                }
+                    if (!Xat::isValidRegname($data['regname'])) {
+                        $validator->errors()->add('regname', 'The regname is not valid!');
+                    } elseif (!Xat::isRegnameExist($data['regname'])) {
+                        $validator->errors()->add('regname', 'The regname does not exist!');
+                    }
 
-                if (strtolower($regname) != strtolower($data['regname'])) {
-                    $validator->errors()->add('regname', 'Regname and xatid do not match!');
-                    $validator->errors()->add('xatid', 'Regname and xatid do not match!');
+                    if (strtolower($regname) != strtolower($data['regname'])) {
+                        $validator->errors()->add('regname', 'Regname and xatid do not match!');
+                        $validator->errors()->add('xatid', 'Regname and xatid do not match!');
+                    }
                 }
             }
         );
