@@ -23,9 +23,8 @@ class BotlangController extends Controller
     public function showBotlangForm()
     {
         $botlangs = DB::table('botlang')
-                    ->leftJoin('botlang_sentences', 'botlang.botlang_sentences_id', '=', 'botlang_sentences.id')
+                    ->join('botlang_sentences', 'botlang.botlang_sentences_id', '=', 'botlang_sentences.id')
                     ->where('botlang.bot_id', Session('onBotEdit'))
-                    ->orWhere('botlang.bot_id', '=', null)
                     ->select(
                         'botlang_sentences.name',
                         'botlang.value',
@@ -44,79 +43,49 @@ class BotlangController extends Controller
     {
         $data = $request->all();
 
-        if ($data['botlang_id'] == null) {
-            $rules = [
-                'botlang_sentences_id' => 'integer:required',
-                'custom_value' => 'present'
-            ];
+        $rules = [
+            'botlang_id' => 'integer:required',
+            'botlang_sentences_id' => 'integer:required',
+            'custom_value' => 'filled'
+        ];
 
-            $validator = Validator::make($data, $rules);
+        $validator = Validator::make($data, $rules);
 
-            if ($validator->fails()) {
-                return response()->json(
-                    [
-                    'status'  => 'error',
-                    'message' => 'You are trying to cheat!'
-                    ]
-                );
-            }
+        $validator->after(
+            function ($validator) use ($data) {
+                if (!empty($data['botlang_id'])) {
+                    if (!$data['botlang_id']) {
+                        $res = DB::table('botlang')
+                                ->where('bot_id', Session('onBotEdit'))
+                                ->where('id', $data['botlang_id'])
+                                ->select('id')
+                                ->get();
 
-            $bot = Bot::find(Session('onBotEdit'));
-            $botlangSentence = BotlangSentences::find($data['botlang_sentences_id']);
-
-            $bot->botlang()->save($botlangSentence, ['value' => $data['custom_value']]);
-
-            return response()->json(
-                [
-                'status'  => 'success',
-                'message' => 'Custom Message added!'
-                ]
-            );
-        } else {
-            $rules = [
-                'botlang_id' => 'integer:required',
-                'botlang_sentences_id' => 'integer:required',
-                'custom_value' => 'present'
-            ];
-
-            $validator = Validator::make($data, $rules);
-
-            $validator->after(
-                function ($validator) use ($data) {
-                    if (!empty($data['botlang_id'])) {
-                        if (!$data['botlang_id']) {
-                            $res = DB::table('botlang')
-                                    ->where('bot_id', Session('onBotEdit'))
-                                    ->where('id', $data['botlang_id'])
-                                    ->select('id')
-                                    ->get();
-
-                            if (empty($res)) {
-                                $validator->errors()->add('botlang_id', 'Cheater!');
-                            }
+                        if (empty($res)) {
+                            $validator->errors()->add('botlang_id', 'Cheater!');
                         }
                     }
                 }
-            );
-
-            if ($validator->fails()) {
-                return response()->json(
-                    [
-                    'status'  => 'error',
-                    'message' => 'You are trying to cheat!'
-                    ]
-                );
             }
+        );
 
-            $bot = Bot::find(Session('onBotEdit'));
-            $bot->botlang()->updateExistingPivot($data['botlang_id'], ['value' => $data['custom_value']]);
-
+        if ($validator->fails()) {
             return response()->json(
                 [
-                'status'  => 'success',
-                'message' => 'Custom Message updated!'
+                'status'  => 'error',
+                'message' => 'This field cannot be empty!'
                 ]
             );
         }
+
+        $bot = Bot::find(Session('onBotEdit'));
+        $bot->botlang()->updateExistingPivot($data['botlang_sentences_id'], ['value' => $data['custom_value']]);
+
+        return response()->json(
+            [
+            'status'  => 'success',
+            'message' => 'Custom Message updated!'
+            ]
+        );
     }
 }

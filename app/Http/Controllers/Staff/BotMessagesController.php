@@ -6,6 +6,7 @@ use Validator;
 use Illuminate\Support\Facades\DB;
 use OceanProject\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use OceanProject\Models\Bot;
 use OceanProject\Models\BotlangSentences;
 
 class BotMessagesController extends Controller
@@ -57,6 +58,11 @@ class BotMessagesController extends Controller
         $botmessages->name = $data['name'];
         $botmessages->default_value = $data['default_value'];
         $botmessages->save();
+
+        $bots = Bot::all();
+        foreach ($bots as $bot) {
+            $bot->botlang()->save($botmessages);
+        }
 
         return redirect()
             ->back()
