@@ -117,6 +117,8 @@ class BotMessagesController extends Controller
             );
         }
 
+        DB::table('botlang')->where('botlang_sentences_id', $data['message_id'])->delete();
+
         $messageData->delete();
 
         return response()->json(
