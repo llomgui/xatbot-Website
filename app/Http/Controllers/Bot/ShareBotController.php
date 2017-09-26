@@ -78,6 +78,7 @@ class ShareBotController extends Controller
 
         $user = User::find($userSelected->id);
         $bot->users()->save($user);
+        
         return redirect()
                 ->back()
                 ->withSuccess('The user has been added to this bot.');
@@ -92,7 +93,10 @@ class ShareBotController extends Controller
         foreach ($users as $user) {
             if ($user->id == $data['user_id']) {
                 DB::table('bot_user')
-                    ->where('user_id', '=', $data['user_id'])
+                    ->where([
+                        ['user_id', $data['user_id']],
+                        ['bot_id', Session('onBotEdit')]
+                    ])
                     ->delete();
                 return response()->json(
                     [
