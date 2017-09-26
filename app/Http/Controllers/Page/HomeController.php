@@ -37,6 +37,8 @@ class HomeController extends Controller
                 ['created_at', '>=', Carbon::now()->subDay()]
             ])->select('typemessage', DB::raw('count(*)'))->groupBy('typemessage')->get()->toArray();
 
+            $logs = array_column($logs, 'count', 'typemessage');
+
             if ($bot->botStatus->id == 1) {
                 IPC::init();
                 IPC::connect(strtolower($bot->server->name) . '.sock');
@@ -44,11 +46,10 @@ class HomeController extends Controller
                 $packet = IPC::read(1024);
                 IPC::close();
             }
-            $logs[3]['typemessage'] = 'users_count';
-            $logs[3]['count'] = $packet ?? 'NaN';
+            $logs[6] = $packet ?? 'NaN';
         } else {
-            for ($i = 0; $i < 4; $i++) {
-                $logs[$i]['count'] = 'NaN';
+            for ($i = 0; $i < 6; $i++) {
+                $logs[$i] = 'NaN';
             }
         }
 
