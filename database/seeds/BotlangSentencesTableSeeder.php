@@ -47,7 +47,7 @@ class BotlangSentencesTableSeeder extends Seeder
             ],
             [
                 'name' => 'cmd.chatinfos.found',
-                'default_value' => 'The radio for the chat $0: _$1'
+                'default_value' => 'The $0 for the chat $1: _$2'
             ],
         ];
 
