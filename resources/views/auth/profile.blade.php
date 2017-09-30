@@ -66,12 +66,31 @@
 							@endif
 						</div>
 					</div>
+					<div class="form-group">
+						<label for="spotify" class="col-sm-2 control-label">Spotify</label>
+						<div class="col-sm-9">
+							@if (empty($user->spotify))
+							<button type="button" class="btn btn-success waves-effect waves-light" onclick="event.preventDefault(); document.getElementById('spotify-login-form').submit();">Login</button>
+                            @else
+                            <button type="button" class="btn btn-danger waves-effect waves-light" onclick="event.preventDefault(); document.getElementById('spotify-logout-form').submit();">Logout</button>
+                            @endif
+	                    </div>
+					</div>
 					<div class="form-group m-b-0">
 						<div class="col-sm-offset-2 col-sm-9">
 							<button type="submit" class="btn btn-primary waves-effect waves-light">Update</button>
 						</div>
 					</div>
 				</form>
+				@if (empty($user->spotify))
+				<form id="spotify-login-form" action="{{ route('spotify.authorize') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+                @else
+                <form id="spotify-logout-form" action="{{ route('spotify.logout') }}" method="POST" style="display: none;">
+                	{{ csrf_field() }}
+                </form>
+                @endif
 			</div>
 		</div>
 	</div>
