@@ -1,9 +1,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="OceanProject - xat Bot Service Provider">
+<meta name="description" content="{{ env('NAME') }} - xat Bot Service Provider">
 <meta name="author" content="Guillaume">
 
-<title>OceanProject</title>
+<title>{{ env('NAME') }} - Panel</title>
 
 <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 

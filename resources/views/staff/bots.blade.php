@@ -13,7 +13,7 @@
                 <table class="table m-0">
                     <thead>
                         <tr>
-                        	<th>Ocean ID</th>
+                        	<th>{{ env('BOTID_NAME') }}</th>
                             <th>Name</th>
                             <th>Type</th>
                             <th>Chat</th>

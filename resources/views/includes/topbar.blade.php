@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="logo">
-            <a href="{{ route('panel') }}" class="logo"><i class="md md-laptop"></i> <span>OceanProject</span> </a>
+            <a href="{{ route('panel') }}" class="logo"><i class="md md-laptop"></i> <span>{{ env('NAME') }}</span> </a>
         </div>
 
         @inject('topbar', 'OceanProject\Http\Controllers\Page\TopbarController')
@@ -13,11 +13,11 @@
         @if (count($bots) > 0)
         <ul class="nav navbar-nav">
             <li class="dropdown m-l-10">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">OceanID {{ Session::get('onBotEdit') }}<span class="caret"></span></a>
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">{{ env('BOTID_NAME') }} {{ Session::get('onBotEdit') }}<span class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu">
                 @foreach ($bots as $botid)
                     @if ($botid != Session::get('onBotEdit'))
-                        <li><a href="{{ route('bot.setbotid', ['botid' => $botid]) }}">OceanID {{ $botid }}</a></li>
+                        <li><a href="{{ route('bot.setbotid', ['botid' => $botid]) }}">{{ env('BOTID_NAME') }} {{ $botid }}</a></li>
                     @endif
                 @endforeach
                 </ul>
@@ -27,10 +27,10 @@
 
         <div class="menu-extras">
             <ul class="nav navbar-nav navbar-right pull-right">
+                <li><a href="{{ route('profile') }}"><i class="ti-user m-r-5"></i> Profile</a></li>
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img src="{{ Auth::user()->avatar }}" alt="user-img" class="img-circle"> </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('profile') }}"><i class="ti-user m-r-5"></i> Profile</a></li>
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="ti-power-off m-r-5"></i> Logout

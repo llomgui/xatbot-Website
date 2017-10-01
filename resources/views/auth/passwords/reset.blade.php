@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="text-center">
-    <a href="/" class="logo logo-lg"><i class="md md-laptop"></i> <span>OceanProject</span> </a>
+    <a href="/" class="logo logo-lg"><i class="md md-laptop"></i> <span>{{ env('NAME') }}</span> </a>
 </div>
 
 <form class="form-horizontal m-t-20" role="form" method="POST" action="{{ route('password.request') }}">

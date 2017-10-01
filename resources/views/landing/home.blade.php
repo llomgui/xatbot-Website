@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OceanProject - xat Bot Service Provider">
+    <meta name="description" content="{{ env('NAME') }} - xat Bot Service Provider">
     <meta name="author" content="Guillaume">
 
-    <title>OceanProject</title>
+    <title>{{ env('NAME') }}</title>
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
@@ -40,7 +40,7 @@
         <div class="pull-left"> 
           <div class="email">
             <a href="https://xat.com/OceanProject" target="_blank">
-              <i class=" ti-email"></i> OceanProject
+              <i class=" ti-email"></i> {{ env('NAME') }}
             </a>
           </div>
         </div>
@@ -63,7 +63,7 @@
           <!-- LOGO -->
           <a class="navbar-brand logo" href="index.html">
             <i class="glyphicon glyphicon-stats"></i>
-              <span>OceanProject</span>
+              <span>{{ env('NAME') }}</span>
           </a>
         </div>
         <!-- end navbar-header -->
@@ -104,7 +104,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="home-wrapper text-center">
-            <h1 class="animated fadeInDown wow" data-wow-delay=".1s">OceanProject - Responsive Dashboard</h1>
+            <h1 class="animated fadeInDown wow" data-wow-delay=".1s">{{ env('NAME') }} - Responsive Dashboard</h1>
             <p class="animated fadeInDown wow" data-wow-delay=".2s">blablabla</p>
             <a href="" class="btn btn-primary btn-rounded w-lg animated fadeInDown wow" data-wow-delay=".4s">Register Now</a>
             <div class="clearfix"></div>

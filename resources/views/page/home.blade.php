@@ -39,7 +39,7 @@
                     <table class="table m-0">
                         <thead>
                             <tr>
-                                <th>OceanID</th>
+                                <th>{{ env('BOTID_NAME') }}</th>
                                 <th>Display name</th>
                                 <th>Type</th>
                                 <th>Chat</th>

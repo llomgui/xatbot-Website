@@ -4,7 +4,7 @@
 <div class="wrapper-page">
 
     <div class="text-center">
-        <a href="{{ route('panel') }}" class="logo logo-lg"><i class="md md-laptop"></i> <span>OceanProject</span> </a>
+        <a href="{{ route('panel') }}" class="logo logo-lg"><i class="md md-laptop"></i> <span>{{ env('NAME') }}</span> </a>
     </div>
 
     <form method="POST" action="{{ route('password.email') }}" role="form" class="text-center m-t-20">

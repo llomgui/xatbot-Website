@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-offset-3 col-md-6">
         <div class="card-box">
-            <h4 class="m-t-0 header-title"><b>Ocean staff</b></h4>
+            <h4 class="m-t-0 header-title"><b>Staff</b></h4>
             <div class="table-responsive">
                 <table class="table m-0">
                     <thead>

@@ -31,7 +31,7 @@ class BotController extends Controller
             session(['onBotEdit' => $botid]);
             return redirect()
                 ->back()
-                ->withSuccess('You are now editing OceanID: ' . $botid . '!');
+                ->withSuccess('You are now editing ' . env('BOTID_NAME') . ': ' . $botid . '!');
         }
     }
 
@@ -62,7 +62,7 @@ class BotController extends Controller
             return response()->json(
                 [
                 'status' => 'success',
-                'message' => 'OceanID ' . $data['botid'] . ' ' . $data['action'] .
+                'message' => env('BOTID_NAME') . ' ' . $data['botid'] . ' ' . $data['action'] .
                 (($data['action'] == 'stop') ? 'ped' : 'ed') . ' !']
             );
         }
