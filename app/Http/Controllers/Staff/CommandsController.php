@@ -137,6 +137,7 @@ class CommandsController extends Controller
             );
         }
 
+        DB::table('bot_command_minrank')->where('command_id', $data['command_id'])->delete();
         $commandDatas->delete();
 
         return response()->json(
