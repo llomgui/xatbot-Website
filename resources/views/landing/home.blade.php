@@ -106,7 +106,7 @@
           <div class="home-wrapper text-center">
             <h1 class="animated fadeInDown wow" data-wow-delay=".1s">{{ env('NAME') }}</h1>
             <p class="animated fadeInDown wow" data-wow-delay=".2s">Welcome to {{ env('NAME') }}! Our bots are made to moderate and animate your xat chat!</p>
-            <a href="" class="btn btn-primary btn-rounded w-lg animated fadeInDown wow" data-wow-delay=".4s">Register Now</a>
+            <a href="{{ route('register') }}" class="btn btn-primary btn-rounded w-lg animated fadeInDown wow" data-wow-delay=".4s">Register Now</a>
             <div class="clearfix"></div>
             
           </div>
@@ -174,7 +174,7 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="feature-detail">
-            <h2 class="title fadeIn animated wow" data-wow-delay=".1s">Clean and Ultra Modern Design</h2>
+            <h2 class="title fadeIn animated wow" data-wow-delay=".1s">Fast and Customizable</h2>
             <p class="sub fadeIn animated wow" data-wow-delay=".2s">Once registered, create a bot, then use the buttons on the top menu to customize your bot! </p>
 
             <ul class="list-unstyled">
@@ -184,17 +184,17 @@
               </li>
               <li>
                 <i class=" ti-arrow-circle-right"></i>
-                You can also customize the bot's reason for kicking, banning, as well as adding aliases and other fuck features such as hangman words!
+                You can also customize the bot's reason for kicking, banning, as well as adding aliases and others cool features!
               </li>
 
             </ul>
 
-            <a href="" class="btn btn-primary btn-rounded w-lg animated fadeInDown wow" data-wow-delay=".4s">Register Now</a>
+            <a href="{{ route('register') }}" class="btn btn-primary btn-rounded w-lg animated fadeInDown wow" data-wow-delay=".4s">Register Now</a>
           </div>
         </div>
 
         <div class="col-sm-6">
-          <img src="images/mac.png" class="img-responsive">
+          <img src="landing/images/mac.png" class="img-responsive">
         </div>
 
       </div>
@@ -209,13 +209,13 @@
       <div class="row">
 
         <div class="col-sm-5">
-          <img src="images/tab2.png" class="img-responsive screen-space">
+          <img src="landing/images/tab2.png" class="img-responsive screen-space">
         </div>
 
 
         <div class="col-sm-6 col-sm-offset-1">
           <div class="feature-detail">
-            <h2 class="title fadeIn animated wow" data-wow-delay=".1s">Clean and Ultra Modern Design</h2>
+            <h2 class="title fadeIn animated wow" data-wow-delay=".1s">Clean and Reliable</h2>
             <p class="sub fadeIn animated wow" data-wow-delay=".2s">Available in multiple languages! </p>
 
             <ul class="list-unstyled">
@@ -230,7 +230,7 @@
 
             </ul>
 
-            <a href="" class="btn btn-primary btn-rounded w-lg animated fadeInDown wow" data-wow-delay=".4s">Register Now</a>
+            <a href="{{ route('register') }}" class="btn btn-primary btn-rounded w-lg animated fadeInDown wow" data-wow-delay=".4s">Register Now</a>
           </div>
         </div>
 
@@ -282,7 +282,7 @@
       <div class="row">
         <div class="col-sm-12 text-center">
           <h1 class="title zoomIn animated wow" data-wow-delay=".1s">Simple Pricing</h1>
-          <p class="sub-title zoomIn animated wow" data-wow-delay=".2s">Constituto voluptatibus mei ex. Eum soleat lorem Ipsum is simply dummy<br/> text of the printing and typesetting industry. </p>
+          <p class="sub-title zoomIn animated wow" data-wow-delay=".2s">You can buy premium package transfering to your bot on your chat.</p>
         </div> 
       </div> <!-- end row -->
 
@@ -291,13 +291,13 @@
           <div class="row">
                           
                 <!-- Pricing Item -->
-                <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="col-sm-6 col-md-6 col-lg-6">
                   <div class="pricing-item animated fadeInLeft wow" data-wow-delay=".3s">
                     <div class="pricing-item-inner">
                       <div class="pricing-wrap">   
 
                         <div class="pricing-num pricing-num-pink">
-                          <sup>$</sup>99
+                          <sup>xats</sup>0
                         </div>
                         <div class="pr-per">
                           per month
@@ -305,22 +305,20 @@
 
                         <!-- Pricing Title -->
                         <div class="pricing-title">
-                          Starter Pack
+                          Free Pack
                         </div>          
                         <!-- Pricing Features -->
                         <div class="pricing-features">
                           <ul class="sf-list pr-list">
-                            <li>5 Projects</li>
-                            <li>1 GB Storage</li>
-                            <li>No Domain</li>
-                            <li>1 User</li>
+                            <li>No Powers</li>
+                            <li>Few commands</li>
                             <li>Free Support</li>
                           </ul>
                         </div>
                                           
                         <!-- Button -->                     
                         <div class="pr-button">
-                          <a href="" class="btn btn-primary btn-rnd">Register Now</a> 
+                          <a href="{{ route('register') }}" class="btn btn-primary btn-rnd">Register Now</a> 
                         </div>
                       </div>
                     </div>
@@ -329,7 +327,7 @@
               <!-- End Pricing Item -->
 
               <!-- Pricing Item -->
-                <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="col-sm-6 col-md-6 col-lg-6">
                   <div class="pricing-item main animated fadeInLeft wow" data-wow-delay=".5s">
                      <div class="ribbon"><span>POPULAR</span></div>
                     <div class="pricing-item-inner">
@@ -337,7 +335,7 @@
 
 
                         <div class="pricing-num">
-                          <sup>$</sup>199
+                          <sup>xats</sup>250
                         </div>
                         <div class="pr-per">
                           per month
@@ -350,16 +348,14 @@
                         <!-- Pricing Features -->
                         <div class="pricing-features">
                           <ul class="sf-list pr-list">
-                            <li>5 Projects</li>
-                            <li>1 GB Storage</li>
-                            <li>No Domain</li>
-                            <li>1 User</li>
+                            <li>Everypower</li>
+                            <li>All commands</li>
                             <li>Free Support</li>
                           </ul>
                         </div>                
                         <!-- Button -->                     
                         <div class="pr-button">
-                          <a href="" class="btn btn-primary btn-rnd">Register Now</a> 
+                          <a href="{{ route('register') }}" class="btn btn-primary btn-rnd">Register Now</a> 
                         </div>
                       </div>
                     </div>
@@ -367,44 +363,6 @@
                 </div>
               <!-- End Pricing Item -->
 
-              <!-- Pricing Item -->
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                  <div class="pricing-item animated fadeInLeft wow" data-wow-delay=".7s">
-                    <div class="pricing-item-inner">
-                      <div class="pricing-wrap">    
-
-
-                        <div class="pricing-num pricing-num-yellow">
-                          <sup>$</sup>299
-                        </div>
-                        <div class="pr-per">
-                          per month
-                        </div>   
-
-                        <!-- Pricing Title -->
-                        <div class="pricing-title">
-                          Enterprise Pack
-                        </div>          
-                        <!-- Pricing Features -->
-                        <div class="pricing-features">
-                          <ul class="sf-list pr-list">
-                            <li>5 Projects</li>
-                            <li>1 GB Storage</li>
-                            <li>No Domain</li>
-                            <li>1 User</li>
-                            <li>Free Support</li>
-                          </ul>
-                        </div>                   
-                        <!-- Button -->                     
-                        <div class="pr-button">
-                          <a href="" class="btn btn-primary btn-rnd">Register Now</a> 
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <!-- End Pricing Item -->
-              
             </div>
         </div>
       </div>
