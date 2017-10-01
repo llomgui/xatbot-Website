@@ -168,7 +168,6 @@ Route::group(['prefix' => 'panel'], function () {
 
         Route::post('spotify/authorize', 'SpotifyController@authorizeSpotify')->name('spotify.authorize');
         Route::get('spotify/callback', 'SpotifyController@callback')->name('spotify.callback');
-        Route::get('spotify/test', 'SpotifyController@test')->name('spotify.test');
         Route::post('spotify/logout', 'SpotifyController@logout')->name('spotify.logout');
 
     });

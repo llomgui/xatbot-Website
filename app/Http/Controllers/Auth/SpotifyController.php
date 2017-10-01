@@ -60,19 +60,6 @@ class SpotifyController extends Controller
         abort(404, 'CRSF');
     }
 
-    public function test()
-    {
-        $user = Auth::user();
-        if (!empty($user->spotify['accessToken'])) {
-            $api = new \SpotifyWebAPI\SpotifyWebAPI();
-            $api->setAccessToken($user->spotify['accessToken']);
-            $currentTrack = $api->getMyCurrentTrack();
-            dump($currentTrack->is_playing);
-            dump($currentTrack->item->artists[0]->name);
-            dump($currentTrack->item->name);
-        }
-    }
-
     public function logout()
     {
         $user = Auth::user();
