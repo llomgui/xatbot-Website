@@ -25,7 +25,6 @@
                                 <li><a href="{{ route('bot.badword') }}">Bad Words</a></li>
                                 <li><a href="{{ route('bot.link') }}">Link Filter</a></li>
                                 <li><a href="{{ route('bot.botlang') }}">Bot Messages</a></li>
-                                <li><a href="#">Hangman Words</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">
@@ -47,7 +46,7 @@
                         <li><a href="{{ route('chat') }}">Chat</a></li>
                         <li><a href="{{ route('commands', Session('onBotEdit')) }}">Commands</a></li>
                         <li><a href="#">Get Premium</a></li>
-                        <li><a href="{{ route('oceanstaff') }}">Ocean Staff</a></li>
+                        <li><a href="{{ route('staff') }}">Staff</a></li>
                         <li><a href="{{ route('userinfo') }}">Userinfo</a></li>
                         <li><a href="{{ route('servers') }}">Servers</a></li>
                         <li><a href="{{ route('everymissing') }}">Everymissing</a></li>

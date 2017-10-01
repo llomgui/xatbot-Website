@@ -16,13 +16,11 @@
                     </thead>
                     <tbody>
                         @foreach ($staffList as $id => $data)
-                            @if ($data->regname != \Auth::user()->regname)
                             <tr>
                                 <td>{{ $data->xatid }} </td>
                                 <td><a href="//xat.me/i={{ $data->xatid }}" target="_blank">{{ $data->regname }}</a></td>
                                 <td>{{ ucfirst($data->slug) }}</td>
                             </tr>
-                            @endif
                         @endforeach
                     </tbody>
                 </table>

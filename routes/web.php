@@ -26,7 +26,7 @@ Route::group(['prefix' => 'panel'], function () {
         Route::get('userinfo/{user?}', 'UserinfoController@index')->name('userinfo');
         Route::get('everymissing/{user?}', 'EverymissingController@index')->name('everymissing');
         Route::get('allmissing/{user?}', 'AllmissingController@index')->name('allmissing');
-        Route::get('oceanstaff', 'StaffController@index')->name('oceanstaff');
+        Route::get('staff', 'StaffController@index')->name('staff');
 
     });
 
