@@ -70,9 +70,9 @@
 						<label for="spotify" class="col-sm-2 control-label">Spotify</label>
 						<div class="col-sm-9">
 							@if (empty($user->spotify))
-							<button type="button" class="btn btn-success waves-effect waves-light" onclick="event.preventDefault(); document.getElementById('spotify-login-form').submit();">Login</button>
+							<button type="button" class="btn btn-success waves-effect waves-light" onclick="event.preventDefault(); document.getElementById('spotify-login-form').submit();"><i class="fa fa-spotify fa-lg" aria-hidden="true"></i> Login</button>
                             @else
-                            <button type="button" class="btn btn-danger waves-effect waves-light" onclick="event.preventDefault(); document.getElementById('spotify-logout-form').submit();">Logout</button>
+                            <button type="button" class="btn btn-danger waves-effect waves-light" onclick="event.preventDefault(); document.getElementById('spotify-logout-form').submit();"><i class="fa fa-spotify fa-lg" aria-hidden="true"></i> Logout</button>
                             @endif
 	                    </div>
 					</div>
