@@ -121,7 +121,7 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('actionbot', 'BotsController@actionBot')->name('staff.actionbot');
 
 
-        Route::group(['middleware' => 'role:admin'], function () {
+        Route::group(['middleware' => 'role:Admin'], function () {
 
             Route::get('botmessages', 'BotMessagesController@showBotMessages')->name('staff.botmessages');
             Route::post('addmessage', 'BotMessagesController@addBotMessages')->name('staff.addbotmessages');
