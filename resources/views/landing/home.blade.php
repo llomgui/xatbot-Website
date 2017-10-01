@@ -104,8 +104,8 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="home-wrapper text-center">
-            <h1 class="animated fadeInDown wow" data-wow-delay=".1s">{{ env('NAME') }} - Responsive Dashboard</h1>
-            <p class="animated fadeInDown wow" data-wow-delay=".2s">blablabla</p>
+            <h1 class="animated fadeInDown wow" data-wow-delay=".1s">{{ env('NAME') }}</h1>
+            <p class="animated fadeInDown wow" data-wow-delay=".2s">Welcome to {{ env('NAME') }}! Our bots are made to moderate and animate your xat chat!</p>
             <a href="" class="btn btn-primary btn-rounded w-lg animated fadeInDown wow" data-wow-delay=".4s">Register Now</a>
             <div class="clearfix"></div>
             
@@ -124,10 +124,10 @@
       <div class="row">
         <div class="col-sm-12 text-center">
           <h2 class="title zoomIn animated wow" data-wow-delay=".1s">How It Works ?</h2>
-          <p class="sub-title zoomIn animated wow" data-wow-delay=".2s">Constituto voluptatibus mei ex. Eum soleat lorem Ipsum is simply dummy<br/> text of the printing and typesetting industry. </p>
+          <p class="sub-title zoomIn animated wow" data-wow-delay=".2s">Assign the power bot to your xat chat and set it up with the xat ID 10101. Then register on this site to set up your bot! Tutorials will be available in multiple languages! If you still need help, visit our chat <a href="//xat.com/OceanProject">here</a> and our team of helpers will be happy to assist you!</p>
         </div> 
       </div>
-
+      <!--
       <div class="row">
         <div class="col-sm-4">
           <div class="service-item animated fadeInLeft wow" data-wow-delay=".1s">
@@ -135,9 +135,9 @@
             <div class="service-detail">
               <h4>Strategy Solutions</h4>
               <p>We put a lot of effort in design, as it’s the most important ingredient of successful website.Sed ut perspiciatis unde omnis iste natus error sit.</p>
-            </div> <!-- /service-detail -->
-          </div> <!-- /service-item -->
-        </div> <!-- /col -->
+            </div> <!-- /service-detail 
+          </div> <!-- /service-item 
+        </div> <!-- /col 
 
         <div class="col-sm-4">
           <div class="service-item animated fadeInDown wow" data-wow-delay=".3s">
@@ -145,9 +145,9 @@
             <div class="service-detail">
               <h4>Digital Design</h4>
               <p>We put a lot of effort in design, as it’s the most important ingredient of successful website.Sed ut perspiciatis unde omnis iste natus error sit.</p>
-            </div> <!-- /service-detail -->
-          </div> <!-- /service-item -->
-        </div> <!-- /col -->
+            </div> <!-- /service-detail 
+          </div> <!-- /service-item 
+        </div> <!-- /col 
 
         <div class="col-sm-4">
           <div class="service-item animated fadeInRight wow" data-wow-delay=".5s">
@@ -155,13 +155,11 @@
             <div class="service-detail">
               <h4>SEO</h4>
               <p>We put a lot of effort in design, as it’s the most important ingredient of successful website.Sed ut perspiciatis unde omnis iste natus error sit.</p>
-            </div> <!-- /service-detail -->
-          </div> <!-- /service-item -->
-        </div> <!-- /col -->       
-      </div> <!--end row -->
-
-
-      
+            </div> <!-- /service-detail 
+          </div> <!-- /service-item 
+        </div> <!-- /col  
+      </div> <!--end row
+      -->
 
 
     </div>
@@ -177,16 +175,16 @@
         <div class="col-sm-6">
           <div class="feature-detail">
             <h2 class="title fadeIn animated wow" data-wow-delay=".1s">Clean and Ultra Modern Design</h2>
-            <p class="sub fadeIn animated wow" data-wow-delay=".2s">Constituto voluptatibus mei ex. Eum soleat lorem Ipsum is simply dummy<br/> text of the printing and typesetting industry. </p>
+            <p class="sub fadeIn animated wow" data-wow-delay=".2s">Once registered, create a bot, then use the buttons on the top menu to customize your bot! </p>
 
             <ul class="list-unstyled">
               <li>
                 <i class=" ti-arrow-circle-right"></i>
-                Aliquam a augue suscipit, bibendum luctus neque. Vestibulum laoreet rhoncus ipsum, bibendum ullamcorper hendrerit tellus.
+                You can customize basic features such as the bot's name, avatar, homepage and more!
               </li>
               <li>
                 <i class=" ti-arrow-circle-right"></i>
-                We put a lot of effort in design, as it’s the most important ingredient of successful website.
+                You can also customize the bot's reason for kicking, banning, as well as adding aliases and other fuck features such as hangman words!
               </li>
 
             </ul>
@@ -218,16 +216,16 @@
         <div class="col-sm-6 col-sm-offset-1">
           <div class="feature-detail">
             <h2 class="title fadeIn animated wow" data-wow-delay=".1s">Clean and Ultra Modern Design</h2>
-            <p class="sub fadeIn animated wow" data-wow-delay=".2s">Constituto voluptatibus mei ex. Eum soleat lorem Ipsum is simply dummy<br/> text of the printing and typesetting industry. </p>
+            <p class="sub fadeIn animated wow" data-wow-delay=".2s">Available in multiple languages! </p>
 
             <ul class="list-unstyled">
               <li>
                 <i class=" ti-arrow-circle-right"></i>
-                Aliquam a augue suscipit, bibendum luctus neque. Vestibulum laoreet rhoncus ipsum, bibendum ullamcorper hendrerit tellus.
+                We currently offer assistance in English, Spanish, French and Portuguese!
               </li>
               <li>
                 <i class=" ti-arrow-circle-right"></i>
-                We put a lot of effort in design, as it’s the most important ingredient of successful website.
+                You can choose between different languages of how you want the website to be displayed!
               </li>
 
             </ul>
@@ -424,7 +422,7 @@
       <div class="row">
         <div class="col-sm-12 text-center">
           <h1 class="title zoomIn animated wow" data-wow-delay=".1s">FAQ</h1>
-          <p class="sub-title zoomIn animated wow" data-wow-delay=".2s">Constituto voluptatibus mei ex. Eum soleat lorem Ipsum is simply dummy<br/> text of the printing and typesetting industry. </p>
+          <p class="sub-title zoomIn animated wow" data-wow-delay=".2s">List of commonly asked questions about the bot.</p>
         </div> 
       </div> <!-- end row -->
 
@@ -432,14 +430,14 @@
         <div class="col-md-5 col-md-offset-1">
           <!-- Question/Answer -->
           <div class="animated fadeInLeft wow" data-wow-delay=".1s">
-            <h4 class="question" data-wow-delay=".1s">What is Lorem Ipsum?</h4>
-            <p class="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            <h4 class="question" data-wow-delay=".1s">I want to insert a bot for my chat on the panel, but it says "This chat is taken!" What should I do?</h4>
+            <p class="answer">If you get this error, you need to open a ticket by clicking the "Support" menu on the website so an admin or helper can help you to fix it.</p>
           </div>
 
           <!-- Question/Answer -->
           <div class="animated fadeInLeft wow" data-wow-delay=".3s">
-            <h4 class="question">Why use Lorem Ipsum?</h4>
-            <p class="answer m-b-0">Lorem ipsum dolor sit amet, in mea nonumes dissentias dissentiunt, pro te solet oratio iriure. Cu sit consetetur moderatius intellegam, ius decore accusamus te. Ne primis suavitate disputando nam. Mutat convenirete.</p>
+            <h4 class="question">How do I make my bot main owner in my chat?</h4>
+            <p class="answer m-b-0">You must private chat the bot and do the command "!getmain [chat password]". If your chat password is "Helloworld1234", then you need to do "!getmain Helloworld1234" in the bot pc.</p>
           </div>
 
         </div>
@@ -448,14 +446,14 @@
         <div class="col-md-5">
           <!-- Question/Answer -->
           <div class="animated fadeInRight wow" data-wow-delay=".2s">
-            <h4 class="question">Is safe use Lorem Ipsum?</h4>
-            <p class="answer">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            <h4 class="question">I set up my bot power correctly, and the bot is set up in the panel correctly too, but I'm getting "Xat server offline." What does this mean?</h4>
+            <p class="answer">It means that xat servers are currently OFF so your bot can't connect on your chat. The only thing to do is "Wait". </p>
           </div>
 
           <!-- Question/Answer -->
           <div class="animated fadeInRight wow" data-wow-delay=".4s">
-            <h4 class="question">When can be used?</h4>
-            <p class="answer m-b-0">Lorem ipsum dolor sit amet, in mea nonumes dissentias dissentiunt, pro te solet oratio iriure. Cu sit consetetur moderatius intellegam, ius decore accusamus te. Ne primis suavitate disputando nam. Mutat convenirete.</p>
+            <h4 class="question">How do I create a bot?</h4>
+            <p class="answer m-b-0">Assign the power bot to your chat and set it up in your chat settings with the xat ID 10101. Then register on our site, click "Create a bot" and use the menu functions on the top of the website to customize your bot. Finally, when you are done creating your bot, go back to the dashboard and then start your bot!</p>
           </div>
 
         </div>
@@ -470,7 +468,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
-          <p class="copyright">2017 © OceanProject</p>
+          <p class="copyright">2017 © {{ env('NAME') }}</p>
         </div>
         <div class="col-sm-9">
           <ul class="nav navbar-nav navbar-right">
