@@ -27,7 +27,9 @@ class TopbarController extends Controller
         }
 
         if (!in_array(Session('onBotEdit'), $botsID)) {
-            session(['onBotEdit' => (!empty($botsID[0]) ? $botsID[0] : null)]);
+            if (Auth::user()->level() == 1 || is_null(Session('onBotEdit'))) {
+                session(['onBotEdit' => (!empty($botsID[0]) ? $botsID[0] : null)]);
+            }
         }
 
         return $botsID;
