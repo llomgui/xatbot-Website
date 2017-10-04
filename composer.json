@@ -12,6 +12,7 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
+        "mailjet/laravel-mailjet": "^1.1",
         "shiftonelabs/laravel-nomad": "^1.0",
         "ultraware/roles": "^5.4"
     },

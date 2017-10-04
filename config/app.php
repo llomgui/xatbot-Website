@@ -185,6 +185,8 @@ return [
         Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         ShiftOneLabs\LaravelNomad\LaravelNomadServiceProvider::class,
+        Mailjet\LaravelMailjet\MailjetServiceProvider::class,
+        Mailjet\LaravelMailjet\MailjetMailServiceProvider::class,
 
     ],
 
@@ -238,6 +240,7 @@ return [
         'Html'  => Collective\Html\HtmlFacade::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Mailjet' => Mailjet\LaravelMailjet\Facades\Mailjet::class,
 
     ],
 

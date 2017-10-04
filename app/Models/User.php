@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable as Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Ultraware\Roles\Traits\HasRoleAndPermission;
 use Ultraware\Roles\Contracts\HasRoleAndPermission as HasRoleAndPermissionContract;
+use OceanProject\Mail\ResetPassword;
 
 class User extends Authenticatable implements HasRoleAndPermissionContract
 {
@@ -62,5 +63,16 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
     public function tickets()
     {
         return $this->hasMany('OceanProject\Models\Ticket');
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        \Mail::to($this->email)->send(new ResetPassword($token));
     }
 }
