@@ -72,7 +72,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#how-it-work">How it work</a>
+              <a href="#how-it-works">How it works</a>
             </li>
             <li>
               <a href="#features">Features</a>
@@ -118,7 +118,7 @@
 
 
   <!-- SERVICES -->
-  <section class="section" id="how-it-work">
+  <section class="section" id="how-it-works">
     <div class="container">
 
       <div class="row">
@@ -282,7 +282,7 @@
       <div class="row">
         <div class="col-sm-12 text-center">
           <h1 class="title zoomIn animated wow" data-wow-delay=".1s">Simple Pricing</h1>
-          <p class="sub-title zoomIn animated wow" data-wow-delay=".2s">You can buy premium package transfering to your bot on your chat.</p>
+          <p class="sub-title zoomIn animated wow" data-wow-delay=".2s">Buy premium package just by transferring xats to your bot on your chat.</p>
         </div> 
       </div> <!-- end row -->
 
@@ -431,7 +431,7 @@
         <div class="col-sm-9">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#how-it-work">How it work</a>
+              <a href="#how-it-works">How it works</a>
             </li>
             <li>
               <a href="#features">Features</a>
