@@ -49,6 +49,74 @@ class BotlangSentencesTableSeeder extends Seeder
                 'name' => 'cmd.chatinfos.found',
                 'default_value' => 'The $0 for the chat $1: _$2'
             ],
+            [
+                'name' => 'cmd.active.string',
+                'default_value' => '$0 has been at this chat(while I was here)for: $1'
+            ],
+            [
+                'name' => 'cmd.alias.alreadyused',
+                'default_value' => 'This alias is already in use!'
+            ],
+            [
+                'name' => 'cmd.alias.alreadycommand',
+                'default_value' => 'This alias is already a command!'
+            ],
+            [
+                'name' => 'cmd.alias.notcommand',
+                'default_value' => 'The current command is not a command!'
+            ],
+            [
+                'name' => 'cmd.alias.added',
+                'default_value' => 'The alias has been added!'
+            ],
+            [
+                'name' => 'cmd.alias.removed',
+                'default_value' => '$0 has been removed from the list!'
+            ],
+            [
+                'name' => 'cmd.alias.notinlist',
+                'default_value' => 'I could not find this alias in the list.'
+            ],
+            [
+                'name' => 'cmd.allmissing.canbeseen',
+                'default_value' => 'Allmissing for $0 can be viewed here : '
+            ],
+            [
+                'name' => 'user.notindatabase',
+                'default_value' => 'Sorry, I don\'t have this user in my database.'
+            ],
+            [
+                'name' => 'xatid.notexist',
+                'default_value' => 'The xatid does not exist!'
+            ],
+            [
+                'name' => 'xatid.notvalid',
+                'default_value' => 'The xatid is not valid!'
+            ],
+            [
+                'name' => 'method.notvalid',
+                'default_value' => 'The method is invalid!'
+            ],
+            [
+                'name' => 'hours.notvalid',
+                'default_value' => 'The number of hours is invalid!'
+            ],
+            [
+                'name' => 'user.addedtolist',
+                'default_value' => '$0($1)has been added to the list!'
+            ],
+            [
+                'name' => 'user.removedtolist',
+                'default_value' => '$0 has been removed from the list!'
+            ],
+            [
+                'name' => 'user.notinlist',
+                'default_value' => 'I could not find this user in the list.'
+            ],
+            [
+                'name' => 'user.alreadyadded',
+                'default_value' => 'The user is already added!'
+            ]
         ];
 
         foreach ($sentences as $sentence) {
