@@ -124,7 +124,7 @@
       <div class="row">
         <div class="col-sm-12 text-center">
           <h2 class="title zoomIn animated wow" data-wow-delay=".1s">How It Works ?</h2>
-          <p class="sub-title zoomIn animated wow" data-wow-delay=".2s">Assign the power bot to your xat chat and set it up with the xat ID 10101. Then register on this site to set up your bot! Tutorials will be available in multiple languages! If you still need help, visit our chat <a href="//xat.com/OceanProject">here</a> and our team of helpers will be happy to assist you!</p>
+          <p class="sub-title zoomIn animated wow" data-wow-delay=".2s">Assign the power bot to your xat chat and set it up with the xat ID 10101. Then register on this site to set up your bot! <a href="{{ route('setupbot') }}">Tutorials</a> are available in multiple languages! If you still need help, visit our chat <a href="//xat.com/OceanProject">here</a> and our team of helpers will be happy to assist you!</p>
         </div> 
       </div>
       <!--
@@ -202,18 +202,40 @@
   </section>
   <!-- END SCREENSHOTS -->
 
-  <!-- SCREENSHOTS -->
   <section class="section" id="features1">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5">
+          <img src="//i.cubeupload.com/KfdMfX.png" class="img-responsive screen-space" width="420">
+        </div>
+
+        <div class="col-sm-6 col-sm-offset-1">
+          <div class="feature-detail">
+            <h2 class="title fadeIn animated wow animated" data-wow-delay=".1s">Special Features</h2>
+            <p class="sub fadeIn animated wow animated" data-wow-delay=".2s">Special and unique features of xatbot</p>
+            <ul class="list-unstyled">
+              <li>
+                <i class=" ti-arrow-circle-right"></i>
+                ShareBot - The ShareBot feature allows you to share your bot with your friends, simply just by adding the key of your friend. A key can be obtained at the Profile page, top right of the panel.
+              </li>
+              <li>
+                <i class=" ti-arrow-circle-right"></i>Spotify - With the exclusive Spotify feature of xatbot, you can show other users what you’re currently listening to on Spotify. To use this feature, connect your Spotify account at the Profile page of our panel and use the !spotify command in the chat.
+              </li>
+            </ul>
+            <a href="{{ route('register') }}" class="btn btn-primary btn-rounded w-lg animated fadeInDown wow" data-wow-delay=".4s">Register Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="section bg-gray" id="features2">
     <div class="container">
 
       <div class="row">
 
-        <div class="col-sm-5">
-          <img src="landing/images/tab2.png" class="img-responsive screen-space">
-        </div>
-
-
-        <div class="col-sm-6 col-sm-offset-1">
+        <div class="col-sm-6">
           <div class="feature-detail">
             <h2 class="title fadeIn animated wow" data-wow-delay=".1s">Clean and Reliable</h2>
             <p class="sub fadeIn animated wow" data-wow-delay=".2s">Available in multiple languages! </p>
@@ -234,7 +256,9 @@
           </div>
         </div>
 
-        
+        <div class="col-sm-6">
+          <img src="landing/images/tab2.png" class="img-responsive screen-space">
+        </div>        
 
       </div>
     </div>
@@ -262,7 +286,7 @@
                 <div class="col-md-3 col-sm-3 facts">
                   <i class="ti-briefcase"></i>
                     <h1 class="counter">{{ $totalCommands }}</h1>
-                    <h4>No. Of Command</h4>
+                    <h4>No. Of Commands</h4>
                 </div>
                 <!-- /facts-3 -->
                 <div class="col-md-3 col-sm-3 facts">
