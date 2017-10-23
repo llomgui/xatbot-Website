@@ -2,6 +2,7 @@
 
 @section('head')
 <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
+<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
 @endsection
 
 @section('content')
@@ -137,9 +138,6 @@
 @endsection
 
 @section('footer')
-
-<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-
 <script type="text/javascript">
     $(document).on('click', '.edit_button', function(e) {
         var snitch_id = $(this).data('snitch_id');

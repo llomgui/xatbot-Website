@@ -68,6 +68,7 @@
                         <li><a href="{{ route('staff.botmessages') }}">Bot Messages</a></li>
                         <li><a href="{{ route('staff.commands') }}">Commands</a></li>
                         <li><a href="{{ route('staff.servers') }}">Servers</a></li>
+                        <li><a href="{{ route('staff.languages') }}">Languages</a></li>
                         @endrole
                     </ul>
                 </li>

@@ -3,10 +3,11 @@
 namespace OceanProject\Http\Controllers\Auth;
 
 use OceanProject\Models\User;
-use OceanProject\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use OceanProject\Utilities\Xat;
+use OceanProject\Utilities\Functions;
+use Illuminate\Support\Facades\Validator;
+use OceanProject\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -95,12 +96,14 @@ class RegisterController extends Controller
     {
         $user = User::create(
             [
-            'name'     => $data['name'],
-            'email'    => $data['email'],
-            'xatid'    => $data['xatid'],
-            'regname'  => $data['regname'],
-            'password' => bcrypt($data['password']),
-            'ip'       => \Request::ip()
+            'name'        => $data['name'],
+            'email'       => $data['email'],
+            'xatid'       => $data['xatid'],
+            'regname'     => $data['regname'],
+            'password'    => bcrypt($data['password']),
+            'language_id' => 1,
+            'ip'          => \Request::ip(),
+            'share_key'   => Functions::generateRandomString(60)
             ]
         );
 

@@ -2,6 +2,7 @@
 
 @section('head')
 <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
+<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
 @endsection
 
 @section('content')
@@ -93,9 +94,6 @@
 @endsection
 
 @section('footer')
-
-<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-
 <script type="text/javascript">
     $(document).on('click', '.delete_button', function(e) {
         var user_id = $(this).data('user_id');
@@ -119,5 +117,4 @@
         });
     });
 </script>
-
 @endsection

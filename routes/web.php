@@ -141,6 +141,10 @@ Route::group(['prefix' => 'panel'], function () {
             Route::post('addserver', 'ServersController@addServer')->name('staff.addserver');
             Route::post('deleteserver', 'ServersController@deleteServer')->name('staff.deleteserver');
             
+            Route::get('languages', 'LanguagesController@showLanguages')->name('staff.languages');
+            Route::post('editlanguage', 'LanguagesController@editLanguage')->name('staff.editlanguage');
+            Route::post('addlanguage', 'LanguagesController@addLanguage')->name('staff.addlanguage');
+            
         });
 
         Route::get('tickets', 'TicketController@showList')->name('staff.tickets');

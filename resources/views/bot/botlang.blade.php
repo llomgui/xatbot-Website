@@ -15,7 +15,7 @@
                 <tbody>
                     @foreach ($botlangs as $botlang)
 					<tr>
-						<td><input type="text" class="form-control" disabled value="{{ $botlang->default_value }}"></td>
+						<td><input type="text" class="form-control" disabled value="{{ json_decode($botlang->sentences)->$language }}"></td>
 						<td><input type="text" class="form-control" data-id="{{ (!empty($botlang->id) ? $botlang->id : 'null') }}" data-botlang_sentences_id="{{ $botlang->botlang_sentences_id }}" value="{{ $botlang->value }}"></td>
 					</tr>
                     @endforeach

@@ -4,6 +4,7 @@ namespace OceanProject\Http\Controllers\Page;
 
 use Auth;
 use Illuminate\Http\Request;
+use OceanProject\Models\Language;
 use OceanProject\Http\Controllers\Controller;
 
 class TopbarController extends Controller
@@ -33,5 +34,11 @@ class TopbarController extends Controller
         }
 
         return $botsID;
+    }
+
+    public function getLanguages()
+    {
+        $languages = Language::all();
+        return $languages;
     }
 }

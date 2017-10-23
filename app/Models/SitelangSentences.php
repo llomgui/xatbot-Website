@@ -4,7 +4,7 @@ namespace OceanProject\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BotlangSentences extends Model
+class SitelangSentences extends Model
 {
     /**
      * @var array
@@ -16,7 +16,7 @@ class BotlangSentences extends Model
      *
      * @var string
      */
-    protected $table = 'botlang_sentences';
+    protected $table = 'sitelang_sentences';
 
     protected $casts = [
         'sentences' => 'array'

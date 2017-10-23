@@ -2,6 +2,7 @@
 
 @section('head')
     <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
+    <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
 @endsection
 
 @section('content')
@@ -21,7 +22,7 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Default value</th>
+                            <th>Sentences</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -29,9 +30,9 @@
                     	@foreach ($botmessages as $botmessage)
                     	<tr>
                             <td>{{ $botmessage->name }}</td>
-                            <td>{{ $botmessage->default_value }}</td>
+                            <td>{{ $botmessage->sentences }}</td>
                             <td>
-                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 edit_button" data-message_id="{{ $botmessage->id }}" data-name="{{ $botmessage->name }}" data-default_value="{{ $botmessage->default_value }}" data-target="#edit-message-modal" data-toggle="modal"> <i class="fa fa-wrench"></i> </button>
+                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 edit_button" data-message_id="{{ $botmessage->id }}" data-name="{{ $botmessage->name }}" data-sentences="{{ $botmessage->sentences }}" data-target="#edit-message-modal" data-toggle="modal"> <i class="fa fa-wrench"></i> </button>
                                 <button class="btn btn-icon btn-xs waves-effect waves-light btn-danger m-b-5 delete_button" data-message_id="{{ $botmessage->id }}"> <i class="fa fa-remove"></i> </button>
                             </td>
                     	</tr>
@@ -65,12 +66,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            {!! Form::label('default_value', 'Default value', ['class' => 'col-md-2 control-label']); !!}
+                            {!! Form::label('sentences', 'Default value', ['class' => 'col-md-2 control-label']); !!}
                             <div class="col-md-10">
-                                {!! Form::text('default_value', '', ['class' => 'form-control', 'placeholder' => 'Default value']) !!}
-                                @if ($errors->has('default_value'))
+                                {!! Form::text('sentences', '', ['class' => 'form-control', 'placeholder' => 'Default value']) !!}
+                                @if ($errors->has('sentences'))
                                     <ul class="parsley-errors-list filled">
-                                        <li class="parsley-required">{{ $errors->first('default_value') }}</li>
+                                        <li class="parsley-required">{{ $errors->first('sentences') }}</li>
                                     </ul>
                                 @endif
                             </div>
@@ -109,12 +110,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {!! Form::label('default_value', 'Default value', ['class' => 'col-md-2 control-label']); !!}
+                                {!! Form::label('sentences', 'Default value', ['class' => 'col-md-2 control-label']); !!}
                                 <div class="col-md-10">
-                                {!! Form::text('default_value', '', ['class' => 'form-control message_edit_modal_default_value', 'placeholder' => 'Default value']) !!}
-                                @if ($errors->has('default_value'))
+                                {!! Form::text('sentences', '', ['class' => 'form-control message_edit_modal_sentences', 'placeholder' => 'Default value']) !!}
+                                @if ($errors->has('sentences'))
                                         <ul class="parsley-errors-list filled">
-                                            <li class="parsley-required">{{ $errors->first('default_value') }}</li>
+                                            <li class="parsley-required">{{ $errors->first('sentences') }}</li>
                                         </ul>
                                     @endif
                                 </div>
@@ -133,18 +134,15 @@
 @endsection
 
 @section('footer')
-
-    <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-
     <script type="text/javascript">
         $(document).on('click', '.edit_button', function(e) {
             var message_id      = $(this).data('message_id');
             var message_name    = $(this).data('name');
-            var default_value   = $(this).data('default_value');
+            var sentences   = $(this).data('sentences');
 
             $('.message_edit_modal_message_id').val(message_id);
             $('.message_edit_modal_name').val(message_name);
-            $('.message_edit_modal_default_value').val(default_value);
+            $('.message_edit_modal_sentences').val(sentences);
         });
 
         $(document).on('click', '.delete_button', function(e) {

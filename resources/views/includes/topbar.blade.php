@@ -8,10 +8,21 @@
         @inject('topbar', 'OceanProject\Http\Controllers\Page\TopbarController')
         @php
         $bots = $topbar->getBots();
+        $languages = $topbar->getLanguages();
         @endphp
 
         @if (count($bots) > 0)
         <ul class="nav navbar-nav">
+            <li class="dropdown m-l-10">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">{{ Auth::user()->language->name }}<span class="caret"></span></a>
+                <ul role="menu" class="dropdown-menu">
+                @foreach ($languages as $language)
+                    @if ($language->id != Auth::user()->language_id)
+                        <li><a href="#">{{ $language->name }}</a></li>
+                    @endif
+                @endforeach
+                </ul>
+            </li>
             <li class="dropdown m-l-10">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">{{ env('BOTID_NAME') }} {{ Session::get('onBotEdit') }}<span class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu">

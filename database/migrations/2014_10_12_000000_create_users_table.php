@@ -20,9 +20,11 @@ class CreateUsersTable extends Migration
             $table->passthru('citext', 'regname')->unique();
             $table->bigInteger('xatid')->unique();
             $table->string('password');
+            $table->integer('language_id')->unsigned()->index();
             $table->ipAddress('ip');
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('language_id')->references('id')->on('languages');
         });
     }
 

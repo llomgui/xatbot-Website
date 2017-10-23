@@ -15,107 +15,219 @@ class BotlangSentencesTableSeeder extends Seeder
         $sentences = [
             [
                 'name' => 'not.enough.rank',
-                'default_value' => 'Sorry you do not have enough rank to use this command!'
+                'sentences' => ['en' => 'Sorry you do not have enough rank to use this command!']
             ],
             [
                 'name' => 'missing.power',
-                'default_value' => 'Sorry, but I do not have the power $0.'
+                'sentences' => ['en' => 'Sorry, but I do not have the power $0.']
             ],
             [
                 'name' => 'user.missing.power',
-                'default_value' => '$0 does not have the power $1 or it is disabled.'
+                'sentences' => ['en' => '$0 does not have the power $1 or it is disabled.']
             ],
             [
                 'name' => 'user.not.here',
-                'default_value' => 'That user is not here.'
+                'sentences' => ['en' => 'That user is not here.']
             ],
             [
                 'name' => 'user.already',
-                'default_value' => 'That user is already $0.'
+                'sentences' => ['en' => 'That user is already $0.']
             ],
             [
                 'name' => 'cmd.wallet',
-                'default_value' => '$0 has $1 xats and $2 days.'
+                'sentences' => ['en' => '$0 has $1 xats and $2 days.']
             ],
             [
                 'name' => 'cmd.xd',
-                'default_value' => '$0 $1 equals $2 $3.'
+                'sentences' => ['en' => '$0 $1 equals $2 $3.']
             ],
             [
                 'name' => 'cmd.chatinfos.notfound',
-                'default_value' => 'No $0 for this chat.'
+                'sentences' => ['en' => 'No $0 for this chat.']
             ],
             [
                 'name' => 'cmd.chatinfos.found',
-                'default_value' => 'The $0 for the chat $1: _$2'
+                'sentences' => ['en' => 'The $0 for the chat $1: _$2']
             ],
             [
                 'name' => 'cmd.active.string',
-                'default_value' => '$0 has been at this chat(while I was here)for: $1'
+                'sentences' => ['en' => '$0 has been at this chat(while I was here)for: $1']
             ],
             [
                 'name' => 'cmd.alias.alreadyused',
-                'default_value' => 'This alias is already in use!'
+                'sentences' => ['en' => 'This alias is already in use!']
             ],
             [
                 'name' => 'cmd.alias.alreadycommand',
-                'default_value' => 'This alias is already a command!'
+                'sentences' => ['en' => 'This alias is already a command!']
             ],
             [
                 'name' => 'cmd.alias.notcommand',
-                'default_value' => 'The current command is not a command!'
+                'sentences' => ['en' => 'The current command is not a command!']
             ],
             [
                 'name' => 'cmd.alias.added',
-                'default_value' => 'The alias has been added!'
+                'sentences' => ['en' => 'The alias has been added!']
             ],
             [
                 'name' => 'cmd.alias.removed',
-                'default_value' => '$0 has been removed from the list!'
+                'sentences' => ['en' => '$0 has been removed from the list!']
             ],
             [
                 'name' => 'cmd.alias.notinlist',
-                'default_value' => 'I could not find this alias in the list.'
+                'sentences' => ['en' => 'I could not find this alias in the list.']
             ],
             [
                 'name' => 'cmd.allmissing.canbeseen',
-                'default_value' => 'Allmissing for $0 can be viewed here : '
+                'sentences' => ['en' => 'Allmissing for $0 can be viewed here : ']
             ],
             [
                 'name' => 'user.notindatabase',
-                'default_value' => 'Sorry, I don\'t have this user in my database.'
+                'sentences' => ['en' => 'Sorry, I don\'t have this user in my database.']
             ],
             [
                 'name' => 'xatid.notexist',
-                'default_value' => 'The xatid does not exist!'
+                'sentences' => ['en' => 'The xatid does not exist!']
             ],
             [
                 'name' => 'xatid.notvalid',
-                'default_value' => 'The xatid is not valid!'
+                'sentences' => ['en' => 'The xatid is not valid!']
             ],
             [
                 'name' => 'method.notvalid',
-                'default_value' => 'The method is invalid!'
+                'sentences' => ['en' => 'The method is invalid!']
             ],
             [
                 'name' => 'hours.notvalid',
-                'default_value' => 'The number of hours is invalid!'
+                'sentences' => ['en' => 'The number of hours is invalid!']
             ],
             [
                 'name' => 'user.addedtolist',
-                'default_value' => '$0($1)has been added to the list!'
+                'sentences' => ['en' => '$0($1)has been added to the list!']
             ],
             [
                 'name' => 'user.removedtolist',
-                'default_value' => '$0 has been removed from the list!'
+                'sentences' => ['en' => '$0 has been removed from the list!']
             ],
             [
                 'name' => 'user.notinlist',
-                'default_value' => 'I could not find this user in the list.'
+                'sentences' => ['en' => 'I could not find this user in the list.']
             ],
             [
                 'name' => 'user.alreadyadded',
-                'default_value' => 'The user is already added!'
+                'sentences' => ['en' => 'The user is already added!']
+            ],
+            [
+                'name' => 'cmd.bump.gotbump',
+                'sentences' => ['en' => 'The user got the bump!']
+            ],
+            [
+                'name' => 'cmd.calc.cantsolve',
+                'sentences' => ['en' => 'Sorry i can\'t solve any equation\'s at this time, please try again later.']
+            ],
+            [
+                'name' => 'cmd.choose.haschosen',
+                'sentences' => ['en' => 'I have chosen $0.']
+            ],
+            [
+                'name' => 'cmd.clear.clearedmessages',
+                'sentences' => ['en' => 'Chat is now cleared!']
+            ],
+            [
+                'name' => 'cmd.countdown.releasein',
+                'sentences' => ['en' => 'The new power will be sold in $0.';]
+            ],
+            [
+                'name' => 'cmd.countdown.nocountdown',
+                'sentences' => ['en' => 'There is no countdown at the moment.']
+            ],
+            [
+                'name' => 'cmd.customcommand.alreadyadded',
+                'sentences' => ['en' => 'This custom command is already added!']
+            ],
+            [
+                'name' => 'cmd.customcommand.alreadycommand',
+                'sentences' => ['en' => 'This is already a command!']
+            ],
+            [
+                'name' => 'cmd.customcommand.minranknotvalid',
+                'sentences' => ['en' => 'The minrank is not valid!']
+            ],
+            [
+                'name' => 'cmd.customcommand.added',
+                'sentences' => ['en' => 'The custom command "$0" has been added!']
+            ],
+            [
+                'name' => 'cmd.customcommand.removed',
+                'sentences' => ['en' => 'The custom command "$0" has been removed!']
+            ],
+            [
+                'name' => 'cmd.customcommand.notfound',
+                'sentences' => ['en' => 'This custom command was not found!']
+            ],
+            [
+                'name' => 'cmd.customcommand.currentlist',
+                'sentences' => ['en' => 'Current list: $0']
+            ],
+            [
+                'name' => 'cmd.dice.rolled',
+                'sentences' => ['en' => 'I rolled $0.']
+            ],
+            [
+                'name' => 'cmd.die',
+                'sentences' => ['en' => 'Bye!']
+            ],
+            [
+                'name' => 'cmd.edit.nickname',
+                'sentences' => ['en' => 'Nickname is updated!']
+            ],
+            [
+                'name' => 'cmd.edit.avatar',
+                'sentences' => ['en' => 'Avatar is updated!']
+            ],
+            [
+                'name' => 'cmd.edit.homepage',
+                'sentences' => ['en' => 'Homepage is updated!']
+            ],
+            [
+                'name' => 'cmd.edit.status',
+                'sentences' => ['en' => 'Status is updated!']
+            ],
+            [
+                'name' => 'cmd.edit.pcback',
+                'sentences' => ['en' => 'Pcback is updated!']
+            ],
+            [
+                'name' => 'cmd.edit.autowelcome',
+                'sentences' => ['en' => 'Autowelcome is updated!']
+            ],
+            [
+                'name' => 'cmd.edit.ticklemessage',
+                'sentences' => ['en' => 'Tickle message is updated!']
+            ],
+            [
+                'name' => 'cmd.edit.modalreadyenabled',
+                'sentences' => ['en' => 'Moderation is already enabled!']
+            ],
+            [
+                'name' => 'cmd.edit.modenabled',
+                'sentences' => ['en' => 'Moderation has been enabled.']
+            ],
+            [
+                'name' => 'cmd.edit.modalreadydisabled',
+                'sentences' => ['en' => 'Moderation is already disabled!']
+            ],
+            [
+                'name' => 'cmd.edit.moddisabled',
+                'sentences' => ['en' => 'Moderation has been disabled.']
+            ],
+            [
+                'name' => 'cmd.edit.customcommandmaxlength',
+                'sentences' => ['en' => 'The max length of customcommand is 1.']
+            ],
+            [
+                'name' => 'cmd.edit.customcommand',
+                'sentences' => ['en' => 'Customcommand is updated!']
             ]
         ];
 

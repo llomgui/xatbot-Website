@@ -6,6 +6,7 @@ use Validator;
 use Illuminate\Http\Request;
 use OceanProject\Models\Bot;
 use Illuminate\Support\Facades\DB;
+use OceanProject\Models\BotlangSentences;
 use OceanProject\Http\Controllers\Controller;
 
 class BotlangController extends Controller
@@ -23,31 +24,48 @@ class BotlangController extends Controller
     public function showBotlangForm()
     {
         $botlangs = DB::table('botlang')
-                    ->join('botlang_sentences', 'botlang.botlang_sentences_id', '=', 'botlang_sentences.id')
+                    ->rightJoin('botlang_sentences', 'botlang.botlang_sentences_id', '=', 'botlang_sentences.id')
                     ->where('botlang.bot_id', Session('onBotEdit'))
+                    ->orWhereNull('botlang.bot_id')
                     ->select(
                         'botlang_sentences.name',
                         'botlang.value',
-                        'botlang_sentences.default_value',
+                        'botlang_sentences.sentences',
                         'botlang.id',
                         'botlang_sentences.id as botlang_sentences_id'
                     )
                     ->orderBy('botlang_sentences.id', 'ASC')
                     ->get();
 
+        $currentLanguage = Bot::find(Session('onBotEdit'))->language->code;
+
         return view('bot.botlang')
-                ->with('botlangs', $botlangs);
+                ->with('botlangs', $botlangs)
+                ->with('language', $currentLanguage);
     }
 
     public function editBotlang(Request $request)
     {
         $data = $request->all();
+        $bot = Bot::find(Session('onBotEdit'));
 
         $rules = [
-            'botlang_id' => 'integer:required',
-            'botlang_sentences_id' => 'integer:required',
-            'custom_value' => 'filled'
+            'botlang_sentences_id' => 'integer:required'
         ];
+
+        if ($data['botlang_id'] == null) {
+            $bot->botlang()->save(
+                BotlangSentences::find($data['botlang_sentences_id']),
+                ['value' => $data['custom_value']]
+            );
+
+            return response()->json(
+                [
+                    'status'  => 'success',
+                    'message' => 'Custom Message updated!'
+                ]
+            );
+        }
 
         $validator = Validator::make($data, $rules);
 
@@ -78,7 +96,6 @@ class BotlangController extends Controller
             );
         }
 
-        $bot = Bot::find(Session('onBotEdit'));
         $bot->botlang()->updateExistingPivot($data['botlang_sentences_id'], ['value' => $data['custom_value']]);
 
         return response()->json(

@@ -91,6 +91,14 @@ class Bot extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
+    public function language()
+    {
+        return $this->hasOne('OceanProject\Models\Language', 'id', 'language_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
     public function server()
     {
         return $this->hasOne('OceanProject\Models\Server', 'id', 'server_id');

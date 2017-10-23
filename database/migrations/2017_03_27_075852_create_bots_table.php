@@ -18,6 +18,7 @@ class CreateBotsTable extends Migration
             $table->integer('creator_user_id')->index();
             $table->integer('bot_status_id')->nullable()->index();
             $table->integer('server_id')->nullable()->index();
+            $table->integer('language_id')->unsigned()->index();
             $table->bigInteger('premium')->default(1);
             $table->bigInteger('chatid')->unique();
             $table->passthru('citext', 'chatname')->unique();
@@ -48,6 +49,7 @@ class CreateBotsTable extends Migration
             $table->foreign('bot_status_id')->references('id')->on('bot_statuses');
             $table->foreign('creator_user_id')->references('id')->on('users');
             $table->foreign('server_id')->references('id')->on('servers');
+            $table->foreign('language_id')->references('id')->on('languages');
         });
     }
 

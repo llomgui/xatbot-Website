@@ -3,6 +3,8 @@
 @section('head')
 <link href="{{ asset('plugins/summernote/dist/summernote.css') }}" rel="stylesheet">
 <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
+<script src="{{ asset('plugins/summernote/dist/summernote.min.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
 @endsection
 
 @section('content')
@@ -56,9 +58,6 @@
 @endsection
 
 @section('footer')
-<script src="{{ asset('plugins/summernote/dist/summernote.min.js') }}"></script>
-<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-
 <script type="text/javascript">
     $('#submit_send').on('click', function() {
         var token     = "{{ csrf_token() }}";

@@ -2,6 +2,7 @@
 
 @section('head')
     <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
+    <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
 @endsection
 
 @section('content')
@@ -113,15 +114,12 @@
 @endsection
 
 @section('footer')
-
-    <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-
     <script type="text/javascript">
         $(document).on('click', '.edit_button', function(e) {
             var link_id = $(this).data('link_id');
             var link    = $(this).data('link');
-            var method     = $(this).data('method');
-            var hours      = $(this).data('hours');
+            var method  = $(this).data('method');
+            var hours   = $(this).data('hours');
 
             $('.link_edit_modal_link_id').val(link_id);
             $('.link_edit_modal_link').val(link);

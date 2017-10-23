@@ -46,6 +46,18 @@ class LoginController extends Controller
 
     protected function authenticated(\Illuminate\Http\Request $request, $user)
     {
+        $bots = $user->bots;
+        $botsID = [];
+        foreach ($bots as $bot) {
+            $botsID[] = $bot->id;
+        }
+
+        if (!in_array(Session('onBotEdit'), $botsID)) {
+            if ($user->level() == 1 || is_null(Session('onBotEdit'))) {
+                session(['onBotEdit' => (!empty($botsID[0]) ? $botsID[0] : null)]);
+            }
+        }
+
         $userinfo = Userinfo::where('xatid', $user->xatid)->get();
 
         if (sizeof($userinfo) > 0) {

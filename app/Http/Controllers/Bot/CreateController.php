@@ -89,8 +89,8 @@ class CreateController extends Controller
         }
 
         $bot->powersdisabled = json_encode([93]);
-
         $bot->creator_user_id = $user->id;
+        $bot->language_id = $user->language_id;
 
         $bot->save();
         $bot->users()->attach($user->id);

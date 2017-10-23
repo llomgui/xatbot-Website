@@ -18,7 +18,7 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'xatid', 'regname', 'ip', 'password', 'spotify'
+        'id', 'name', 'email', 'xatid', 'regname', 'ip', 'password', 'language_id', 'share_key', 'spotify'
     ];
 
     /**
@@ -42,6 +42,14 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
     public function bots()
     {
         return $this->belongsToMany('OceanProject\Models\Bot')->orderBy('bot_id', 'asc');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
+     */
+    public function language()
+    {
+        return $this->hasOne('OceanProject\Models\Language', 'id', 'language_id');
     }
 
     /**

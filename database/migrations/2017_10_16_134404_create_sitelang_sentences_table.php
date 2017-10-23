@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBotlangSentencesTable extends Migration
+class CreateSitelangSentencesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBotlangSentencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('botlang_sentences', function (Blueprint $table) {
+        Schema::create('sitelang_sentences', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->jsonb('sentences');
@@ -28,6 +28,6 @@ class CreateBotlangSentencesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('botlang_sentences');
+        Schema::drop('sitelang_sentences');
     }
 }
