@@ -34,7 +34,7 @@ class BotMessagesController extends Controller
 
         $rules = [
             'name' => 'max:255|required',
-            'default_value' => 'max:255|required'
+            'sentences' => 'max:255|required'
         ];
 
         $validator = Validator::make($data, $rules);
@@ -56,7 +56,7 @@ class BotMessagesController extends Controller
 
         $botmessages = new BotlangSentences;
         $botmessages->name = $data['name'];
-        $botmessages->default_value = $data['default_value'];
+        $botmessages->sentences = ['en' => $data['sentences']];
         $botmessages->save();
 
         $bots = Bot::all();
@@ -82,7 +82,7 @@ class BotMessagesController extends Controller
 
         $rules = [
             'name' => 'max:255|required',
-            'default_value' => 'max:255'
+            'sentences' => 'max:255'
         ];
 
         $validator = Validator::make($data, $rules);
@@ -94,7 +94,7 @@ class BotMessagesController extends Controller
         }
 
         $messageData->name = strtolower($data['name']);
-        $messageData->default_value = $data['default_value'];
+        $messageData->sentences = ['en' => $data['sentences']];
         $messageData->save();
 
         return redirect()

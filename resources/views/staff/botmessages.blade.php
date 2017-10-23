@@ -30,9 +30,9 @@
                     	@foreach ($botmessages as $botmessage)
                     	<tr>
                             <td>{{ $botmessage->name }}</td>
-                            <td>{{ $botmessage->sentences }}</td>
+                            <td>{{ $botmessage->sentences['en'] }}</td>
                             <td>
-                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 edit_button" data-message_id="{{ $botmessage->id }}" data-name="{{ $botmessage->name }}" data-sentences="{{ $botmessage->sentences }}" data-target="#edit-message-modal" data-toggle="modal"> <i class="fa fa-wrench"></i> </button>
+                                <button class="btn btn-icon btn-xs waves-effect waves-light btn-warning m-b-5 edit_button" data-message_id="{{ $botmessage->id }}" data-name="{{ $botmessage->name }}" data-sentences="{{ $botmessage->sentences['en'] }}" data-target="#edit-message-modal" data-toggle="modal"> <i class="fa fa-wrench"></i> </button>
                                 <button class="btn btn-icon btn-xs waves-effect waves-light btn-danger m-b-5 delete_button" data-message_id="{{ $botmessage->id }}"> <i class="fa fa-remove"></i> </button>
                             </td>
                     	</tr>
