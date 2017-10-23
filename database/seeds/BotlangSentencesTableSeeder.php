@@ -123,7 +123,7 @@ class BotlangSentencesTableSeeder extends Seeder
             ],
             [
                 'name' => 'cmd.calc.cantsolve',
-                'sentences' => ['en' => 'Sorry i can\'t solve any equation\'s at this time, please try again later.']
+                'sentences' => ['en' => 'Sorry I can\'t solve any equation\'s at this time, please try again later.']
             ],
             [
                 'name' => 'cmd.choose.haschosen',
@@ -135,7 +135,7 @@ class BotlangSentencesTableSeeder extends Seeder
             ],
             [
                 'name' => 'cmd.countdown.releasein',
-                'sentences' => ['en' => 'The new power will be sold in $0.';]
+                'sentences' => ['en' => 'The new power will be sold in $0.']
             ],
             [
                 'name' => 'cmd.countdown.nocountdown',
