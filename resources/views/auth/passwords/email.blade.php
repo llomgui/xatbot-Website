@@ -4,7 +4,7 @@
 <div class="wrapper-page">
 
     <div class="text-center">
-        <a href="{{ route('panel') }}" class="logo logo-lg"><i class="md md-laptop"></i> <span>{{ env('NAME') }}</span> </a>
+        <a href="{{ route('panel') }}" class="logo-lg"><i class="md md-laptop"></i> <span>{{ env('NAME') }}</span> </a>
     </div>
 
     <form method="POST" action="{{ route('password.email') }}" role="form" class="text-center m-t-20">
@@ -25,10 +25,9 @@
                 {{ $errors->first('email') }}
             </div>
         @endif
-        <div class="form-group m-b-0">
+        <div class="form-group row m-b-0">
             <div class="input-group">
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Enter Email">
-                <i class="md md-email form-control-feedback l-h-34" style="left:6px;z-index: 99;"></i>
                 <span class="input-group-btn"> <button type="submit" class="btn btn-email btn-primary waves-effect waves-light">Reset</button> </span>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <div class="navbar-custom">
-    <div class="container">
+    <div class="container-fluid">
         <div id="navigation">
             <ul class="navigation-menu">
                 <li class="has-submenu">

@@ -9,22 +9,22 @@ $( document ).ready(function() {
     var DrawSparkline = function() {
         $('#sparkline1').sparkline([0, 23, 43, 35, 44, 45, 56, 37, 40], {
             type: 'line',
-            width: $('#sparkline1').width(),
+            width:'100%',
             height: '165',
             chartRangeMax: 50,
-            lineColor: '#3bafda',
-            fillColor: 'rgba(59,175,218,0.3)',
+            lineColor: '#f76397',
+            fillColor: 'rgba(247, 99, 151,0.3)',
             highlightLineColor: 'rgba(0,0,0,.1)',
-            highlightSpotColor: 'rgba(0,0,0,.2)',
+            highlightSpotColor: 'rgba(0,0,0,.2)'
         });
 
         $('#sparkline1').sparkline([25, 23, 26, 24, 25, 32, 30, 24, 19], {
             type: 'line',
-            width: $('#sparkline1').width(),
+            width:'100%',
             height: '165',
             chartRangeMax: 40,
-            lineColor: '#5d9cec',
-            fillColor: 'rgba(93, 156, 236, 0.3)',
+            lineColor: '#039cfd',
+            fillColor: 'rgba(3, 156, 253, 0.3)',
             composite: true,
             highlightLineColor: 'rgba(0,0,0,.1)',
             highlightSpotColor: 'rgba(0,0,0,.2)',
@@ -35,22 +35,22 @@ $( document ).ready(function() {
             height: '165',
             barWidth: '10',
             barSpacing: '3',
-            barColor: '#3bafda'
+            barColor: '#039cfd'
         });
 
         $('#sparkline3').sparkline([20, 40, 30, 10], {
             type: 'pie',
             width: '165',
             height: '165',
-            sliceColors: ['#dcdcdc', '#3bafda', '#333333', '#00b19d']
+            sliceColors: ['#dcdcdc', '#039cfd', '#333333', '#ef5350']
         });
 
         $('#sparkline4').sparkline([0, 23, 43, 35, 44, 45, 56, 37, 40], {
             type: 'line',
-            width: $('#sparkline1').width(),
+            width:'100%',
             height: '165',
             chartRangeMax: 50,
-            lineColor: '#3bafda',
+            lineColor: '#039cfd',
             fillColor: 'transparent',
             highlightLineColor: 'rgba(0,0,0,.1)',
             highlightSpotColor: 'rgba(0,0,0,.2)'
@@ -58,10 +58,10 @@ $( document ).ready(function() {
 
         $('#sparkline4').sparkline([25, 23, 26, 24, 25, 32, 30, 24, 19], {
             type: 'line',
-            width: $('#sparkline1').width(),
+            width:'100%',
             height: '165',
             chartRangeMax: 40,
-            lineColor: '#5d9cec',
+            lineColor: '#ef5350',
             fillColor: 'transparent',
             composite: true,
             highlightLineColor: 'rgba(0,0,0,1)',
@@ -78,7 +78,7 @@ $( document ).ready(function() {
 
         $('#sparkline6').sparkline([3, 6, 7, 8, 6, 4, 7, 10, 12, 7, 4, 9, 12, 13, 11, 12], {
             type: 'line',
-            width: $('#sparkline1').width(),
+            width:'100%',
             height: '165',
             lineColor: '#fb6d9d',
             fillColor: 'transparent',
@@ -118,11 +118,11 @@ $( document ).ready(function() {
                     $('#sparkline5').sparkline(mpoints, {
                         tooltipSuffix: ' pixels per second',
                         type: 'line',
-                        width: $('#sparkline1').width(),
+                        width:'100%',
                         height: '165',
                         chartRangeMax: 50,
-                        lineColor: '#3bafda',
-                        fillColor: 'rgba(59,175,218,0.3)',
+                        lineColor: '#039cfd',
+                        fillColor: 'rgba(3, 156, 253, 0.3)',
                         highlightLineColor: 'rgba(24,147,126,.1)',
                         highlightSpotColor: 'rgba(24,147,126,.2)',
                     });

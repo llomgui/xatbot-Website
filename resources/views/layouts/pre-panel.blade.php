@@ -9,6 +9,8 @@
             @yield('content')
         </div>
 
+        <script src="{{ mix('/js/lib.js') }}"></script>
+        
         <script src="{{ mix('/js/app.js') }}"></script>
         @yield('footer')
 

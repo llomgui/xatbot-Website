@@ -1,8 +1,8 @@
 /**
-* Theme: Minton Admin
-* Author: Coderthemes
-* Chart Nvd3 chart
-*/
+ * Theme: Minton Admin
+ * Author: Coderthemes
+ * Chart Nvd3 chart
+ */
 
 
 (function($) {
@@ -50,7 +50,7 @@
         nv.utils.windowResize(lineChart.update);
         return lineChart;
     });
-    
+
     var historicalBarChart = [{
         key: 'Cumulative Return',
         values: [{
@@ -216,82 +216,82 @@
         nv.utils.windowResize(multiChart.update);
         return multiChart;
     });
-    
-    
+
+
     //Regular pie chart example
-	nv.addGraph(function() {
-	  var chart = nv.models.pieChart()
-	      .x(function(d) { return d.label })
-	      .y(function(d) { return d.value })
-	      .showLabels(true);
-	
-	    d3.select("#chart1 svg")
-	        .datum(exampleData)
-	      	.transition().duration(1200)
-	        .call(chart);
-	
-	  return chart;
-	});
-	
-	//Donut chart example
-	nv.addGraph(function() {
-	  var chart = nv.models.pieChart()
-	      .x(function(d) { return d.label })
-	      .y(function(d) { return d.value })
-	      .showLabels(true)     //Display pie labels
-	      .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
-	      .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
-	      .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
-	      .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
-	      ;
-	
-	    d3.select("#chart2 svg")
-	        .datum(exampleData())
-	        .transition().duration(350)
-	        .call(chart);
-	
-	  return chart;
-	});
-	
-	//Pie chart example data. Note how there is only a single array of key-value pairs.
-	function exampleData() {
-	  return  [
-	      { 
-	        "label": "One",
-	        "value" : 29.765957771107,
-	        "color" : "#00b19d"
-	      } , 
-	      { 
-	        "label": "Two",
-	        "value" : 60,
-	        'color': '#ef5350'
-	      } , 
-	      { 
-	        "label": "Three",
-	        "value" : 39.69895,
-	        'color': '#3ddcf7'
-	      } , 
-	      { 
-	        "label": "Four",
-	        "value" : 160.45946739256,
-	        'color': '#ffaa00'
-	      } , 
-	      { 
-	        "label": "Five",
-	        "value" : 89.02525,
-	        'color': '#81c868'
-	      } , 
-	      { 
-	        "label": "Six",
-	        "value" : 98.079782601442,
-	        'color': '#dcdcdc'
-	      } , 
-	      { 
-	        "label": "Seven",
-	        "value" : 98.925743130903,
-	        'color': '#3bafda'
-	      } 
-	      
-	    ];
-	}
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value })
+            .showLabels(true);
+
+        d3.select("#chart1 svg")
+            .datum(exampleData)
+            .transition().duration(1200)
+            .call(chart);
+
+        return chart;
+    });
+
+    //Donut chart example
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+                .x(function(d) { return d.label })
+                .y(function(d) { return d.value })
+                .showLabels(true)     //Display pie labels
+                .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
+                .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
+                .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
+                .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
+            ;
+
+        d3.select("#chart2 svg")
+            .datum(exampleData())
+            .transition().duration(350)
+            .call(chart);
+
+        return chart;
+    });
+
+    //Pie chart example data. Note how there is only a single array of key-value pairs.
+    function exampleData() {
+        return  [
+            {
+                "label": "One",
+                "value" : 29.765957771107,
+                "color" : "#00b19d"
+            } ,
+            {
+                "label": "Two",
+                "value" : 60,
+                'color': '#ef5350'
+            } ,
+            {
+                "label": "Three",
+                "value" : 39.69895,
+                'color': '#3ddcf7'
+            } ,
+            {
+                "label": "Four",
+                "value" : 160.45946739256,
+                'color': '#ffaa00'
+            } ,
+            {
+                "label": "Five",
+                "value" : 89.02525,
+                'color': '#81c868'
+            } ,
+            {
+                "label": "Six",
+                "value" : 98.079782601442,
+                'color': '#dcdcdc'
+            } ,
+            {
+                "label": "Seven",
+                "value" : 98.925743130903,
+                'color': '#3bafda'
+            }
+
+        ];
+    }
 })(jQuery);

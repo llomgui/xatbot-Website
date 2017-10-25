@@ -1,8 +1,11 @@
 <div class="topbar-main">
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="logo">
-            <a href="{{ route('panel') }}" class="logo"><i class="md md-laptop"></i> <span>{{ env('NAME') }}</span> </a>
+            <a href="{{ route('panel') }}" class="logo">
+                <span class="logo-small"><i class="mdi mdi-radar"></i></span>
+                <span class="logo-large"><i class="mdi mdi-radar"></i> {{ env('NAME') }}</span>
+            </a>
         </div>
 
         @inject('topbar', 'OceanProject\Http\Controllers\Page\TopbarController')
@@ -11,7 +14,7 @@
         $languages = $topbar->getLanguages();
         @endphp
 
-        @if (count($bots) > 0)
+        <!-- @if (count($bots) > 0)
         <ul class="nav navbar-nav">
             <li class="dropdown m-l-10">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">{{ Auth::user()->language->name }}<span class="caret"></span></a>
@@ -34,37 +37,43 @@
                 </ul>
             </li>
         </ul>
-        @endif
+        @endif -->
 
-        <div class="menu-extras">
-            <ul class="nav navbar-nav navbar-right pull-right">
-                <li><a href="{{ route('profile') }}"><i class="ti-user m-r-5"></i> Profile</a></li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle waves-effect waves-light profile" data-toggle="dropdown" aria-expanded="true"><img src="{{ Auth::user()->avatar }}" alt="user-img" class="img-circle"> </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="ti-power-off m-r-5"></i> Logout
-                            </a>
+        <div class="menu-extras topbar-custom">
+            <ul class="list-inline float-right mb-0">
+                <li class="menu-item list-inline-item">
+                    <a class="navbar-toggle nav-link">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                </li>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
-                    </ul>
+                <li class="list-inline-item notification-list">
+                    <a href="{{ route('profile') }}" class="nav-link arrow-none waves-effect"><i class="ti-user m-r-5"></i> Profile</a>
+                </li>
+                <li class="list-inline-item dropdown notification-list">
+                    <a href="#" class="nav-link dropdown-toggle waves-effect nav-user" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">
+                        <img src="{{ Auth::user()->avatar }}" alt="user" class="rounded-circle"></a>
+                    <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+                        <div class="dropdown-item noti-title">
+                            <h5 class="text-overflow"><small class="text-white">Welcome {{ Auth::user()->regname }}!</small> </h5>
+                        </div>
+                        <a class="dropdown-item notify-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="ti-power-off m-r-5"></i> Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
                 </li>
             </ul>
-
-            <div class="menu-item">
-                <a class="navbar-toggle">
-                    <div class="lines">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </a>
-            </div>
         </div>
+
+        <div class="clearfix"></div>
 
     </div>
 </div>

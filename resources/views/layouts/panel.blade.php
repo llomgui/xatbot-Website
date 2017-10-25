@@ -11,7 +11,7 @@
         </header>
 
         <div class="wrapper">
-            <div class="container">
+            <div class="container-fluid">
                 @yield('content')
                 @include('includes.footer')
             </div>
@@ -19,11 +19,6 @@
 
         <script src="{{ mix('/js/lib.js') }}"></script>
 
-        <script src="{{ asset('plugins/notifyjs/dist/notify.min.js') }}"></script>
-        <script src="{{ asset('plugins/notifications/notify-metro.js') }}"></script>
-        <script src="{{ asset('plugins/moment/moment.js') }}"></script>
-        <script src="{{ asset('plugins/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js') }}"></script>
-        <script src="{{ asset('pages/jquery.xeditable.js') }}"></script>
         @yield('footer')
 
         <script src="{{ mix('/js/app.js') }}"></script>

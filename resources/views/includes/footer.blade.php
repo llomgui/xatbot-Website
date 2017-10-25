@@ -1,8 +1,8 @@
-<footer class="footer text-right">
+<footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                2017 © {{ env('NAME') }}.
+            <div class="col-12 text-center">
+                2017 © {{ env('NAME') }}
             </div>
         </div>
     </div>

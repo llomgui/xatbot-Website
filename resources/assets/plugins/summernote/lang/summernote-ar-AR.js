@@ -25,6 +25,13 @@
         url: 'رابط الصورة',
         remove: 'حذف الصورة'
       },
+      video: {
+        video: 'فيديو',
+        videoLink: 'رابط الفيديو',
+        insert: 'إدراج الفيديو',
+        url: 'رابط الفيديو',
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion ou Youku)'
+      },
       link: {
         link: 'رابط رابط',
         insert: 'إدراج',
@@ -42,7 +49,7 @@
       },
       style: {
         style: 'تنسيق',
-        normal: 'عادي',
+        p: 'عادي',
         blockquote: 'إقتباس',
         pre: 'شفيرة',
         h1: 'عنوان رئيسي 1',

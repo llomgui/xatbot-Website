@@ -25,6 +25,13 @@
         url: 'URLから画像を挿入する',
         remove: '画像を削除する'
       },
+      video: {
+        video: '動画',
+        videoLink: '動画リンク',
+        insert: '動画挿入',
+        url: '動画のURL',
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion, Youku)'
+      },
       link: {
         link: 'リンク',
         insert: 'リンク挿入',
@@ -42,7 +49,7 @@
       },
       style: {
         style: 'スタイル',
-        normal: '標準',
+        p: '標準',
         blockquote: '引用',
         pre: 'コード',
         h1: '見出し1',
@@ -91,6 +98,35 @@
       history: {
         undo: '元に戻す',
         redo: 'やり直す'
+      },
+      help: {
+        'insertParagraph': '改行挿入',
+        'undo': '一旦、行った操作を戻す',
+        'redo': '最後のコマンドをやり直す',
+        'tab': 'Tab',
+        'untab': 'タブ戻し',
+        'bold': '太文字',
+        'italic': '斜体',
+        'underline': '下線',
+        'strikethrough': '取り消し線',
+        'removeFormat': '装飾を戻す',
+        'justifyLeft': '左寄せ',
+        'justifyCenter': '真ん中寄せ',
+        'justifyRight': '右寄せ',
+        'justifyFull': 'すべてを整列',
+        'insertUnorderedList': '行頭に●を挿入',
+        'insertOrderedList': '行頭に番号を挿入',
+        'outdent': '字下げを戻す（アウトデント）',
+        'indent': '字下げする（インデント）',
+        'formatPara': '段落(P tag)指定',
+        'formatH1': 'H1指定',
+        'formatH2': 'H2指定',
+        'formatH3': 'H3指定',
+        'formatH4': 'H4指定',
+        'formatH5': 'H5指定',
+        'formatH6': 'H6指定',
+        'insertHorizontalRule': '&lt;hr /&gt;を挿入',
+        'linkDialog.show': 'リンク挿入'
       }
     }
   });

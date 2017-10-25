@@ -34,6 +34,13 @@
         url: 'URL de l\'image',
         remove: 'Supprimer l\'image'
       },
+      video: {
+        video: 'Vidéo',
+        videoLink: 'Lien vidéo',
+        insert: 'Insérer une vidéo',
+        url: 'URL de la vidéo',
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion ou Youku)'
+      },
       link: {
         link: 'Lien',
         insert: 'Insérer un lien',
@@ -51,7 +58,7 @@
       },
       style: {
         style: 'Style',
-        normal: 'Normal',
+        p: 'p',
         blockquote: 'Citation',
         pre: 'Code source',
         h1: 'Titre 1',

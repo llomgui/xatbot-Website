@@ -152,6 +152,8 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('replyticket', 'TicketController@reply')->name('staff.replyticket');
         Route::post('closeticket', 'TicketController@close')->name('staff.closeticket');
 
+        Route::get('translatebotmessages', 'TranslateBotMessagesController@show')->name('staff.translatebotmessages');
+
     });
 
     Route::group(['prefix' => 'user', 'namespace' => 'Auth'], function () {

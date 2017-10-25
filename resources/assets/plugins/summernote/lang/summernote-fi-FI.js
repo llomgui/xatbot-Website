@@ -25,6 +25,13 @@
         url: 'URL-osoitteen mukaan',
         remove: 'Poista kuva'
       },
+      video: {
+        video: 'Video',
+        videoLink: 'Linkki videoon',
+        insert: 'Lisää video',
+        url: 'Videon URL-osoite?',
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion tai Youku)'
+      },
       link: {
         link: 'Linkki',
         insert: 'Lisää linkki',
@@ -42,7 +49,7 @@
       },
       style: {
         style: 'Tyyli',
-        normal: 'Normaali',
+        p: 'Normaali',
         blockquote: 'Lainaus',
         pre: 'Koodi',
         h1: 'Otsikko 1',

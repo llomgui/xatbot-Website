@@ -27,6 +27,13 @@
         url: 'URL naslov slike',
         remove: 'Odstrani sliko'
       },
+      video: {
+        video: 'Video',
+        videoLink: 'Video povezava',
+        insert: 'Vstavi video',
+        url: 'Povezava do videa',
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion ali Youku)'
+      },
       link: {
         link: 'Povezava',
         insert: 'Vstavi povezavo',
@@ -44,7 +51,7 @@
       },
       style: {
         style: 'Slogi',
-        normal: 'Navadno besedilo',
+        p: 'Navadno besedilo',
         blockquote: 'Citat',
         pre: 'Koda',
         h1: 'Naslov 1',

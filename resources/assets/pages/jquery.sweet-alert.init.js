@@ -92,7 +92,7 @@
                 text: "You will not be able to recover this imaginary file!",
                 type: "info",
                 showCancelButton: true,
-                cancelButtonClass: 'btn-default waves-effect waves-light',
+                cancelButtonClass: 'btn-secondary waves-effect waves-light',
                 confirmButtonClass: 'btn-primary waves-effect waves-light',
                 confirmButtonText: 'Primary!'
             });
