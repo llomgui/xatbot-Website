@@ -14,32 +14,32 @@
         $languages = $topbar->getLanguages();
         @endphp
 
-        <!-- @if (count($bots) > 0)
-        <ul class="nav navbar-nav">
-            <li class="dropdown m-l-10">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">{{ Auth::user()->language->name }}<span class="caret"></span></a>
-                <ul role="menu" class="dropdown-menu">
-                @foreach ($languages as $language)
-                    @if ($language->id != Auth::user()->language_id)
-                        <li><a href="#">{{ $language->name }}</a></li>
-                    @endif
-                @endforeach
-                </ul>
-            </li>
-            <li class="dropdown m-l-10">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">{{ env('BOTID_NAME') }} {{ Session::get('onBotEdit') }}<span class="caret"></span></a>
-                <ul role="menu" class="dropdown-menu">
-                @foreach ($bots as $botid)
-                    @if ($botid != Session::get('onBotEdit'))
-                        <li><a href="{{ route('bot.setbotid', ['botid' => $botid]) }}">{{ env('BOTID_NAME') }} {{ $botid }}</a></li>
-                    @endif
-                @endforeach
-                </ul>
-            </li>
-        </ul>
-        @endif -->
-
         <div class="menu-extras topbar-custom">
+            @if (count($bots) > 0)
+            <ul class="list-inline float-left mb-0 m-l-10">
+                <li class="list-inline-item notification-list">
+                    <a data-toggle="dropdown" class="nav-link dropdown-toggle waves-effect" href="#" aria-expanded="false">{{ Auth::user()->language->name }} <i class="fa fa-caret-down"></i></a>
+                    <ul role="menu" class="dropdown-menu">
+                    @foreach ($languages as $language)
+                        @if ($language->id != Auth::user()->language_id)
+                            <li><a href="#">{{ $language->name }}</a></li>
+                        @endif
+                    @endforeach
+                    </ul>
+                </li>
+                <li class="list-inline-item notification-list">
+                    <a data-toggle="dropdown" class="nav-link dropdown-toggle waves-effect" href="#" aria-expanded="false">{{ env('BOTID_NAME') }} {{ Session::get('onBotEdit') }} <i class="fa fa-caret-down"></i></a>
+                    <ul role="menu" class="dropdown-menu">
+                    @foreach ($bots as $botid)
+                        @if ($botid != Session::get('onBotEdit'))
+                            <li><a href="{{ route('bot.setbotid', ['botid' => $botid]) }}">{{ env('BOTID_NAME') }} {{ $botid }}</a></li>
+                        @endif
+                    @endforeach
+                    </ul>
+                </li>
+            </ul>
+            @endif
+
             <ul class="list-inline float-right mb-0">
                 <li class="menu-item list-inline-item">
                     <a class="navbar-toggle nav-link">

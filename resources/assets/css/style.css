@@ -389,7 +389,7 @@ File: Main Css
   .topbar-custom .nav-link {
     padding: 0;
     line-height: 60px;
-    color: rgba(255, 255, 255, 0.6); }
+    color: rgba(255, 255, 255, 1); }
   .topbar-custom .dropdown-toggle:after {
     content: initial; }
   .topbar-custom .menu-left {
