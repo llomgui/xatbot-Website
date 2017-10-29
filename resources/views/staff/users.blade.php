@@ -1,10 +1,18 @@
 @extends('layouts.panel')
 
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Users</h4>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
-            <h4 class="m-t-0 header-title"><b>Users</b></h4>
             <div class="table-responsive">
                 <table class="table m-0">
                     <thead>
@@ -25,7 +33,7 @@
 							<td>{{ $user->regname }}</td>
 							<td>{{ $user->xatid }}</td>
 							<td>{{ $user->email }}</td>
-							<td><a class="btn btn-sm btn-info dropdown-toggle waves-effect waves-light" href="{{ route('staff.edituser', ['user' => $user->id]) }}">Edit Information</a>
+							<td><a class="btn btn-sm btn-info waves-effect waves-light" href="{{ route('staff.edituser', ['user' => $user->id]) }}">Edit Information</a>
 							</td>
 						</tr>
 					@endforeach

@@ -5,6 +5,15 @@
 @endsection
 
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">General Settings</h4>
+        </div>
+    </div>
+</div>
+
 {!! Form::open(['route' => 'bot.edit', 'class' => 'form-horizontal']) !!}
     <div class="row">
         <div class="col-sm-12 col-lg-6">

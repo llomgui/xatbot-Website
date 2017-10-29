@@ -1,13 +1,17 @@
 @extends('layouts.panel')
 
-@section('head')
-    <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-    <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
+
 <div class="row">
-    <div class="col-sm-offset-2 col-sm-8">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Servers</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="m-auto col-sm-8">
         <div class="card-box">
             <center><button class="btn btn-primary btn-lg waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-server-modal">Add a new server</button><center>
         </div>
@@ -15,7 +19,7 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-offset-2 col-sm-8">
+	<div class="m-auto col-sm-8">
 		<div class="card-box">
             <h4 class="m-t-0 header-title"><b>Edit servers</b></h4>
             <div class="table-responsive">
@@ -55,9 +59,9 @@
                 <div class="modal-body">
                     <div class="row">
                         {{ csrf_field() }}
+                            <div class="col-md-12">
                         <div class="form-group">
-                            {!! Form::label('server', 'Server', ['class' => 'col-md-2 control-label']); !!}
-                            <div class="col-md-10">
+                            {!! Form::label('server', 'Server', ['class' => 'control-label']); !!}
                                 {!! Form::text('server', '', ['class' => 'form-control', 'placeholder' => 'Server name']) !!}
                                 @if ($errors->has('server'))
                                     <ul class="parsley-errors-list filled">
@@ -88,9 +92,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('server', 'Server', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('server', 'Server', ['class' => 'control-label']); !!}
                                 {!! Form::text('server', '', ['class' => 'form-control server_edit_modal_name', 'placeholder' => 'Server name']) !!}
                                 @if ($errors->has('server'))
                                         <ul class="parsley-errors-list filled">

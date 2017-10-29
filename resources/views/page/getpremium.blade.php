@@ -1,8 +1,17 @@
 @extends('layouts.panel')
 
 @section('content')
+
 <div class="row">
-    <div class="col-sm-offset-3 col-sm-6">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Get Premium</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="m-auto col-sm-6">
         <div class="card-box">
         <h4 class="m-t-0 header-title"><b>How to get premium</b></h4>
         	<p class="text-muted m-b-30 font-13">Premium gives your bot Everypower, meaning every power there is on xat will be useable trough the bot’s account. You will also be able to see the changes you made to your bot trough our panel, in your chat, such as the namecolor, status or pcback of your bot.</p>

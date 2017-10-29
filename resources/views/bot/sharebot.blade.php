@@ -1,11 +1,15 @@
 @extends('layouts.panel')
 
-@section('head')
-<link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Share Bot</h4>
+        </div>
+    </div>
+</div>
+
 <div class="row">
 	<div class="col-sm-6">
 		<div class="card-box">

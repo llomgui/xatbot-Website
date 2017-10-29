@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="row">
-    <div class="col-sm-offset-3 col-sm-6">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Set up your bot</h4>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="m-auto col-sm-6">
         <div class="card-box">
         <h4 class="m-t-0 header-title"><b>Set up your bot</b></h4>
         	<p class="text-muted m-b-30 font-13">How to set up your xatbot on your chat</p>

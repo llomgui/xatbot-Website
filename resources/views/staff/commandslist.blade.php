@@ -1,13 +1,17 @@
 @extends('layouts.panel')
 
-@section('head')
-    <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-    <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
+
 <div class="row">
-    <div class="col-sm-offset-2 col-sm-8">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Commands</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="m-auto col-sm-8">
         <div class="card-box">
             <center><button class="btn btn-primary btn-lg waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-command-modal">Add a new command</button><center>
         </div>
@@ -15,7 +19,7 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-offset-2 col-sm-8">
+	<div class="m-auto col-sm-8">
 		<div class="card-box">
             <h4 class="m-t-0 header-title"><b>Edit Commands</b></h4>
             <div class="table-responsive">
@@ -57,9 +61,9 @@
                 <div class="modal-body">
                     <div class="row">
                         {{ csrf_field() }}
+                            <div class="col-md-12">
                         <div class="form-group">
-                            {!! Form::label('command', 'Command', ['class' => 'col-md-2 control-label']); !!}
-                            <div class="col-md-10">
+                            {!! Form::label('command', 'Command', ['class' => 'control-label']); !!}
                                 {!! Form::text('command', '', ['class' => 'form-control', 'placeholder' => 'Command name']) !!}
                                 @if ($errors->has('command'))
                                     <ul class="parsley-errors-list filled">
@@ -68,9 +72,9 @@
                                 @endif
                             </div>
                         </div>
+                            <div class="col-md-12">
                         <div class="form-group">
-                            {!! Form::label('description', 'Description', ['class' => 'col-md-2 control-label']); !!}
-                            <div class="col-md-10">
+                            {!! Form::label('description', 'Description', ['class' => 'control-label']); !!}
                                 {!! Form::text('description', '', ['class' => 'form-control', 'placeholder' => 'Command description']) !!}
                                 @if ($errors->has('description'))
                                     <ul class="parsley-errors-list filled">
@@ -79,9 +83,9 @@
                                 @endif
                             </div>
                         </div>
+                            <div class="col-md-12">
                         <div class="form-group">
-                            {!! Form::label('minrank', 'Minrank', ['class' => 'col-md-2 control-label']); !!}
-                            <div class="col-md-10">
+                            {!! Form::label('minrank', 'Minrank', ['class' => 'control-label']); !!}
                                 {!! Form::select('minrank', $minranks, null, ['class' => 'form-control']) !!}
                                 @if ($errors->has('minrank'))
                                     <ul class="parsley-errors-list filled">
@@ -112,9 +116,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('command', 'Name', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('command', 'Name', ['class' => 'control-label']); !!}
                                 {!! Form::text('command', '', ['class' => 'form-control command_edit_modal_name', 'placeholder' => 'Command name']) !!}
                                 @if ($errors->has('command'))
                                         <ul class="parsley-errors-list filled">
@@ -123,9 +127,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('description', 'Description', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('description', 'Description', ['class' => 'control-label']); !!}
                                 {!! Form::text('description', '', ['class' => 'form-control command_edit_modal_description', 'placeholder' => 'Command description']) !!}
                                 @if ($errors->has('description'))
                                         <ul class="parsley-errors-list filled">
@@ -134,9 +138,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('minrank', 'Minrank', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('minrank', 'Minrank', ['class' => 'control-label']); !!}
                                     {!! Form::select('minrank', $minranks, null, ['class' => 'form-control command_edit_modal_minrank']) !!}
                                     @if ($errors->has('minrank'))
                                         <ul class="parsley-errors-list filled">

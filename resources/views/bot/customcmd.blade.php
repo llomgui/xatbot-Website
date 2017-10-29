@@ -1,14 +1,18 @@
 @extends('layouts.panel')
 
-@section('head')
-    <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-    <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Custom command</h4>
+        </div>
+    </div>
+</div>
+
     <div class="row">
         @if (count($customcmds) > 0)
-            <div class="col-md-offset-2 col-md-8">
+            <div class="m-auto col-md-8">
                 <div class="card-box">
                     <h4 class="m-t-0 header-title"><b>Custom commands</b></h4>
                     <div class="table-responsive">
@@ -40,7 +44,7 @@
                 </div>
             </div>
         @else
-            <div class="col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+            <div class="m-auto col-sm-6 col-lg-4">
                 <div class="card-box">
                     <h4 class="text-dark header-title m-t-0">Create your first custom command</h4>
                     <center><button class="btn btn-primary btn-lg waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-customcmd-modal">Click here!</button><center>
@@ -58,9 +62,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('command', 'Command', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('command', 'Command', ['class' => 'control-label']); !!}
                                     {!! Form::text('command', '', ['class' => 'form-control', 'placeholder' => 'slap']) !!}
                                     @if ($errors->has('command'))
                                         <ul class="parsley-errors-list filled">
@@ -69,9 +73,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('response', 'Response', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('response', 'Response', ['class' => 'control-label']); !!}
                                     {!! Form::text('response', '', ['class' => 'form-control', 'placeholder' => 'I have slapped {randomname}!']) !!}
                                     @if ($errors->has('response'))
                                         <ul class="parsley-errors-list filled">
@@ -80,9 +84,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('minrank', 'Minrank', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('minrank', 'Minrank', ['class' => 'control-label']); !!}
                                     {!! Form::select('minrank', $minranks, null, ['class' => 'form-control']) !!}
                                     @if ($errors->has('minrank'))
                                         <ul class="parsley-errors-list filled">
@@ -114,9 +118,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('command', 'Command', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('command', 'Command', ['class' => 'control-label']); !!}
                                     {!! Form::text('command', '', ['class' => 'form-control customcmd_edit_modal_command', 'placeholder' => 'misc regname']) !!}
                                     @if ($errors->has('command'))
                                         <ul class="parsley-errors-list filled">
@@ -125,9 +129,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('response', 'Response', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('response', 'Response', ['class' => 'control-label']); !!}
                                     {!! Form::text('response', '', ['class' => 'form-control customcmd_edit_modal_response', 'placeholder' => 'reg']) !!}
                                     @if ($errors->has('response'))
                                         <ul class="parsley-errors-list filled">
@@ -136,9 +140,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('minrank', 'Minrank', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('minrank', 'Minrank', ['class' => 'control-label']); !!}
                                     {!! Form::select('minrank', $minranks, null, ['class' => 'form-control customcmd_edit_modal_minrank']) !!}
                                     @if ($errors->has('minrank'))
                                         <ul class="parsley-errors-list filled">

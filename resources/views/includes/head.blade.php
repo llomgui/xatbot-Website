@@ -6,6 +6,7 @@
 
 <title>{{ env('NAME') }} - Panel</title>
 
+<link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
 <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 
 <script src="{{ asset('js/modernizr.min.js') }}"></script>

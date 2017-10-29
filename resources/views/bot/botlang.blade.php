@@ -1,6 +1,15 @@
 @extends('layouts.panel')
 
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Bot message</h4>
+        </div>
+    </div>
+</div>
+
 <div class="row">
 	<div class="col-md-2"></div>
 	<div class="col-md-8">

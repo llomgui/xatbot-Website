@@ -3,10 +3,10 @@
         <div id="navigation">
             <ul class="navigation-menu">
                 <li class="has-submenu">
-                    <a href="{{ route('panel') }}"><i class="mdi mdi-home"></i>Dashboard</a>
+                    <a href="{{ route('panel') }}"><i class="ti-home"></i>Dashboard</a>
                 </li>
                 <li class="has-submenu">
-                    <a href="#"><i class="mdi mdi-settings"></i>Bot</a>
+                    <a href="#"><i class="ti-settings"></i>Bot</a>
                     <ul class="submenu">
                         <li><a href="{{ route('bot.edit') }}">General Settings</a></li>
                         <li class="has-submenu">
@@ -41,7 +41,7 @@
                     </ul>
                 </li>
                 <li class="has-submenu">
-                    <a href="#"><i class="mdi mdi-file"></i>Pages</a>
+                    <a href="#"><i class="ti-file"></i>Pages</a>
                     <ul class="submenu">
                         <li><a href="{{ route('chat') }}">Chat</a></li>
                         <li><a href="{{ route('commands', Session('onBotEdit')) }}">Commands</a></li>
@@ -55,11 +55,11 @@
                     </ul>
                 </li>
                 <li class="has-submenu">
-                    <a href="{{ route('support.list') }}"><i class="mdi mdi-help"></i>Support</a>
+                    <a href="{{ route('support.list') }}"><i class="ti-help"></i>Support</a>
                 </li>
                 @level(3)
                 <li class="has-submenu">
-                    <a href="#"><i class="mdi mdi-people"></i>Staff</a>
+                    <a href="#"><i class="ti-rocket"></i>Staff</a>
                     <ul class="submenu">
                         <li><a href="{{ route('staff.bots') }}">Bots</a></li>
                         <li><a href="{{ route('staff.users') }}">Users</a></li>

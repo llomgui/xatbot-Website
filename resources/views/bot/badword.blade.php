@@ -1,14 +1,18 @@
 @extends('layouts.panel')
 
-@section('head')
-<link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Badword</h4>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     @if (count($badwords) > 0)
-    <div class="col-md-offset-2 col-md-8">
+    <div class="m-auto col-md-8">
         <div class="card-box">
             <h4 class="m-t-0 header-title"><b>Badwords</b></h4>
             <div class="table-responsive">
@@ -40,7 +44,7 @@
         </div>
     </div>
     @else
-    <div class="col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+    <div class="m-auto col-sm-6 col-lg-4">
         <div class="card-box">
             <h4 class="text-dark header-title m-t-0">Create your first badword</h4>
             <center><button class="btn btn-primary btn-lg waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-badword-modal">Click here!</button><center>
@@ -58,9 +62,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('badword', 'Badword', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('badword', 'Badword', ['class' => 'control-label']); !!}
                                 {!! Form::text('badword', '', ['class' => 'form-control', 'placeholder' => 'Fuck']) !!}
                                 @if ($errors->has('badword'))
                                         <ul class="parsley-errors-list filled">
@@ -69,9 +73,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('method', 'Method', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('method', 'Method', ['class' => 'control-label']); !!}
                                 {!! Form::select('method', $methods, '', ['class' => 'form-control']) !!}
                                 @if ($errors->has('method'))
                                         <ul class="parsley-errors-list filled">
@@ -80,9 +84,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('hours', 'Hours', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('hours', 'Hours', ['class' => 'control-label']); !!}
                                 {!! Form::number('hours', '', ['class' => 'form-control', 'placeholder' => '6']) !!}
                                 @if ($errors->has('hours'))
                                         <ul class="parsley-errors-list filled">
@@ -114,9 +118,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('badword', 'Badword', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('badword', 'Badword', ['class' => 'control-label']); !!}
                                 {!! Form::text('badword', '', ['class' => 'form-control badword_edit_modal_badword', 'placeholder' => 'Fuck']) !!}
                                 @if ($errors->has('badword'))
                                         <ul class="parsley-errors-list filled">
@@ -125,9 +129,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('method', 'Method', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('method', 'Method', ['class' => 'control-label']); !!}
                                 {!! Form::select('method', $methods, '', ['class' => 'form-control badword_edit_modal_method']) !!}
                                 @if ($errors->has('method'))
                                         <ul class="parsley-errors-list filled">
@@ -136,9 +140,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('hours', 'Hours', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('hours', 'Hours', ['class' => 'control-label']); !!}
                                 {!! Form::number('hours', '', ['class' => 'form-control badword_edit_modal_hours', 'placeholder' => '6']) !!}
                                 @if ($errors->has('hours'))
                                         <ul class="parsley-errors-list filled">

@@ -1,20 +1,24 @@
 @extends('layouts.panel')
 
-@section('head')
-    <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-    <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
+
 <div class="row">
-    <div class="col-sm-offset-2 col-sm-8">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Bot Messages</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="m-auto col-sm-8">
         <div class="card-box">
             <center><button class="btn btn-primary btn-lg waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-message-modal">Add a new bot message</button><center>
         </div>
     </div>
 </div>
 <div class="row">
-	<div class="col-sm-offset-2 col-sm-8">
+	<div class="m-auto col-sm-8">
 		<div class="card-box">
             <h4 class="m-t-0 header-title"><b>Edit bot messages</b></h4>
             <div class="table-responsive">
@@ -54,9 +58,9 @@
                 <div class="modal-body">
                     <div class="row">
                         {{ csrf_field() }}
+                            <div class="col-md-12">
                         <div class="form-group">
-                            {!! Form::label('name', 'Name', ['class' => 'col-md-2 control-label']); !!}
-                            <div class="col-md-10">
+                            {!! Form::label('name', 'Name', ['class' => 'control-label']); !!}
                                 {!! Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Message name']) !!}
                                 @if ($errors->has('name'))
                                     <ul class="parsley-errors-list filled">
@@ -65,9 +69,9 @@
                                 @endif
                             </div>
                         </div>
+                            <div class="col-md-12">
                         <div class="form-group">
-                            {!! Form::label('sentences', 'Default value', ['class' => 'col-md-2 control-label']); !!}
-                            <div class="col-md-10">
+                            {!! Form::label('sentences', 'Default value', ['class' => 'control-label']); !!}
                                 {!! Form::text('sentences', '', ['class' => 'form-control', 'placeholder' => 'Default value']) !!}
                                 @if ($errors->has('sentences'))
                                     <ul class="parsley-errors-list filled">
@@ -98,9 +102,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('name', 'Name', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('name', 'Name', ['class' => 'control-label']); !!}
                                 {!! Form::text('name', '', ['class' => 'form-control message_edit_modal_name', 'placeholder' => 'Message name']) !!}
                                 @if ($errors->has('name'))
                                         <ul class="parsley-errors-list filled">
@@ -109,9 +113,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('sentences', 'Default value', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('sentences', 'Default value', ['class' => 'control-label']); !!}
                                 {!! Form::text('sentences', '', ['class' => 'form-control message_edit_modal_sentences', 'placeholder' => 'Default value']) !!}
                                 @if ($errors->has('sentences'))
                                         <ul class="parsley-errors-list filled">

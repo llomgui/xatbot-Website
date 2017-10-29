@@ -1,14 +1,18 @@
 @extends('layouts.panel')
 
-@section('head')
-<link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Alias</h4>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     @if (count($aliases) > 0)
-    <div class="col-md-offset-2 col-md-8">
+    <div class="m-auto col-md-8">
         <div class="card-box">
             <h4 class="m-t-0 header-title"><b>Aliases</b></h4>
             <div class="table-responsive">
@@ -38,7 +42,7 @@
         </div>
     </div>
     @else
-    <div class="col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+    <div class="m-auto col-sm-6 col-lg-4">
         <div class="card-box">
             <h4 class="text-dark header-title m-t-0">Create your first alias</h4>
             <center><button class="btn btn-primary btn-lg waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-alias-modal">Click here!</button><center>
@@ -56,9 +60,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('command', 'Command', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('command', 'Command', ['class' => 'control-label']); !!}
                                 {!! Form::text('command', '', ['class' => 'form-control', 'placeholder' => 'misc regname']) !!}
                                 @if ($errors->has('command'))
                                         <ul class="parsley-errors-list filled">
@@ -67,9 +71,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('alias', 'Alias', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('alias', 'Alias', ['class' => 'control-label']); !!}
                                 {!! Form::text('alias', '', ['class' => 'form-control', 'placeholder' => 'reg']) !!}
                                 @if ($errors->has('alias'))
                                         <ul class="parsley-errors-list filled">
@@ -101,9 +105,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('command', 'Command', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('command', 'Command', ['class' => 'control-label']); !!}
                                 {!! Form::text('command', '', ['class' => 'form-control alias_edit_modal_command', 'placeholder' => 'misc regname']) !!}
                                 @if ($errors->has('command'))
                                         <ul class="parsley-errors-list filled">
@@ -112,9 +116,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('alias', 'Alias', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('alias', 'Alias', ['class' => 'control-label']); !!}
                                 {!! Form::text('alias', '', ['class' => 'form-control alias_edit_modal_alias', 'placeholder' => 'reg']) !!}
                                 @if ($errors->has('alias'))
                                         <ul class="parsley-errors-list filled">

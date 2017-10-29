@@ -60,19 +60,19 @@
                 @foreach ($bots as $bot)
                     <tr>
                         <td>{{ $bot->id }}</td>
-                        <td><a href="" class="nickname" data-name="nickname" data-pk="{{ $bot->id }}">{{ $bot->nickname }}</a></td>
-                        <td><span {!! ($bot->premium > time()) ? 'class="label label-info">Premium' : 'class="label label-primary">Classic' !!}</span></td>
+                        <td><a href="" class="inline-nickname" data-type="text" data-title="Enter nickname" data-name="nickname" data-pk="{{ $bot->id }}" class="editable editable-click">{{ $bot->nickname }}</a></td>
+                        <td><span {!! ($bot->premium > time()) ? 'class="badge badge-info">Premium' : 'class="badge badge-primary">Classic' !!}</span></td>
                         <td><a href="https://xat.com/{{ $bot->chatname }}" target="_blank">xat.com/{{ $bot->chatname }}</a></td>
                         <td>{{ $bot->server->name }}</td>
                         <td>
                         @if ($bot->botStatus->id == 1)
-                            <span class="label label-success">{{ $bot->botStatus->name }}</span>
+                            <span class="badge badge-success">{{ $bot->botStatus->name }}</span>
                         @elseif ($bot->botStatus->id == 2)
-                            <span class="label label-danger">{{ $bot->botStatus->name }}</span>
+                            <span class="badge badge-danger">{{ $bot->botStatus->name }}</span>
                         @elseif ($bot->botStatus->id == 3)
-                            <span class="label label-warning">{{ $bot->botStatus->name }}</span>
+                            <span class="badge badge-warning">{{ $bot->botStatus->name }}</span>
                         @elseif ($bot->botStatus->id == 4)
-                            <span class="label label-inverse">{{ $bot->botStatus->name }}</span>
+                            <span class="badge badge-inverse">{{ $bot->botStatus->name }}</span>
                         @endif
                         </td>
                         <td>
@@ -166,12 +166,16 @@
 @endsection
 
 @section('footer')
+
+<script src="{{ asset('plugins/moment/moment.js') }}"></script>
+<script src="{{ asset('plugins/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js') }}"></script>
+
 <script type="text/javascript">
     $(document).on('click', '.button_action_bot', function(e) {
         var oceanid = $(this).data('oceanid');
         var token = "{{ csrf_token() }}";
         var action = $(this).data('action');
-        $.post("{{ route('bot.actionbot') }}", { botid: oceanid, action: action, _token: token } )
+        $.post("{{ route('bot.actionbot') }}", { botid: oceanid, action: action, _token: token })
             .done(function(data) {
                 swal({
                     title: data.message,
@@ -193,7 +197,12 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.nickname').editable({
+
+        $.fn.editableform.buttons =
+            '<button type="submit" class="btn btn-primary editable-submit btn-sm waves-effect waves-light"><i class="mdi mdi-check"></i></button>' +
+            '<button type="button" class="btn btn-danger editable-cancel btn-sm waves-effect"><i class="mdi mdi-close"></i></button>';
+
+        $('.inline-nickname').editable({
             type: 'text',
             mode: 'inline',
             url: '/panel/bot/editnickname',

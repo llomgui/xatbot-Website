@@ -1,11 +1,19 @@
 @extends('layouts.panel')
 
 @section('content')
+
 <div class="row">
-    <div class="col-md-offset-2 col-md-8">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Translate Bot Messages</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="m-auto col-md-8">
         <div class="card-box">
-            <h4 class="header-title m-t-0 m-b-30"><b>Translate Bot Messages</b></h4>
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs tabs-bordered nav-justified">
             	@foreach($languages as $language)
                 <li class="nav-item">
                     <a href="#{{ $language->code }}" data-toggle="tab" aria-expanded="false" class="nav-link">

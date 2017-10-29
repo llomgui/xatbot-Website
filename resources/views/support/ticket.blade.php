@@ -19,10 +19,8 @@
         </div>
         @foreach ($ticketMessages as $ticketMessage)
         <div class="card-box">
-            <div class="media">
-                <a href="#" class="pull-left">
-                    <img alt="" src="{{ $ticketMessage->user->avatar }}" class="media-object thumb-sm img-circle">
-                </a>
+            <div class="media m-b-30">
+                <img alt="" src="{{ $ticketMessage->user->avatar }}" class="d-flex mr-3 rounded-circle thumb-sm">
                 <div class="media-body">
                     <span class="media-meta pull-right">{{ $ticketMessage->updated_at->format('d/M/Y H:i') }}</span>
                     <h4 class="text-primary m-0">{{ $ticketMessage->user->regname . ' (' . $ticketMessage->user->xatid . ')' }}</h4>
@@ -38,7 +36,7 @@
         @if ($ticket->state == true)
         <div class="media m-b-0">
             <a href="#" class="pull-left">
-                <img alt="" src="{{ Auth::user()->avatar }}" class="media-object thumb-sm img-circle">
+                <img alt="" src="{{ Auth::user()->avatar }}" class="d-flex mr-3 rounded-circle thumb-sm">
             </a>
             <div class="media-body">
                 <div class="card-box p-0">

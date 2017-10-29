@@ -3,8 +3,8 @@
 
         <div class="logo">
             <a href="{{ route('panel') }}" class="logo">
-                <span class="logo-small"><i class="mdi mdi-radar"></i></span>
-                <span class="logo-large"><i class="mdi mdi-radar"></i> {{ env('NAME') }}</span>
+                <span class="logo-small"><i class="mdi mdi-laptop"></i></span>
+                <span class="logo-large"><i class="mdi mdi-laptop"></i> {{ env('NAME') }}</span>
             </a>
         </div>
 

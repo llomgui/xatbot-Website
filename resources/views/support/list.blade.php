@@ -2,10 +2,16 @@
 
 @section('content')
 <div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Tickets</h4>
+        </div>
+    </div>
+</div>
+<div class="row">
     @if (count($tickets) > 0)
-    <div class="col-md-offset-2 col-md-8">
+    <div class="m-auto col-md-8">
         <div class="card-box">
-            <h4 class="m-t-0 header-title"><b>Tickets</b></h4>
             <div class="table-responsive">
                 <table class="table m-0">
                     <thead>
@@ -23,7 +29,7 @@
                         <tr>
                             <td>{{ $ticket->id }}</td>
                             <td>{{ $ticket->updated_at->format('d/M/Y') }}</td>
-                            <td>{!! ($ticket->state == true) ? '<span class="label label-success">Open</span>' : '<span class="label label-danger">Close</span>' !!}</td>
+                            <td>{!! ($ticket->state == true) ? '<span class="badge badge-success">Open</span>' : '<span class="badge badge-danger">Close</span>' !!}</td>
                             <td>{{ $ticket->ticketDepartment->name }}</td>
                             <td>{{ $ticket->subject }}</td>
                             <td>
@@ -42,7 +48,7 @@
         </div>
     </div>
     @else
-    <div class="col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+    <div class="m-auto col-sm-6 col-lg-4">
         <div class="card-box">
             <h4 class="text-dark header-title m-t-0">Create a ticket</h4>
             <center><button class="btn btn-primary btn-lg waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-ticket-modal">Click here!</button><center>
@@ -62,7 +68,7 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 {!! Form::label('department', 'Department', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                <div class="col-md-12">
                                 {!! Form::select('department', $departments, null, ['class' => 'form-control']) !!}
                                 @if ($errors->has('department'))
                                     <ul class="parsley-errors-list filled">
@@ -73,7 +79,7 @@
                             </div>
                             <div class="form-group">
                                 {!! Form::label('subject', 'Subject', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                <div class="col-md-12">
                                 {!! Form::text('subject', '', ['class' => 'form-control', 'placeholder' => 'Subject']) !!}
                                 @if ($errors->has('subject'))
                                     <ul class="parsley-errors-list filled">
@@ -84,7 +90,7 @@
                             </div>
                             <div class="form-group">
                                 {!! Form::label('message', 'Message', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                <div class="col-md-12">
                                 {!! Form::textarea('message', '', ['class' => 'form-control', 'placeholder' => 'Write your message here...', 'style' => 'overflow: hidden; word-wrap: break-word; height: 150px;']) !!}
                                 @if ($errors->has('message'))
                                     <ul class="parsley-errors-list filled">

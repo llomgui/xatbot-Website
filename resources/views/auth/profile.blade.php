@@ -73,6 +73,15 @@
                                 </div>
                             </div>
 						</form>
+						@if (empty($user->spotify))
+						<form id="spotify-login-form" action="{{ route('spotify.authorize') }}" method="POST" style="display: none;">
+							{{ csrf_field() }}
+						</form>
+						@else
+						<form id="spotify-logout-form" action="{{ route('spotify.logout') }}" method="POST" style="display: none;">
+							{{ csrf_field() }}
+						</form>
+						@endif
 					</div>
 				</div>
 			</div>

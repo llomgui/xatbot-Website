@@ -1,13 +1,17 @@
 @extends('layouts.panel')
 
-@section('head')
-    <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-    <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
+
 <div class="row">
-    <div class="col-sm-offset-2 col-sm-8">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Languages</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="m-auto col-sm-8">
         <div class="card-box">
             <center><button class="btn btn-primary btn-lg waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-language-modal">Add a new language</button><center>
         </div>
@@ -15,7 +19,7 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-offset-2 col-sm-8">
+	<div class="m-auto col-sm-8">
 		<div class="card-box">
             <h4 class="m-t-0 header-title"><b>Edit languages</b></h4>
             <div class="table-responsive">
@@ -56,9 +60,9 @@
                 <div class="modal-body">
                     <div class="row">
                         {{ csrf_field() }}
+                            <div class="col-md-12">
                         <div class="form-group">
-                            {!! Form::label('language', 'Language', ['class' => 'col-md-2 control-label']); !!}
-                            <div class="col-md-10">
+                            {!! Form::label('language', 'Language', ['class' => 'control-label']); !!}
                                 {!! Form::text('language', '', ['class' => 'form-control', 'placeholder' => 'Language name']) !!}
                                 @if ($errors->has('language'))
                                     <ul class="parsley-errors-list filled">
@@ -67,9 +71,9 @@
                                 @endif
                             </div>
                         </div>
+                            <div class="col-md-12">
                         <div class="form-group">
-                            {!! Form::label('code', 'Code', ['class' => 'col-md-2 control-label']); !!}
-                            <div class="col-md-10">
+                            {!! Form::label('code', 'Code', ['class' => 'control-label']); !!}
                                 {!! Form::text('code', '', ['class' => 'form-control', 'placeholder' => 'Language code']) !!}
                                 @if ($errors->has('code'))
                                     <ul class="parsley-errors-list filled">
@@ -100,9 +104,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('language', 'Language', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('language', 'Language', ['class' => 'control-label']); !!}
                                 {!! Form::text('language', '', ['class' => 'form-control language_edit_modal_name', 'placeholder' => 'Language name']) !!}
                                 @if ($errors->has('language'))
                                         <ul class="parsley-errors-list filled">
@@ -114,9 +118,9 @@
                         </div>
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('code', 'Code', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('code', 'Code', ['class' => 'control-label']); !!}
                                 {!! Form::text('code', '', ['class' => 'form-control language_edit_modal_code', 'placeholder' => 'Language code']) !!}
                                 @if ($errors->has('code'))
                                         <ul class="parsley-errors-list filled">

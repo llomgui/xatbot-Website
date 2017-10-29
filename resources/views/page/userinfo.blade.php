@@ -2,8 +2,14 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-offset-3 col-md-6">
-        <h4 class="m-t-0 header-title"><b>Userinfo</b></h4>
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Userinfo</h4>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="m-auto col-md-6">
         <div class="text-center card-box">
             <div class="member-card">
                 <div class="">

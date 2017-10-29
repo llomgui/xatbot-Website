@@ -5,6 +5,15 @@
 @endsection
 
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Powers</h4>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-3">
         <div class="card-box">

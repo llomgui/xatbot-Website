@@ -1,6 +1,15 @@
 @extends('layouts.panel')
 
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Hasmost</h4>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-sm-offset-3 col-sm-6">
         <h4 class="m-t-0 header-title"><b>Hasmost</b></h4>

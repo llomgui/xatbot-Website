@@ -1,14 +1,18 @@
 @extends('layouts.panel')
 
-@section('head')
-<link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Snitch</h4>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     @if (count($snitchs) > 0)
-    <div class="col-md-offset-2 col-md-8">
+    <div class="m-auto col-md-8">
         <div class="card-box">
             <h4 class="m-t-0 header-title"><b>Snitchs</b></h4>
             <div class="table-responsive">
@@ -38,7 +42,7 @@
         </div>
     </div>
     @else
-    <div class="col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+    <div class="m-auto col-sm-6 col-lg-4">
         <div class="card-box">
             <h4 class="text-dark header-title m-t-0">Create your first snitch</h4>
             <center><button class="btn btn-primary btn-lg waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-snitch-modal">Click here!</button><center>
@@ -56,9 +60,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('regname', 'Regname', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('regname', 'Regname', ['class' => 'control-label']); !!}
                                 {!! Form::text('regname', '', ['class' => 'form-control', 'placeholder' => 'Developer']) !!}
                                 @if ($errors->has('regname'))
                                         <ul class="parsley-errors-list filled">
@@ -67,9 +71,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('xatid', 'xatID', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('xatid', 'xatID', ['class' => 'control-label']); !!}
                                 {!! Form::number('xatid', '', ['class' => 'form-control', 'placeholder' => '412345607']) !!}
                                 @if ($errors->has('xatid'))
                                         <ul class="parsley-errors-list filled">
@@ -101,9 +105,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{ csrf_field() }}
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('regname', 'Regname', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('regname', 'Regname', ['class' => 'control-label']); !!}
                                 {!! Form::text('regname', '', ['class' => 'form-control snitch_edit_modal_regname', 'placeholder' => 'Developer']) !!}
                                 @if ($errors->has('regname'))
                                         <ul class="parsley-errors-list filled">
@@ -112,9 +116,9 @@
                                     @endif
                                 </div>
                             </div>
+                                <div class="col-md-12">
                             <div class="form-group">
-                                {!! Form::label('xatid', 'xatID', ['class' => 'col-md-2 control-label']); !!}
-                                <div class="col-md-10">
+                                {!! Form::label('xatid', 'xatID', ['class' => 'control-label']); !!}
                                 {!! Form::number('xatid', '', ['class' => 'form-control snitch_edit_modal_xatid', 'placeholder' => '412345607']) !!}
                                 @if ($errors->has('xatid'))
                                         <ul class="parsley-errors-list filled">

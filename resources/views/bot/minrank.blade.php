@@ -1,8 +1,16 @@
 @extends('layouts.panel')
 
 @section('content')
+
 <div class="row">
-    <form class="form-horizontal">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Minranks</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
         <div class="col-md-3">
             <div class="card-box">
             @for ($i = 0; $i < (sizeof($bcms) / 4); $i++)
@@ -71,7 +79,6 @@
             @endfor
             </div>
         </div>
-    </form>
 </div>
 @endsection
 

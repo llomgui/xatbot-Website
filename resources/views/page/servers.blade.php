@@ -1,10 +1,18 @@
 @extends('layouts.panel')
 
 @section('content')
+
 <div class="row">
-    <div class="col-md-offset-3 col-md-6">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Servers</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="m-auto col-md-6">
         <div class="card-box">
-            <h4 class="m-t-0 header-title"><b>Servers</b></h4>
             <div class="table-responsive">
                 <table class="table m-0">
                     <thead>

@@ -1,15 +1,18 @@
 @extends('layouts.panel')
 
-@section('head')
-<link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="page-title-box">
+            <h4 class="page-title">Bots</h4>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
-            <h4 class="m-t-0 header-title"><b>Bots</b></h4>
             <div class="table-responsive">
                 <table class="table m-0">
                     <thead>
@@ -29,18 +32,18 @@
 						<tr>
 							<td>{{ $bot->id }}</td>
 							<td>{{ $bot->nickname }}</td>
-                            <td><span {!! ($bot->premium > time()) ? 'class="label label-info">Premium' : 'class="label label-primary">Classic' !!}</span></td>
+                            <td><span {!! ($bot->premium > time()) ? 'class="badge badge-info">Premium' : 'class="badge badge-primary">Classic' !!}</span></td>
 							<td><a href="https://xat.com/{{ $bot->chatname }}" target="_blank">xat.com/{{ $bot->chatname }}</a></td>
                             <td> {{ $bot->server->name }} </td>
                             <td>
                                 @if ($bot->botStatus->id == 1)
-                                    <span class="label label-success">{{ $bot->botStatus->name }}</span>
+                                    <span class="badge badge-success">{{ $bot->botStatus->name }}</span>
                                 @elseif ($bot->botStatus->id == 2)
-                                    <span class="label label-danger">{{ $bot->botStatus->name }}</span>
+                                    <span class="badge badge-danger">{{ $bot->botStatus->name }}</span>
                                 @elseif ($bot->botStatus->id == 3)
-                                    <span class="label label-warning">{{ $bot->botStatus->name }}</span>
+                                    <span class="badge badge-warning">{{ $bot->botStatus->name }}</span>
                                 @elseif ($bot->botStatus->id == 4)
-                                    <span class="label label-inverse">{{ $bot->botStatus->name }}</span>
+                                    <span class="badge badge-inverse">{{ $bot->botStatus->name }}</span>
                                 @endif
                             </td>
 							<td>
