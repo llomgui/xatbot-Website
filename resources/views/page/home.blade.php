@@ -1,10 +1,5 @@
 @extends('layouts.panel')
 
-@section('head')
-<link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-<script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
-@endsection
-
 @section('content')
 
 <div class="row">
@@ -88,7 +83,7 @@
         </div>
     </div>
     @else
-        <div class="col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+        <div class="m-auto col-sm-6 col-lg-4">
             <div class="card-box">
                 <h4 class="text-dark header-title m-t-0">Create your first bot</h4>
                 <center><button class="btn btn-primary btn-lg waves-effect waves-light m-t-15" data-toggle="modal" data-target="#create-bot-modal">Click here!</button><center>
