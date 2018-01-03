@@ -54,9 +54,27 @@ class BotController extends Controller
             $bot = Bot::find($data['botid']);
 
             IPC::init();
-            IPC::connect(strtolower($bot->server->name) . '.sock');
+            if (IPC::connect(strtolower($bot->server->name) . '.sock') == false) {
+                return response()->json(
+                    [
+                        'status' => 'error',
+                        'message' => 'The socket is offline, please contact an administrator!'
+                    ]
+                );
+            }
+
             IPC::write(sprintf("%s %d", $data['action'], $data['botid']));
             $packet = IPC::read(1024);
+
+            if (empty($packet)) {
+                return response()->json(
+                    [
+                        'status' => 'error',
+                        'message' => 'Packet is empty, please contact an administrator!'
+                    ]
+                );
+            }
+
             IPC::close();
 
             return response()->json(
