@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use OceanProject\Models\BotlangSentences;
+use OceanProject\Models\Bot;
 
 class BotlangSentencesTableSeeder extends Seeder
 {
@@ -79,7 +80,11 @@ class BotlangSentencesTableSeeder extends Seeder
             ],
             [
                 'name' => 'cmd.allmissing.canbeseen',
-                'sentences' => ['en' => 'Allmissing for $0 can be viewed here : ']
+                'sentences' => ['en' => 'Allmissing for $0 can be viewed here: ']
+            ],
+            [
+                'name' => 'cmd.everymissing.canbeseen',
+                'sentences' => ['en' => 'Everymissing for $0 can be viewed here: ']
             ],
             [
                 'name' => 'user.notindatabase',
@@ -276,7 +281,19 @@ class BotlangSentencesTableSeeder extends Seeder
         ];
 
         foreach ($sentences as $sentence) {
-            BotlangSentences::create($sentence);
+
+            $botmessages = new BotlangSentences;
+            $botmessages->name = $sentence['name'];
+            $botmessages->sentences = $sentence['sentences'];
+            $botmessages->save();
+
+            $bots = Bot::all();
+
+            if (sizeof($bots) > 0) {
+                foreach ($bots as $bot) {
+                    $bot->botlang()->save($botmessages);
+                }
+            }
         }
     }
 }

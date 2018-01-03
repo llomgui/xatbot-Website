@@ -41,9 +41,10 @@ class HomeController extends Controller
 
             if ($bot->botStatus->id == 1) {
                 IPC::init();
-                IPC::connect(strtolower($bot->server->name) . '.sock');
-                IPC::write(sprintf("%s %d", 'users_count', Session('onBotEdit')));
-                $packet = IPC::read(1024);
+                if (IPC::connect(strtolower($bot->server->name) . '.sock') == true) {
+                    IPC::write(sprintf("%s %d", 'users_count', Session('onBotEdit')));
+                    $packet = IPC::read(1024);
+                }
                 IPC::close();
             }
             $logs[6] = $packet ?? 'NaN';
