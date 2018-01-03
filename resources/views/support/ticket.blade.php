@@ -1,9 +1,7 @@
 @extends('layouts.panel')
 
 @section('head')
-<link href="{{ asset('plugins/summernote/dist/summernote.css') }}" rel="stylesheet">
 <link href="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.css') }}" rel="stylesheet">
-<script src="{{ asset('plugins/summernote/dist/summernote.min.js') }}"></script>
 <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
 @endsection
 
@@ -40,7 +38,7 @@
             </a>
             <div class="media-body">
                 <div class="card-box p-0">
-                    <div class="summernote note-air-editor note-editable panel-body" id="note-editor-1" contenteditable="true" style="min-height: 150px">
+                    <div class="summernote note-air-editor note-editable panel-body" id="note-editor-1" contenteditable="true" style="min-height: 150px; margin: 10px 0 0 10px;">
 
                     </div>
                 </div>
