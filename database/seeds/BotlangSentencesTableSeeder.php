@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use OceanProject\Models\BotlangSentences;
+use OceanProject\Models\Bot;
 
 class BotlangSentencesTableSeeder extends Seeder
 {
@@ -79,7 +80,11 @@ class BotlangSentencesTableSeeder extends Seeder
             ],
             [
                 'name' => 'cmd.allmissing.canbeseen',
-                'sentences' => ['en' => 'Allmissing for $0 can be viewed here : ']
+                'sentences' => ['en' => 'Allmissing for $0 can be viewed here: ']
+            ],
+            [
+                'name' => 'cmd.everymissing.canbeseen',
+                'sentences' => ['en' => 'Everymissing for $0 can be viewed here: ']
             ],
             [
                 'name' => 'user.notindatabase',
@@ -228,11 +233,67 @@ class BotlangSentencesTableSeeder extends Seeder
             [
                 'name' => 'cmd.edit.customcommand',
                 'sentences' => ['en' => 'Customcommand is updated!']
+            ],
+            [
+                'name' => 'gameban.notvalid',
+                'sentences' => ['en' => 'This gameban is not valid!']
+            ],
+            [
+                'name' => 'cmd.doinpc',
+                'sentences' => ['en' => 'Please do this command in pc!']
+            ],
+            [
+                'name' => 'cmd.wrongpass',
+                'sentences' => ['en' => 'Wrong password!']
+            ],
+            [
+                'name' => 'cmd.getmain.tryin10',
+                'sentences' => ['en' => 'Please try again in 10 minutes']
+            ],
+            [
+                'name' => 'cmd.getmain.cantget',
+                'sentences' => ['en' => 'I can\'t get main at the moment! :(']
+            ],
+            [
+                'name' => 'cmd.getmain.gotmain',
+                'sentences' => ['en' => 'OH ! I\'m main owner now (cool#).']
+            ],
+            [
+                'name' => 'cmd.guestself',
+                'sentences' => ['en' => 'I\'m now a guest!']
+            ],
+            [
+                'name' => 'cmd.doesnotexist',
+                'sentences' => ['en' => 'This command does not exist!']
+            ],
+            [
+                'name' => 'cmd.powernotexist',
+                'sentences' => ['en' => 'This power does not exist!']
+            ],
+            [
+                'name' => 'cmd.notvalidrank',
+                'sentences' => ['en' => 'This rank is not valid!']
+            ],
+            [
+                'name' => 'cmd.kickafkok',
+                'sentences' => ['en' => 'The kickafk time has been changed to $0 minutes.']
             ]
         ];
 
         foreach ($sentences as $sentence) {
-            BotlangSentences::create($sentence);
+
+            $botmessages = new BotlangSentences;
+            $botmessages->name = $sentence['name'];
+            $botmessages->sentences = $sentence['sentences'];
+            $botmessages->save();
+
+            $bots = Bot::all();
+
+            if (sizeof($bots) > 0) {
+                foreach ($bots as $bot) {
+                    $bot->botlang()->save($botmessages);
+                }
+            }
         }
     }
 }
