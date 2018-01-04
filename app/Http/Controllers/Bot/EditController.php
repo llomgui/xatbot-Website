@@ -65,6 +65,7 @@ class EditController extends Controller
 
     public function edit(Request $request)
     {
+        print 'hello';
         $data = $request->all();
 
         $toggles = ['autorestart', 'gameban_unban', 'togglelinkfilter', 'togglemoderation'];
@@ -101,7 +102,8 @@ class EditController extends Controller
             'toggleautowelcome' => 'max:2|required',
             'automember'        => 'max:255',
             'toggleradio'       => 'max:255',
-            'minstaffautotemp'  => 'integer'
+            'minstaffautotemp'  => 'integer',
+            'kickafk_minutes'   => 'integer'
         ];
 
         $validator = Validator::make($data, $rules);
@@ -110,7 +112,6 @@ class EditController extends Controller
 
         $validator->after(
             function ($validator) use ($data) {
-
                 if (!empty($data['chatname'])) {
                     if (!$data['chatid']) {
                         $validator->errors()->add('chatname', 'This chat does not exist!');
@@ -149,7 +150,7 @@ class EditController extends Controller
             'automessagetime', 'autorestart', 'gameban_unban',
             'customcommand', 'toggleautowelcome','togglelinkfilter',
             'togglemoderation', 'automember', 'toggleradio',
-            'minstaffautotemp'
+            'minstaffautotemp', 'kickafk_minutes'
         ];
 
         foreach ($fields as $field) {
