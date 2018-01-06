@@ -25,6 +25,13 @@ class ShareBotController extends Controller
     public function showList()
     {
         $bot = Bot::find(Session('onBotEdit'));
+
+        if ($bot->creator_user_id != \Auth::user()->id) {
+            return redirect()
+                ->back()
+                ->withError('You can\'t share this bot, you are not the creator!');
+        }
+
         $users = $bot->users()->get();
         return view('bot.sharebot')
             ->with('usersList', $users);
@@ -49,6 +56,13 @@ class ShareBotController extends Controller
         }
 
         $bot = Bot::find(Session('onBotEdit'));
+
+        if ($bot->creator_user_id != \Auth::user()->id) {
+            return redirect()
+                ->back()
+                ->withError('You can\'t share this bot, you are not the creator!');
+        }
+
         $users = $bot->users()->get();
         $checkKey = User::where('share_key', $data['share_key'])->get();
         
@@ -88,6 +102,14 @@ class ShareBotController extends Controller
     {
         $data = $request->all();
         $bot = Bot::find(Session('onBotEdit'));
+
+        if ($bot->creator_user_id != \Auth::user()->id) {
+            return redirect()
+                    ->back()
+
+                    ->withError('You can\'t remove this bot, you are the creator!');
+        }
+
         $users = $bot->users()->get();
 
         foreach ($users as $user) {

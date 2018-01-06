@@ -65,7 +65,6 @@ class EditController extends Controller
 
     public function edit(Request $request)
     {
-        print 'hello';
         $data = $request->all();
 
         $toggles = ['autorestart', 'gameban_unban', 'togglelinkfilter', 'togglemoderation'];
