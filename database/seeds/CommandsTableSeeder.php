@@ -109,7 +109,8 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'response', 'description' => '', 'default_level' => 5],
             ['name' => 'logs', 'description' => '', 'default_level' => 3],
             ['name' => 'spotify', 'description' => '', 'default_level' => 1],
-            ['name' => 'richest', 'description' => '', 'default_level' => 1]
+            ['name' => 'richest', 'description' => '', 'default_level' => 1],
+            ['name' => 'commands', 'description' => '', 'default_level' => 1]
         ];
 
         foreach ($commands as $command) {
