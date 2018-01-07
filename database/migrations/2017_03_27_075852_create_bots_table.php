@@ -40,7 +40,7 @@ class CreateBotsTable extends Migration
             $table->string('automember')->default('off');
             $table->string('automessage')->nullable();
             $table->integer('automessagetime')->default('30');
-            $table->boolean('autorestart')->default('0');
+            $table->boolean('autorestart')->default('1');
             $table->boolean('gameban_unban')->default('1');
             $table->jsonb('powersdisabled')->nullable();
             $table->boolean('togglemoderation')->default('1');
