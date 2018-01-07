@@ -1,12 +1,12 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Auth;
+namespace xatbot\Http\Controllers\Auth;
 
-use OceanProject\Models\User;
-use OceanProject\Utilities\Xat;
-use OceanProject\Utilities\Functions;
+use xatbot\Models\User;
+use xatbot\Utilities\Xat;
+use xatbot\Utilities\Functions;
 use Illuminate\Support\Facades\Validator;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller

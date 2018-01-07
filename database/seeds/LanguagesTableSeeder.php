@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use OceanProject\Models\Language;
+use xatbot\Models\Language;
 
 class LanguagesTableSeeder extends Seeder
 {

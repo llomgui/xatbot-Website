@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'info@oceanproject.fr'),
-        'name' => env('MAIL_FROM_NAME', 'OceanProject'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@xatbot.fr'),
+        'name' => env('MAIL_FROM_NAME', 'xatbot'),
     ],
 
     /*

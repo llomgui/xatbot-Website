@@ -1,11 +1,11 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Page;
+namespace xatbot\Http\Controllers\Page;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Http\Controllers\Controller;
 
 class StaffController extends Controller
 {

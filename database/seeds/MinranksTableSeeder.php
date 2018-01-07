@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use OceanProject\Models\Minrank;
+use xatbot\Models\Minrank;
 
 class MinranksTableSeeder extends Seeder
 {

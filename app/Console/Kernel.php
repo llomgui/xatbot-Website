@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Console;
+namespace xatbot\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

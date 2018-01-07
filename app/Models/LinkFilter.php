@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Models;
+namespace xatbot\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,6 +31,6 @@ class LinkFilter extends Model
      */
     public function linkFilterBot()
     {
-        return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
+        return $this->hasOne('xatbot\Models\Bot', 'id', 'bot_id');
     }
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Bot;
+namespace xatbot\Http\Controllers\Bot;
 
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
-use OceanProject\Models\AutoBan;
-use OceanProject\Utilities\Xat;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Bot;
+use xatbot\Models\AutoBan;
+use xatbot\Utilities\Xat;
+use xatbot\Http\Controllers\Controller;
 
 class AutoBanController extends Controller
 {

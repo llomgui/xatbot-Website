@@ -1,13 +1,13 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Bot;
+namespace xatbot\Http\Controllers\Bot;
 
 use Auth;
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
-use OceanProject\Models\Log;
-use OceanProject\Utilities\IPC;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Bot;
+use xatbot\Models\Log;
+use xatbot\Utilities\IPC;
+use xatbot\Http\Controllers\Controller;
 
 class BotController extends Controller
 {

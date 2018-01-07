@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject;
+namespace xatbot;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,7 +34,7 @@ class CustomCommands extends Model
      */
     public function bot()
     {
-        return $this->belongsTo('OceanProject\Bot');
+        return $this->belongsTo('xatbot\Bot');
     }
 
     /**
@@ -42,6 +42,6 @@ class CustomCommands extends Model
      */
     public function minrank()
     {
-        return $this->belongsTo('OceanProject\Minrank');
+        return $this->belongsTo('xatbot\Minrank');
     }
 }

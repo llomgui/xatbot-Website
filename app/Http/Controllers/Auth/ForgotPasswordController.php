@@ -1,8 +1,8 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Auth;
+namespace xatbot\Http\Controllers\Auth;
 
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

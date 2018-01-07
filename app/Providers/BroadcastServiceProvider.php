@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Providers;
+namespace xatbot\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;

@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Models;
+namespace xatbot\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +13,6 @@ class Command extends Model
 
     public function minrank()
     {
-        return $this->hasOne('OceanProject\Models\Minrank', 'level', 'default_level');
+        return $this->hasOne('xatbot\Models\Minrank', 'level', 'default_level');
     }
 }

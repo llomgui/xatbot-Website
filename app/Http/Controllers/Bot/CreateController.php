@@ -1,17 +1,17 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Bot;
+namespace xatbot\Http\Controllers\Bot;
 
 use Auth;
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
-use OceanProject\Utilities\Xat;
-use OceanProject\Models\Server;
-use OceanProject\Models\Command;
-use OceanProject\Models\BotlangSentences;
+use xatbot\Models\Bot;
+use xatbot\Utilities\Xat;
+use xatbot\Models\Server;
+use xatbot\Models\Command;
+use xatbot\Models\BotlangSentences;
 use Illuminate\Support\Facades\DB;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Http\Controllers\Controller;
 
 class CreateController extends Controller
 {

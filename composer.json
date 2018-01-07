@@ -28,7 +28,7 @@
             "database"
         ],
         "psr-4": {
-            "OceanProject\\": "app/"
+            "xatbot\\": "app/"
         }
     },
     "autoload-dev": {

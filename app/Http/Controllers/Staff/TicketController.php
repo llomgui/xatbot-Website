@@ -1,15 +1,15 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Staff;
+namespace xatbot\Http\Controllers\Staff;
 
 use Auth;
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\User;
-use OceanProject\Models\Ticket;
-use OceanProject\Models\TicketMessage;
-use OceanProject\Models\TicketDepartment;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\User;
+use xatbot\Models\Ticket;
+use xatbot\Models\TicketMessage;
+use xatbot\Models\TicketDepartment;
+use xatbot\Http\Controllers\Controller;
 
 class TicketController extends Controller
 {

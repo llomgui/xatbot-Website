@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Exceptions;
+namespace xatbot\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;

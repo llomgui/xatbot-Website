@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use OceanProject\Models\TicketDepartment;
+use xatbot\Models\TicketDepartment;
 
 class TicketDepartmentsTableSeeder extends Seeder
 {

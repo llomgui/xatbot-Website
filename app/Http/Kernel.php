@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Http;
+namespace xatbot\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -16,7 +16,7 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \OceanProject\Http\Middleware\TrimStrings::class,
+        \xatbot\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -27,12 +27,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \OceanProject\Http\Middleware\EncryptCookies::class,
+            \xatbot\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \OceanProject\Http\Middleware\VerifyCsrfToken::class,
+            \xatbot\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -54,11 +54,11 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \OceanProject\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \xatbot\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'role' => \Ultraware\Roles\Middleware\VerifyRole::class,
         'permission' => \Ultraware\Roles\Middleware\VerifyPermission::class,
         'level' => \Ultraware\Roles\Middleware\VerifyLevel::class,
-        'hasbot' => \OceanProject\Http\Middleware\HasBot::class,
+        'hasbot' => \xatbot\Http\Middleware\HasBot::class,
     ];
 }

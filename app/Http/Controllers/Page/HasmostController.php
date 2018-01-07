@@ -1,13 +1,13 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Page;
+namespace xatbot\Http\Controllers\Page;
 
 use Session;
-use OceanProject\Models\Userinfo;
+use xatbot\Models\Userinfo;
 use Illuminate\Support\Facades\DB;
-use OceanProject\Utilities\Powers;
-use OceanProject\Utilities\XatUser;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Utilities\Powers;
+use xatbot\Utilities\XatUser;
+use xatbot\Http\Controllers\Controller;
 
 class HasmostController extends Controller
 {

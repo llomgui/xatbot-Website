@@ -46,7 +46,7 @@
         </div>
         <div class="pull-right"> 
           <ul class="top_socials"> 
-            <li><a href="https://github.com/llomgui/OceanProject-Website"><i class=" ti-github"></i></a></li>
+            <li><a href="https://github.com/llomgui/xatbot-Website"><i class=" ti-github"></i></a></li>
           </ul> 
         </div>
         <div class="clear"></div>

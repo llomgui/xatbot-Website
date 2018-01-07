@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Models;
+namespace xatbot\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -43,7 +43,7 @@ class Bot extends Model
      */
     public function creatorUser()
     {
-        return $this->belongsTo('OceanProject\Models\User', 'creator_user_id');
+        return $this->belongsTo('xatbot\Models\User', 'creator_user_id');
     }
 
     /**
@@ -51,7 +51,7 @@ class Bot extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('OceanProject\Models\User')->withTimestamps();
+        return $this->belongsToMany('xatbot\Models\User')->withTimestamps();
     }
 
     /**
@@ -60,7 +60,7 @@ class Bot extends Model
     public function commands()
     {
         return $this->belongsToMany(
-            'OceanProject\Models\Command',
+            'xatbot\Models\Command',
             'bot_command_minrank',
             'bot_id',
             'command_id'
@@ -73,7 +73,7 @@ class Bot extends Model
     public function minranks()
     {
         return $this->belongsToMany(
-            'OceanProject\Models\Minrank',
+            'xatbot\Models\Minrank',
             'bot_command_minrank',
             'bot_id',
             'minrank_id'
@@ -85,7 +85,7 @@ class Bot extends Model
      */
     public function botStatus()
     {
-        return $this->hasOne('OceanProject\Models\BotStatus', 'id', 'bot_status_id');
+        return $this->hasOne('xatbot\Models\BotStatus', 'id', 'bot_status_id');
     }
 
     /**
@@ -93,7 +93,7 @@ class Bot extends Model
      */
     public function language()
     {
-        return $this->hasOne('OceanProject\Models\Language', 'id', 'language_id');
+        return $this->hasOne('xatbot\Models\Language', 'id', 'language_id');
     }
 
     /**
@@ -101,7 +101,7 @@ class Bot extends Model
      */
     public function server()
     {
-        return $this->hasOne('OceanProject\Models\Server', 'id', 'server_id');
+        return $this->hasOne('xatbot\Models\Server', 'id', 'server_id');
     }
 
     /**
@@ -109,7 +109,7 @@ class Bot extends Model
      */
     public function staffs()
     {
-        return $this->hasMany('OceanProject\Models\Staff');
+        return $this->hasMany('xatbot\Models\Staff');
     }
 
     /**
@@ -117,7 +117,7 @@ class Bot extends Model
      */
     public function autotemps()
     {
-        return $this->hasMany('OceanProject\Models\AutoTemp');
+        return $this->hasMany('xatbot\Models\AutoTemp');
     }
 
     /**
@@ -125,7 +125,7 @@ class Bot extends Model
      */
     public function snitchs()
     {
-        return $this->hasMany('OceanProject\Models\Snitch');
+        return $this->hasMany('xatbot\Models\Snitch');
     }
 
     /**
@@ -133,7 +133,7 @@ class Bot extends Model
      */
     public function aliases()
     {
-        return $this->hasMany('OceanProject\Models\Alias');
+        return $this->hasMany('xatbot\Models\Alias');
     }
 
     /**
@@ -142,7 +142,7 @@ class Bot extends Model
     public function botlang()
     {
         return $this->belongsToMany(
-            'OceanProject\Models\BotlangSentences',
+            'xatbot\Models\BotlangSentences',
             'botlang',
             'bot_id',
             'botlang_sentences_id'
@@ -154,7 +154,7 @@ class Bot extends Model
      */
     public function responses()
     {
-        return $this->hasMany('OceanProject\Models\Response');
+        return $this->hasMany('xatbot\Models\Response');
     }
 
     /**
@@ -162,7 +162,7 @@ class Bot extends Model
      */
     public function badwords()
     {
-        return $this->hasMany('OceanProject\Models\Badword');
+        return $this->hasMany('xatbot\Models\Badword');
     }
 
     /**
@@ -170,7 +170,7 @@ class Bot extends Model
      */
     public function linksfilter()
     {
-        return $this->hasMany('OceanProject\Models\LinkFilter');
+        return $this->hasMany('xatbot\Models\LinkFilter');
     }
 
     /**
@@ -178,7 +178,7 @@ class Bot extends Model
      */
     public function autoban()
     {
-        return $this->hasMany('OceanProject\Models\AutoBan');
+        return $this->hasMany('xatbot\Models\AutoBan');
     }
 
     /**
@@ -186,6 +186,6 @@ class Bot extends Model
      */
     public function customcmd()
     {
-        return $this->hasMany('OceanProject\Models\CustomCmd');
+        return $this->hasMany('xatbot\Models\CustomCmd');
     }
 }

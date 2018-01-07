@@ -1,11 +1,11 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Page;
+namespace xatbot\Http\Controllers\Page;
 
 use Illuminate\Http\Request;
-use OceanProject\Models\Minrank;
+use xatbot\Models\Minrank;
 use Illuminate\Support\Facades\DB;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Http\Controllers\Controller;
 
 class CommandsController extends Controller
 {

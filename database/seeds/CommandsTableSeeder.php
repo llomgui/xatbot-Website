@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use OceanProject\Models\Command;
+use xatbot\Models\Command;
 
 class CommandsTableSeeder extends Seeder
 {

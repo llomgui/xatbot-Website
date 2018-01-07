@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => OceanProject\Models\User::class,
+        'model' => xatbot\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

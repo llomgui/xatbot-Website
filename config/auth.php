@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => OceanProject\Models\User::class,
+            'model' => xatbot\Models\User::class,
         ],
 
         // 'users' => [

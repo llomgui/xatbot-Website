@@ -1,12 +1,12 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Bot;
+namespace xatbot\Http\Controllers\Bot;
 
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
-use OceanProject\Utilities\Powers;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Bot;
+use xatbot\Utilities\Powers;
+use xatbot\Http\Controllers\Controller;
 
 class PowersController extends Controller
 {

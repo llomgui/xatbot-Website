@@ -1,12 +1,12 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Bot;
+namespace xatbot\Http\Controllers\Bot;
 
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
-use OceanProject\Models\Badword;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Bot;
+use xatbot\Models\Badword;
+use xatbot\Http\Controllers\Controller;
 
 class BadwordController extends Controller
 {

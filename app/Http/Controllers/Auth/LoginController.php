@@ -1,10 +1,10 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Auth;
+namespace xatbot\Http\Controllers\Auth;
 
-use OceanProject\Models\Userinfo;
-use OceanProject\Http\Controllers\Controller;
-use OceanProject\Utilities\Functions;
+use xatbot\Models\Userinfo;
+use xatbot\Http\Controllers\Controller;
+use xatbot\Utilities\Functions;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller

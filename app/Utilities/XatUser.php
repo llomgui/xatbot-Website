@@ -1,8 +1,8 @@
 <?php
 
-namespace OceanProject\Utilities;
+namespace xatbot\Utilities;
 
-use OceanProject\Utilities\Powers;
+use xatbot\Utilities\Powers;
 
 class XatUser
 {

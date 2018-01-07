@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Models;
+namespace xatbot\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +23,6 @@ class TicketDepartment extends Model
      */
     public function tickets()
     {
-        return $this->hasMany('OceanProject\Models\Ticket', 'department_id');
+        return $this->hasMany('xatbot\Models\Ticket', 'department_id');
     }
 }

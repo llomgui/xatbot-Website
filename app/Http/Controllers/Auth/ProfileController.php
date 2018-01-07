@@ -1,15 +1,15 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Auth;
+namespace xatbot\Http\Controllers\Auth;
 
 use Input;
 use Auth;
 use Hash;
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\User;
-use OceanProject\Http\Controllers\Controller;
-use OceanProject\Utilities\Xat;
+use xatbot\Models\User;
+use xatbot\Http\Controllers\Controller;
+use xatbot\Utilities\Xat;
 
 class ProfileController extends Controller
 {

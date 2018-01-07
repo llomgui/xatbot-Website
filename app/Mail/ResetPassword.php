@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Mail;
+namespace xatbot\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;

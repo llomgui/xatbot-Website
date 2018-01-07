@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Models;
+namespace xatbot\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,7 +26,7 @@ class TicketMessage extends Model
      */
     public function user()
     {
-        return $this->belongsTo('OceanProject\Models\User');
+        return $this->belongsTo('xatbot\Models\User');
     }
 
     /**
@@ -34,6 +34,6 @@ class TicketMessage extends Model
      */
     public function ticket()
     {
-        return $this->belongsTo('OceanProject\Models\Ticket');
+        return $this->belongsTo('xatbot\Models\Ticket');
     }
 }

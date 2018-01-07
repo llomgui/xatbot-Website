@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Providers;
+namespace xatbot\Providers;
 
 use Validator;
 use Illuminate\Support\Facades\DB;

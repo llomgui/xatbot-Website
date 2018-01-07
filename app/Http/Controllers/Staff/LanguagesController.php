@@ -1,14 +1,14 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Staff;
+namespace xatbot\Http\Controllers\Staff;
 
 use Auth;
 use Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-use OceanProject\Http\Controllers\Controller;
-use OceanProject\Models\Language;
+use xatbot\Http\Controllers\Controller;
+use xatbot\Models\Language;
 
 class LanguagesController extends Controller
 {

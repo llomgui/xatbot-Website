@@ -1,13 +1,13 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Bot;
+namespace xatbot\Http\Controllers\Bot;
 
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
+use xatbot\Models\Bot;
 use Illuminate\Support\Facades\DB;
-use OceanProject\Models\BotlangSentences;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\BotlangSentences;
+use xatbot\Http\Controllers\Controller;
 
 class BotlangController extends Controller
 {

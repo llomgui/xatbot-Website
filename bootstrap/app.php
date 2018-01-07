@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    OceanProject\Http\Kernel::class
+    xatbot\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    OceanProject\Console\Kernel::class
+    xatbot\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    OceanProject\Exceptions\Handler::class
+    xatbot\Exceptions\Handler::class
 );
 
 /*

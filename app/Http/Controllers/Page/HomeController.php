@@ -1,14 +1,14 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Page;
+namespace xatbot\Http\Controllers\Page;
 
 use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use OceanProject\Models\Log;
-use OceanProject\Models\Bot;
-use OceanProject\Utilities\IPC;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Log;
+use xatbot\Models\Bot;
+use xatbot\Utilities\IPC;
+use xatbot\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {

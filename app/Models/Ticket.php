@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Models;
+namespace xatbot\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,7 +28,7 @@ class Ticket extends Model
      */
     public function user()
     {
-        return $this->belongsTo('OceanProject\Models\User');
+        return $this->belongsTo('xatbot\Models\User');
     }
 
     /**
@@ -36,7 +36,7 @@ class Ticket extends Model
      */
     public function ticketDepartment()
     {
-        return $this->belongsTo('OceanProject\Models\TicketDepartment', 'department_id');
+        return $this->belongsTo('xatbot\Models\TicketDepartment', 'department_id');
     }
 
     /**
@@ -44,6 +44,6 @@ class Ticket extends Model
      */
     public function ticketMessages()
     {
-        return $this->hasMany('OceanProject\Models\TicketMessage');
+        return $this->hasMany('xatbot\Models\TicketMessage');
     }
 }

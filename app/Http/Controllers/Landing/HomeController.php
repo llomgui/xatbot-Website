@@ -1,13 +1,13 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Landing;
+namespace xatbot\Http\Controllers\Landing;
 
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
-use OceanProject\Models\Log;
-use OceanProject\Models\Command;
-use OceanProject\Utilities\LineCounter;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Bot;
+use xatbot\Models\Log;
+use xatbot\Models\Command;
+use xatbot\Utilities\LineCounter;
+use xatbot\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $lineCounter = new LineCounter('/opt/OceanProject-Bot/src/');
+        $lineCounter = new LineCounter('/opt/xatbot-Bot/src/');
         $totalLines = $lineCounter->totalLines();
         $totalMessageHandled = Log::count();
         $totalCommands = Command::count();

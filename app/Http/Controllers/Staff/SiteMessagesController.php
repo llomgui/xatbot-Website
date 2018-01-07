@@ -1,8 +1,8 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Staff;
+namespace xatbot\Http\Controllers\Staff;
 
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Http\Controllers\Controller;
 
 class SiteMessageController extends Controller
 {

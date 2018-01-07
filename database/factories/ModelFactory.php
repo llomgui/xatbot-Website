@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(OceanProject\User::class, function (Faker\Generator $faker) {
+$factory->define(xatbot\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [

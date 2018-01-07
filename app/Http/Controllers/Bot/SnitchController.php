@@ -1,13 +1,13 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Bot;
+namespace xatbot\Http\Controllers\Bot;
 
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
-use OceanProject\Models\Snitch;
-use OceanProject\Utilities\Xat;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Bot;
+use xatbot\Models\Snitch;
+use xatbot\Utilities\Xat;
+use xatbot\Http\Controllers\Controller;
 
 class SnitchController extends Controller
 {

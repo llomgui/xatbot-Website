@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Models;
+namespace xatbot\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,7 +23,7 @@ class Staff extends Model
      */
     public function staffMinrank()
     {
-        return $this->hasOne('OceanProject\Models\Minrank', 'id', 'minrank_id');
+        return $this->hasOne('xatbot\Models\Minrank', 'id', 'minrank_id');
     }
 
     /**
@@ -31,6 +31,6 @@ class Staff extends Model
      */
     public function staffBot()
     {
-        return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
+        return $this->hasOne('xatbot\Models\Bot', 'id', 'bot_id');
     }
 }

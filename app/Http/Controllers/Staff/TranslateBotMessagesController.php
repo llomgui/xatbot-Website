@@ -1,12 +1,12 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Staff;
+namespace xatbot\Http\Controllers\Staff;
 
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\Language;
-use OceanProject\Models\BotlangSentences;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Language;
+use xatbot\Models\BotlangSentences;
+use xatbot\Http\Controllers\Controller;
 
 class TranslateBotMessagesController extends Controller
 {

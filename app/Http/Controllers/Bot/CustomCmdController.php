@@ -1,13 +1,13 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Bot;
+namespace xatbot\Http\Controllers\Bot;
 
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
-use OceanProject\Models\CustomCmd;
-use OceanProject\Models\Minrank;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Bot;
+use xatbot\Models\CustomCmd;
+use xatbot\Models\Minrank;
+use xatbot\Http\Controllers\Controller;
 
 class CustomCmdController extends Controller
 {

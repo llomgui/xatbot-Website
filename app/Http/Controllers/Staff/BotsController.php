@@ -1,13 +1,13 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Staff;
+namespace xatbot\Http\Controllers\Staff;
 
 use Validator;
-use OceanProject\Utilities\IPC;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Utilities\IPC;
+use xatbot\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
-use OceanProject\Utilities\Xat;
+use xatbot\Models\Bot;
+use xatbot\Utilities\Xat;
 
 class BotsController extends Controller
 {

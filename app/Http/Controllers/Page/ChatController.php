@@ -1,8 +1,8 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Page;
+namespace xatbot\Http\Controllers\Page;
 
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller

@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'OceanProject',
+    'name' => 'xatbot',
 
     /*
     |--------------------------------------------------------------------------
@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        OceanProject\Providers\AppServiceProvider::class,
-        OceanProject\Providers\AuthServiceProvider::class,
-        // OceanProject\Providers\BroadcastServiceProvider::class,
-        OceanProject\Providers\EventServiceProvider::class,
-        OceanProject\Providers\RouteServiceProvider::class,
+        xatbot\Providers\AppServiceProvider::class,
+        xatbot\Providers\AuthServiceProvider::class,
+        // xatbot\Providers\BroadcastServiceProvider::class,
+        xatbot\Providers\EventServiceProvider::class,
+        xatbot\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
         /**

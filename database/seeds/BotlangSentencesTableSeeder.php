@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use OceanProject\Models\BotlangSentences;
-use OceanProject\Models\Bot;
+use xatbot\Models\BotlangSentences;
+use xatbot\Models\Bot;
 
 class BotlangSentencesTableSeeder extends Seeder
 {

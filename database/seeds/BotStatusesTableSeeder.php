@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use OceanProject\Models\BotStatus;
+use xatbot\Models\BotStatus;
 
 class BotStatusesTableSeeder extends Seeder
 {

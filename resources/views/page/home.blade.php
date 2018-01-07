@@ -139,7 +139,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     {!! Form::label('homepage', 'Homepage', ['class' => 'control-label']); !!}
-                                    {!! Form::text('homepage', '', ['class' => 'form-control', 'placeholder' => 'OceanProject.fr']) !!}
+                                    {!! Form::text('homepage', '', ['class' => 'form-control', 'placeholder' => 'xatbot.fr']) !!}
                                     @if ($errors->has('homepage'))
                                         <ul class="parsley-errors-list filled">
                                             <li class="parsley-required">{{ $errors->first('homepage') }}</li>

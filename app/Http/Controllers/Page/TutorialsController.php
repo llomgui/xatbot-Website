@@ -1,9 +1,9 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Page;
+namespace xatbot\Http\Controllers\Page;
 
 use Illuminate\Http\Request;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Http\Controllers\Controller;
 
 class TutorialsController extends Controller
 {

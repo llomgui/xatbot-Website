@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Models;
+namespace xatbot\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +23,6 @@ class Snitch extends Model
      */
     public function snitchBot()
     {
-        return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
+        return $this->hasOne('xatbot\Models\Bot', 'id', 'bot_id');
     }
 }

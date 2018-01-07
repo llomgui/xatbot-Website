@@ -3,7 +3,6 @@ sudo: required
 dist: trusty
 
 php:
-  - 7.0
   - 7.1
 
 env:
@@ -19,13 +18,13 @@ matrix:
   fast_finish: true
 
   allow_failures:
-    - php: 7.0
+    - php: 7.1
       env: COVERAGE=1 DEFAULT=0
 
   include:
-    - php: 7.0
+    - php: 7.1
       env: PHPCS=1 DEFAULT=0
-    - php: 7.0
+    - php: 7.1
       env: COVERAGE=1 DEFAULT=0
 
 install:
@@ -38,8 +37,8 @@ before_script:
   - psql -d ocean_project -c 'create extension if not exists citext;' -U postgres
   - phpenv rehash
   - php artisan migrate --seed
-  - mkdir -p /opt/OceanProject-Bot/src/
-  - echo "<?php echo 'hello';" > /opt/OceanProject-Bot/src/travis.php
+  - mkdir -p /opt/xatbot-Bot/src/
+  - echo "<?php echo 'hello';" > /opt/xatbot-Bot/src/travis.php
 
 script:
   - sh -c "if [ '$DEFAULT' = '1' ]; then vendor/bin/phpunit; fi"

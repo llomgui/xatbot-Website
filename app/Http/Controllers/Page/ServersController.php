@@ -1,11 +1,11 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Page;
+namespace xatbot\Http\Controllers\Page;
 
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use OceanProject\Utilities\IPC;
-use OceanProject\Models\Server;
+use xatbot\Utilities\IPC;
+use xatbot\Models\Server;
 
 class ServersController extends Controller
 {
@@ -26,7 +26,7 @@ class ServersController extends Controller
      */
     public function index()
     {
-        $servers = [['name' => 'Saturn']]; //Server::all()->toArray();
+        $servers = [['name' => 'Sun']]; //Server::all()->toArray();
         
         foreach ($servers as $server) {
             IPC::init();

@@ -8,7 +8,7 @@
             </a>
         </div>
 
-        @inject('topbar', 'OceanProject\Http\Controllers\Page\TopbarController')
+        @inject('topbar', 'xatbot\Http\Controllers\Page\TopbarController')
         @php
         $bots = $topbar->getBots();
         $languages = $topbar->getLanguages();
@@ -17,6 +17,7 @@
         <div class="menu-extras topbar-custom">
             @if (count($bots) > 0)
             <ul class="list-inline float-left mb-0 m-l-10">
+                <!--
                 <li class="list-inline-item notification-list">
                     <a data-toggle="dropdown" class="nav-link dropdown-toggle waves-effect" href="#" aria-expanded="false">{{ Auth::user()->language->name }} <i class="fa fa-caret-down"></i></a>
                     <ul role="menu" class="dropdown-menu">
@@ -27,6 +28,7 @@
                     @endforeach
                     </ul>
                 </li>
+                -->
                 <li class="list-inline-item notification-list">
                     <a data-toggle="dropdown" class="nav-link dropdown-toggle waves-effect" href="#" aria-expanded="false">{{ env('BOTID_NAME') }} {{ Session::get('onBotEdit') }} <i class="fa fa-caret-down"></i></a>
                     <ul role="menu" class="dropdown-menu">

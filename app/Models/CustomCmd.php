@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Models;
+namespace xatbot\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,7 +34,7 @@ class CustomCmd extends Model
      */
     public function minrank()
     {
-        return $this->hasOne('OceanProject\Models\Minrank', 'id', 'minrank_id');
+        return $this->hasOne('xatbot\Models\Minrank', 'id', 'minrank_id');
     }
 
     /**
@@ -42,6 +42,6 @@ class CustomCmd extends Model
      */
     public function customcmdBot()
     {
-        return $this->hasOne('OceanProject\Models\Bot', 'id', 'bot_id');
+        return $this->hasOne('xatbot\Models\Bot', 'id', 'bot_id');
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use OceanProject\Models\Server;
+use xatbot\Models\Server;
 
 class ServersTableSeeder extends Seeder
 {

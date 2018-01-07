@@ -1,12 +1,12 @@
 <?php
 
-namespace OceanProject\Models;
+namespace xatbot\Models;
 
 use Illuminate\Notifications\Notifiable as Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Ultraware\Roles\Traits\HasRoleAndPermission;
 use Ultraware\Roles\Contracts\HasRoleAndPermission as HasRoleAndPermissionContract;
-use OceanProject\Mail\ResetPassword;
+use xatbot\Mail\ResetPassword;
 
 class User extends Authenticatable implements HasRoleAndPermissionContract
 {
@@ -41,7 +41,7 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
      */
     public function bots()
     {
-        return $this->belongsToMany('OceanProject\Models\Bot')->orderBy('bot_id', 'asc');
+        return $this->belongsToMany('xatbot\Models\Bot')->orderBy('bot_id', 'asc');
     }
 
     /**
@@ -49,7 +49,7 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
      */
     public function language()
     {
-        return $this->hasOne('OceanProject\Models\Language', 'id', 'language_id');
+        return $this->hasOne('xatbot\Models\Language', 'id', 'language_id');
     }
 
     /**
@@ -57,7 +57,7 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
      */
     public function botsCreated()
     {
-        return $this->hasMany('OceanProject\Models\Bot', 'creator_user_id');
+        return $this->hasMany('xatbot\Models\Bot', 'creator_user_id');
     }
 
     public function hasBot($botid)
@@ -70,7 +70,7 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
      */
     public function tickets()
     {
-        return $this->hasMany('OceanProject\Models\Ticket');
+        return $this->hasMany('xatbot\Models\Ticket');
     }
 
     /**

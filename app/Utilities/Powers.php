@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Utilities;
+namespace xatbot\Utilities;
 
 trait Powers
 {

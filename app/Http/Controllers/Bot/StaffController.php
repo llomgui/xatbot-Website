@@ -1,14 +1,14 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Bot;
+namespace xatbot\Http\Controllers\Bot;
 
 use Validator;
 use Illuminate\Http\Request;
-use OceanProject\Models\Bot;
-use OceanProject\Models\Staff;
-use OceanProject\Utilities\Xat;
-use OceanProject\Models\Minrank;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Bot;
+use xatbot\Models\Staff;
+use xatbot\Utilities\Xat;
+use xatbot\Models\Minrank;
+use xatbot\Http\Controllers\Controller;
 
 class StaffController extends Controller
 {

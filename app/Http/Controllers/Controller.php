@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Http\Controllers;
+namespace xatbot\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

@@ -1,11 +1,11 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Page;
+namespace xatbot\Http\Controllers\Page;
 
 use Auth;
 use Illuminate\Http\Request;
-use OceanProject\Models\Language;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Language;
+use xatbot\Http\Controllers\Controller;
 
 class TopbarController extends Controller
 {

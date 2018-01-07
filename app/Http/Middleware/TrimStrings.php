@@ -1,6 +1,6 @@
 <?php
 
-namespace OceanProject\Http\Middleware;
+namespace xatbot\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as BaseTrimmer;
 

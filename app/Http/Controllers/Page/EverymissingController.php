@@ -1,15 +1,15 @@
 <?php
 
-namespace OceanProject\Http\Controllers\Page;
+namespace xatbot\Http\Controllers\Page;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Session;
-use OceanProject\Models\Userinfo;
-use OceanProject\Utilities\Powers;
-use OceanProject\Utilities\XatUser;
-use OceanProject\Http\Controllers\Controller;
+use xatbot\Models\Userinfo;
+use xatbot\Utilities\Powers;
+use xatbot\Utilities\XatUser;
+use xatbot\Http\Controllers\Controller;
 
 class EverymissingController extends Controller
 {
