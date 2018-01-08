@@ -78,7 +78,7 @@ class EditController extends Controller
         }
 
         $rules = [
-            'chatname'          => 'max:50|required',
+            // 'chatname'          => 'max:50|required',
             'nickname'          => 'max:255',
             'avatar'            => 'max:255',
             'homepage'          => 'max:255',
@@ -107,25 +107,25 @@ class EditController extends Controller
 
         $validator = Validator::make($data, $rules);
 
-        $data['chatid'] = Xat::isChatExist($data['chatname']);
+        // $data['chatid'] = Xat::isChatExist($data['chatname']);
 
-        $validator->after(
-            function ($validator) use ($data) {
-                if (!empty($data['chatname'])) {
-                    if (!$data['chatid']) {
-                        $validator->errors()->add('chatname', 'This chat does not exist!');
-                    } elseif (!Bot::where(
-                        [
-                        ['chatid', '=', $data['chatid']],
-                        ['id', '<>', Session('onBotEdit')]
-                        ]
-                    )->get()->isEmpty()
-                    ) {
-                        $validator->errors()->add('chatname', 'This chat is taken!');
-                    }
-                }
-            }
-        );
+        // $validator->after(
+        //     function ($validator) use ($data) {
+        //         if (!empty($data['chatname'])) {
+        //             if (!$data['chatid']) {
+        //                 $validator->errors()->add('chatname', 'This chat does not exist!');
+        //             } elseif (!Bot::where(
+        //                 [
+        //                 ['chatid', '=', $data['chatid']],
+        //                 ['id', '<>', Session('onBotEdit')]
+        //                 ]
+        //             )->get()->isEmpty()
+        //             ) {
+        //                 $validator->errors()->add('chatname', 'This chat is taken!');
+        //             }
+        //         }
+        //     }
+        // );
 
         if ($validator->fails()) {
             return redirect()
@@ -137,8 +137,8 @@ class EditController extends Controller
 
         $bot = Bot::find(Session('onBotEdit'));
 
-        $bot->chatid   = $data['chatid'];
-        $bot->chatname = $data['chatname'];
+        // $bot->chatid   = $data['chatid'];
+        // $bot->chatname = $data['chatname'];
         $bot->status   = $data['botstatus'];
 
         $fields = [
@@ -162,7 +162,7 @@ class EditController extends Controller
         $bot->save();
 
         return redirect()
-                ->back()
-                ->withSuccess('Bot updated!');
+            ->back()
+            ->withSuccess('Bot updated!');
     }
 }
