@@ -16,7 +16,7 @@ class BotlangSentencesTableSeeder extends Seeder
         $sentences = [
             [
                 'name' => 'not.enough.rank',
-                'sentences' => ['en' => 'Sorry you do not have enough rank to use this command!']
+                'sentences' => ['en' => 'Sorry, you aren\'t the appropriate rank for this command!']
             ],
             [
                 'name' => 'missing.power',
