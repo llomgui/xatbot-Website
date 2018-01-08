@@ -15,7 +15,7 @@ class BotStatusesTableSeeder extends Seeder
         $statuses = [
             ['name' => 'Online'],
             ['name' => 'Offline'],
-            ['name' => 'xat server offline'],
+            ['name' => 'Error'],
             ['name' => 'Suspended']
         ];
 

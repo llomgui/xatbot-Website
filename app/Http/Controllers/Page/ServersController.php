@@ -26,7 +26,7 @@ class ServersController extends Controller
      */
     public function index()
     {
-        $servers = [['name' => 'Sun']]; //Server::all()->toArray();
+        $servers = Server::all()->toArray();
         
         foreach ($servers as $server) {
             IPC::init();

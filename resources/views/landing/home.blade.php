@@ -428,8 +428,8 @@
         <div class="col-md-5">
           <!-- Question/Answer -->
           <div class="animated fadeInRight wow" data-wow-delay=".2s">
-            <h4 class="question">I set up my bot power correctly, and the bot is set up in the panel correctly too, but I'm getting "Xat server offline." What does this mean?</h4>
-            <p class="answer">It means that xat servers are currently OFF so your bot can't connect on your chat. The only thing to do is "Wait". </p>
+            <h4 class="question">I set up my bot power correctly, and the bot is set up in the panel correctly too, but I'm getting "Error." What does this mean?</h4>
+            <p class="answer">It means there is an issue with xat servers so your bot can't connect on your chat. Please be patient. </p>
           </div>
 
           <!-- Question/Answer -->
