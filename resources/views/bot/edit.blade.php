@@ -147,6 +147,17 @@
                             @endif
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('togglemessages', 'ToggleMessages', ['class' => 'col-md-3 control-label']); !!}
+                            {!! Form::select('togglemessages', ['main' => 'Main Chat', 'pm' => 'Private Message'], $bot->togglemessages, ['class' => 'form-control']) !!}
+                            @if ($errors->has('togglemessages'))
+                                <ul class="parsley-errors-list filled">
+                                    <li class="parsley-required">{{ $errors->first('togglemessages') }}</li>
+                                </ul>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

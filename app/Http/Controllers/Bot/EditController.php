@@ -149,7 +149,7 @@ class EditController extends Controller
             'automessagetime', 'autorestart', 'gameban_unban',
             'customcommand', 'toggleautowelcome','togglelinkfilter',
             'togglemoderation', 'automember', 'toggleradio',
-            'minstaffautotemp', 'kickafk_minutes'
+            'minstaffautotemp', 'kickafk_minutes', 'togglemessages'
         ];
 
         foreach ($fields as $field) {
