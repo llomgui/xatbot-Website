@@ -156,7 +156,10 @@ class EditController extends Controller
             if (is_null($data['autowelcome'])) {
                 $data['autowelcome'] = '';
             }
-             $bot->$field = $data[$field];
+            if (is_null($data['automessagetime'])) {
+                $data['automessagetime'] = 30;
+            }
+            $bot->$field = $data[$field];
         }
 
         $bot->save();
