@@ -69,8 +69,9 @@ class BotController extends Controller
             if (empty($packet)) {
                 return response()->json(
                     [
-                        'status' => 'error',
-                        'message' => 'Packet is empty, please contact an administrator!'
+                        'status' => 'success',
+                        'message' => env('BOTID_NAME') . ' ' . $data['botid'] . ' ' . $data['action'] .
+                        (($data['action'] == 'stop') ? 'ped' : 'ed') . ' !'
                     ]
                 );
             }
@@ -79,9 +80,10 @@ class BotController extends Controller
 
             return response()->json(
                 [
-                'status' => 'success',
-                'message' => env('BOTID_NAME') . ' ' . $data['botid'] . ' ' . $data['action'] .
-                (($data['action'] == 'stop') ? 'ped' : 'ed') . ' !']
+                    'status' => 'success',
+                    'message' => env('BOTID_NAME') . ' ' . $data['botid'] . ' ' . $data['action'] .
+                    (($data['action'] == 'stop') ? 'ped' : 'ed') . ' !'
+                ]
             );
         }
     }
