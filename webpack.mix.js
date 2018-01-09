@@ -14,6 +14,7 @@ const { mix } = require('laravel-mix');
 mix.styles([
 		'resources/assets/css/bootstrap.min.css',
 		'resources/assets/css/icons.css',
+		'resources/assets/css/pages.css',
 		'resources/assets/css/style.css',
 	], 'public/css/app.css')
 	.scripts([
