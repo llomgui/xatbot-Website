@@ -57,7 +57,7 @@ class UserinfoController extends Controller
         $maxXats = 0;
         
         // User has power!
-        if ($userDatas->q != 1) {
+        if (isset($userDatas->q) && $userDatas->q != 1) {
             for ($i = 0; $i < 22; $i++) {
                 if (isset($userDatas->{'p' . $i})) {
                     $powersList[$i] = $userDatas->{'p' . $i};
