@@ -32,6 +32,7 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'edit', 'description' => '', 'default_level' => 4],
             ['name' => 'everymissing', 'description' => '', 'default_level' => 1],
             ['name' => 'gag', 'description' => '', 'default_level' => 4],
+            ['name' => 'game', 'description' => '', 'default_level' => 4],
             ['name' => 'gameban', 'description' => '', 'default_level' => 3],
             ['name' => 'gamebanme', 'description' => '', 'default_level' => 2],
             ['name' => 'getmain', 'description' => '', 'default_level' => 5],
