@@ -838,6 +838,34 @@ class BotlangSentencesTableSeeder extends Seeder
             [
                 'name' => 'cmd.shortname.unknownerror',
                 'sentences' => ['en' => 'Unknown error']
+            ],
+            [
+                'name' => 'cmd.misc.delistcheck.failurl',
+                'sentences' => ['en' => 'Unable to get content, please try again later!']
+            ],
+            [
+                'name' => 'cmd.misc.delistcheck.membersonly',
+                'sentences' => ['en' => 'The chat "$0" is for members only. Please change. (Edit Chat, Extra Features)']
+            ],
+            [
+                'name' => 'cmd.misc.delistcheck.notavailable',
+                'sentences' => ['en' => 'The chat "$0" is delisted or torched.']
+            ],
+            [
+                'name' => 'cmd.misc.delistcheck.langnotset',
+                'sentences' => ['en' => 'The chat "$0" has no lang set. Please edit group to set language.']
+            ],
+            [
+                'name' => 'cmd.misc.delistcheck.notfound',
+                'sentences' => ['en' => 'The chat "$0" doesn\'t exist!']
+            ],
+            [
+                'name' => 'cmd.misc.delistcheck.delisted',
+                'sentences' => ['en' => 'The chat "$0" is delisted. Please re-list. (Edit Chat, Extra Features)']
+            ],
+            [
+                'name' => 'cmd.misc.delistcheck.canpromote',
+                'sentences' => ['en' => 'The chat "$0" is able to be promoted.']
             ]
         ];
 
