@@ -17,8 +17,7 @@
                 <table class="table m-0">
                     <thead>
                         <tr>
-                        	<th>{{ env('BOTID_NAME') }}</th>
-                            <th>Name</th>
+                            <th>{{ env('BOTID_NAME') }}</th>
                             <th>Type</th>
                             <th>Chat</th>
                             <th>Server</th>
@@ -31,7 +30,6 @@
                         @foreach ($bots as $bot)
 						<tr>
 							<td>{{ $bot->id }}</td>
-							<td>{{ $bot->nickname }}</td>
                             <td><span {!! ($bot->premium > time()) ? 'class="badge badge-info">Premium' : 'class="badge badge-primary">Classic' !!}</span></td>
 							<td><a href="https://xat.com/{{ $bot->chatname }}" target="_blank">xat.com/{{ $bot->chatname }}</a></td>
                             <td> {{ $bot->server->name }} </td>
