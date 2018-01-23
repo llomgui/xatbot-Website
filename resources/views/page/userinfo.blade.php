@@ -51,10 +51,12 @@
         <h4 class="m-t-0 header-title"><b>[{{ ($powersList == false ? 0 : (count($powersList))) }}] powers (without doubles) and [{{ ($powersList == false ? 0 : ($doubles)) }}] doubles</b></h4>
         <div class="card-box">
             <div class="row">
-                @foreach($powersList as $key => $value)
+		@foreach($powersList as $key => $value)
+                    @if (isset($value['name']))
                     <div class="col-md-2 col-sm-2 col-xs-6">
                         <td><img src="//xat.com/images/smw/{{ $value['name'] }}.png"> <a href="//xat.wiki/{{ $value['name'] }}" style="color: inherit;">{{ $value['name'] }}</a> {{ isset($value['doubles']) ? '[' . ($value['doubles'] + 1). ']' : '' }}</td>
-                    </div>
+		    </div>
+                    @endif
                 @endforeach   
              </div>     
         </div>
