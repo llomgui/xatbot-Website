@@ -35,6 +35,15 @@
                         </tr>
                         @endforeach
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total:</td>
+                            <td>{{ $temp['totalBots'] }}</td>
+                            <td>{{ $temp['totalMemory'] }}</td>
+                            <td>{{ round($temp['totalCPU'] / 2, 3) }}</td>
+                            <td>{{ $temp['averageTimestarted'] }}</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
