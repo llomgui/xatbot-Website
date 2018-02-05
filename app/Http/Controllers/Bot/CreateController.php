@@ -38,7 +38,7 @@ class CreateController extends Controller
 
         $validator = Validator::make($data, $rules);
 
-        $data['chatname'] = str_replace([' ', 'xat.com', 'https://', 'http://'], ['_', '', '', ''], $data['chatname']);
+        $data['chatname'] = str_replace([' ', 'xat.com/', 'https://', 'http://'], ['_', '', '', ''], $data['chatname']);
         $data['chatid'] = Xat::isChatExist($data['chatname']);
         $validator->after(
             function ($validator) use ($data) {
