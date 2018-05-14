@@ -18,7 +18,7 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'xatid', 'regname', 'ip', 'password', 'language_id', 'share_key', 'spotify'
+        'id', 'name', 'email', 'xatid', 'regname', 'ip', 'password', 'language_id', 'share_key', 'spotify', 'steam'
     ];
 
     /**

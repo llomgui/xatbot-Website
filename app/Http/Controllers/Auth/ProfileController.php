@@ -113,4 +113,45 @@ class ProfileController extends Controller
                 ->route('profile')
                 ->withSuccess('Information updated!');
     }
+
+    public function steam(Request $request)
+    {
+        $user = Auth::user();
+        $data = $request->all();
+
+        $rules = [
+            'steam' => 'integer|nullable'
+        ];
+
+        $inputs = [];
+        foreach ($data as $key => $value) {
+            if ($key == '_token' || is_null($value)) {
+                continue;
+            }
+
+            $inputs[$key] = $value;
+        }
+
+        $validator = Validator::make(
+            $inputs,
+            $rules
+        );
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('profile')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        if (!empty($data['steam'])) {
+            $user->steam = $data['steam'];
+        }
+
+        $user->save();
+
+        return redirect()
+                ->route('profile')
+                ->withSuccess('Steam updated!');
+    }
 }

@@ -182,5 +182,7 @@ Route::group(['prefix' => 'panel'], function () {
         Route::get('spotify/callback', 'SpotifyController@callback')->name('spotify.callback');
         Route::post('spotify/logout', 'SpotifyController@logout')->name('spotify.logout');
 
+        Route::post('steam', 'ProfileController@steam')->name('steam');
+
     });
 });
