@@ -103,6 +103,9 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('sharebot', 'ShareBotController@addAccess')->name('postsharebot');
         Route::post('delsharebot', 'ShareBotController@deleteAccess')->name('deleteaccess');
 
+        Route::get('taken', 'TakenController@show')->name('taken');
+        Route::post('taken', 'TakenController@check')->name('posttaken');
+
     });
 
     Route::group(['prefix' => 'support', 'middleware' => 'auth', 'namespace' => 'Support'], function () {
