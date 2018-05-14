@@ -67,6 +67,17 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                {!! Form::label('togglebotstat', 'Botstat', ['class' => 'col-sm-2 col-form-label']); !!}
+                                <div class="col-sm-10">
+                                    {!! Form::select('togglebotstat', ['spotify' => 'Spotify', 'steam' => 'Steam', 'off' => 'Off'], $user->botstat['toggle'], ['class' => 'col-sm-2 form-control']) !!}
+                                    @if ($errors->has('togglebotstat'))
+                                        <ul class="parsley-errors-list filled">
+                                            <li class="parsley-required">{{ $errors->first('togglebotstat') }}</li>
+                                        </ul>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="form-group m-b-0 row">
                                 <div class="offset-3 col-sm-9">
                                     <button type="submit" class="btn btn-info waves-effect waves-light">Update</button>

@@ -106,6 +106,10 @@ class ProfileController extends Controller
         if (!empty($data['old_password'])) {
             $user->password = Hash::make($data['new_password']);
         }
+        
+        if (!empty($data['togglebotstat'])) {
+            $user->botstat = ['toggle' => $data['togglebotstat']];
+        }
 
         $user->save();
 
@@ -135,6 +139,24 @@ class ProfileController extends Controller
         $validator = Validator::make(
             $inputs,
             $rules
+        );
+
+        $validator->after(
+            function ($validator) use ($data) {
+                if (!empty($data['steam'])) {
+                    $ctx = stream_context_create(['http' => ['timeout' => 1]]);
+                    $json = json_decode(file_get_contents(
+                        'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=' .
+                            env('STEAM_API_KEY') . '&steamids=' . $data['steam'],
+                        false,
+                        $ctx
+                    ), true);
+
+                    if (empty($json['response']['players'])) {
+                        $validator->errors()->add('steam', 'The steamid is not valid!');
+                    }
+                }
+            }
         );
 
         if ($validator->fails()) {

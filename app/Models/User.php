@@ -18,7 +18,7 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'xatid', 'regname', 'ip', 'password', 'language_id', 'share_key', 'spotify', 'steam'
+        'id', 'name', 'email', 'xatid', 'regname', 'ip', 'password', 'language_id', 'share_key', 'spotify', 'steam', 'botstat'
     ];
 
     /**
@@ -32,6 +32,7 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
 
     protected $casts = [
         'spotify' => 'array',
+        'botstat' => 'array'
     ];
 
     protected $primaryKey = 'id';
