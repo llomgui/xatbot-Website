@@ -111,7 +111,10 @@ class CommandsTableSeeder extends Seeder
             ['name' => 'logs', 'description' => '', 'default_level' => 3],
             ['name' => 'spotify', 'description' => '', 'default_level' => 1],
             ['name' => 'richest', 'description' => '', 'default_level' => 1],
-            ['name' => 'commands', 'description' => '', 'default_level' => 1]
+            ['name' => 'commands', 'description' => '', 'default_level' => 1],
+            ['name' => 'modproof', 'description' => '', 'default_level' => 3],
+            ['name' => 'game', 'description' => '', 'default_level' => 4],
+            ['name' => 'steam', 'description' => '', 'default_level' => 1]
         ];
 
         foreach ($commands as $command) {
