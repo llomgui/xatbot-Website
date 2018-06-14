@@ -71,7 +71,8 @@ class CreateController extends Controller
         $bot->chatname  = $data['chatname'];
 
         $ctx = stream_context_create(['http' => ['timeout' => 5]]);
-        $premium = file_get_contents('https://oceanproject.fr/getpremium.php?chatid=' . $data['chatid'], false, $ctx);
+        $premium = 1;
+        //file_get_contents('https://oceanproject.fr/getpremium.php?chatid=' . $data['chatid'], false, $ctx);
 
         if (!empty($premium) && is_numeric($premium)) {
             $bot->premium = $premium;
