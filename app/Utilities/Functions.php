@@ -15,4 +15,11 @@ trait Functions
 
         return $randomString;
     }
+
+    public static function stribet($inputstr, $deliLeft, $deliRight)
+    {
+        $posLeft = stripos($inputstr, $deliLeft) + strlen($deliLeft);
+        $posRight = stripos($inputstr, $deliRight, $posLeft);
+        return substr($inputstr, $posLeft, $posRight - $posLeft);
+    }
 }

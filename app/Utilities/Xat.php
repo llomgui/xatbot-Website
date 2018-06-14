@@ -2,6 +2,8 @@
 
 namespace xatbot\Utilities;
 
+use xatbot\Utilities\Functions;
+
 trait Xat
 {
     public static function isValidXatID($xatid)
@@ -68,7 +70,7 @@ trait Xat
             return 'Try again in 10 minutes';
         }
 
-        $pw = $bot->stribet($res, '<input name="pw" type="hidden" value="', '">');
+        $pw = Functions::stribet($res, '<input name="pw" type="hidden" value="', '">');
         return $pw;
     }
 }
