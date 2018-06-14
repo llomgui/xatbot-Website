@@ -39,7 +39,7 @@ trait Xat
     public static function isChatExist($chatname)
     {
         $url = 'http://xat.com/web_gear/chat/roomid.php?d=' . $chatname;
-        $ctx = stream_context_create(['http' => ['timeout' => 1]]);
+        $ctx = stream_context_create(['http' => ['timeout' => 2]]);
         $fgc = json_decode(file_get_contents($url, false, $ctx), true);
 
         if (!isset($fgc['id']) || !is_numeric($fgc['id'])) {

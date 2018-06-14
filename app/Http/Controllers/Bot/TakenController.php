@@ -2,6 +2,7 @@
 
 namespace xatbot\Http\Controllers\Bot;
 
+use Auth;
 use Validator;
 use xatbot\Utilities\Xat;
 use Illuminate\Http\Request;
@@ -58,7 +59,7 @@ class TakenController extends Controller
 
         $getmain = Xat::getMain($data['chatname'], $data['chatpw']);
         if (is_numeric($getmain)) {
-            $bot = Bot::where('chatid', $data['chatid']);
+            $bot = Bot::where('chatid', $data['chatid'])->first();
             $bot->creator_user_id = Auth::user()->id;
             $bot->users()->detach();
             $bot->users()->attach(Auth::user()->id);
