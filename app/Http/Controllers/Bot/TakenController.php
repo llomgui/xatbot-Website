@@ -64,19 +64,13 @@ class TakenController extends Controller
             $bot->users()->detach();
             $bot->users()->attach(Auth::user()->id);
             $bot->save();
-            return response()->json(
-                [
-                    'status' => 'success',
-                    'message' => 'This bot is now moved to your account!'
-                ]
-            );
+            return redirect()
+                ->route('panel')
+                ->withSuccess('This bot is now moved to your account!');
         } else {
-            return response()->json(
-                [
-                    'status' => 'warning',
-                    'message' => $getmain
-                ]
-            );
+            return redirect()
+                ->route('panel')
+                ->withErrors($getmain);
         }
     }
 }
