@@ -206,7 +206,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-5">
-          <img src="//i.cubeupload.com/KfdMfX.png" class="img-responsive screen-space" width="420">
+          <img src="landing/images/spotify.png" class="img-responsive screen-space" width="420">
         </div>
 
         <div class="col-sm-6 col-sm-offset-1">
