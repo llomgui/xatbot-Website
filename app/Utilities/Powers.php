@@ -1631,8 +1631,7 @@ trait Powers
             self::$powers[$id]['storeCost']  = $power['x'] ?? $power['d'] * 13.5;
         }
 
-        $url = 'https://docs.google.com/spreadsheet/pub?key=1W0C7D4wZ_JLL8uoAUph3wTaEzFKqhTC_WTgrs37ilVI&output=csv';
-
+        $url = 'https://xatproject.com/fairtrade/api.php?action=powers';
         $cpt = 0;
 
         do {
@@ -1644,22 +1643,20 @@ trait Powers
         if (empty($page)) {
             return false;
         } else {
-            $lines  = explode(chr(0x0A), $page);
-            $header = explode(',', $lines[0]);
+            $fairtrade = json_decode($page, true);
+            if (isset($fairtrade['powers'])) {
+                foreach ($fairtrade['powers'] as $id => $power) {
+                    if (!array_key_exists($id, self::$powers)) {
+                        continue;
+                    }
 
-            for ($i = 1; $i < sizeof($lines); $i++) {
-                $power      = explode(',', $lines[$i]);
-                $id         = $power[0];
-
-                if (!isset(self::$powers[$id])) {
-                    continue;
-                }
-                if (empty($power[6]) || empty($power[7])) {
-                    self::$powers[$id]['minCost'] = 0;
-                    self::$powers[$id]['maxCost'] = 0;
-                } else {
-                    self::$powers[$id]['minCost'] = $power[6];
-                    self::$powers[$id]['maxCost'] = $power[7];
+                    if (!empty($power['min_xats']) && !empty($power['max_xats'])) {
+                        self::$powers[$id]['minCost'] = $power['min_xats'];
+                        self::$powers[$id]['maxCost'] = $power['max_xats'];
+                    } else {
+                        self::$powers[$id]['minCost'] = 0;
+                        self::$powers[$id]['maxCost'] = 0;
+                    }
                 }
             }
 
