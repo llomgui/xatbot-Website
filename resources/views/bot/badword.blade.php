@@ -195,10 +195,10 @@
             text: "You are going to delete this badword from the bot!",
             type: "error",
             showCancelButton: true,
-            confirmButtonClass: 'btn-danger waves-effect waves-light',
+            confirmButtonClass: 'btn btn-confirm mt-2',
+            cancelButtonClass: 'btn btn-cancel ml-2 mt-2',
             confirmButtonText: "Yes, delete it!"
-        },
-        function(){
+        }).then(function(){
             $.post("{{ route('bot.deletebadword') }}", { badword_id: badword_id, _token: token } )
                 .done(function(data) {
                     swal(data.header, data.message, data.status);

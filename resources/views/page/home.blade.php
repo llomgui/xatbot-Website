@@ -39,7 +39,7 @@
     <div class="col-sm-12">
         <div class="card-box">
             <h4 class="header-title m-t-0">Bots</h4>
-            <table class="table mb-0 table-responsive">
+            <table class="table mb-0">
                 <thead>
                     <tr>
                         <th>{{ env('BOTID_NAME') }}</th>

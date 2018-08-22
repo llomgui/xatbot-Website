@@ -11,7 +11,9 @@
     <div class="form-group row">
         <div class="col-12">
             <div class="input-group">
-                <span class="input-group-addon"><i class="mdi mdi-account"></i></span>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="mdi mdi-account"></i></span>
+                </div>
                 <input class="form-control{{ $errors->has('name') ? ' parsley-error' : '' }}" type="text" placeholder="Name" name="name" value="{{ old('name') }}" required="">
 
             </div>
@@ -26,7 +28,9 @@
     <div class="form-group row">
         <div class="col-12">
             <div class="input-group">
-                <span class="input-group-addon"><i class="mdi mdi-email"></i></span>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="mdi mdi-email"></i></span>
+                </div>
                 <input type="email" class="form-control{{ $errors->has('email') ? ' parsley-error' : '' }}" name="email" value="{{ old('email') }}" required="" placeholder="Email">
 
             </div>
@@ -41,7 +45,9 @@
     <div class="form-group row">
         <div class="col-12">
             <div class="input-group">
-                <span class="input-group-addon"><i class="mdi mdi-account"></i></span>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="mdi mdi-account"></i></span>
+                </div>
                 <input type="text" class="form-control{{ $errors->has('regname') ? ' parsley-error' : '' }}" name="regname" value="{{ old('regname') }}" required="" placeholder="xat Login">
 
             </div>
@@ -56,7 +62,9 @@
     <div class="form-group row">
         <div class="col-12">
             <div class="input-group">
-                <span class="input-group-addon"><i class="mdi mdi-account"></i></span>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="mdi mdi-account"></i></span>
+                </div>
                 <input type="number" class="form-control{{ $errors->has('xatid') ? ' parsley-error' : '' }}" name="xatid" value="{{ old('xatid') }}" required="" placeholder="xat ID">
 
             </div>
@@ -71,7 +79,9 @@
     <div class="form-group row">
         <div class="col-12">
             <div class="input-group">
-                <span class="input-group-addon"><i class="mdi mdi-key"></i></span>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="mdi mdi-key"></i></span>
+                </div>
                 <input type="password" class="form-control{{ $errors->has('password') ? ' parsley-error' : '' }}" name="password" required="" placeholder="Password">
 
             </div>
@@ -86,7 +96,9 @@
     <div class="form-group row">
         <div class="col-12">
             <div class="input-group">
-                <span class="input-group-addon"><i class="mdi mdi-key"></i></span>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="mdi mdi-key"></i></span>
+                </div>
                 <input type="password" class="form-control{{ $errors->has('password_confirmation') ? ' parsley-error' : '' }}" name="password_confirmation" required="" placeholder="Confirm Password">
 
             </div>

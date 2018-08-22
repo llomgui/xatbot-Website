@@ -187,10 +187,10 @@
             text: "You are going to delete this autotemp from the bot!",
             type: "error",
             showCancelButton: true,
-            confirmButtonClass: 'btn-danger waves-effect waves-light',
+            confirmButtonClass: 'btn btn-confirm mt-2',
+            cancelButtonClass: 'btn btn-cancel ml-2 mt-2',
             confirmButtonText: "Yes, delete it!"
-        },
-        function(){
+        }).then(function(){
             $.post("{{ route('bot.deleteautotemp') }}", { autotemp_id: autotemp_id, _token: token } )
                 .done(function(data) {
                     swal(data.header, data.message, data.status);

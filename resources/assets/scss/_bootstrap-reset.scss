@@ -73,6 +73,7 @@ a {
 
   .dropdown-item {
     color: darken($white,10%);
+    font-size: 0.9rem;
 
     &:focus, &:hover{
       color: $white;
@@ -94,6 +95,12 @@ a {
   max-width: 280px;
 }
 
+.arrow-none:after {
+  border: none;
+  margin: 0;
+  display: none;
+}
+
 code {
   color: $primary;
   border-radius: 4px;
@@ -101,6 +108,10 @@ code {
 
 code, pre {
   background-color: lighten($dark,5%);
+}
+
+.blockquote {
+  font-size: 1rem;
 }
 
 /* Background Colors */

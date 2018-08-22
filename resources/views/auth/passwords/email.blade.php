@@ -28,7 +28,7 @@
         <div class="form-group row m-b-0">
             <div class="input-group">
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Enter Email">
-                <span class="input-group-btn"> <button type="submit" class="btn btn-email btn-primary waves-effect waves-light">Reset</button> </span>
+                <span class="input-group-append"> <button type="submit" class="btn btn-email btn-primary waves-effect waves-light">Reset</button> </span>
             </div>
         </div>
 

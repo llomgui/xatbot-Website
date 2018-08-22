@@ -11,7 +11,11 @@
     <div class="form-group row">
         <div class="col-12">
             <div class="input-group">
-                <span class="input-group-addon"><i class="mdi mdi-account"></i></span>
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="mdi mdi-account"></i>
+                    </span>
+                </div>
                 <input class="form-control{{ $errors->has('name') ? ' parsley-error' : '' }}" type="text" name="name" required="" placeholder="Name" value="{{ old('name') }}" autofocus>
 
             </div>
@@ -26,7 +30,11 @@
     <div class="form-group row">
         <div class="col-12">
             <div class="input-group">
-                <span class="input-group-addon"><i class="mdi mdi-radar"></i></span>
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="mdi mdi-key"></i>
+                    </span>
+                </div>
                 <input class="form-control{{ $errors->has('password') ? ' parsley-error' : '' }}" type="password" name="password" required="" placeholder="Password">
 
             </div>

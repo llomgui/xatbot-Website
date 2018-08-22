@@ -11,7 +11,7 @@ $(function(){
     //modify buttons style
     $.fn.editableform.buttons =
         '<button type="submit" class="btn btn-primary editable-submit btn-sm waves-effect waves-light"><i class="mdi mdi-check"></i></button>' +
-        '<button type="button" class="btn btn-danger editable-cancel btn-sm waves-effect"><i class="mdi mdi-close"></i></button>';
+        '<button type="button" class="btn btn-light editable-cancel btn-sm waves-effect"><i class="mdi mdi-close"></i></button>';
 
     //Inline editables
     $('#inline-username').editable({
@@ -19,19 +19,22 @@ $(function(){
         pk: 1,
         name: 'username',
         title: 'Enter username',
-        mode: 'inline'
+        mode: 'inline',
+        inputclass: 'form-control-sm'
     });
 
     $('#inline-firstname').editable({
         validate: function(value) {
             if($.trim(value) == '') return 'This field is required';
         },
-        mode: 'inline'
+        mode: 'inline',
+        inputclass: 'form-control-sm'
     });
 
     $('#inline-sex').editable({
         prepend: "not selected",
         mode: 'inline',
+        inputclass: 'form-control-sm',
         source: [
             {value: 1, text: 'Male'},
             {value: 2, text: 'Female'}
@@ -50,15 +53,18 @@ $(function(){
 
     $('#inline-group').editable({
         showbuttons: false,
-        mode: 'inline'
+        mode: 'inline',
+        inputclass: 'form-control-sm'
     });
 
     $('#inline-status').editable({
-        mode: 'inline'
+        mode: 'inline',
+        inputclass: 'form-control-sm'
     });
 
     $('#inline-dob').editable({
-        mode: 'inline'
+        mode: 'inline',
+        inputclass: 'form-control-sm'
     });
 
     $('#inline-event').editable({
@@ -66,18 +72,21 @@ $(function(){
         mode: 'inline',
         combodate: {
             firstItem: 'name'
-        }
+        },
+        inputclass: 'form-control-sm'
     });
 
     $('#inline-comments').editable({
         showbuttons: 'bottom',
-        mode: 'inline'
+        mode: 'inline',
+        inputclass: 'form-control-sm'
     });
 
     $('#inline-fruits').editable({
         pk: 1,
         limit: 3,
         mode: 'inline',
+        inputclass: 'form-control-sm',
         source: [
             {value: 1, text: 'Banana'},
             {value: 2, text: 'Peach'},
@@ -85,15 +94,6 @@ $(function(){
             {value: 4, text: 'Watermelon'},
             {value: 5, text: 'Orange'}
         ]
-    });
-
-    $('#inline-tags').editable({
-        inputclass: 'input-large',
-        mode: 'inline',
-        select2: {
-            tags: ['html', 'javascript', 'css', 'ajax'],
-            tokenSeparators: [",", " "]
-        }
     });
 
 });

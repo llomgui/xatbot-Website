@@ -40,3 +40,52 @@
   border-right: 16px solid transparent;
   border-bottom: 16px solid $primary;
 }
+
+/* Mapael Map */
+
+.mapael .map {
+  position: relative;
+}
+
+.mapael .mapTooltip {
+  position: absolute;
+  background-color: $dark;
+  opacity: 0.95;
+  border-radius: 3px;
+  padding: 2px 10px;
+  z-index: 1000;
+  max-width: 200px;
+  display: none;
+  color: $white;
+}
+
+.mapael .zoomIn, .mapael .zoomOut, .mapael .zoomReset {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 2px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: $primary;
+  text-decoration: none;
+  color: $white;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}
+
+.map .zoomIn {
+  top: 25px;
+}
+
+.map .zoomOut {
+  top: 50px;
+}
+
+.plotLegend text {
+  fill: $muted;
+}

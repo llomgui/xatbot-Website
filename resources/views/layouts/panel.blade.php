@@ -22,7 +22,7 @@
         @yield('footer')
         <script src="{{ asset('plugins/notifyjs/dist/notify.min.js') }}"></script>
         <script src="{{ asset('plugins/notifications/notify-metro.js') }}"></script>
-        <script src="{{ asset('plugins/bootstrap-sweetalert/sweet-alert.min.js') }}"></script>
+        <script src="{{ asset('plugins/sweet-alert/sweetalert2.min.js') }}"></script>
 
         <script src="{{ mix('/js/app.js') }}"></script>
         

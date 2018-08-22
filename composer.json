@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.6.4",
         "barryvdh/laravel-debugbar": "^2.3",
-        "doctrine/dbal": "@dev",
+        "doctrine/dbal": "^2.0",
         "jwilsson/spotify-web-api-php": "^2.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",

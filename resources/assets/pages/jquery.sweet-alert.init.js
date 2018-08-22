@@ -1,9 +1,8 @@
 
 /**
-* Theme: Minton Admin Template
+* Theme: Minton - Responsive Bootstrap 4 Admin Dashboard
 * Author: Coderthemes
-* SweetAlert - 
-* Usage: $.SweetAlert.methodname
+* SweetAlert
 */
 
 !function ($) {
@@ -16,134 +15,242 @@
     SweetAlert.prototype.init = function () {
 
         //Basic
-        $('#sa-basic').click(function () {
-            swal("Here's a message!");
+        $('#sa-basic').on('click', function () {
+            swal(
+                {
+                    title: 'Any fool can use a computer!',
+                    confirmButtonClass: 'btn btn-confirm mt-2'
+                }
+            ).catch(swal.noop)
         });
 
         //A title with a text under
         $('#sa-title').click(function () {
-            swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis")
+            swal(
+                {
+                    title: "The Internet?",
+                    text: 'That thing is still around?',
+                    type: 'question',
+                    confirmButtonClass: 'btn btn-confirm mt-2'
+                }
+            )
         });
 
         //Success Message
         $('#sa-success').click(function () {
-            swal("Good job!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis", "success")
+            swal(
+                {
+                    title: 'Good job!',
+                    text: 'You clicked the button!',
+                    type: 'success',
+                    confirmButtonClass: 'btn btn-confirm mt-2'
+                }
+            )
         });
 
         //Warning Message
         $('#sa-warning').click(function () {
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "warning",
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
                 showCancelButton: true,
-                confirmButtonClass: 'btn-warning',
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false
-            }, function () {
-                swal("Deleted!", "Your imaginary file has been deleted.", "success");
-            });
+                confirmButtonClass: 'btn btn-confirm mt-2',
+                cancelButtonClass: 'btn btn-cancel ml-2 mt-2',
+                confirmButtonText: 'Yes, delete it!'
+            }).then(function () {
+                swal({
+                        title: 'Deleted !',
+                        text: "Your file has been deleted",
+                        type: 'success',
+                        confirmButtonClass: 'btn btn-confirm mt-2'
+                    }
+                )
+            })
         });
 
         //Parameter
         $('#sa-params').click(function () {
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "warning",
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it!",
-                cancelButtonText: "No, cancel plx!",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            }, function (isConfirm) {
-                if (isConfirm) {
-                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
-                } else {
-                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                confirmButtonClass: 'btn btn-success mt-2',
+                cancelButtonClass: 'btn btn-danger ml-2 mt-2',
+                buttonsStyling: false
+            }).then(function () {
+                swal({
+                    title: 'Deleted !',
+                    text: "Your file has been deleted",
+                    type: 'success',
+                    confirmButtonClass: 'btn btn-confirm mt-2'
                 }
-            });
+                )
+            }, function (dismiss) {
+                // dismiss can be 'cancel', 'overlay',
+                // 'close', and 'timer'
+                if (dismiss === 'cancel') {
+                    swal({
+                        title: 'Cancelled',
+                        text: "Your imaginary file is safe :)",
+                        type: 'error',
+                        confirmButtonClass: 'btn btn-confirm mt-2'
+                    }
+                    )
+                }
+            })
         });
 
         //Custom Image
         $('#sa-image').click(function () {
             swal({
-                title: "Sweet!",
-                text: "Here's a custom image.",
-                imageUrl: "../plugins/bootstrap-sweetalert/thumbs-up.jpg"
-            });
+                title: 'Sweet!',
+                text: 'Modal with a custom image.',
+                imageUrl: 'assets/images/logo_dark_2.png',
+                imageHeight: 30,
+                animation: false,
+                confirmButtonClass: 'btn btn-confirm mt-2'
+            })
         });
 
         //Auto Close Timer
         $('#sa-close').click(function () {
             swal({
-                title: "Auto close alert!",
-                text: "I will close in 2 seconds.",
+                title: 'Auto close alert!',
+                text: 'I will close in 2 seconds.',
                 timer: 2000,
-                showConfirmButton: false
-            });
+                confirmButtonClass: 'btn btn-confirm mt-2'
+            }).then(
+                function () {
+                },
+                // handling the promise rejection
+                function (dismiss) {
+                    if (dismiss === 'timer') {
+                        console.log('I was closed by the timer')
+                    }
+                }
+            )
         });
 
-        //Primary
-        $('#primary-alert').click(function () {
+        //custom html alert
+        $('#custom-html-alert').click(function () {
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "info",
+                title: '<i>HTML</i> <u>example</u>',
+                type: 'info',
+                html: 'You can use <b>bold text</b>, ' +
+                '<a href="//coderthemes.com/">links</a> ' +
+                'and other HTML tags',
+                showCloseButton: true,
                 showCancelButton: true,
-                cancelButtonClass: 'btn-secondary waves-effect waves-light',
-                confirmButtonClass: 'btn-primary waves-effect waves-light',
-                confirmButtonText: 'Primary!'
-            });
+                confirmButtonClass: 'btn btn-confirm mt-2',
+                cancelButtonClass: 'btn btn-cancel ml-2 mt-2',
+                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
+                cancelButtonText: '<i class="fa fa-thumbs-down"></i>'
+            })
         });
 
-        //Info
-        $('#info-alert').click(function () {
+        //Custom width padding
+        $('#custom-padding-width-alert').click(function () {
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "info",
-                showCancelButton: true,
-                confirmButtonClass: 'btn-info waves-effect waves-light',
-                confirmButtonText: 'Info!'
-            });
+                title: 'Custom width, padding, background.',
+                width: 600,
+                padding: 100,
+                confirmButtonClass: 'btn btn-confirm mt-2',
+                background: '#fff url(//subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/geometry.png)'
+            })
         });
 
-        //Success
-        $('#success-alert').click(function () {
+        //Ajax
+        $('#ajax-alert').click(function () {
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "success",
+                title: 'Submit email to run ajax request',
+                input: 'email',
                 showCancelButton: true,
-                confirmButtonClass: 'btn-success waves-effect waves-light',
-                confirmButtonText: 'Success!'
-            });
+                confirmButtonText: 'Submit',
+                showLoaderOnConfirm: true,
+                confirmButtonClass: 'btn btn-confirm mt-2',
+                cancelButtonClass: 'btn btn-cancel ml-2 mt-2',
+                preConfirm: function (email) {
+                    return new Promise(function (resolve, reject) {
+                        setTimeout(function () {
+                            if (email === 'taken@example.com') {
+                                reject('This email is already taken.')
+                            } else {
+                                resolve()
+                            }
+                        }, 2000)
+                    })
+                },
+                allowOutsideClick: false
+            }).then(function (email) {
+                swal({
+                    type: 'success',
+                    title: 'Ajax request finished!',
+                    html: 'Submitted email: ' + email,
+                    confirmButtonClass: 'btn btn-confirm mt-2'
+                })
+            })
         });
 
-        //Warning
-        $('#warning-alert').click(function () {
-            swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "warning",
+        //chaining modal alert
+        $('#chaining-alert').click(function () {
+            swal.setDefaults({
+                input: 'text',
+                confirmButtonText: 'Next &rarr;',
                 showCancelButton: true,
-                confirmButtonClass: 'btn-warning waves-effect waves-light',
-                confirmButtonText: 'Warning!'
-            });
+                animation: false,
+                progressSteps: ['1', '2', '3'],
+                confirmButtonClass: 'btn btn-confirm mt-2',
+                cancelButtonClass: 'btn btn-cancel ml-2 mt-2'
+            })
+
+            var steps = [
+                {
+                    title: 'Question 1',
+                    text: 'Chaining swal2 modals is easy'
+                },
+                'Question 2',
+                'Question 3'
+            ]
+
+            swal.queue(steps).then(function (result) {
+                swal.resetDefaults()
+                swal({
+                    title: 'All done!',
+                    confirmButtonClass: 'btn btn-confirm mt-2',
+                    html: 'Your answers: <pre>' +
+                    JSON.stringify(result) +
+                    '</pre>',
+                    confirmButtonText: 'Lovely!',
+                    showCancelButton: false
+                })
+            }, function () {
+                swal.resetDefaults()
+            })
         });
 
         //Danger
-        $('#danger-alert').click(function () {
-            swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "error",
-                showCancelButton: true,
-                confirmButtonClass: 'btn-danger waves-effect waves-light',
-                confirmButtonText: 'Danger!'
-            });
+        $('#dynamic-alert').click(function () {
+            swal.queue([{
+                title: 'Your public IP',
+                confirmButtonText: 'Show my public IP',
+                confirmButtonClass: 'btn btn-confirm mt-2',
+                text: 'Your public IP will be received ' +
+                'via AJAX request',
+                showLoaderOnConfirm: true,
+                preConfirm: function () {
+                    return new Promise(function (resolve) {
+                        $.get('https://api.ipify.org?format=json')
+                            .done(function (data) {
+                                swal.insertQueueStep(data.ip)
+                                resolve()
+                            })
+                    })
+                }
+            }])
         });
 
 

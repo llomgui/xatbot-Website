@@ -183,22 +183,22 @@
             var customcmd_id = $(this).data('customcmd_id');
             var token = "{{ csrf_token() }}";
             swal({
-                    title: "Are you sure?",
-                    text: "You are going to delete this custom command from the bot!",
-                    type: "error",
-                    showCancelButton: true,
-                    confirmButtonClass: 'btn-danger waves-effect waves-light',
-                    confirmButtonText: "Yes, delete it!"
-                },
-                function(){
-                    $.post("{{ route('bot.deletecustomcmd') }}", { customcmd_id: customcmd_id, _token: token } )
-                        .done(function(data) {
-                            swal(data.header, data.message, data.status);
-                            if (data.status == 'success') {
-                                location.reload(true);
-                            }
-                        });
-                });
+                title: "Are you sure?",
+                text: "You are going to delete this custom command from the bot!",
+                type: "error",
+                showCancelButton: true,
+                confirmButtonClass: 'btn btn-confirm mt-2',
+                cancelButtonClass: 'btn btn-cancel ml-2 mt-2',
+                confirmButtonText: "Yes, delete it!"
+            }).then(function(){
+                $.post("{{ route('bot.deletecustomcmd') }}", { customcmd_id: customcmd_id, _token: token } )
+                    .done(function(data) {
+                        swal(data.header, data.message, data.status);
+                        if (data.status == 'success') {
+                            location.reload(true);
+                        }
+                    });
+            });
         });
     </script>
 

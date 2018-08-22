@@ -85,9 +85,9 @@ a {
   li {
     a {
       -webkit-border-radius: 50%;
-      background: #EFF0F4;
+      background: lighten($dark,10%);
       border-radius: 50%;
-      color: #7A7676;
+      color: $muted;
       display: inline-block;
       height: 30px;
       line-height: 30px;

@@ -2,6 +2,13 @@
    Checkbox and Radios
 ============= */
 
+//Bootstrap Checkbox
+.custom-radio .custom-control-input:checked~.custom-control-label::before,
+.custom-control-input:checked~.custom-control-label::before,
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color: $primary;
+}
+
 .checkbox {
   //padding-left: 20px;
   label {
