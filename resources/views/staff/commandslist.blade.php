@@ -46,7 +46,7 @@
                     	@endforeach
                     </tbody>
                 </table>
-                <div style="margin-left: auto; margin-right: auto;">{{ $commands->links() }}</div>
+                <div style="margin-left: auto; margin-right: auto;">{{ $commands->links("pagination::bootstrap-4") }}</div>
             </div>
         </div>
     </div>

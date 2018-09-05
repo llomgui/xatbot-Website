@@ -44,7 +44,7 @@
                     	@endforeach
                     </tbody>
                 </table>
-                {{ $serversList->links() }}
+                {{ $serversList->links("pagination::bootstrap-4") }}
             </div>
         </div>
     </div>

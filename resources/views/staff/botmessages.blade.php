@@ -43,7 +43,7 @@
                     	@endforeach
                     </tbody>
                 </table>
-                <div style="margin-left: auto; margin-right: auto;">{{ $botmessages->links() }}</div>
+                <div style="margin-left: auto; margin-right: auto;">{{ $botmessages->links("pagination::bootstrap-4") }}</div>
             </div>
         </div>
     </div>

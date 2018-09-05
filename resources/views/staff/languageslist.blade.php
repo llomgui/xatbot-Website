@@ -45,7 +45,7 @@
                     	@endforeach
                     </tbody>
                 </table>
-                {{ $languagesList->links() }}
+                {{ $languagesList->links("pagination::bootstrap-4") }}
             </div>
         </div>
     </div>
