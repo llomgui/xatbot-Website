@@ -38,6 +38,7 @@
                         <li><a href="{{ route('bot.powers') }}">Bot Powers</a></li>
                         <li><a href="{{ route('bot.logs', Session('onBotEdit')) }}">Chat Logs</a></li>
                         <li><a href="{{ route('sharebot') }}">Share bot</a></li>
+                        <li><a href="{{ route('bot.statistics') }}">Staff Statistics</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu">

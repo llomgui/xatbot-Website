@@ -106,6 +106,8 @@ Route::group(['prefix' => 'panel'], function () {
         Route::get('taken', 'TakenController@show')->name('taken');
         Route::post('taken', 'TakenController@check')->name('posttaken');
 
+        Route::get('statistics', 'StatisticsController@show')->name('bot.statistics');
+
     });
 
     Route::group(['prefix' => 'support', 'middleware' => 'auth', 'namespace' => 'Support'], function () {

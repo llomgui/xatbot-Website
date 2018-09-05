@@ -49,6 +49,9 @@ mix.styles([
 		'./resources/assets/pages'
 	], 'public/pages')
 	.copy([
+		'./resources/assets/images'
+	], 'public/images', false)
+	.copy([
 		'./resources/assets/js'
 	], 'public/js')
 	.copy([
