@@ -11,7 +11,7 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-12 col-lg-12">
+    <div class="col-sm-12">
         <div class="card-box">
             <div class="text-left m-t-10">
                 <p class="text-muted font-13">{{ $datas->getRegname() }} is missing a total of [<strong>{{ count($allmissing) }}</strong>] power(s) for allpowers. </p>
