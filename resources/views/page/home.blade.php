@@ -72,8 +72,9 @@
                         </td>
                         <td>
                             <button class="btn btn-icon waves-effect waves-light btn-success m-b-5 button_action_bot" data-oceanid="{{ $bot->id }}" data-action="start"> <i class="fa fa-play"></i> </button>
-                            <button class="btn btn-icon waves-effect waves-light btn-warning m-b-5 button_action_bot" data-oceanid="{{ $bot->id }}" data-action="restart"> <i class="fa fa-refresh fa-spin"></i> </button>
-                            <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5 button_action_bot" data-oceanid="{{ $bot->id }}" data-action="stop"> <i class="fa fa-stop"></i> </button>
+                            <button class="btn btn-icon waves-effect waves-light btn-info m-b-5 button_action_bot" data-oceanid="{{ $bot->id }}" data-action="restart"> <i class="fa fa-refresh fa-spin"></i> </button>
+			    <button class="btn btn-icon waves-effect waves-light btn-warning m-b-5 button_action_bot" data-oceanid="{{ $bot->id }}" data-action="stop"> <i class="fa fa-stop"></i> </button>
+                            <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5 delete_button" data-oceanid="{{ $bot->id }}" data-action="delete"> <i class="fa fa-trash"></i> </button>
                         </td>
                     <tr>
                 @endforeach
@@ -188,6 +189,35 @@
                 });
             });
     });
+
+    $(document).on('click', '.delete_button', function(e) {
+            var oceanid = $(this).data('oceanid');
+            var token = "{{ csrf_token() }}";
+            var action = $(this).data('action');
+            swal({
+                title: "Are you sure?",
+                text: "You are going to delete this bot!",
+                type: "error",
+                showCancelButton: true,
+                confirmButtonClass: 'btn btn-confirm mt-2',
+                cancelButtonClass: 'btn btn-cancel ml-2 mt-2',
+                confirmButtonText: "Yes, delete it!"
+            }).then(function(){
+                $.post("{{ route('bot.actionbot') }}", { botid: oceanid, action: action, _token: token })
+                    .done(function(data) {
+                        swal(data.header, data.message, data.status);
+                        if (data.status == 'success') {
+                            location.reload(true);
+                        }
+                    })
+                    .error(function() {
+                        swal({
+                            title: "The bots server is under maintenance, please be patient!",
+                            type: "error"
+                        });
+                    });
+            });
+        });
 </script>
 
 <script type="text/javascript">

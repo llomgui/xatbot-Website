@@ -25,6 +25,7 @@ Route::group(['prefix' => 'panel'], function () {
         Route::get('getpremium', 'TutorialsController@getPremium')->name('getpremium');
         Route::get('servers', 'ServersController@index')->name('servers');
         Route::get('commands/{botid?}', 'CommandsController@index')->name('commands');
+        Route::get('tags', 'TagsController@index')->name('tags');
         Route::get('userinfo/{user?}', 'UserinfoController@index')->name('userinfo');
         Route::get('everymissing/{user?}', 'EverymissingController@index')->name('everymissing');
         Route::get('allmissing/{user?}', 'AllmissingController@index')->name('allmissing');

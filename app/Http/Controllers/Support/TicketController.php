@@ -94,7 +94,10 @@ class TicketController extends Controller
 
         $ticketMessage->user_id   = Auth::id();
         $ticketMessage->ticket_id = $ticket->id;
-        $ticketMessage->message   = nl2br(htmlspecialchars($data['message']));
+
+        $data['message'] = filter_var($data['message'], FILTER_SANITIZE_STRING);
+        $data['message'] = nl2br($data['message']);
+        $ticketMessage->message = $data['message'];
 
         $ticketMessage->save();
 
@@ -144,7 +147,9 @@ class TicketController extends Controller
 
         $ticketMessage->user_id   = Auth::id();
         $ticketMessage->ticket_id = $ticket->id;
-        $ticketMessage->message   = nl2br(htmlspecialchars($data['message']));
+        $data['message'] = filter_var($data['message'], FILTER_SANITIZE_STRING);
+        $data['message'] = nl2br($data['message']);
+        $ticketMessage->message = $data['message'];
 
         $ticketMessage->save();
 

@@ -46,6 +46,7 @@
                     <ul class="submenu">
                         <li><a href="{{ route('chat') }}">Chat</a></li>
                         <li><a href="{{ route('commands', Session('onBotEdit')) }}">Commands</a></li>
+                        <li><a href="{{ route('tags') }}">Tags</a></li>
                         <li><a href="{{ route('setupbot') }}">Set up your bot</a></li>
                         <li><a href="{{ route('getpremium') }}">Get Premium</a></li>
                         <li><a href="{{ route('staff') }}">Staff</a></li>

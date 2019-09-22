@@ -60,6 +60,13 @@ class TakenController extends Controller
         $getmain = Xat::getMain($data['chatname'], $data['chatpw']);
         if (is_numeric($getmain)) {
             $bot = Bot::where('chatid', $data['chatid'])->first();
+
+            if (empty($bot)) {
+                return redirect()
+                    ->route('panel')
+                    ->withError('This chat does not have a bot yet. You can create it!');
+            }
+
             $bot->creator_user_id = Auth::user()->id;
             $bot->users()->detach();
             $bot->users()->attach(Auth::user()->id);

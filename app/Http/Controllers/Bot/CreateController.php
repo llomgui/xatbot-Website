@@ -36,10 +36,11 @@ class CreateController extends Controller
             'homepage' => 'max:255'
         ];
 
-        $validator = Validator::make($data, $rules);
-
         $data['chatname'] = str_replace([' ', 'xat.com/', 'https://', 'http://'], ['_', '', '', ''], $data['chatname']);
         $data['chatid'] = Xat::isChatExist($data['chatname']);
+
+        $validator = Validator::make($data, $rules);
+
         $validator->after(
             function ($validator) use ($data) {
                 if (!empty($data['chatname'])) {
@@ -70,7 +71,7 @@ class CreateController extends Controller
         $bot->chatid    = $data['chatid'];
         $bot->chatname  = $data['chatname'];
 
-        $ctx = stream_context_create(['http' => ['timeout' => 5]]);
+        //$ctx = stream_context_create(['http' => ['timeout' => 5]]);
         $premium = 1;
         //file_get_contents('https://oceanproject.fr/getpremium.php?chatid=' . $data['chatid'], false, $ctx);
 

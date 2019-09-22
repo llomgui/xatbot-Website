@@ -44,7 +44,7 @@ class BotController extends Controller
                 'status' => 'error',
                 'message' => 'You are trying to cheat, you do not own this bot!']
             );
-        } elseif (!in_array($data['action'], ['start', 'restart', 'stop'])) {
+        } elseif (!in_array($data['action'], ['start', 'restart', 'stop', 'delete'])) {
             return response()->json(
                 [
                 'status' => 'error',
@@ -52,6 +52,11 @@ class BotController extends Controller
             );
         } else {
             $bot = Bot::find($data['botid']);
+            $toDelete = false;
+            if ($data['action'] == 'delete') {
+                $toDelete = true;
+                $data['action'] = 'stop';
+            }
 
             IPC::init();
             if (IPC::connect(strtolower($bot->server->name) . '.sock') == false) {
@@ -77,6 +82,14 @@ class BotController extends Controller
             }
 
             IPC::close();
+
+            if ($toDelete === true) {
+                $uniqid = uniqid();
+                $bot->chatid = hexdec($uniqid);
+                $bot->chatname = $uniqid . '_' . $bot->chatname;
+                $bot->save();
+                $bot->delete();
+            }
 
             return response()->json(
                 [
