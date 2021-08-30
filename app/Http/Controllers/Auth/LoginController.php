@@ -63,9 +63,10 @@ class LoginController extends Controller
         if (sizeof($userinfo) > 0) {
             $packet = $userinfo[0]->packet;
             if (!empty($packet)) {
-                $user->avatar = json_decode($packet, true)['a'];
+                $avatar = json_decode($packet, true)['a'];
+                $user->avatar = (is_numeric($avatar)) ? 'https://xat.com/web_gear/chat/av/' . $avatar . '.png' : $avatar;
             } else {
-                $user->avatar = '';
+                $user->avatar = 'https://xat.com/web_gear/chat/av/1.png';
             }
         }
 

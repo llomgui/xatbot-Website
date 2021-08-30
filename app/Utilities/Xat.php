@@ -13,12 +13,22 @@ trait Xat
 
     public static function isXatIDExist($xatid)
     {
-        $fgc = file_get_contents('http://xat.me/x?id=' . $xatid);
+        /*$fgc = file_get_contents('http://xat.me/x?id=' . $xatid);
         if (empty($fgc) || is_numeric($fgc)) {
             return false;
         } else {
             return $fgc;
+	}*/
+	$json = json_decode(file_get_contents('https://xat.com/web_gear/chat/profile2.php?i=' . $xatid), true);
+        if (isset($json['Err'])) {
+	    if (isset($json['Err']['Media'])) {
+		var_dump($json['Err']['Media']['id']);
+		if ($json['Err']['Media']['id'] == $xatid) {
+			return true;
+		}
+	    }
         }
+        return false;
     }
 
     public static function isValidRegname($regname)
@@ -28,12 +38,13 @@ trait Xat
 
     public static function isRegnameExist($regname)
     {
-        $fgc = file_get_contents('http://xat.me/x?name=' . $regname);
+        /*$fgc = file_get_contents('http://xat.me/x?name=' . $regname);
         if (empty($fgc)) {
             return false;
         } else {
             return true;
-        }
+        }*/
+	return true;
     }
 
     public static function isChatExist($chatname)

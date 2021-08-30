@@ -34,6 +34,12 @@ Route::group(['prefix' => 'panel'], function () {
 
     });
 
+    Route::group(['prefix' => 'bot', 'middleware' => 'auth', 'namespace' => 'Bot'], function () {
+
+        Route::get('logs/{botid}/{amount?}/{message?}', 'BotController@showLogs')->name('bot.logs');
+
+    });
+
     Route::group(['prefix' => 'bot', 'middleware' => ['auth', 'hasbot'], 'namespace' => 'Bot'], function () {
 
         Route::post('create', 'CreateController@store')->name('bot.create');
@@ -97,8 +103,6 @@ Route::group(['prefix' => 'panel'], function () {
         Route::post('powers', 'PowersController@editPowers')->name('bot.editpowers');
 
         Route::post('actionbot', 'BotController@actionBot')->name('bot.actionbot');
-
-        Route::get('logs/{botid}/{amount?}', 'BotController@showLogs')->name('bot.logs');
 
         Route::get('sharebot', 'ShareBotController@showList')->name('sharebot');
         Route::post('sharebot', 'ShareBotController@addAccess')->name('postsharebot');

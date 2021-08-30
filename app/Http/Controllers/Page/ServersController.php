@@ -41,6 +41,9 @@ class ServersController extends Controller
             IPC::write(sprintf("%s", 'server_status'));
             $packet = IPC::read(1024);
             IPC::close();
+            echo $packet;
+	    echo $server['name'];
+	    //$packet = '';
 
             if (!empty($packet)) {
                 $infos[$server['name']] = json_decode($packet, true);

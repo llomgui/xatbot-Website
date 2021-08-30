@@ -101,7 +101,7 @@ class BotController extends Controller
         }
     }
 
-    public function showLogs($botid, $amount = 200)
+    public function showLogs($botid, $amount = 200, $message = '')
     {
         if (!is_numeric($botid)) {
             \Session::put('notfound', 'This bot does not exist!');
@@ -113,6 +113,7 @@ class BotController extends Controller
 
         if ($bot) {
             $logs = Log::where('chatid', '=', $bot->chatid)
+                ->where('message', 'LIKE', '%' . $message . '%')
                 ->orderBy('created_at', 'DESC')
                 ->limit($amount)
                 ->get();

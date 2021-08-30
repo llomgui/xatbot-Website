@@ -1523,7 +1523,7 @@ trait Powers
         $powers[231]['maxCost'] = 0;
         $powers[231]['smilies'] = ['statusglow'];
 
-        $ctx = stream_context_create(['http' => ['timeout' => 1]]);
+        $ctx = stream_context_create(['http' => ['timeout' => 1], 'ssl' => ['verify_peer' => false, 'verify_peer_name' => false]]); //$ctx = stream_context_create(['http' => ['timeout' => 1]]);
         $cpt = 0;
 
         do {

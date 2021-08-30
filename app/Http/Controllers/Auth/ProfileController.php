@@ -22,6 +22,10 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
+        if (is_null($user->botstat)) {
+            $user->botstat = ['toggle' => 'spotify'];
+        }
+
         return view('auth.profile')->with('user', $user);
     }
 
